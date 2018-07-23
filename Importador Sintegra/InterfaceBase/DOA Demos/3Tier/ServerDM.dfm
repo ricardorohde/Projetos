@@ -1,0 +1,115 @@
+object ServerDMClass: TServerDMClass
+  OldCreateOrder = False
+  OnDestroy = RemoteDataModuleDestroy
+  Left = 202
+  Top = 165
+  Height = 296
+  Width = 579
+  object OracleSession: TOracleSession
+    Cursor = crHourGlass
+    DesignConnection = False
+    LogonUsername = 'scott'
+    LogonPassword = 'tiger'
+    ThreadSafe = False
+    Preferences.FloatPrecision = 0
+    Preferences.IntegerPrecision = 0
+    Preferences.SmallIntPrecision = -1
+    Preferences.UseOCI7 = False
+    Preferences.ConvertCRLF = True
+    Preferences.TrimStringFields = True
+    Preferences.MaxStringFieldSize = 0
+    Preferences.ZeroDateIsNull = True
+    Connected = False
+    RollbackOnDisconnect = False
+    NullValue = nvUnAssigned
+    SQLTrace = stUnchanged
+    OptimizerGoal = ogUnchanged
+    IsolationLevel = ilUnchanged
+    BytesPerCharacter = bc1Byte
+    Left = 56
+    Top = 16
+  end
+  object DeptDataSet: TOracleDataSet
+    SQL.Strings = (
+      'select dept.*, dept.rowid '
+      'from dept'
+      'order by deptno')
+    ReadBuffer = 25
+    Optimize = True
+    Debug = False
+    StringFieldsOnly = False
+    SequenceField.ApplyMoment = amOnPost
+    OracleDictionary.EnforceConstraints = False
+    OracleDictionary.UseMessageTable = False
+    OracleDictionary.DefaultValues = False
+    OracleDictionary.DynamicDefaults = False
+    OracleDictionary.FieldKinds = True
+    OracleDictionary.DisplayFormats = True
+    OracleDictionary.RangeValues = True
+    QBEDefinition.SaveQBEValues = True
+    QBEDefinition.AllowFileWildCards = True
+    Cursor = crDefault
+    ReadOnly = False
+    LockingMode = lmLockDelayed
+    QueryAllRecords = False
+    CountAllRecords = False
+    RefreshOptions = []
+    CommitOnPost = False
+    CachedUpdates = False
+    QBEMode = False
+    Session = OracleSession
+    DesignActivation = True
+    Active = False
+    BeforeOpen = DeptDataSetBeforeOpen
+    Left = 164
+    Top = 16
+  end
+  object EmpDataSet: TOracleDataSet
+    SQL.Strings = (
+      'select emp.*, emp.rowid '
+      'from emp'
+      'where deptno = :deptno'
+      'order by empno')
+    ReadBuffer = 25
+    Optimize = True
+    Debug = False
+    Variables.Data = {0300000001000000070000003A444550544E4F030000000000000000000000}
+    StringFieldsOnly = False
+    SequenceField.ApplyMoment = amOnPost
+    OracleDictionary.EnforceConstraints = False
+    OracleDictionary.UseMessageTable = False
+    OracleDictionary.DefaultValues = False
+    OracleDictionary.DynamicDefaults = False
+    OracleDictionary.FieldKinds = True
+    OracleDictionary.DisplayFormats = True
+    OracleDictionary.RangeValues = True
+    QBEDefinition.SaveQBEValues = True
+    QBEDefinition.AllowFileWildCards = True
+    Cursor = crDefault
+    Master = DeptDataSet
+    MasterFields = 'DEPTNO'
+    DetailFields = 'DEPTNO'
+    ReadOnly = False
+    LockingMode = lmLockDelayed
+    QueryAllRecords = False
+    CountAllRecords = False
+    RefreshOptions = []
+    CommitOnPost = False
+    CachedUpdates = False
+    QBEMode = False
+    Session = OracleSession
+    DesignActivation = True
+    Active = False
+    BeforeOpen = EmpDataSetBeforeOpen
+    Left = 164
+    Top = 80
+  end
+  object DeptProvider: TDataSetProvider
+    DataSet = DeptDataSet
+    Constraints = False
+    Options = [poIncFieldProps]
+    UpdateMode = upWhereKeyOnly
+    Left = 252
+    Top = 16
+  end
+end

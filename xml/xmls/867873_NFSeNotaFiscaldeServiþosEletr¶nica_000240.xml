@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ConsultarNfseRpsResposta xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd" xmlns:ts="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_simples.xsd" xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_rps_resposta.xsd">
+  <CompNfse>
+    <tc:Nfse>
+      <tc:InfNfse>
+        <tc:Numero>240</tc:Numero>
+        <tc:CodigoVerificacao> 75 72 EE</tc:CodigoVerificacao>
+        <tc:DataEmissao>2014-03-31T11:55:58</tc:DataEmissao>
+        <tc:NaturezaOperacao>1</tc:NaturezaOperacao>
+        <tc:RegimeEspecialTributacao>1</tc:RegimeEspecialTributacao>
+        <tc:OptanteSimplesNacional>2</tc:OptanteSimplesNacional>
+        <tc:IncentivadorCultural>2</tc:IncentivadorCultural>
+        <tc:Competencia>201403</tc:Competencia>
+        <tc:NfseSubstituida>1</tc:NfseSubstituida>
+        <tc:OutrasInformacoes>&lt;br&gt; &amp;bull; .</tc:OutrasInformacoes>
+        <tc:Servico>
+          <tc:ItemListaServico>10</tc:ItemListaServico>
+          <tc:CodigoCnae>6221802</tc:CodigoCnae>
+          <tc:CodigoTributacaoMunicipio>6821801</tc:CodigoTributacaoMunicipio>
+          <tc:Discriminacao>CORRETAGEM NO RECEBIMENTO DO ALUGUEL DE IMÓVEIS REFERENTE A MARÇO/14</tc:Discriminacao>
+          <tc:MunicipioPrestacaoServico>3551009</tc:MunicipioPrestacaoServico>
+          <tc:Valores>
+            <tc:ValorServicos>145.96</tc:ValorServicos>
+            <tc:ValorDeducoes>0</tc:ValorDeducoes>
+            <tc:ValorPis>0</tc:ValorPis>
+            <tc:ValorCofins>0</tc:ValorCofins>
+            <tc:ValorInss>0</tc:ValorInss>
+            <tc:ValorIr>0</tc:ValorIr>
+            <tc:ValorCsll>0</tc:ValorCsll>
+            <tc:IssRetido>2</tc:IssRetido>
+            <tc:OutrasRetencoes>0</tc:OutrasRetencoes>
+            <tc:BaseCalculo>145.96</tc:BaseCalculo>
+            <tc:Aliquota>2</tc:Aliquota>
+            <tc:ValorLiquidoNfse>145.96</tc:ValorLiquidoNfse>
+            <tc:ValorIssRetido>0</tc:ValorIssRetido>
+            <tc:ValorIss>2.92</tc:ValorIss>
+            <tc:DescontoCondicionado>0</tc:DescontoCondicionado>
+            <tc:DescontoIncondicionado>0</tc:DescontoIncondicionado>
+          </tc:Valores>
+        </tc:Servico>
+        <tc:PrestadorServico>
+          <tc:IdentificacaoPrestador>
+            <tc:CpfCnpj>
+              <tc:Cnpj>08909585000179</tc:Cnpj>
+            </tc:CpfCnpj>
+            <tc:InscricaoMunicipal>867873</tc:InscricaoMunicipal>
+          </tc:IdentificacaoPrestador>
+          <tc:RazaoSocial>Manzanares Imoveis Ss Ltda. </tc:RazaoSocial>
+          <tc:Endereco>
+            <tc:Endereco>Rua Quinze de Novembro</tc:Endereco>
+            <tc:Numero>260</tc:Numero>
+            <tc:Complemento>SALA 14</tc:Complemento>
+            <tc:Bairro>Centro</tc:Bairro>
+            <tc:Cidade>3551009</tc:Cidade>
+            <tc:Estado>SP</tc:Estado>
+            <tc:Cep>11310400</tc:Cep>
+          </tc:Endereco>
+          <tc:Contato>
+            <tc:Email>sacmanzanares@hotmail.com</tc:Email>
+          </tc:Contato>
+        </tc:PrestadorServico>
+        <tc:TomadorServico>
+          <tc:IdentificacaoTomador>
+            <tc:CpfCnpj>
+              <tc:Cpf>08057993898</tc:Cpf>
+            </tc:CpfCnpj>
+          </tc:IdentificacaoTomador>
+          <tc:RazaoSocial>VITÓRIA BASTOULY</tc:RazaoSocial>
+          <tc:Endereco>
+            <tc:Endereco>Rua Machado de Assis</tc:Endereco>
+            <tc:Numero>396</tc:Numero>
+            <tc:Bairro>Boqueirão</tc:Bairro>
+            <tc:Cidade>3548500</tc:Cidade>
+            <tc:Estado>SP</tc:Estado>
+            <tc:Cep>11050060</tc:Cep>
+          </tc:Endereco>
+          <tc:Contato />
+        </tc:TomadorServico>
+        <tc:OrgaoGerador>
+          <tc:CodigoMunicipio>3551009</tc:CodigoMunicipio>
+          <tc:Uf>SP</tc:Uf>
+        </tc:OrgaoGerador>
+        <tc:ValorCredito>0</tc:ValorCredito>
+      </tc:InfNfse>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+          <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+          <Reference URI="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">
+            <Transforms>
+              <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            </Transforms>
+            <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <DigestValue>jAxerdKI3sdfakogMm0P5kKIhEA=</DigestValue>
+          </Reference>
+        </SignedInfo>
+        <SignatureValue>
+        </SignatureValue>
+        <KeyInfo>
+          <X509Data>
+            <X509Certificate>
+            </X509Certificate>
+          </X509Data>
+        </KeyInfo>
+      </Signature>
+    </tc:Nfse>
+  </CompNfse>
+</ConsultarNfseRpsResposta>

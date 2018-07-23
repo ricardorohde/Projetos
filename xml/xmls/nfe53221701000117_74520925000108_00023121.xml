@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ArqNfe>
+    <NfeControle id="23121">
+        <EmitenteCNPJ>74.520.925/0001-08</EmitenteCNPJ>
+        <NfeNumero>29</NfeNumero>
+        <NfeData>16/08/2012</NfeData>
+        <NfeHora>09:46</NfeHora>
+        <NfeAutenticacao>4D2X-9B5Z-7E9Z-0B2B-1W1Z</NfeAutenticacao>
+        <NfeStatus>EMITIDA</NfeStatus>
+        <DestinatarioCnpj>80.959.513/0001-63</DestinatarioCnpj>
+        <DestinatarioInscMun>.</DestinatarioInscMun>
+        <DestinatarioInscEst>251735346</DestinatarioInscEst>
+        <DestinatarioRSocial>CATIVA TEXTIL IND COM LTDA</DestinatarioRSocial>
+        <DestinatarioEndereco>RUA HERMANN EHLERT</DestinatarioEndereco>
+        <DestinatarioNumero>320</DestinatarioNumero>
+        <DestinatarioComplemento>.</DestinatarioComplemento>
+        <DestinatarioBairro>CENTRO</DestinatarioBairro>
+        <DestinatarioCidade>POMERODE</DestinatarioCidade>
+        <DestinatarioEstado>SC</DestinatarioEstado>
+        <DestinatarioCep>89107-000</DestinatarioCep>
+        <NfeNumFatura1></NfeNumFatura1>
+        <NfeDatFatura1></NfeDatFatura1>
+        <NfeValFatura1>0.00</NfeValFatura1>
+        <NfeNumFatura2></NfeNumFatura2>
+        <NfeDatFatura2></NfeDatFatura2>
+        <NfeValFatura2>0.00</NfeValFatura2>
+        <NfeNumFatura3></NfeNumFatura3>
+        <NfeDatFatura3></NfeDatFatura3>
+        <NfeValFatura3>0.00</NfeValFatura3>
+        <NfeNumFatura4></NfeNumFatura4>
+        <NfeDatFatura4></NfeDatFatura4>
+        <NfeValFatura4>0.00</NfeValFatura4>
+        <NfeNumFatura5></NfeNumFatura5>
+        <NfeDatFatura5></NfeDatFatura5>
+        <NfeValFatura5>0.00</NfeValFatura5>
+        <NfeNumFatura6></NfeNumFatura6>
+        <NfeDatFatura6></NfeDatFatura6>
+        <NfeValFatura6>0.00</NfeValFatura6>
+        <NfeItemServ1>10.09</NfeItemServ1>
+        <NfeAliqServ1>3.00</NfeAliqServ1>
+        <NfeValServ1>2556.59</NfeValServ1>
+        <NfeItemServ2></NfeItemServ2>
+        <NfeAliqServ2>0.00</NfeAliqServ2>
+        <NfeValServ2>0.00</NfeValServ2>
+        <NfeItemServ3></NfeItemServ3>
+        <NfeAliqServ3>0.00</NfeAliqServ3>
+        <NfeValServ3>0.00</NfeValServ3>
+        <NfeItemServ4></NfeItemServ4>
+        <NfeAliqServ4>0.00</NfeAliqServ4>
+        <NfeValServ4>0.00</NfeValServ4>
+        <NfeItemServ5></NfeItemServ5>
+        <NfeAliqServ5>0.00</NfeAliqServ5>
+        <NfeValServ5>0.00</NfeValServ5>
+        <NfeItemServ6></NfeItemServ6>
+        <NfeAliqServ6>0.00</NfeAliqServ6>
+        <NfeValServ6>0.00</NfeValServ6>
+        <NfeItemServ7></NfeItemServ7>
+        <NfeAliqServ7>0.00</NfeAliqServ7>
+        <NfeValServ7>0.00</NfeValServ7>
+        <NfeItemServ8></NfeItemServ8>
+        <NfeAliqServ8>0.00</NfeAliqServ8>
+        <NfeValServ8>0.00</NfeValServ8>
+        <NfeValor>2556.59</NfeValor>
+        <NfeValTributavel>2556.59</NfeValTributavel>
+        <NfeValIss>76.70</NfeValIss>
+        <NfeValISsRetido>0.00</NfeValISsRetido>
+        <NfeValDescIncondicional>0.00</NfeValDescIncondicional>
+        <NfeValDescOutros>0.00</NfeValDescOutros>
+        <NfeBaseCalcPis>0.00</NfeBaseCalcPis>
+        <NfeAliqPis>0.00</NfeAliqPis>
+        <NfeValPis>0.00</NfeValPis>
+        <NfeBaseCalcCofins>0.00</NfeBaseCalcCofins>
+        <NfeAliqCofins>0.00</NfeAliqCofins>
+        <NfeValCofins>0.00</NfeValCofins>
+        <NfeBaseCalcCsll>0.00</NfeBaseCalcCsll>
+        <NfeAliqCsll>0.00</NfeAliqCsll>
+        <NfeValCsll>0.00</NfeValCsll>
+        <NfeBaseCalcInss>0.00</NfeBaseCalcInss>
+        <NfeAliqInss>0.00</NfeAliqInss>
+        <NfeValInss>0.00</NfeValInss>
+        <NfeBaseCalcIrrf>2556.59</NfeBaseCalcIrrf>
+        <NfeAliqIrrf>1.50</NfeAliqIrrf>
+        <NfeValIrrf>38.35</NfeValIrrf>
+        <NfeDescricaoServicos>Comissão sobre venda</NfeDescricaoServicos>
+        <NfeObservacoes></NfeObservacoes>
+    </NfeControle>
+</ArqNfe>

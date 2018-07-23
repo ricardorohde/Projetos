@@ -1,0 +1,3867 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<NFSE xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://www.ginfes.com.br/tipos" xmlns:ns4="http://www.ginfes.com.br/servico_consultar_nfse_envio" xmlns:ns5="http://www.ginfes.com.br/servico_cancelar_nfse_envio">
+<Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1231</ns3:Numero>
+<ns3:CodigoVerificacao>174969997</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T07:49:05</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2678</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>4970.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>99.40</ns3:ValorIss>
+<ns3:BaseCalculo>4970.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>4970.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R16 AGRIC RECUPERAR - 170,00
+Qt:4 RODA R34 X 16 C CENTRO  RECUPERAR - 4.800,00
+PEDIDO DE COMPRA 72987
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>54846951000296</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>FERRARI AGROINDUSTRIA S/A</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SANTA MARIA DA ROCHA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>ROD SP 215 KM 84 CX POSTAL 35</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540705</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>13660000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1935654665</ns3:Telefone>
+<ns3:Email>ferrari@usinaferrari.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse>
+<Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1234</ns3:Numero>
+<ns3:CodigoVerificacao>238063389</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T08:15:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2682</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2674.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>53.48</ns3:ValorIss>
+<ns3:BaseCalculo>2674.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2674.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:5 RODA R22,5 10F RECUPERAR - 1.540,00
+Qt:3 RODA R22 RECUPERAR - 924,00
+Qt:1 RODA R20 10F RECUPERAR - 210,00
+ORDEM DE COMPRA 4500216416
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 30/04/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>54470679000101</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA BATATAIS S/A ACUCAR E ALCOOL</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>RODCANDIDO PORTINARI</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>KM 358 CXA PSTAL 62</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3505906</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14300000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1636601200</ns3:Telefone>
+<ns3:Email>nfe@usinabatatais.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1237</ns3:Numero>
+<ns3:CodigoVerificacao>346012453</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T09:54:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2687</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>12840.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>256.80</ns3:ValorIss>
+<ns3:BaseCalculo>12840.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>12840.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:7 RODA R22,5 TRANSBORDO TROCAR CARCAÇA - 4.480,00
+Qt:6 RODA R22,5 TRANSBORDO TROCAR ABA - 2.040,00
+Qt:16 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR - 3.360,00
+Qt:2 RODA R22 RECUPERAR - 554,00
+Qt:1 RODA R18 TROCAR CARCAÇA - 187,00
+Qt:1 RODA R22,5 10F RECUPERAR - 280,00
+Qt:7 RODA R22 RECUPERAR - 1.939,00
+PEDIDO 47649
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012 - 6.420,00
+Vencimento: 01/06/2012 - 6.420,00</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>03445208000455</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>UMOE BIOENERGY S.A.</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZENDA  TAQUARUSSU</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3545506</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>19250000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1832779958</ns3:Telefone>
+<ns3:Email>eduardo.duarte@umoe.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1240</ns3:Numero>
+<ns3:CodigoVerificacao>258502063</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T15:41:07</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1240</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>13370.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>267.40</ns3:ValorIss>
+<ns3:BaseCalculo>13370.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>13370.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R30 SOLDAR REFORÇAR ABAS - 320,00
+Qt:1 RODA R15,5 RECUPERAR - 280,00
+Qt:2 RODA R16 RECUPERAR BASE TROCA - 500,00
+Qt:1 RODA R15X10 RECUPERAR - 250,00
+Qt:2 RODA R16 AGRIC RECUPERAR - 300,00
+Qt:8 RODA R22 RECUPERAR - 2.240,00
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 600,00
+Qt:16 RODA R22,5 10F RECUPERAR - 4.480,00
+Qt:20 RODA R20 10F RECUPERAR - 4.400,00
+PEDIDO DE COMPRA 4500043092
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>12229415002083</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>S/ A USINA CORURIPE ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ MONTE ALTO, RODOVIA LMG-864</ns3:Endereco>
+<ns3:Numero>S/Nº</ns3:Numero>
+<ns3:Complemento>KM 1                                        </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3134400</ns3:Cidade>
+<ns3:Estado>MG</ns3:Estado>
+<ns3:Cep>38280000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>3434119200</ns3:Telefone>
+<ns3:Email>nfe@usinacoruripe.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1244</ns3:Numero>
+<ns3:CodigoVerificacao>305086931</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T17:11:48</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1244</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3440.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>68.80</ns3:ValorIss>
+<ns3:BaseCalculo>3440.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3440.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R20 10F RECUPERAR - 420,00
+Qt:8 RODA R22 RECUPERAR - 2.160,00
+Qt:1 RODA R26 TROCAR CASTANHAS REFORÇADAS - 260,00
+Qt:4 RODA R16 AGRIC RECUPERAR - 600,00
+PEDIDO DE COMPRA 4500296542 / 4500296668
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 04/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>47080619003302</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>GUARANI S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco> ROS SP 345 KM 146 FAZ MANDU</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CXA POSTAL 117</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517406</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14790000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733301200</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1248</ns3:Numero>
+<ns3:CodigoVerificacao>157128899</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-03T16:48:32</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1248</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-03T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2160.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>43.20</ns3:ValorIss>
+<ns3:BaseCalculo>2160.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2160.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:8 RODA R22 RECUPERAR - 2.160,00
+PEDIDO DE COMPRA 4500292624
+ICMS RECOLHIDO ANTERIORMENTE POR SUBSTITUICAO TRIBUTARIA
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 04/05/2012
+Vendedor Externo 
+5 RENATO</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>05242560000176</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA VERTENTE LTDA. </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>AREA FAZENDA  POSSES</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517901</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15420000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1732859100</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1241</ns3:Numero>
+<ns3:CodigoVerificacao>341297802</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T16:19:48</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1241</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1490.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>29.80</ns3:ValorIss>
+<ns3:BaseCalculo>1490.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1490.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22 RECUPERAR - 570,00
+Qt:1 RODA R16 AGRIC RECUPERAR - 152,00
+Qt:1 RODA R26 TROCAR CASTANHAS REFORÇADAS - 331,00
+Qt:1 CENTRO VALMET/CASE/JD RECUPERAR - 285,00
+Qt:1 RODA R16 ROLAO RECUPERAR - 152,00
+ORDEM DE COMPRA 26890
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/06/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>43533819000399</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA ITAJOBI LTDA  ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>EST BARRO PRETO A ELISIARIO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>FAZENDA TAPERAO                                   </ns3:Complemento>
+<ns3:Bairro>RURAL</ns3:Bairro>
+<ns3:Cidade>3528858</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15845000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1735299000</ns3:Telefone>
+<ns3:Email>nfe@usinaitajobi.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1239</ns3:Numero>
+<ns3:CodigoVerificacao>467444344</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T10:32:32</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2692</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1900.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>38.00</ns3:ValorIss>
+<ns3:BaseCalculo>1900.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1900.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R22,5 TRANSBORDO DIMINUIR LARGURA - 1.380,00
+Qt:2 RODA R22,5 10F RECUPERAR - 520,00
+PEDIDO DE COMPRA 4500018926
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 17/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>07914230000105</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>TONON BIOENERGIA S.A</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZENDA BOM RETIRO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>DIST. DE VISTA ALEGRE</ns3:Bairro>
+<ns3:Cidade>5005400</ns3:Cidade>
+<ns3:Estado>MS</ns3:Estado>
+<ns3:Cep>79150000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>6734051600</ns3:Telefone>
+<ns3:Email>nfe@tononbioenergia.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1236</ns3:Numero>
+<ns3:CodigoVerificacao>934644652</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T09:42:12</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2685</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3287.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>65.74</ns3:ValorIss>
+<ns3:BaseCalculo>3287.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3287.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:5 RODA R22 RECUPERAR - 1.567,50
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 665,00
+Qt:3 RODA R15,5 RECUPERAR - 712,50
+Qt:1 RODA R16 AGRIC RECUPERAR - 171,00
+Qt:1 RODA R17,5 RECUPERAR - 171,00
+ORDEM DE COMPRA 36562
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>08522820000155</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>MARCOS FERNANDO GARMS E OUTROS</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>SITIO ESPERANCA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX POSTAL 91                                    </ns3:Complemento>
+<ns3:Bairro>SAO MATHEUS</ns3:Bairro>
+<ns3:Cidade>3535507</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>19700000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1833618888</ns3:Telefone>
+<ns3:Email>nfe@cocal.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1247</ns3:Numero>
+<ns3:CodigoVerificacao>139592016</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-03T15:37:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1247</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-03T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3319.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>66.38</ns3:ValorIss>
+<ns3:BaseCalculo>3319.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3319.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R22,5 TRANSBORDO TROCAR CARCAÇA - 550,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CARCAÇA - 550,00
+Qt:1 RODA R16 AGRIC TROCAR CENTRO  - 135,00
+Qt:2 RODA R10 TROCAR CENTRO   - 396,00
+Qt:2 RODA R22 10F TROCAR CENTRO   - 500,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 396,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 396,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 396,00
+PEDIDO 4500199354
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>43948488000196</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SANTA CRUZ S.A. ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SANTA CRUZ ROD SP 255 KM 70</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX POSTAL 09                            </ns3:Complemento>
+<ns3:Bairro>RURAL</ns3:Bairro>
+<ns3:Cidade>3501707</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14820000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1633939000</ns3:Telefone>
+<ns3:Email>nef@usinasantacruz.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1249</ns3:Numero>
+<ns3:CodigoVerificacao>134655325</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-04T09:46:01</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1249</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-04T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>555.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>11.10</ns3:ValorIss>
+<ns3:BaseCalculo>555.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>555.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R16 AGRIC RECUPERAR - 555,00
+PEDIDO 01133D  /   FROTA 553/ 604/ 617
+REF A COT 3416
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 04/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>52615861000188</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>FOZ DO MOGI AGRICOLA S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ BELA VISTA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX POSTAL 02</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540200</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14180000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639539500</ns3:Telefone>
+<ns3:Email>nfe@usinabelavista.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1230</ns3:Numero>
+<ns3:CodigoVerificacao>174704996</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T07:39:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2676</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3170.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>63.40</ns3:ValorIss>
+<ns3:BaseCalculo>3170.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3170.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R22,5 10F TROCAR CENTRO - 930,00
+Qt:2 RODA R22,5 TRANSBORDO TROCAR ABA - 1.100,00
+Qt:1 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR - 200,00
+Qt:1 RODA R20 10F TROCAR CENTRO - 190,00
+Qt:1 RODA R34 RECUPERAR  - 550,00
+Qt:1 CENTRO RODA R34 RECUPERAR  - 200,00
+CONF. CONTRATO
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860002957</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>USINA IRACEMA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>IRACEMAPOLIS</ns3:Bairro>
+<ns3:Cidade>3521408</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>13495000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1934567700</ns3:Telefone>
+<ns3:Email>nfe@usinairacema.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1250</ns3:Numero>
+<ns3:CodigoVerificacao>592165668</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-04T15:02:02</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1250</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-04T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3000.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>60.00</ns3:ValorIss>
+<ns3:BaseCalculo>3000.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3000.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:12 RODA R17,5 P CONFECÇAO - 3.000,00
+PEDIDO 4500365152
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 04/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1235</ns3:Numero>
+<ns3:CodigoVerificacao>194420381</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T09:33:34</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2683</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>285.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>5.70</ns3:ValorIss>
+<ns3:BaseCalculo>285.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>285.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R22,5 TRANSBORDO TROCAR CENTRO - 285,00
+AF  37106
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>08906558000142</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>AGRO ENERGIA SANTA LUZIA S.A.</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco> RODOVIA BR 267 FAZ SAO SEBASTIAO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>KM 231                                            </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>5006002</ns3:Cidade>
+<ns3:Estado>MS</ns3:Estado>
+<ns3:Cep>79140000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>6734561050</ns3:Telefone>
+<ns3:Email>eth_nfe_eletronica@eth.com</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1238</ns3:Numero>
+<ns3:CodigoVerificacao>142233262</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T10:06:35</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2690</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1600.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>32.00</ns3:ValorIss>
+<ns3:BaseCalculo>1600.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1600.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R20 10F RECUPERAR  - 200,00
+Qt:1 RODA R15,5 RECUPERAR - 350,00
+Qt:1 RODA R16 AGRIC RECUPERAR  - 100,00
+Qt:1 RODA R28 SOLDAR REFORÇAR ABAS - 350,00
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR  - 600,00
+ORDEM DE COMPRA 1283412
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>05894060000208</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO FERNANDO ACUCAR E ALCOOL LTDA</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>ROD MS 379 (SENTIDO LAGUNA CARAPA)</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>5003702</ns3:Cidade>
+<ns3:Estado>MS</ns3:Estado>
+<ns3:Cep>79843000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>6734201500</ns3:Telefone>
+<ns3:Email>daniel.moura@usinasaofernando.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1232</ns3:Numero>
+<ns3:CodigoVerificacao>197543532</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T07:57:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2679</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2100.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>42.00</ns3:ValorIss>
+<ns3:BaseCalculo>2100.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2100.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22,5 TRANSBORDO TROCAR ABA - 900,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CENTRO - 310,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 380,00
+Qt:1 RODA R22,5 10F TROCAR CENTRO  - 310,00
+Qt:1 RECUPERAR ALONGADOR RODA R28/ R30  - 200,00
+PEDIDO 4400196728
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1233</ns3:Numero>
+<ns3:CodigoVerificacao>135751600</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T08:01:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2680</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3075.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>61.50</ns3:ValorIss>
+<ns3:BaseCalculo>3075.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3075.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R38 PARA CONFECÇAO - 3.075,00
+PEDIDO 4400196726
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1242</ns3:Numero>
+<ns3:CodigoVerificacao>193286370</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T16:26:51</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1242</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2850.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>57.00</ns3:ValorIss>
+<ns3:BaseCalculo>2850.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2850.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:19 RODA R22,5 10F SOLDAR ENDIREITAR - 2.850,00
+AUTORIZADO P/ FERNANDO ROCHA
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>56443583000260</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>CONTERN CONSTRUCOES E COMERCIO LTDA </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>AVENIDA JOSE FOGOLIN</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>BLOCO 3</ns3:Complemento>
+<ns3:Bairro>PARQUE INDUSTRIAL</ns3:Bairro>
+<ns3:Cidade>3527108</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>16404010</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Email>fernando.rocha@contern.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1246</ns3:Numero>
+<ns3:CodigoVerificacao>113958710</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-03T15:26:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1246</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-03T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>8500.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>170.00</ns3:ValorIss>
+<ns3:BaseCalculo>8500.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>8500.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:34 RODA R22,5 TRANSBORDO ALTERAR POSIÇAO CENTRO - 8.500,00
+AUTORIZADO P/ VITOR
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 03/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>48713903000308</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>AGRO PASTORIL PASCHOAL CAMPANELLI S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZENDA IRACEMA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3512001</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14770000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733445442</ns3:Telefone>
+<ns3:Email>fiscal@campanelli.agr.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1243</ns3:Numero>
+<ns3:CodigoVerificacao>166855380</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-02T17:06:01</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1243</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-02T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2060.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>41.20</ns3:ValorIss>
+<ns3:BaseCalculo>2060.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2060.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22,5 10F RECUPERAR - 540,00
+Qt:1 RODA R20X11 P/ RECUPERAR - 270,00
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 600,00
+Qt:2 RODA R18 RECUPERAR - 500,00
+Qt:1 RODA R15 RECUPERAR - 150,00
+PEDIDO DE COMPRA 4500296542 / 4500296668
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 04/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>47080619003302</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>GUARANI S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco> ROS SP 345 KM 146 FAZ MANDU</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CXA POSTAL 117</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517406</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14790000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733301200</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1245</ns3:Numero>
+<ns3:CodigoVerificacao>955154379</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-03T08:34:01</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>2710</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-03T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2850.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>57.00</ns3:ValorIss>
+<ns3:BaseCalculo>2850.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2850.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:19 RODA R22,5 10F SOLDAR ENDIREITAR - 2.850,00
+AUTORIZADO P/ FERNANDO ROCHA
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 03/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>13682337000178</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>HBE SERVICOS DE ENGENHARIA LTDA</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>AVENIDA BRIGADEIRO FARIA LIMA</ns3:Endereco>
+<ns3:Numero>2012</ns3:Numero>
+<ns3:Complemento>ANDAR 5 CONJ 52 SALA 6</ns3:Complemento>
+<ns3:Bairro>JARDIM PAULISTANO</ns3:Bairro>
+<ns3:Cidade>3550308</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>01451000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Email>notas.centraldeequipamentos@contern.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1252</ns3:Numero>
+<ns3:CodigoVerificacao>181504137</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T07:43:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1252</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2870.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>57.40</ns3:ValorIss>
+<ns3:BaseCalculo>2870.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2870.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R22,5 10F TROCAR CENTRO - 1.240,00
+Qt:3 RODA R22 10F TROCAR CENTRO - 900,00
+Qt:2 RODA R20 6F RECUPERAR - 380,00
+Qt:1 RODA R15,5 TROCAR CARCAÇA  - 350,00
+CONF. CONTRATO
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860002957</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>USINA IRACEMA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>IRACEMAPOLIS</ns3:Bairro>
+<ns3:Cidade>3521408</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>13495000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1934567700</ns3:Telefone>
+<ns3:Email>nfe@usinairacema.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1253</ns3:Numero>
+<ns3:CodigoVerificacao>209771835</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T07:51:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1253</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1330.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>26.60</ns3:ValorIss>
+<ns3:BaseCalculo>1330.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1330.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR  - 200,00
+Qt:1 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR - 200,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CENTRO - 310,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CENTRO  - 310,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CENTRO   - 310,00
+PEDIDO 4400197459
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1265</ns3:Numero>
+<ns3:CodigoVerificacao>136887184</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T09:37:47</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1265</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1020.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>20.40</ns3:ValorIss>
+<ns3:BaseCalculo>1020.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1020.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R38 TROCAR MIOLO - 1.020,00
+PEDIDO DE COMPRA 4500298083
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>47080619003051</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial> GUARANI S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZENDA TANABI</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>DISTR. DE IBIPORANGA                              </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3553401</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15170000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1732745748</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1266</ns3:Numero>
+<ns3:CodigoVerificacao>119138586</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T09:55:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1266</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>4191.90</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>83.84</ns3:ValorIss>
+<ns3:BaseCalculo>4191.90</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>4191.90</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:7 RODA R22,5 TRANSBORDO RECUPERAR - 1.806,70
+Qt:9 RODA R20 10F RECUPERAR - 1.441,80
+Qt:3 RODA R22 RECUPERAR - 720,90
+Qt:2 RODA R16 AGRIC RECUPERAR - 222,50
+PEDIDO DE COMPRA 349459
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>05553456000100</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA OUROESTE  ACUCAR E ALCOOL LTDA </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>ROD SP-463 ELYESER MONT MAGALHAES</ns3:Endereco>
+<ns3:Numero>KM 186</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3534757</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15685000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1738433043</ns3:Telefone>
+<ns3:Email>elaine.mendonca@usinaouroeste.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1251</ns3:Numero>
+<ns3:CodigoVerificacao>520656812</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T07:31:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1251</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2200.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>44.00</ns3:ValorIss>
+<ns3:BaseCalculo>2200.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2200.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R22 RECUPERAR - 1.160,00
+Qt:4 RODA R20 10F RECUPERAR - 740,00
+Qt:1 RODA R22,5 TRANSBORDO RECUPERAR - 300,00
+AUTORIZADO P/ MANOEL
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 17/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>71324784000151</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA SANTO ANTONIO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SANTO ANTONIO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>BAIRRO CAMPINHO</ns3:Bairro>
+<ns3:Cidade>3551702</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14177970</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639464039</ns3:Telefone>
+<ns3:Email>sped@canaverde.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1259</ns3:Numero>
+<ns3:CodigoVerificacao>170408334</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T15:14:20</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1259</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3750.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>75.00</ns3:ValorIss>
+<ns3:BaseCalculo>3750.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3750.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R15 RECUPERAR - 260,00
+Qt:6 RODA R20 10F RECUPERAR - 900,00
+Qt:1 RODA R16 AGRIC RECUPERAR - 130,00
+Qt:3 RODA R22,5 10F RECUPERAR - 630,00
+Qt:1 RODA R20X12 P/ RECUPERAR - 320,00
+Qt:1 RODA R22 RECUPERAR - 210,00
+Qt:2 RODA R34 RECUPERAR - 660,00
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 640,00
+ORDEM DE  FORNECIMENTO  159758
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012 - 1.875,00
+Vencimento: 08/06/2012 - 1.875,00</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>08063507000104</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>JOSE OSWALDO RIBEIRO DE MENDONCA E OUTROS </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO SEBASTIAO ROD  SP 425</ns3:Endereco>
+<ns3:Numero>KM 48</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517406</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14790000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733303377</ns3:Telefone>
+<ns3:Email>nfe_grupocolorado@colorado.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1258</ns3:Numero>
+<ns3:CodigoVerificacao>295378892</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T10:57:17</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1258</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>300.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>6.00</ns3:ValorIss>
+<ns3:BaseCalculo>300.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>300.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 EMBUCHAR EIXO DIANTEIRO GRANDE PORTE - 300,00
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/04/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>14591107000166</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>FREICARD FREIOS E CARDANS LTDA - ME </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>RUA CLIBAS DE ALMEIDA PRADO</ns3:Endereco>
+<ns3:Numero> 2266</ns3:Numero>
+<ns3:Bairro> CHACARA ARCO IRIS</ns3:Bairro>
+<ns3:Cidade>3502804</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>16058695</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1836255811</ns3:Telefone>
+<ns3:Email>freicard@gmail.com</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1260</ns3:Numero>
+<ns3:CodigoVerificacao>205587555</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T17:04:31</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1260</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1740.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>34.80</ns3:ValorIss>
+<ns3:BaseCalculo>1740.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1740.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R20 10F RECUPERAR - 630,00
+Qt:1 RODA R38 TROCAR MIOLO - 340,00
+Qt:1 RODA R22 RECUPERAR - 270,00
+Qt:2 RODA R15,5 RECUPERAR - 500,00
+PEDIDO DE COMPRA 4500296553 / 4500296667 / 4500298532
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>05266880000166</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>CIA ENERGETICA SAO JOSE </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>ROD BRIGADEIRO FARIA LIMA </ns3:Endereco>
+<ns3:Numero>KM 140</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3512001</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14770000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733419311</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1269</ns3:Numero>
+<ns3:CodigoVerificacao>178237416</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T11:00:02</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1269</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1232.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>24.64</ns3:ValorIss>
+<ns3:BaseCalculo>1232.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1232.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R22,5 10F RECUPERAR  - 1.232,00
+PEDIDO DE COMPRA 4500217042
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 02/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>54470679001183</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA BATATAIS S/A ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ RIO DOURADO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CAIXA POSTAL 173                                  </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3527108</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>16400970</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1435111600</ns3:Telefone>
+<ns3:Email>nfe@usinabatatais.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1268</ns3:Numero>
+<ns3:CodigoVerificacao>815933381</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T10:29:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1268</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1050.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>21.00</ns3:ValorIss>
+<ns3:BaseCalculo>1050.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1050.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R22,5 TRANSBORDO DIMINUIR LARGURA - 750,00
+Qt:1 RODA R25 RECUPERAR - 300,00
+AUTORIZADO P/ RAMIRO
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>49991599000161</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>CIA  AGRICOLA COLOMBO </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>ROD ORIVALDO THITO COLOMBO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>KM 1                                              </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3545605</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15950000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1735769000</ns3:Telefone>
+<ns3:Email>notas@usinacolombo.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1270</ns3:Numero>
+<ns3:CodigoVerificacao>818822582</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T08:45:01</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1270</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>5145.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>102.90</ns3:ValorIss>
+<ns3:BaseCalculo>5145.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>5145.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:39 RODA R22 RAIADA RECUPERAR - 4.875,00
+Qt:1 RODA R22,5 TRANSBORDO RECUPERAR - 270,00
+PEDIDO DE COMPRA 4500003622
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 28/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>02859452000230</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>VALE DO VERDAO S/A ACUCAR  E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LOC FAZENDA BAESSA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>PARTE                                             </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>5221551</ns3:Cidade>
+<ns3:Estado>GO</ns3:Estado>
+<ns3:Cep>75970000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Email>vvaafiscal@valedoverdao.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1272</ns3:Numero>
+<ns3:CodigoVerificacao>192801970</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T09:44:31</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1272</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>820.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>16.40</ns3:ValorIss>
+<ns3:BaseCalculo>820.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>820.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R24 SOLDAR REFORÇAR ABAS - 350,00
+Qt:1 RODA R24 SOLDAR REFORÇAR ABA - 280,00
+Qt:1 RODA R16 AGRIC TROCAR CENTRO - 190,00
+F- 941 / 624
+01146D
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 18/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>52615861000188</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>FOZ DO MOGI AGRICOLA S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ BELA VISTA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX POSTAL 02</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540200</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14180000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639539500</ns3:Telefone>
+<ns3:Email>nfe@usinabelavista.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1255</ns3:Numero>
+<ns3:CodigoVerificacao>120409986</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T09:05:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1255</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3150.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>63.00</ns3:ValorIss>
+<ns3:BaseCalculo>3150.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3150.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R20 10F RECUPERAR - 840,00
+Qt:8 RODA R22 RECUPERAR - 2.160,00
+Qt:1 RODA R16 AGRIC RECUPERAR - 150,00
+PEDIDO DE COMPRA 4500298372
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>47080619003302</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>GUARANI S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco> ROS SP 345 KM 146 FAZ MANDU</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CXA POSTAL 117</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517406</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14790000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733301200</ns3:Telefone>
+<ns3:Email>nfe@aguarani.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1256</ns3:Numero>
+<ns3:CodigoVerificacao>178087703</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T09:18:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1256</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>1</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>4608.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>92.16</ns3:ValorIss>
+<ns3:BaseCalculo>4608.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>4608.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 540,00
+Qt:9 RODA R22,5 10F RECUPERAR - 1.701,00
+Qt:2 RODA R17,5 RECUPERAR - 261,00
+Qt:2 RODA R26 RECUPERAR - 504,00
+Qt:2 RODA R16 AGRIC RECUPERAR - 252,00
+Qt:3 RODA R20 10F RECUPERAR - 540,00
+Qt:1 RODA R22,5 TRANSBORDO RECUPERAR - 270,00
+Qt:2 RODA R15,5 RECUPERAR - 540,00
+PEDIDO DE COMPRA 459129
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012 - 2.304,00
+Vencimento: 08/06/2012 - 2.304,00</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>53009825000133</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA ALTA MOGIANA S/A ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SANTANA/ROD PREF FABIO TALARICO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CXA POSTAL 72</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3549409</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14600000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1638101000</ns3:Telefone>
+<ns3:Email>xml-nfe@altamogiana.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1254</ns3:Numero>
+<ns3:CodigoVerificacao>130380873</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T08:03:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1254</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3080.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>61.60</ns3:ValorIss>
+<ns3:BaseCalculo>3080.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3080.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:6 RODA R22 RECUPERAR - 1.848,00
+Qt:4 RODA R22,5 10F RECUPERAR - 1.232,00
+ORDEM DE  COMPRA 4500217275
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 07/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>54470679000101</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA BATATAIS S/A ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>RODCANDIDO PORTINARI</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>KM 358 CXA PSTAL 62</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3505906</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14300000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1636601200</ns3:Telefone>
+<ns3:Email>nfe@usinabatatais.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1257</ns3:Numero>
+<ns3:CodigoVerificacao>288779496</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-09T09:41:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1257</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-09T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2470.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>49.40</ns3:ValorIss>
+<ns3:BaseCalculo>2470.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2470.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R16 AGRIC RECUPERAR - 390,00
+Qt:4 RODA R22 RECUPERAR - 840,00
+Qt:4 RODA R20 10F RECUPERAR - 600,00
+Qt:2 RODA R22,5 TRANSBORDO RECUPERAR - 640,00
+ORDEM DE  FORNECIMENTO 159759
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 09/05/2012 - 1.235,00
+Vencimento: 08/06/2012 - 1.235,00</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>08063507000104</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>JOSE OSWALDO RIBEIRO DE MENDONCA E OUTROS </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO SEBASTIAO ROD  SP 425</ns3:Endereco>
+<ns3:Numero>KM 48</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3517406</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14790000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1733303377</ns3:Telefone>
+<ns3:Email>nfe_grupocolorado@colorado.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1267</ns3:Numero>
+<ns3:CodigoVerificacao>421366130</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T10:18:31</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1267</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1120.04</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>22.40</ns3:ValorIss>
+<ns3:BaseCalculo>1120.04</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1120.04</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R20 10F RECUPERAR - 399,00
+Qt:2 RODA R22 RECUPERAR - 570,00
+Qt:1 RODA R16 AGRIC RECUPERAR - 151,04
+ORDEM DE COMPRA 27341
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/06/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>43533819000399</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA ITAJOBI LTDA  ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>EST BARRO PRETO A ELISIARIO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>FAZENDA TAPERAO                                   </ns3:Complemento>
+<ns3:Bairro>RURAL</ns3:Bairro>
+<ns3:Cidade>3528858</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>15845000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1735299000</ns3:Telefone>
+<ns3:Email>nfe@usinaitajobi.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1275</ns3:Numero>
+<ns3:CodigoVerificacao>115915417</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T11:06:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1275</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>4410.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>88.20</ns3:ValorIss>
+<ns3:BaseCalculo>4410.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>4410.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:4 RODA R22,5 TRANSBORDO TROCAR CARCAÇA  - 2.200,00
+Qt:1 RODA R32 RECUPERAR - 600,00
+Qt:1 RODA R34 SOLDAR REFORÇAR ABAS - 300,00
+Qt:1 RODA R28 CASE ADAPTAR CENTRO - 380,00
+Qt:3 RODA R22,5 10F TROCAR CENTRO  - 930,00
+CONF. CONTRATO
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 13/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860002957</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>USINA IRACEMA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>IRACEMAPOLIS</ns3:Bairro>
+<ns3:Cidade>3521408</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>13495000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1934567700</ns3:Telefone>
+<ns3:Email>nfe@usinairacema.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1273</ns3:Numero>
+<ns3:CodigoVerificacao>149746129</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T09:58:46</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1273</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2180.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>43.60</ns3:ValorIss>
+<ns3:BaseCalculo>2180.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2180.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:3 RODA R38 RECUPERAR  - 930,00
+Qt:1 RODA R22,5 TRANSBORDO TROCAR CARCAÇA   - 550,00
+Qt:2 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR  - 400,00
+Qt:1 RODA R22 10F TROCAR CENTRO - 300,00
+PEDIDO 4400197852
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 13/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1271</ns3:Numero>
+<ns3:CodigoVerificacao>102986632</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T09:26:48</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1271</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>7504.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>150.08</ns3:ValorIss>
+<ns3:BaseCalculo>7504.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>7504.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:20 RODA R22,5 TRANSBORDO ALTERAR POSIÇAO CENTRO - 4.940,00
+Qt:2 RODA R22,5 TRANSBORDO TROCAR CENTRO - 494,00
+Qt:6 RODA R22 RECUPERAR - 1.170,00
+Qt:6 RODA R22 RAIADA RECUPERAR - 900,00
+PEDIDO DE COMPRA 821310
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 13/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>71304687000105</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>PEDRA AGROINDUSTRIAL S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LOC USINA DA PEDRA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CAIXA POSTAL 02</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3551504</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14150000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639879121</ns3:Telefone>
+<ns3:Email>nfe@uspedra.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1264</ns3:Numero>
+<ns3:CodigoVerificacao>158478556</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-11T08:59:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1264</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-11T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>3075.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>61.50</ns3:ValorIss>
+<ns3:BaseCalculo>3075.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>3075.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R38 PARA CONFECÇAO  - 3.075,00
+PEDIDO 4400197854
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>51466860000156</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SAO MARTINHO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO MARTINHO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3540903</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14850000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639819000</ns3:Telefone>
+<ns3:Email>nfe@usinasaomartinho.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1263</ns3:Numero>
+<ns3:CodigoVerificacao>989332017</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-10T11:00:02</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1263</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-10T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1020.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>20.40</ns3:ValorIss>
+<ns3:BaseCalculo>1020.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1020.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22,5 10F TROCAR CENTRO - 620,00
+Qt:2 RODA R22,5 TRANSBORDO ENDIREITAR SOLDAR - 400,00
+CONF. CONTRATO 46/2791
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 10/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>07603999000293</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA BOA VISTA S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ BOA VISTA</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>RODOVIA GO-164 KM 10 ESQ. 1 KM                    </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>5218508</ns3:Cidade>
+<ns3:Estado>GO</ns3:Estado>
+<ns3:Cep>75860000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>6436159748</ns3:Telefone>
+<ns3:Email>nfe@usinaboavista.ind.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1262</ns3:Numero>
+<ns3:CodigoVerificacao>148626188</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-10T10:41:17</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1262</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-10T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>5289.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>105.78</ns3:ValorIss>
+<ns3:BaseCalculo>5289.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>5289.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:2 RODA R22 RECUPERAR - 200,00
+Qt:10 RODA R22 10F TROCAR CENTRO - 2.660,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 418,00
+Qt:1 RODA R16 AGRIC TROCAR CENTRO  - 171,00
+Qt:23 ANEL UNICO R22 P/ RECUPERAR  - 1.840,00
+PEDIDO DE COMPRA 4501976297
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 15/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>08619844000399</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>COSAN CENTROESTE S/A ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>ROD GO 406</ns3:Endereco>
+<ns3:Numero>SN</ns3:Numero>
+<ns3:Complemento>KM 25 A DIREITA 6 KM                              </ns3:Complemento>
+<ns3:Bairro>FAZ STO ANTONIO DO RIO DOCE</ns3:Bairro>
+<ns3:Cidade>5211909</ns3:Cidade>
+<ns3:Estado>GO</ns3:Estado>
+<ns3:Cep>75800970</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>6436360200</ns3:Telefone>
+<ns3:Email>recebimento_nfe@cosan.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1261</ns3:Numero>
+<ns3:CodigoVerificacao>896416967</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-10T09:29:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1261</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-10T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2627.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>52.54</ns3:ValorIss>
+<ns3:BaseCalculo>2627.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2627.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 CENTRO VALMET/CASE/JD RECUPERAR  - 265,00
+Qt:2 RODA R22 10F TROCAR CENTRO - 500,00
+Qt:1 RODA R15 TROCAR CARCAÇA - 190,00
+Qt:2 RODA R20 10F TROCAR CENTRO  - 396,00
+Qt:2 RODA R20 10F TROCAR CENTRO - 396,00
+Qt:1 RODA R24X1400 TROCAR CARCAÇA - 880,00
+PEDIDO 4500200079
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 16/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>43948488000196</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>SANTA CRUZ S.A. ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SANTA CRUZ ROD SP 255 KM 70</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX POSTAL 09                            </ns3:Complemento>
+<ns3:Bairro>RURAL</ns3:Bairro>
+<ns3:Cidade>3501707</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14820000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1633939000</ns3:Telefone>
+<ns3:Email>nef@usinasantacruz.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1274</ns3:Numero>
+<ns3:CodigoVerificacao>403893464</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T10:35:01</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1274</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>1135.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>22.70</ns3:ValorIss>
+<ns3:BaseCalculo>1135.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>1135.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:1 RODA R22 RECUPERAR - 280,00
+Qt:3 RODA R22,5 TRANSBORDO RECUPERAR - 855,00
+AUTORIZADO P/ RONALDO
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 13/05/2012 - 567,50
+Vencimento: 12/06/2012 - 567,50</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>71324792000106</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA SAO FRANCISCO S/A </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>FAZ SAO FRANCISCO</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>CX PST 537                    </ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3551702</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14174000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1639467000</ns3:Telefone>
+<ns3:Email>sped@canaverde.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse><Nfse>
+<ns3:IdentificacaoNfse>
+<ns3:Numero>1276</ns3:Numero>
+<ns3:CodigoVerificacao>427736411</ns3:CodigoVerificacao>
+</ns3:IdentificacaoNfse>
+<ns3:DataEmissao>2012-04-13T14:55:16</ns3:DataEmissao>
+<ns3:IdentificacaoRps>
+<ns3:Numero>1276</ns3:Numero>
+<ns3:Serie>S</ns3:Serie>
+<ns3:Tipo>1</ns3:Tipo>
+</ns3:IdentificacaoRps>
+<ns3:DataEmissaoRps>2012-04-13T00:00:00</ns3:DataEmissaoRps>
+<ns3:NaturezaOperacao>1</ns3:NaturezaOperacao>
+<ns3:RegimeEspecialTributacao>1</ns3:RegimeEspecialTributacao>
+<ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+<ns3:IncetivadorCultural>2</ns3:IncetivadorCultural>
+<ns3:Competencia>2012-04-01</ns3:Competencia>
+<ns3:Servico>
+<ns3:Valores>
+<ns3:ValorServicos>2804.00</ns3:ValorServicos>
+<ns3:IssRetido>2</ns3:IssRetido>
+<ns3:ValorIss>56.08</ns3:ValorIss>
+<ns3:BaseCalculo>2804.00</ns3:BaseCalculo>
+<ns3:Aliquota>0.0200</ns3:Aliquota>
+<ns3:ValorLiquidoNfse>2804.00</ns3:ValorLiquidoNfse>
+</ns3:Valores>
+<ns3:ItemListaServico>14.01</ns3:ItemListaServico>
+<ns3:CodigoTributacaoMunicipio>14.01.01 / 00140101</ns3:CodigoTributacaoMunicipio>
+<ns3:Discriminacao>Qt:6 RODA R22,5 10F RECUPERAR - 1.848,00
+Qt:2 RODA R16 AGRIC RECUPERAR - 340,00
+Qt:2 RODA R22 RECUPERAR - 616,00
+ORDEM DE COMPRA 4500217584
+EMPRESA NAO SUJEITA A RETENCAO PREVISTA NA LEI 10833 ART.30 POIS A ATIVIDADE NAO CONSTA DO ART. 647 RIR 99
+
+
+Vencimento: 11/05/2012</ns3:Discriminacao>
+<ns3:MunicipioPrestacaoServico>3543402</ns3:MunicipioPrestacaoServico>
+</ns3:Servico>
+<ns3:ValorCredito>0.00</ns3:ValorCredito>
+<ns3:PrestadorServico>
+<ns3:IdentificacaoPrestador>
+<ns3:Cnpj>12832025000130</ns3:Cnpj>
+<ns3:InscricaoMunicipal>14740901</ns3:InscricaoMunicipal>
+</ns3:IdentificacaoPrestador>
+<ns3:RazaoSocial>LUPATO PECAS E SERVICOS LTDA - EPP</ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>LUIZ ANTÔNIO MANFREDI</ns3:Endereco>
+<ns3:Numero>500</ns3:Numero>
+<ns3:Bairro>PARQUE DOS SABIÁS</ns3:Bairro>
+<ns3:Cidade>3543402</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14070735</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>00000000</ns3:Telefone>
+</ns3:Contato>
+</ns3:PrestadorServico>
+<ns3:TomadorServico>
+<ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+<ns3:Cnpj>54470679000101</ns3:Cnpj>
+</ns3:CpfCnpj>
+</ns3:IdentificacaoTomador>
+<ns3:RazaoSocial>USINA BATATAIS S/A ACUCAR E ALCOOL </ns3:RazaoSocial>
+<ns3:Endereco>
+<ns3:Endereco>RODCANDIDO PORTINARI</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Complemento>KM 358 CXA PSTAL 62</ns3:Complemento>
+<ns3:Bairro>ZONA RURAL</ns3:Bairro>
+<ns3:Cidade>3505906</ns3:Cidade>
+<ns3:Estado>SP</ns3:Estado>
+<ns3:Cep>14300000</ns3:Cep>
+</ns3:Endereco>
+<ns3:Contato>
+<ns3:Telefone>1636601200</ns3:Telefone>
+<ns3:Email>nfe@usinabatatais.com.br</ns3:Email>
+</ns3:Contato>
+</ns3:TomadorServico>
+<ns3:OrgaoGerador>
+<ns3:CodigoMunicipio>3543402</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+</ns3:OrgaoGerador>
+</Nfse></NFSE>

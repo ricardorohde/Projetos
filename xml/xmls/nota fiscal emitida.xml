@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GovDigital>
+    <emissao>
+        <nf-e>
+            <prestacao>2011-09-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3507605</municipioIncidencia>
+            <atividade>16.16.01</atividade>
+            <aliquota>0.03000</aliquota>
+            <tomador>
+                <documento>46352746000165</documento>
+                <nome>MUNICIPIO DE PAULISTA</nome>
+                <cep>12914000</cep>
+                <logradouro>Antônio Pires Pimentel</logradouro>
+                <numero>2015</numero>
+                <complemento>TOMBAMENTO-DEC.11302/00</complemento>
+                <bairro>CENTRO</bairro>
+                <estado>São Paulo</estado>
+                <municipio>Braganca Paulista</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>16.16.01</atividade>
+                    <descricao>Quilômetros percorridos através de MicroÔnibus, com Monitor</descricao>
+                    <aliquota>0.03000</aliquota>
+                    <valorUn>5.73</valorUn>
+                    <quantidade>7358.00</quantidade>
+                    <valor>42161.34</valor>
+                </item>
+                <item>
+                    <atividade>16.16.01</atividade>
+                    <descricao>Quilômetros percorridos através de Perua, Van ou Similar, com Monitor</descricao>
+                    <aliquota>0.03000</aliquota>
+                    <valorUn>6.63</valorUn>
+                    <quantidade>13462.50</quantidade>
+                    <valor>89256.38</valor>
+                </item>
+            </itens>
+            <obs>Transporte Coletivo de Escolares da Rede Pública de Ensino no período de 01/09/2011 a 15/09/2011, conforme Folha de Frequência individualizada por linha e Demonstrativo detalhado em anexo.
+
+VENCIMENTO NA APRESENTAÇÃO
+
+RETENÇÃO PARA A PREVIDÊNCIA SOCIAL
+(Artigo 112 da IN.RFB nº 971 de 13/11/2009)
+Valor Bruto dos Serviços Prestados    R$ 131.417,72
+Valor das Despesas Suportadas ( - )   R$  91.992,40
+Valor Base para efeito de Retenção    R$  39.425,31
+Valor a ser Retido:  11%                      R$   4.336,78</obs>
+            <deducoes>
+                <deducao codigo="INSS">4336.78</deducao>
+            </deducoes>
+            <senha>1G0H.1D1I.G8CK.UDGY</senha>
+            <numero>49</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>131417.72</valorTotal>
+            <valorBase>131417.72</valorBase>
+            <valorImposto>3942.53</valorImposto>
+            <valorLiquido>127080.94</valorLiquido>
+        </nf-e>
+    </emissao>
+</GovDigital>

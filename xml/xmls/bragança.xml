@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GovDigital>
+    <emissao>
+        <nf-e>
+            <prestacao>2013-04-08</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3507605</municipioIncidencia>
+            <atividade>16.16.01</atividade>
+            <aliquota>0.03870</aliquota>
+            <tomador>
+                <documento>46352746000165</documento>
+                <nome>PREFEITURA DO MUNICIPIO DE BRAGANCA PAULISTA</nome>
+                <inscEst>ISENTA</inscEst>
+                <cep>12914000</cep>
+                <logradouro>Av. Antônio Pires Pimentel</logradouro>
+                <numero>2015</numero>
+                <complemento></complemento>
+                <bairro>CENTRO</bairro>
+                <estado>SP</estado>
+                <municipio>Bragança Paulista</municipio>
+                <pais>Brasil</pais>
+                <email>financas@braganca.sp.gov.br</email>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>16.16.01</atividade>
+                    <descricao>TRANSPORTE DE ALUNOS REFERENTE AO MÊS MARÇO DE 2013
+PREGÃO 155/2011</descricao>
+                    <aliquota>0.03870</aliquota>
+                    <valorUn>211998.030000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>211998.03</valor>
+                </item>
+            </itens>
+            <obs>TRANSPORTE DE ALUNOS - PAGAMENTO À VISTA</obs>
+            <deducoes>
+                <deducao codigo="INSS">6995.93</deducao>
+            </deducoes>
+            <senha>33G7.BF38.W5BJ.PGOZ</senha>
+            <numero>115</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>211998.03</valorTotal>
+            <valorBase>211998.03</valorBase>
+            <valorImposto>8204.32</valorImposto>
+            <valorLiquido>205002.10</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2013-04-19</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3507605</municipioIncidencia>
+            <atividade>16.16.01</atividade>
+            <aliquota>0.03870</aliquota>
+            <tomador>
+                <documento>46352746000165</documento>
+                <nome>PREFEITURA DO MUNICIPIO DE BRAGANCA PAULISTA</nome>
+                <inscEst>ISENTA</inscEst>
+                <cep>12914000</cep>
+                <logradouro>Av. Antônio Pires Pimentel</logradouro>
+                <numero>2015</numero>
+                <complemento></complemento>
+                <bairro>CENTRO</bairro>
+                <estado>SP</estado>
+                <municipio>Bragança Paulista</municipio>
+                <pais>Brasil</pais>
+                <email>financas@braganca.sp.gov.br</email>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>16.16.01</atividade>
+                    <descricao>TRANSPORTE DOS INTEGRANTES DA CORTE DO CARNAVAL/2013</descricao>
+                    <aliquota>0.03870</aliquota>
+                    <valorUn>2750.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>2750.00</valor>
+                </item>
+            </itens>
+            <obs></obs>
+            <deducoes>
+                <deducao codigo="INSS">90.75</deducao>
+            </deducoes>
+            <senha>2SK6.4UNV.3HR9.WJCC</senha>
+            <numero>116</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>2750.00</valorTotal>
+            <valorBase>2750.00</valorBase>
+            <valorImposto>106.43</valorImposto>
+            <valorLiquido>2659.25</valorLiquido>
+        </nf-e>
+    </emissao>
+</GovDigital>

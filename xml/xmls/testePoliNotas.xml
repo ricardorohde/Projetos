@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfe>
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000051</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000052</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.91</valor>
+				<codigo>0002</codigo>
+			</item>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.92</valor>
+				<codigo>0002</codigo>
+			</item>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.93</valor>
+				<codigo>0002</codigo>
+			</item>			
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.94</valor>
+				<codigo>0002</codigo>
+			</item>
+			
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+	
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000053</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000054</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000055</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000056</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+	<notafiscal>
+		<dadosprestador>
+			<im>000000001</im>
+			<numeronota>000057</numeronota>
+			<dataemissao>17/05/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>J</tipodoc>
+			<documento>03952390000198</documento>
+			<ie>708.179.780.118</ie>
+			<nometomador>STOCK LOGISTICA E TRANSPORTES LTDA - EPP</nometomador>
+			<logradouro>AVENIDA ROSA BELMIRO RAMOS</logradouro>
+			<numero>2142</numero>
+			<bairro>ORTIZES</bairro>
+			<uf>SP</uf>
+			<cidade>VALINHOS</cidade>
+			<cep>13275400</cep>
+			<email>rh@stocklogistica.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>RUA VICENTE ROTELA</logradouro>
+			<numero>0125</numero>
+			<bairro>JARDIM SANTA ROSA</bairro>
+			<uf>SP</uf>
+			<cidade>VINHEDO</cidade>
+			<cep>13280000</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>ASSISTENCIA MEDICA - CONTRATO 800.1033</descricao>
+				<valor>2635.90</valor>
+				<codigo>0002</codigo>
+			</item>
+			<desconto>0</desconto>
+			<inss>0</inss>
+			<ir>0</ir>
+			<csll>0</csll>
+			<cofins>0</cofins>
+			<pispasep>0</pispasep>
+			<outra>0</outra>
+			<issretido>0</issretido>
+			<outromunicipio>0</outromunicipio>
+			<obs>Vencimento 10/11/2011</obs>
+		</detalheservico>
+	</notafiscal>	
+	
+</nfe>

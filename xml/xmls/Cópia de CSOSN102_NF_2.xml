@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc versao="2.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+<infNFe versao="2.00" Id="NFe35101008330380000134550020000046211000046214">
+<ide>
+<cUF>35</cUF>
+<cNF>00004621</cNF>
+<natOp>VENDA</natOp>
+<indPag>0</indPag>
+<mod>55</mod>
+<serie>2</serie>
+<nNF>2</nNF>
+<dEmi>2014-06-02</dEmi>
+<tpNF>1</tpNF>
+<cMunFG>3550308</cMunFG>
+<tpImp>1</tpImp>
+<tpEmis>1</tpEmis>
+<cDV>4</cDV>
+<tpAmb>1</tpAmb>
+<finNFe>1</finNFe>
+<procEmi>0</procEmi>
+<verProc>1.0.0.0</verProc>
+</ide>
+<emit>
+<CNPJ>03988329000109</CNPJ>
+<xNome>VGOSTA DECORACOES LTDA</xNome>
+<xFant>VGOSTA DECORACOES LTDA</xFant>
+<enderEmit>
+<xLgr>RUA MIGUEL MENTEN</xLgr>
+<nro>126</nro>
+<xBairro>VILA GUILHERME</xBairro>
+<cMun>3550308</cMun>
+<xMun>SAO PAULO</xMun>
+<UF>SP</UF>
+<CEP>02050010</CEP>
+<cPais>1058</cPais>
+<xPais>BRASIL</xPais>
+</enderEmit>
+<IE>149445239118</IE>
+<CRT>1</CRT>
+</emit>
+<dest>
+<CNPJ>71832679000123</CNPJ>
+<xNome>VELASQUES E FARIAS CIA LTDA</xNome>
+<enderDest>
+<xLgr>RUA 24 DE OUTUBRO</xLgr>
+<nro>009</nro>
+<xBairro>CENTRO</xBairro>
+<cMun>5103403</cMun>
+<xMun>CUIABA</xMun>
+<UF>MT</UF>
+<CEP>78005330</CEP>
+<cPais>1058</cPais>
+<xPais>BRASIL</xPais>
+<fone>6530253111</fone>
+</enderDest>
+<IE>132249162</IE>
+<email>administrativo@westcortecidos.com.br</email>
+</dest>
+<det nItem="1">
+<prod>
+<cProd>2100002016158</cProd>
+<cEAN/>
+<xProd>PAPEL DE PAREDE V-53 0,53X10M</xProd>
+<NCM>48142000</NCM>
+<CFOP>6102</CFOP>
+<uCom>RL</uCom>
+<qCom>2.0000</qCom>
+<vUnCom>130.0000000000</vUnCom>
+<vProd>260.00</vProd>
+<cEANTrib/>
+<uTrib>RL</uTrib>
+<qTrib>2.0000</qTrib>
+<vUnTrib>130.0000000000</vUnTrib>
+<indTot>1</indTot>
+</prod>
+<imposto>
+<ICMS>
+<ICMSSN103>
+<orig>1</orig>
+<CSOSN>103</CSOSN>
+</ICMSSN103>
+</ICMS>
+<IPI>
+<cEnq>999</cEnq>
+<IPINT>
+<CST>53</CST>
+</IPINT>
+</IPI>
+<PIS>
+<PISNT>
+<CST>08</CST>
+</PISNT>
+</PIS>
+<COFINS>
+<COFINSNT>
+<CST>08</CST>
+</COFINSNT>
+</COFINS>
+</imposto>
+</det>
+<total>
+<ICMSTot>
+<vBC>0.00</vBC>
+<vICMS>0.00</vICMS>
+<vBCST>0.00</vBCST>
+<vST>0.00</vST>
+<vProd>260.00</vProd>
+<vFrete>0.00</vFrete>
+<vSeg>0.00</vSeg>
+<vDesc>0.00</vDesc>
+<vII>0.00</vII>
+<vIPI>0.00</vIPI>
+<vPIS>0.00</vPIS>
+<vCOFINS>0.00</vCOFINS>
+<vOutro>0.00</vOutro>
+<vNF>260.00</vNF>
+</ICMSTot>
+</total>
+<transp>
+<modFrete>1</modFrete>
+<transporta>
+<CNPJ>48740351000165</CNPJ>
+<xNome>BRASPRESS TRANSPORTES URGENTES LTDA</xNome>
+<IE>116945108113</IE>
+<UF>SP</UF>
+</transporta>
+<vol>
+<qVol>1</qVol>
+<esp>VOLUME</esp>
+<nVol>0</nVol>
+<pesoL>5.000</pesoL>
+<pesoB>5.000</pesoB>
+</vol>
+</transp>
+<infAdic>
+<infCpl>Documento emitido por ME ou EPP optante pelo Simples Nacional. Nao gera direito a Credito Fiscal de IPI.</infCpl>
+</infAdic>
+</infNFe>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+<SignedInfo>
+<CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<Reference URI="#NFe35101008330380000134550020000046211000046214">
+<Transforms>
+<Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/>
+<Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+</Transforms>
+<DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<DigestValue>fEYduBs46nxG4ByJsLXqwN5mwBw=</DigestValue>
+</Reference>
+</SignedInfo>
+<SignatureValue>PnJpHdUXRBkESjhKJM7S5xwSSE7fA9ERKMne6lX0rnC6xZZRYHVNFiZ4tPQvehVsDVUNS5AQjG6qZxLFe0Rh1RKXqpEQslVkumukoky3j0f7Okry20v64oq1z9ZII7mIuwYEDYGIvqLipA0g1KaD8WJDzcuH3hohoaPiMXmTXLs=</SignatureValue>
+<KeyInfo>
+<X509Data>
+<X509Certificate>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</X509Certificate>
+</X509Data>
+</KeyInfo>
+</Signature>
+</NFe>
+<protNFe versao="2.00">
+<infProt>
+<tpAmb>1</tpAmb>
+<verAplic>SP_NFE_PL_006e</verAplic>
+<chNFe>35101008330380000134550020000046211000046214</chNFe>
+<dhRecbto>2010-10-01T10:30:38</dhRecbto>
+<nProt>135100520188966</nProt>
+<digVal>fEYduBs46nxG4ByJsLXqwN5mwBw=</digVal>
+<cStat>100</cStat>
+<xMotivo>Autorizado o uso da NF-e</xMotivo>
+</infProt>
+</protNFe>
+</nfeProc>

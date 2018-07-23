@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>105</Numero>
+      <CodigoVerificacao>HEMCOSVJAL</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-03</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.435,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>8,71</ValorIss>
+        <BaseCalculo>435,38</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK 18,0 B I  Slump 8+-2 Volume 7,0 M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:147/149 DE 01/09/2012&#13;
+Obra:RUA ANTONIO MARSON AO LADO 76-SANTA CRUZ-BOITUVA&#13;
+&#13;
+Vencimento:03/09/12Valor Liquido: 205,00&#13;
+                     10/09/2012                  615,00&#13;
+                      10/10/2012                 615,00&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0093181027804</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>NEUSA MARIA PACHECO</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE FRANCO 108</Rua>
+        <Numero></Numero>
+        <Bairro>CIDADE JARDIM</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

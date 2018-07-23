@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Notas>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>3</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>12:31</EmissaoHora>
+    <CodigoValidacao>EDB83 6107C</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>61460325000494</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SOLVAY INDUPA DO BRASIL S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DE FERRO SANTOS JUNDIAI, KM 38</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento />
+        <Bairro>VL ELCLOR</Bairro>
+        <Municipio>STO. ANDRE</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>FINANCEIRO@GRUPORM.COM.BR</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO EM EQUIPAMENTOS CONFORME PLAN 2152/13.
+
+VENCIMENTO PARA 04/03/2013.
+
+RETENÇÕES:
+INSS 11% R$ 25,52.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>232</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>232</BaseCalculo>
+    <ValorISS>6,96</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+</Notas>

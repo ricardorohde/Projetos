@@ -1,0 +1,1124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<LoteNotaFiscal xmlns:ns2="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://www.abrasf.org.br/nfse.xsd">
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1069129SLK5CZTMWJI1XTY6VRNMD45XO">
+                <ns3:Numero>25</ns3:Numero>
+                <ns3:CodigoVerificacao>99F86VZF0</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T17:30:43</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>2631.00</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>78.93</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>2591.53</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>2631.00</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>39.47</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>78.93</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 01/2015-2.631,00 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650001192</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>RUA RIO BRANCO</ns3:Endereco>
+<ns3:Numero>55</ns3:Numero>
+<ns3:Bairro>BAURU</ns3:Bairro>
+<ns3:CodigoMunicipio>3506003</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>17010190</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1069126FRXHQC18N7BJCAV7KWBW423AM">
+                <ns3:Numero>24</ns3:Numero>
+                <ns3:CodigoVerificacao>HRY6SFU6O</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T17:27:17</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>1373.46</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>41.20</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>1352.86</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>1373.46</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>20.60</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>41.20</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 12/2014-1.373,46 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650001192</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>RUA RIO BRANCO</ns3:Endereco>
+<ns3:Numero>55</ns3:Numero>
+<ns3:Bairro>BAURU</ns3:Bairro>
+<ns3:CodigoMunicipio>3506003</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>17010190</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1069123R3J5VJB9EZ8FV2HLDRK9SXL37">
+                <ns3:Numero>23</ns3:Numero>
+                <ns3:CodigoVerificacao>0HGHDJ34Q</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T17:24:05</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>6176.99</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>185.31</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>6084.34</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>6176.99</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>92.65</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>185.31</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 11/2014-6.176,99 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650001192</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>RUA RIO BRANCO</ns3:Endereco>
+<ns3:Numero>55</ns3:Numero>
+<ns3:Bairro>BAURU</ns3:Bairro>
+<ns3:CodigoMunicipio>3506003</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>17010190</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1069111FH35JARPSX9RQ6E1NV0662F5X">
+                <ns3:Numero>22</ns3:Numero>
+                <ns3:CodigoVerificacao>8JUHXBL4N</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T17:10:33</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>2897.96</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>86.94</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>2854.49</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>2897.96</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>43.47</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>86.94</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 10/2014-2.897,96 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650001192</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>RUA RIO BRANCO</ns3:Endereco>
+<ns3:Numero>55</ns3:Numero>
+<ns3:Bairro>BAURU</ns3:Bairro>
+<ns3:CodigoMunicipio>3506003</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>17010190</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1069106S215D4MK7AOQROLGDKTOJLZII">
+                <ns3:Numero>21</ns3:Numero>
+                <ns3:CodigoVerificacao>4IKEBW0PM</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T17:03:56</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>615.73</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>18.47</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>606.49</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>615.73</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>9.24</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>18.47</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 09/2014-615,73 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650009509</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO FINANCIAMENTO E INVESTIMENTO S.A</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>AV. CENTENÁRIO</ns3:Endereco>
+<ns3:Numero>1581</ns3:Numero>
+<ns3:Bairro>OPERARIA NOVA</ns3:Bairro>
+<ns3:CodigoMunicipio>4204608</ns3:CodigoMunicipio>
+<ns3:Uf>SC</ns3:Uf>
+<ns3:Cep>88809000</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="10690918VW7SB2DS5LOKN5Y38H5M04AU">
+                <ns3:Numero>20</ns3:Numero>
+                <ns3:CodigoVerificacao>M9RG5YJ7C</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-24T16:50:54</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>4003.29</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>120.10</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>3943.24</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-24</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>4003.29</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>60.05</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>120.10</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Comissão referente à produção do período 21/12/2014 à 20/01/2015-4.003,29 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>01149953000340</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>BV FINANCEIRA S.A CREDITO FINANC.E INVESTIMEN</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>AV PAULISTA</ns3:Endereco>
+<ns3:Numero>1374</ns3:Numero>
+<ns3:Bairro>BELA VISTA</ns3:Bairro>
+<ns3:CodigoMunicipio>3550308</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>01310916</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>1437111200</ns3:Telefone>
+<ns3:Email>bvfnotasfiscaisveiculos@bvfinanceira.com.br</ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="10632451WYZGVKQQGYPSUBTO23YZHTPZ">
+                <ns3:Numero>19</ns3:Numero>
+                <ns3:CodigoVerificacao>YUE67ZZSC</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-19T11:35:15</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>928.50</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>27.86</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>914.57</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-19</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>928.50</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>13.93</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>27.86</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Referente à comissões e corretagens, apuração do mês 01/2015 - Creditar Banco: 756 (Sicoob), Agência: 3197, Conta Corrente: 4605-1-928,50 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07707650001192</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>RUA RIO BRANCO</ns3:Endereco>
+<ns3:Numero>55</ns3:Numero>
+<ns3:Bairro>BAURU</ns3:Bairro>
+<ns3:CodigoMunicipio>3506003</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>17020000</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email></ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1057212AUSBWTF9DXWBPP3O9CB9BE13A">
+                <ns3:Numero>18</ns3:Numero>
+                <ns3:CodigoVerificacao>44AT2F1DU</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-12T13:03:16</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>1040.91</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>31.23</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>1025.30</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-12</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>1040.91</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>15.61</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>31.23</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Comissões receb. por interm. de retorno, ref. à produção de janeiro de 2015-1.040,91 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>17192451000170</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>BANCO ITAUCARD S.A</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>ALAMEDA PEDRO CALIL</ns3:Endereco>
+<ns3:Numero>43</ns3:Numero>
+<ns3:Bairro>CENTRO</ns3:Bairro>
+<ns3:CodigoMunicipio>3539806</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>08557105</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>0000000000</ns3:Telefone>
+<ns3:Email>viamarconi@viamarconi.com.br</ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1057205JHEISAO7M2S4FILTIJMGQ5AEC">
+                <ns3:Numero>17</ns3:Numero>
+                <ns3:CodigoVerificacao>UK2JB7IQ9</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-12T12:44:09</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>2049.00</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>61.47</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>2018.26</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-12</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>2049.00</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>30.74</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>61.47</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.05</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000005</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de contratos quaisquer, referente ao mês de janeiro de 2015-2.049,00 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>07207996000150</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>BANCO BRADESCO FINANCIAMENTOS S/A</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>CIDADES DE DEUS</ns3:Endereco>
+<ns3:Numero>S/N</ns3:Numero>
+<ns3:Bairro>VILA YARA</ns3:Bairro>
+<ns3:CodigoMunicipio>3534401</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>06029901</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>1197973441</ns3:Telefone>
+<ns3:Email>notas@bradescofinanciamentos.com.br</ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1057196AGV2MKY56YTLOTK4ZQNZFEU2I">
+                <ns3:Numero>16</ns3:Numero>
+                <ns3:CodigoVerificacao>ABFPIK5OV</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-12T12:33:13</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>7450.79</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>223.52</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>7339.03</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-12</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>7450.79</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>111.76</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>223.52</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral e contratos quaisquer, comissão referente à produção do mês de janeiro de 2015-7.450,79 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>59285411000113</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>BANCO PAN S/A</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>AVENIDA PAULISTA  11 ANDAR</ns3:Endereco>
+<ns3:Numero>1374</ns3:Numero>
+<ns3:Bairro>BELA VISTA</ns3:Bairro>
+<ns3:CodigoMunicipio>3550308</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>01310300</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>14996960071</ns3:Telefone>
+<ns3:Email>luiz.peres@correspondentepan.com.br</ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+    <CompNfse>
+        <ns3:Nfse versao="2.01">
+            <ns3:InfNfse Id="1055685980AIQGDKJVEPTCA4BX67R4LS">
+                <ns3:Numero>15</ns3:Numero>
+                <ns3:CodigoVerificacao>2U41PCP0C</ns3:CodigoVerificacao>
+                <ns3:DataEmissao>2015-02-10T17:27:26</ns3:DataEmissao>
+                <ns3:ValoresNfse>
+                    <ns3:BaseCalculo>2190.60</ns3:BaseCalculo>
+                    <ns3:Aliquota>3.00</ns3:Aliquota>
+                    <ns3:ValorIss>65.72</ns3:ValorIss>
+                    <ns3:ValorLiquidoNfse>2157.74</ns3:ValorLiquidoNfse>
+                </ns3:ValoresNfse>
+                <ns3:PrestadorServico>
+                    <ns3:IdentificacaoPrestador>
+                        <ns3:CpfCnpj>
+                            <ns3:Cnpj>08912676000163</ns3:Cnpj>
+                        </ns3:CpfCnpj>
+                        <ns3:InscricaoMunicipal>19719</ns3:InscricaoMunicipal>
+                    </ns3:IdentificacaoPrestador>
+                    <ns3:RazaoSocial>FERNANDO J. CONSANI VEICULOS</ns3:RazaoSocial>
+                    <ns3:NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</ns3:NomeFantasia>
+                    <ns3:Endereco>
+                        <ns3:Endereco>PREFEITO PAULO DE ARAUJO NOVAES</ns3:Endereco>
+                        <ns3:Numero>266</ns3:Numero>
+                        <ns3:Complemento>*****</ns3:Complemento>
+                        <ns3:Bairro>CENTRO</ns3:Bairro>
+                        <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                        <ns3:Uf>SP</ns3:Uf>
+                        <ns3:CodigoPais>1058</ns3:CodigoPais>
+                        <ns3:Cep>18705000</ns3:Cep>
+                    </ns3:Endereco>
+                    <ns3:Contato>
+                        <ns3:Telefone>0037335136</ns3:Telefone>
+                        <ns3:Email></ns3:Email>
+                    </ns3:Contato>
+                </ns3:PrestadorServico>
+                <ns3:OrgaoGerador>
+                    <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                    <ns3:Uf>SP</ns3:Uf>
+                </ns3:OrgaoGerador>
+                <ns3:DeclaracaoPrestacaoServico>
+                    <ns3:InfDeclaracaoPrestacaoServico>
+                        <ns3:Competencia>2015-02-10</ns3:Competencia>
+                        <ns3:Servico>
+                            <ns3:Valores>
+<ns3:ValorServicos>2190.60</ns3:ValorServicos>
+<ns3:ValorDeducoes>0.00</ns3:ValorDeducoes>
+<ns3:ValorPis>0.00</ns3:ValorPis>
+<ns3:ValorCofins>0.00</ns3:ValorCofins>
+<ns3:ValorInss>0.00</ns3:ValorInss>
+<ns3:ValorIr>32.86</ns3:ValorIr>
+<ns3:ValorCsll>0.00</ns3:ValorCsll>
+<ns3:OutrasRetencoes>0.00</ns3:OutrasRetencoes>
+<ns3:ValorIss>65.72</ns3:ValorIss>
+<ns3:Aliquota>3.00</ns3:Aliquota>
+<ns3:DescontoIncondicionado>0.00</ns3:DescontoIncondicionado>
+<ns3:DescontoCondicionado>0.00</ns3:DescontoCondicionado>
+                            </ns3:Valores>
+                            <ns3:IssRetido>2</ns3:IssRetido>
+                            <ns3:ResponsavelRetencao>1</ns3:ResponsavelRetencao>
+                            <ns3:ItemListaServico>10.02</ns3:ItemListaServico>
+                            <ns3:CodigoTributacaoMunicipio>0000100000002</ns3:CodigoTributacaoMunicipio>
+                            <ns3:Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer, referente à produção do mês de janeiro de 2015 - Pagamento à vista-2.190,60 </ns3:Discriminacao>
+                            <ns3:CodigoMunicipio>3504503</ns3:CodigoMunicipio>
+                            <ns3:ExigibilidadeISS>1</ns3:ExigibilidadeISS>
+                            <ns3:MunicipioIncidencia>3504503</ns3:MunicipioIncidencia>
+                        </ns3:Servico>
+                        <ns3:Prestador>
+                            <ns3:CpfCnpj>
+<ns3:Cnpj>08912676000163</ns3:Cnpj>
+                            </ns3:CpfCnpj>
+                            <ns3:InscricaoMunicipal>000019719</ns3:InscricaoMunicipal>
+                        </ns3:Prestador>
+                        <ns3:Tomador>
+                            <ns3:IdentificacaoTomador>
+<ns3:CpfCnpj>
+    <ns3:Cnpj>59285411000113</ns3:Cnpj>
+</ns3:CpfCnpj>
+<ns3:InscricaoMunicipal></ns3:InscricaoMunicipal>
+                            </ns3:IdentificacaoTomador>
+                            <ns3:RazaoSocial>BANCO PAN S/A</ns3:RazaoSocial>
+                            <ns3:Endereco>
+<ns3:Endereco>AVENIDA PAULISTA  8.ANDAR</ns3:Endereco>
+<ns3:Numero>1374</ns3:Numero>
+<ns3:Bairro>BELA VISTA</ns3:Bairro>
+<ns3:CodigoMunicipio>3550308</ns3:CodigoMunicipio>
+<ns3:Uf>SP</ns3:Uf>
+<ns3:Cep>01310300</ns3:Cep>
+                            </ns3:Endereco>
+                            <ns3:Contato>
+<ns3:Telefone>1497022255</ns3:Telefone>
+<ns3:Email>lessahsbc@uol.com.br</ns3:Email>
+                            </ns3:Contato>
+                        </ns3:Tomador>
+                        <ns3:RegimeEspecialTributacao>0</ns3:RegimeEspecialTributacao>
+                        <ns3:OptanteSimplesNacional>2</ns3:OptanteSimplesNacional>
+                        <ns3:IncentivoFiscal>2</ns3:IncentivoFiscal>
+                    </ns3:InfDeclaracaoPrestacaoServico>
+                </ns3:DeclaracaoPrestacaoServico>
+            </ns3:InfNfse>
+        </ns3:Nfse>
+    </CompNfse>
+</LoteNotaFiscal>

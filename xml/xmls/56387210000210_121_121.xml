@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>121</Numero>
+      <CodigoVerificacao>BTKRHEALND</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-17</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>4.800,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>24,20</ValorIss>
+        <BaseCalculo>1.209,90</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK 20,0 B I+O  Slump 100+-20Volume  24,0 M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:171/173/174-DE 15/09/2012&#13;
+Obra:RUA DURVALINO PEREIRA IGNACIO 110-SANTA CRUZ-IPERO&#13;
+&#13;
+Vencimento:19/09/2012Valor Liquido: 4 800,00&#13;
+&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0025057529587</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>ELIAS SANTOS GOMES</RazaoSocial>
+      <Endereco>
+        <Rua>RUA BERNARDO CORREIA LEITAO 616-SANTO AMARO</Rua>
+        <Numero></Numero>
+        <Bairro>PQ REGINA</Bairro>
+        <Cidade>SAO PAULO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>05 773-020</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

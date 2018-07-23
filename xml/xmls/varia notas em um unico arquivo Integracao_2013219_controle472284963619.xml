@@ -1,0 +1,1829 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Notas>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>26</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>09:22</EmissaoHora>
+    <CodigoValidacao>7D368 43968</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711360.
+VALOR TOTAL: R$ 2.954,85.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711360.
+VALOR TOTAL: R$ 2.954,85.
+
+RETENÇÕES:
+INSS 11%: R$ 325,03
+PIS/COFINS/CSLL 4,65%: R$ 274,80.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>5909,7</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>5909,7</BaseCalculo>
+    <ValorISS>177,29</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>25</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>09:18</EmissaoHora>
+    <CodigoValidacao>D1E90 C5A6F</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711363.
+VALOR TOTAL: R$ 7.564,40
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711363.
+VALOR TOTAL: R$ 7.564,40
+
+RETENÇÕES:
+INSS 11%: R$ 832,08
+PIS/COFINS/CSLL 4,65%: R$ 703,49
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>15128,8</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>15128,8</BaseCalculo>
+    <ValorISS>453,86</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>24</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>09:15</EmissaoHora>
+    <CodigoValidacao>2DB3D B13F1</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711364.
+VALOR TOTAL: R$ 709,16.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711364.
+VALOR TOTAL: R$ 709,16.
+
+RETENÇÕES:
+INSS 11%: R$ 78,01.
+PIS/COFINS/CSLL 4,65%: R$ 65,95.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>1418,32</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>1418,32</BaseCalculo>
+    <ValorISS>42,54</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>23</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>09:09</EmissaoHora>
+    <CodigoValidacao>66EB0 032E1</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711368.
+VALOR TOTAL: R$ 4.538,64.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711368.
+VALOR TOTAL: R$ 4.538,64
+
+RETENÇÕES:
+INSS 11%: R$ 499,25.
+PIS/COFINS/CSLL 4,65%: R$ 422,09.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>9077,28</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>9077,28</BaseCalculo>
+    <ValorISS>272,31</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>22</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>08:54</EmissaoHora>
+    <CodigoValidacao>261A0 175C3</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711367.
+VALOR TOTAL: R$ 33.283,36.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711367.
+VALOR TOTAL: R$ 33.283,36.
+
+RETENÇÕES:
+INSS 11%: R$ 3.661,17.
+PIS/COFINS/CSLL 4,65%: R$ 3.095,35.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>66566,72</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>66566,72</BaseCalculo>
+    <ValorISS>1997</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>21</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>08:42</EmissaoHora>
+    <CodigoValidacao>BCE50 315D5</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711365.
+VALOR TOTAL: R$ 23.827,86.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711365.
+VALOR TOTAL: R$ 23.827,86.
+
+RETENÇÕES:
+INSS 11%: R$ 2.621,06.
+PIS/COFINS/CSLL 4,65%: R$ 2.215,99.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>47655,72</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>47655,72</BaseCalculo>
+    <ValorISS>1429,67</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>20</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>08:28</EmissaoHora>
+    <CodigoValidacao>038BC 37C23</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711362.
+VALOR TOTAL: R$ 28.366,50
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711362.
+VALOR TOTAL: 28.366,50
+
+RETENÇÕES:
+INSS 11%: R$ 3.120,32
+PIS/COFINS/CSLL 4,65%: R$ 2.638,08
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>56733</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>56733</BaseCalculo>
+    <ValorISS>1701,99</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>19</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>08:24</EmissaoHora>
+    <CodigoValidacao>01656 192C1</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711361.
+VALOR TOTAL: R$ 16.641,68.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711361.
+VALOR TOTAL: 16.641,68.
+
+RETENÇÕES:
+INSS 11%: R$ 1.830,58.
+PIS/COFINS/CSLL 4,65%: R$ 1547,68.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.</Descricao>
+    <ValorTotal>33283,36</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>33283,36</BaseCalculo>
+    <ValorISS>998,5</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>18</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>08:20</EmissaoHora>
+    <CodigoValidacao>66D53 C4994</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711355
+VALOR TOTAL: R$ 20.234,77
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711355.
+VALOR TOTAL: R$ 20.234,77
+
+RETENÇÕES:
+INSS 11%: R$ 2.225,82
+PIS/COFINS/CSLL 4,65%: R$ 1.881,83
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.</Descricao>
+    <ValorTotal>40469,54</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>40469,54</BaseCalculo>
+    <ValorISS>1214,08</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13780</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.01</Codigo>
+        <Descricao>3.01 (3486) - LOCACAO DE VEICULOS, MAQUINAS E EQUIPAMENTOS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>17</Numero>
+    <EmissaoData>15/02/2013</EmissaoData>
+    <EmissaoHora>13:27</EmissaoHora>
+    <CodigoValidacao>3F0FA 535CF</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>14840880000119</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>J SANTOS DA SILVA CONSTRUTORA E URBANISMO EPP</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>R GUAIRA</Logradouro>
+        <Numero>175</Numero>
+        <Complemento />
+        <Bairro>CITY RIBEIRAO</Bairro>
+        <Municipio>RIBEIRAO PRETO</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>lrodrigues@gruporm.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>LOCAÇÃO DE EQUIPAMENTO CONFORME PROPOSTA 033/2013.
+</Descricao>
+    <ValorTotal>5152</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>5152</BaseCalculo>
+    <ValorISS>0</ValorISS>
+    <Aliquota>0</Aliquota>
+    <AliquotaRecalculada>0</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>16</Numero>
+    <EmissaoData>14/02/2013</EmissaoData>
+    <EmissaoHora>16:51</EmissaoHora>
+    <CodigoValidacao>60D09 75C88</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>09313678000107</Inscricao>
+      <InscricaoMunicipal>15018</InscricaoMunicipal>
+      <Nome>GERALDO MACARIO ME</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RUA DUILIO CAPOANI</Logradouro>
+        <Numero>70</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>fiscal.3@visualcontabil.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇO DE JATEAMENTO.
+
+VENCIMENTO PARA 01/03/2013.
+
+RETENÇÕES:
+INSS 11% R$ 143,00.</Descricao>
+    <ValorTotal>1300</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>1300</BaseCalculo>
+    <ValorISS>39</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>15</Numero>
+    <EmissaoData>13/02/2013</EmissaoData>
+    <EmissaoHora>15:39</EmissaoHora>
+    <CodigoValidacao>6AEEF 9D51E</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>46201083000188</Inscricao>
+      <InscricaoMunicipal>729</InscricaoMunicipal>
+      <Nome>LWART LUBRIFICANTES LTDA.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA JULIANO LORENZETTI - LEP-060</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>AC R M RONDON KM304</Complemento>
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>contabil@lwart.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE LIMPEZA NA LINHA DO EJETOR
+
+PEDIDO DE COMPRAS: 
+
+VENCIMENTO: 20/02/2013
+
+RETENÇÕES:
+
+INSS 11% R$ 304,93
+PIS/COFINS/CSLL 4,65% R$ 128,90</Descricao>
+    <ValorTotal>2772,1</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>2772,1</BaseCalculo>
+    <ValorISS>83,16</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13780</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.01</Codigo>
+        <Descricao>3.01 (3486) - LOCACAO DE VEICULOS, MAQUINAS E EQUIPAMENTOS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>14</Numero>
+    <EmissaoData>13/02/2013</EmissaoData>
+    <EmissaoHora>14:46</EmissaoHora>
+    <CodigoValidacao>BA67A 09BBA</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51425130000298</Inscricao>
+      <InscricaoMunicipal>468</InscricaoMunicipal>
+      <Nome>LUTEPEL INDUSTRIA E COMERCIO DE PAPEL LTDA.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RUA ANA NERI</Logradouro>
+        <Numero>365</Numero>
+        <Complemento />
+        <Bairro>PARQUE RES. S. JOSE</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>rosangela.freire@lutepel.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>LOCAÇÃO DE EQUIPAMENTO CONF. PLAN. 165/2013
+
+CONDIÇÕES DE PAGAMENTO: 25/02/2013</Descricao>
+    <ValorTotal>330</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>330</BaseCalculo>
+    <ValorISS>0</ValorISS>
+    <Aliquota>0</Aliquota>
+    <AliquotaRecalculada>0</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13780</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.01</Codigo>
+        <Descricao>3.01 (3486) - LOCACAO DE VEICULOS, MAQUINAS E EQUIPAMENTOS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>13</Numero>
+    <EmissaoData>13/02/2013</EmissaoData>
+    <EmissaoHora>14:20</EmissaoHora>
+    <CodigoValidacao>05560 1E076</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>07960469000111</Inscricao>
+      <InscricaoMunicipal>14941</InscricaoMunicipal>
+      <Nome>LUIZ PEREIRA DE BARROS E OUTRO</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>FAZENDA BOA VISTA</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>ALFREDO GUEDES</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>my_sm43@hotmail.com</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>LOCAÇÃO DE EQUIPAMENTO CONF. PLAN. 164/2013
+
+</Descricao>
+    <ValorTotal>660</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>660</BaseCalculo>
+    <ValorISS>0</ValorISS>
+    <Aliquota>0</Aliquota>
+    <AliquotaRecalculada>0</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>12</Numero>
+    <EmissaoData>08/02/2013</EmissaoData>
+    <EmissaoHora>15:43</EmissaoHora>
+    <CodigoValidacao>5B653 F7484</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>16404287015691</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SUZANO PAPEL E CELULOSE S.A.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DO LAGEADO</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento>SALA SBS</Complemento>
+        <Bairro>LAGEADO</Bairro>
+        <Municipio>LIMEIRA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>financeiro@gruporm.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO MECÂNICA DURANTE A PP DA CALDEIRA DE BIOMASSA
+
+PEDIDO DE COMPRAS 638.899 DE 16/01/13
+
+VENCIMENTO: 20/02/2013
+
+RETENÇÕES
+INSS 11% 22.660,00
+PIS/COFINS/CSLL 4,65%  9.579,00
+
+EFETUAR PAGTO VIA DEPÓSITO BANCÁRIO
+BANCO: ITAU 341
+AGENCIA: 0612-2
+CONTA: 31819-6</Descricao>
+    <ValorTotal>206000</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>206000</BaseCalculo>
+    <ValorISS>6180</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>Serviço realizado fora do município</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>11</Numero>
+    <EmissaoData>08/02/2013</EmissaoData>
+    <EmissaoHora>15:26</EmissaoHora>
+    <CodigoValidacao>CB41E BF098</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>16404287015691</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SUZANO PAPEL E CELULOSE S.A.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DO LAGEADO</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento>SALA SBS</Complemento>
+        <Bairro>LAGEADO</Bairro>
+        <Municipio>LIMEIRA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>FINANCEIRO@GRUPORM.COM.BR</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO MECÂNICA DURANTE A PP DA CALDEIRA DE BIOMASSA
+
+PEDIDO DE COMPRAS 638.898 DE 16/01/13
+
+VENCIMENTO: 20/02/2013
+
+RETENÇÕES
+INSS 11% 11.550,00
+PIS/COFINS/CSLL 4,65%  4.882,50
+
+EFETUAR PAGTO VIA DEPÓSITO BANCÁRIO
+BANCO: ITAU 341
+AGENCIA: 0612-2
+CONTA: 31819-6</Descricao>
+    <ValorTotal>105000</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>105000</BaseCalculo>
+    <ValorISS>3150</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>Serviço realizado fora do município</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>10</Numero>
+    <EmissaoData>08/02/2013</EmissaoData>
+    <EmissaoHora>14:33</EmissaoHora>
+    <CodigoValidacao>AD42C FACB5</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>16404287015691</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SUZANO PAPEL E CELULOSE S.A.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DO LAGEADO</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento>SALA SBS</Complemento>
+        <Bairro>LAGEADO</Bairro>
+        <Municipio>LIMEIRA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>financeiro@gruporm.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO MECÂNICA DURANTE A PP DA CALDEIRA DE BIOMASSA
+
+PEDIDO DE COMPRAS 638.897 DE 16/01/13
+
+VENCIMENTO: 20/02/2013
+
+RETENÇÕES
+INSS 11% 
+PIS/COFINS/CSLL 4,65%  
+
+EFETUAR PAGTO VIA DEPÓSITO BANCÁRIO
+BANCO: ITAU 341
+AGENCIA: 0612-2
+CONTA: 31819-6</Descricao>
+    <ValorTotal>120000</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>120000</BaseCalculo>
+    <ValorISS>3600</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>Serviço realizado fora do município</Informacao>
+      <Informacao>Esta nota fiscal possui Carta de Correção Nº: 1</Informacao>
+    </Informacoes>
+    <CartasCorrecao>
+      <CartaCorrecao>
+        <Numero>1</Numero>
+        <EmissaoData>08/02/2013</EmissaoData>
+        <Descricao>INFORMAÇÕES DOS VALORES REF AS ALÍQUOTAS DOS TRIBUTOS MENCIONADOS ANTERIORMENTE.
+
+CORRETO:
+
+RETENÇÕES
+INSS 11% 13.200,00
+PIS/COFINS/CSLL 4,65% 5.580,00
+</Descricao>
+      </CartaCorrecao>
+    </CartasCorrecao>
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13780</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.01</Codigo>
+        <Descricao>3.01 (3486) - LOCACAO DE VEICULOS, MAQUINAS E EQUIPAMENTOS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>9</Numero>
+    <EmissaoData>07/02/2013</EmissaoData>
+    <EmissaoHora>14:58</EmissaoHora>
+    <CodigoValidacao>DBE5B 8BA3C</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>01146036000140</Inscricao>
+      <InscricaoMunicipal>7577</InscricaoMunicipal>
+      <Nome>ESTRUTURAS METALICAS PORTONI LTDA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RUA HUMBERTO ALVES TOCCI</Logradouro>
+        <Numero>942</Numero>
+        <Complemento />
+        <Bairro>JD. UBIRAMA</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>abertura@eclencois.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>LOCAÇÃO DE EQUIPAMENTO CONFORME PLANILHA 167/13.
+
+PAGAMENTO PARA 17/02/2013.</Descricao>
+    <ValorTotal>440</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>440</BaseCalculo>
+    <ValorISS>0</ValorISS>
+    <Aliquota>0</Aliquota>
+    <AliquotaRecalculada>0</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13780</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.01</Codigo>
+        <Descricao>3.01 (3486) - LOCACAO DE VEICULOS, MAQUINAS E EQUIPAMENTOS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>8</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>14:08</EmissaoHora>
+    <CodigoValidacao>E939C F6497</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>61460325000494</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SOLVAY INDUPA DO BRASIL S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DE FERRO SANTOS JUNDIAI, KM 38</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento />
+        <Bairro>VL ELCLOR</Bairro>
+        <Municipio>STO. ANDRE</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>financeiro@gruporm.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>LOCAÇÃO DE EQUIPAMENTO CONFORME PLAN 164/13.
+
+VENCIMENTO PARA 04/03/2013.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>300</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>300</BaseCalculo>
+    <ValorISS>0</ValorISS>
+    <Aliquota>0</Aliquota>
+    <AliquotaRecalculada>0</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>7</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>13:31</EmissaoHora>
+    <CodigoValidacao>55D35 E2D75</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>02884945000149</Inscricao>
+      <InscricaoMunicipal>7160</InscricaoMunicipal>
+      <Nome>LWART QUIMICA LTDA.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA JULIANO LORENZETTI - LEP-060</Logradouro>
+        <Numero>0</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>contabil@lwart.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>MÃO DE OBRA DE CALDEIRARIA PARA MANUTENÇÃO DE MAQUINAS E/OU EQUIPAMENTOS CONFORME PEDIDO 4799111 XS.
+
+VENCIMENTO PARA 20/02/2013.
+
+RETENÇÕES:
+INSS 11% R$ 563,20.
+PIS/COFINS/CSLL 4,65% R$ 238,08.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>9024</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>9024</BaseCalculo>
+    <ValorISS>270,72</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+      <Informacao>Esta nota fiscal possui Carta de Correção Nº: 1</Informacao>
+    </Informacoes>
+    <CartasCorrecao>
+      <CartaCorrecao>
+        <Numero>1</Numero>
+        <EmissaoData>08/02/2013</EmissaoData>
+        <Descricao>DESCONSIDERAR AS RETENÇÕES DOS TRIBUTOS DE INSS, PIS, COFINS E CSLL INFORMADAS ANTERIORMENTE.
+
+CORRETO:
+
+INSS 11% R$ 992,64
+PIS/COFINS/CSLL 4,65% R$ 419,62
+
+</Descricao>
+      </CartaCorrecao>
+    </CartasCorrecao>
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>6</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>13:27</EmissaoHora>
+    <CodigoValidacao>16969 CB6FF</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>02884945000149</Inscricao>
+      <InscricaoMunicipal>7160</InscricaoMunicipal>
+      <Nome>LWART QUIMICA LTDA.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA JULIANO LORENZETTI - LEP-060</Logradouro>
+        <Numero>0</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>contabil@lwart.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>MÃO DE OBRA DE CALDEIRARIA PARA MANUTENÇÃO DE MAQUINAS E/OU EQUIPAMENTOS CONFORME PEDIDO 4768492 XC
+
+VENCIMENTO PARA 20/02/2013.
+
+RETENÇÕES:
+INSS 11% R$ 563,20.
+PIS/COFINS/CSLL 4,65% R$ 238,08.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>5120</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>5120</BaseCalculo>
+    <ValorISS>153,6</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>4</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>12:37</EmissaoHora>
+    <CodigoValidacao>8E79A 8D495</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>61460325000494</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SOLVAY INDUPA DO BRASIL S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DE FERRO SANTOS JUNDIAI, KM 38</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento />
+        <Bairro>VL ELCLOR</Bairro>
+        <Municipio>STO. ANDRE</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>financeiro@gruporm.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO EM EQUIPAMENTOS CONFORME PLAN 2154/13.
+
+VENCIMENTO PARA 04/03/2013.
+
+RETENÇÕES:
+INSS 11% R$ 86,13.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>783</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>783</BaseCalculo>
+    <ValorISS>23,49</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>3</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>12:31</EmissaoHora>
+    <CodigoValidacao>EDB83 6107C</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>61460325000494</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>SOLVAY INDUPA DO BRASIL S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST DE FERRO SANTOS JUNDIAI, KM 38</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento />
+        <Bairro>VL ELCLOR</Bairro>
+        <Municipio>STO. ANDRE</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>FINANCEIRO@GRUPORM.COM.BR</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇOS DE MANUTENÇÃO EM EQUIPAMENTOS CONFORME PLAN 2152/13.
+
+VENCIMENTO PARA 04/03/2013.
+
+RETENÇÕES:
+INSS 11% R$ 25,52.
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>232</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>232</BaseCalculo>
+    <ValorISS>6,96</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>7490</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.06</Codigo>
+        <Descricao>14.06 (3362) - MONTAGENS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>2</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>09:02</EmissaoHora>
+    <CodigoValidacao>0F19F 43D48</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>10535766000124</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>BRASIL CARBONOS S.A.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST MUNICIPAL CMS 470</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento>SITIO SAO JOSE</Complemento>
+        <Bairro>ITAPAVUSSU</Bairro>
+        <Municipio>COSMOPOLIS</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email />
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇO DE MONTAGEM MECÂNICA DA PLANTA DE MANUSEIO DE COQUE - MOBILIZAÇÃO DO CANTEIRO DE OBRAS
+
+PEDIDO DE COMPRA Nº 4500039988
+
+CEI Nº 51.211.76824/78
+
+VENCIMENTO PARA 20/02/2013
+
+RETENÇÕES
+INSS 11% R$ 23.595,00
+PIS/COFINS/CSLL 4,65% R$ 9.974,25
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>214500</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>214500</BaseCalculo>
+    <ValorISS>6435</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>Serviço realizado fora do município</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+</Notas>

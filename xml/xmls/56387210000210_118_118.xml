@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>118</Numero>
+      <CodigoVerificacao>VJFPKROSND</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-17</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>2.152,50</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>11,64</ValorIss>
+        <BaseCalculo>581,83</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK 20,0 B I  Slump 8+-2Volume10,50 M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:165,166 DE 13/09/2012&#13;
+Obra:RUA PEDRO LEITE MIRANDA -JD ORIANA-BOITUVA&#13;
+&#13;
+Vencimento:20092012 Valor Liquido: 2 152,50&#13;
+&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0010569550823</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>DANIEL TRABANCA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA CEL EUGENIO MOTTA 521 LOJA 23</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

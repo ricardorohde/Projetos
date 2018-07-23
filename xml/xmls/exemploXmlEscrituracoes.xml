@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GovDigital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="govdigital.xsd">
+	<escrituracao mes="03" ano="2011">
+		<nf>
+			<correlacao>12345</correlacao> 
+			<papel>prestador</papel>
+			<numero>1</numero>
+			<serie>A</serie>
+			<!-- nao obrigatorio -->
+			<tributacao>1</tributacao> 
+			<diaPrestacao>28</diaPrestacao>
+			<!-- nao obrigatorio -->
+			<contraparte>  
+				<!-- se contraparte informado, obrigatorio -->
+				<documento>12345678901</documento> 
+				<nome>Joao da Couves</nome>
+				<cep>35500000</cep>
+				<logradouro>AV. VINTE E UM DE ABRIL</logradouro>
+				<numero>700</numero>
+				<complemento>FUNDOS</complemento>
+				<bairro>CENTRO</bairro>
+				<estado>MG</estado>
+				<municipio>Divinópolis</municipio>
+				<pais>Brasil</pais>
+			</contraparte>
+			<itens>
+				<item>
+					<atividade>1.001</atividade> 
+					<descricao>descricao item 1 importado</descricao>
+					<!-- <aliquota>0.02</aliquota> nao obrigatorio -->
+					<!-- <baseCalculo></baseCalculo>   nao obrigatorio, se nao tiver baseCal, baseCal = valor da nota -->
+					<!-- choose (<valorUn> e <quantidade>) ou <valor>
+					 <valorUn></valorUn>
+					 <quantidade></quantidade>
+					 -->
+					 <!-- utilize ponto como separador decimal -->
+					<valor>5000.50</valor> 
+				</item>
+				<item>
+					<atividade>1.002</atividade>
+					<descricao>descricao item 2 importado eventual</descricao>
+					<valor>200.00</valor>
+					<!-- choose (<valorUn> e <quantidade>) ou <valor>
+					<valorUn>15</valorUn>
+					<quantidade>1000.00</quantidade>
+					 -->
+				</item>
+			</itens>
+			<!-- nao obrigatorio -->
+			<obs>obs escrituracao importada 1</obs> 
+			<!-- nao obrigatorio 
+				<cancelado>true</cancelado>
+				<motivoCancelamento></motivoCancelamento>
+			 -->
+			<!--  resultado do processo -->
+			<!-- valor retornado com o codigo do documento caso tenha sido processado com sucesso -->
+			<senha></senha> 
+			<!-- erros encontrados nessa nf, significa que nao foi importado -->
+			<erros></erros> 
+		</nf>
+		<!-- mais <nf> -->
+	</escrituracao>
+</GovDigital>

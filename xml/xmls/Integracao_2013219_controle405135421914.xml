@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Notas>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>7490</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.06</Codigo>
+        <Descricao>14.06 (3362) - MONTAGENS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>2</Numero>
+    <EmissaoData>05/02/2013</EmissaoData>
+    <EmissaoHora>09:02</EmissaoHora>
+    <CodigoValidacao>0F19F 43D48</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>10535766000124</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>BRASIL CARBONOS S.A.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>EST MUNICIPAL CMS 470</Logradouro>
+        <Numero>S/N</Numero>
+        <Complemento>SITIO SAO JOSE</Complemento>
+        <Bairro>ITAPAVUSSU</Bairro>
+        <Municipio>COSMOPOLIS</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email />
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>SERVIÇO DE MONTAGEM MECÂNICA DA PLANTA DE MANUSEIO DE COQUE - MOBILIZAÇÃO DO CANTEIRO DE OBRAS
+
+PEDIDO DE COMPRA Nº 4500039988
+
+CEI Nº 51.211.76824/78
+
+VENCIMENTO PARA 20/02/2013
+
+RETENÇÕES
+INSS 11% R$ 23.595,00
+PIS/COFINS/CSLL 4,65% R$ 9.974,25
+
+DADOS BANCÁRIOS PARA DEPÓSITO
+BANCO ITAU 341
+AGENCIA 0612-2
+CONTA CORRENTE 31819-6</Descricao>
+    <ValorTotal>214500</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>214500</BaseCalculo>
+    <ValorISS>6435</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>0</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>Serviço realizado fora do município</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+</Notas>

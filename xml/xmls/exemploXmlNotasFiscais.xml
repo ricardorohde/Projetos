@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GovDigital xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			xsi:noNamespaceSchemaLocation="govdigital.xsd">
+	<emissao>
+		<nf-e>
+			<!-- nro para uso do cliente. nao pode ser duplicado -->
+			<correlacao>10001</correlacao> 
+			<!-- YYYY-MM-DD sempre do menor para o maior, a proxima data tem que ser igual ou maior que 31/03/2011 -->
+			<prestacao>2011-03-31</prestacao> 
+<!-- 
+Códigos permitidos no campo exigibilidade.
+Essa informação será validada segundo configuração por contribuinte
+1 - Exigivel
+2 - Não Incidencia
+3 - Isenção
+4 - Exportação
+5 - Imunidade
+6 - Exigibilidade Suspensa por Decisão Judicial
+7 - Exigibilidade Suspensa por Processo Administrativo
+ -->
+			<exigibilidade>1</exigibilidade>
+			<!-- 1 para imposto retido, 2 para imposto não retido -->
+			<retido>2</retido>
+			<!-- códigos de atividades disponiveis em Solicitações -> Códigos para integração -->
+			<!-- 
+			Verificar relação de códigos de município segundo a tabela de referencia do IBGE
+			 http://www.govdigital.com.br/codigosMunicipio.action
+			 -->
+			<municipioIncidencia>1</municipioIncidencia>
+			<atividade>1.001</atividade>
+			<tomador>
+				<!-- cpf/cnpj válido e obrigatório -->
+				<documento>12345678909</documento> 
+				<nome>Jose das Couves</nome>
+				<cep>38000001</cep>
+				<logradouro>AV NAO EXISTE</logradouro>
+				<numero>1</numero>
+				<complemento>203</complemento>
+				<bairro>B. SEM NOME</bairro>
+				<estado>MG</estado>
+				<municipio>UBERLANDIA</municipio>
+				<pais>BRASIL</pais>
+				<telefone>(34) 4321-1234</telefone>
+				<email>fulano@foobar.com.br</email>
+			</tomador>
+			<itens>
+				<item>
+					<descricao>EXAME / COOPARTICIPACAO (0250)</descricao>
+					<!-- utilize ponto como separador decimal -->
+					<valor>21.07</valor> 
+				</item>
+			</itens>
+			
+			<obs></obs>
+			<deducoes>
+				<!-- 
+				Relação cos códigos de deduções válidos
+		INSS
+		PIS
+		COFINS
+		IRRF
+		CSLL
+		DESCONTO CONDICIONAL
+		DESCONTO INCONDICIONAL
+		DEDUCOES
+		OUTRAS RETENCOES		
+		-->
+				<deducao codigo="COFINS" >5.50</deducao>
+				<deducao codigo="PIS" >3.25</deducao>
+				<deducao codigo="OUTRAS DEDUCOES" >3.25</deducao>
+			</deducoes>
+		</nf-e>
+		<nf-e>
+			<correlacao>10002</correlacao>
+			<prestacao>2011-04-01</prestacao>
+			<exigibilidade>1</exigibilidade>
+			<!-- 1 para retido, 2 para não retido -->
+			<retido>2</retido>
+			<municipioIncidencia>1</municipioIncidencia>
+			<atividade>1.001</atividade>
+			<tomador>
+				<documento>78945612301</documento>
+				<nome>Maria das Couves</nome>
+				<cep>38400158</cep>
+				<logradouro>AV 01 DE ABRIL</logradouro>
+				<numero>123</numero>
+				<complemento>456</complemento>
+				<bairro>B. QUALQUER</bairro>
+				<estado>MG</estado>
+				<municipio>UBERLANDIA</municipio>
+				<pais>BRASIL</pais>
+			</tomador>
+			<itens>
+				<item>
+					<descricao>EXAME / COOPARTICIPACAO (0250)</descricao>
+					<valor>21.07</valor>
+				</item>
+			</itens>
+			<obs></obs>
+			<!-- erros encontrados ao importar a nota -->
+			<erros></erros> 
+		</nf-e>
+		<!-- mais <nf-e> -->
+	</emissao>
+</GovDigital>

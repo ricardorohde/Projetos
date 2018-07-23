@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>122</Numero>
+      <CodigoVerificacao>HEOSALKRFP</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-17</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>780,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>4,03</ValorIss>
+        <BaseCalculo>201,63</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK 18,0 B O+I  Slump   8+-2  Volume   4,0      M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:176 DE 17/09/12&#13;
+Obra:RUA PRIMAVERA 59-PINHAL-BOITUVA&#13;
+&#13;
+Vencimento: 17/09/12Valor Liquido: 780,00-PAGO CARTAO&#13;
+&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________8</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0070205876820</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>VILSON MOREIRA CUNHA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA PRIMAVERA 59</Rua>
+        <Numero></Numero>
+        <Bairro>PINHAIS</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

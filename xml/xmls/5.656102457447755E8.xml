@@ -1,0 +1,249 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ns2:NFSE xmlns:ns2="http://www.ginfes.com.br/tipos_v03.xsd" xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:ns3="http://www.ginfes.com.br/NFSE.xsd">
+    <ns3:CompNfse>
+        <ns2:Nfse>
+            <ns2:InfNfse>
+                <ns2:Numero>155</ns2:Numero>
+                <ns2:CodigoVerificacao>376332225</ns2:CodigoVerificacao>
+                <ns2:DataEmissao>2014-07-02T10:48:34</ns2:DataEmissao>
+                <ns2:NaturezaOperacao>2</ns2:NaturezaOperacao>
+                <ns2:RegimeEspecialTributacao>0</ns2:RegimeEspecialTributacao>
+                <ns2:OptanteSimplesNacional>2</ns2:OptanteSimplesNacional>
+                <ns2:IncentivadorCultural>2</ns2:IncentivadorCultural>
+                <ns2:Competencia>2014-07-01</ns2:Competencia>
+                <ns2:Servico>
+                    <ns2:Valores>
+                        <ns2:ValorServicos>5500.00</ns2:ValorServicos>
+                        <ns2:ValorIr>82.50</ns2:ValorIr>
+                        <ns2:IssRetido>1</ns2:IssRetido>
+                        <ns2:ValorIss>275.00</ns2:ValorIss>
+                        <ns2:ValorIssRetido>275.00</ns2:ValorIssRetido>
+                        <ns2:BaseCalculo>5500.00</ns2:BaseCalculo>
+                        <ns2:Aliquota>5.00</ns2:Aliquota>
+                        <ns2:ValorLiquidoNfse>5142.50</ns2:ValorLiquidoNfse>
+                    </ns2:Valores>
+                    <ns2:ItemListaServico>719</ns2:ItemListaServico>
+                    <ns2:CodigoTributacaoMunicipio>711200002</ns2:CodigoTributacaoMunicipio>
+                    <ns2:Discriminacao>SERVIÇOS DE ARQUITETURA CONFORME C.CONVITE 01/2014 - CONTRATO 02/2014 DE 16/01/2014 - PARA ADMINISTRAÇÃO E FISCALIZAÇÃO DE
+OBRAS, RESPONSABILIDADE TÉCNICA E APROVAÇÃO DE PROJETOS, DESDOBROS E DEMAIS ASSUNTOS.</ns2:Discriminacao>
+                    <ns2:CodigoMunicipio>3534203</ns2:CodigoMunicipio>
+                </ns2:Servico>
+                <ns2:ValorCredito>0</ns2:ValorCredito>
+                <ns2:PrestadorServico>
+                    <ns2:IdentificacaoPrestador>
+                        <ns2:Cnpj>08573971000132</ns2:Cnpj>
+                        <ns2:InscricaoMunicipal>11444</ns2:InscricaoMunicipal>
+                    </ns2:IdentificacaoPrestador>
+                    <ns2:RazaoSocial>M2&amp;D ARQUITETURA LTDA</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>RUA  SIRIA</ns2:Endereco>
+                        <ns2:Numero>756</ns2:Numero>
+                        <ns2:Bairro>SANTA CASA</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                        <ns2:Cep>154000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>173281 3004</ns2:Telefone>
+                    </ns2:Contato>
+                </ns2:PrestadorServico>
+                <ns2:TomadorServico>
+                    <ns2:IdentificacaoTomador>
+                        <ns2:CpfCnpj>
+                            <ns2:Cnpj>45148970000177</ns2:Cnpj>
+                        </ns2:CpfCnpj>
+                        <ns2:InscricaoMunicipal/>
+                    </ns2:IdentificacaoTomador>
+                    <ns2:RazaoSocial>PREFEITURA MUNICIPAL DE ORINDIUVA</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>PRAÇA MARIA DIAS </ns2:Endereco>
+                        <ns2:Numero>614</ns2:Numero>
+                        <ns2:Complemento/>
+                        <ns2:Bairro>CENTRO</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3534203</ns2:CodigoMunicipio>
+                        <ns2:Cep>15480000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>1738169600</ns2:Telefone>
+                        <ns2:Email>natan@orindiuva.sp.gov.br</ns2:Email>
+                    </ns2:Contato>
+                </ns2:TomadorServico>
+                <ns2:OrgaoGerador>
+                    <ns2:CodigoMunicipio>34203</ns2:CodigoMunicipio>
+                    <ns2:Uf>35</ns2:Uf>
+                </ns2:OrgaoGerador>
+                <ns2:ConstrucaoCivil>
+                    <ns2:CodigoObra>12014</ns2:CodigoObra>
+                    <ns2:Art/>
+                </ns2:ConstrucaoCivil>
+            </ns2:InfNfse>
+        </ns2:Nfse>
+    <ns2:Nfse>
+            <ns2:InfNfse>
+                <ns2:Numero>156</ns2:Numero>
+                <ns2:CodigoVerificacao>148667899</ns2:CodigoVerificacao>
+                <ns2:DataEmissao>2014-07-03T10:34:11</ns2:DataEmissao>
+                <ns2:NaturezaOperacao>1</ns2:NaturezaOperacao>
+                <ns2:RegimeEspecialTributacao>0</ns2:RegimeEspecialTributacao>
+                <ns2:OptanteSimplesNacional>2</ns2:OptanteSimplesNacional>
+                <ns2:IncentivadorCultural>2</ns2:IncentivadorCultural>
+                <ns2:Competencia>2014-07-01</ns2:Competencia>
+                <ns2:Servico>
+                    <ns2:Valores>
+                        <ns2:ValorServicos>12000.00</ns2:ValorServicos>
+                        <ns2:ValorPis>78.00</ns2:ValorPis>
+                        <ns2:ValorCofins>360.00</ns2:ValorCofins>
+                        <ns2:ValorIr>180.00</ns2:ValorIr>
+                        <ns2:ValorCsll>120.00</ns2:ValorCsll>
+                        <ns2:IssRetido>2</ns2:IssRetido>
+                        <ns2:ValorIss>480.00</ns2:ValorIss>
+                        <ns2:ValorIssRetido>0</ns2:ValorIssRetido>
+                        <ns2:BaseCalculo>12000.00</ns2:BaseCalculo>
+                        <ns2:Aliquota>4.00</ns2:Aliquota>
+                        <ns2:ValorLiquidoNfse>11262.00</ns2:ValorLiquidoNfse>
+                    </ns2:Valores>
+                    <ns2:ItemListaServico>701</ns2:ItemListaServico>
+                    <ns2:CodigoTributacaoMunicipio>7.01/711110000</ns2:CodigoTributacaoMunicipio>
+                    <ns2:Discriminacao>SERVIÇOS DE ARQUITETURA -
+REF. DETALHAMENTO DE PROJETOS DO HOT BEACH PARK E HOT BEACH RESORT- CONF. ACORDO ACEITE DE 02 DE JANEIRO DE 2014 -
+PARCELA 06/15
+VENCIMENTO 08 DE JULHO 
+
+
+BRADESCO - 237
+AGÊNCIA - 0534
+CONTA: M2&amp;D ARQUITETURA LTDA 036776-1</ns2:Discriminacao>
+                    <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                </ns2:Servico>
+                <ns2:ValorCredito>0</ns2:ValorCredito>
+                <ns2:PrestadorServico>
+                    <ns2:IdentificacaoPrestador>
+                        <ns2:Cnpj>08573971000132</ns2:Cnpj>
+                        <ns2:InscricaoMunicipal>11444</ns2:InscricaoMunicipal>
+                    </ns2:IdentificacaoPrestador>
+                    <ns2:RazaoSocial>M2&amp;D ARQUITETURA LTDA</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>RUA  SIRIA</ns2:Endereco>
+                        <ns2:Numero>756</ns2:Numero>
+                        <ns2:Bairro>SANTA CASA</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                        <ns2:Cep>154000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>173281 3004</ns2:Telefone>
+                    </ns2:Contato>
+                </ns2:PrestadorServico>
+                <ns2:TomadorServico>
+                    <ns2:IdentificacaoTomador>
+                        <ns2:CpfCnpj>
+                            <ns2:Cnpj>04131308000127</ns2:Cnpj>
+                        </ns2:CpfCnpj>
+                        <ns2:InscricaoMunicipal>9588</ns2:InscricaoMunicipal>
+                    </ns2:IdentificacaoTomador>
+                    <ns2:RazaoSocial>PLANETUR PLANEJAMENTO E  DESENVOLVIMENTO URBANO LT</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>RUA  VERGILIO VELINI</ns2:Endereco>
+                        <ns2:Numero>65</ns2:Numero>
+                        <ns2:Complemento/>
+                        <ns2:Bairro>JD SANTA EFIGENIA I</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                        <ns2:Cep>15400000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>1732816363</ns2:Telefone>
+                        <ns2:Email>ferrasa@terra.com.br</ns2:Email>
+                    </ns2:Contato>
+                </ns2:TomadorServico>
+                <ns2:OrgaoGerador>
+                    <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                    <ns2:Uf>35</ns2:Uf>
+                </ns2:OrgaoGerador>
+            </ns2:InfNfse>
+        </ns2:Nfse><ns2:Nfse>
+            <ns2:InfNfse>
+                <ns2:Numero>157</ns2:Numero>
+                <ns2:CodigoVerificacao>857840274</ns2:CodigoVerificacao>
+                <ns2:DataEmissao>2014-07-18T16:07:12</ns2:DataEmissao>
+                <ns2:NaturezaOperacao>1</ns2:NaturezaOperacao>
+                <ns2:RegimeEspecialTributacao>0</ns2:RegimeEspecialTributacao>
+                <ns2:OptanteSimplesNacional>2</ns2:OptanteSimplesNacional>
+                <ns2:IncentivadorCultural>2</ns2:IncentivadorCultural>
+                <ns2:Competencia>2014-07-01</ns2:Competencia>
+                <ns2:Servico>
+                    <ns2:Valores>
+                        <ns2:ValorServicos>15000.00</ns2:ValorServicos>
+                        <ns2:ValorPis>97.50</ns2:ValorPis>
+                        <ns2:ValorCofins>450.00</ns2:ValorCofins>
+                        <ns2:ValorIr>225.00</ns2:ValorIr>
+                        <ns2:ValorCsll>150.00</ns2:ValorCsll>
+                        <ns2:IssRetido>2</ns2:IssRetido>
+                        <ns2:ValorIss>600.00</ns2:ValorIss>
+                        <ns2:ValorIssRetido>0</ns2:ValorIssRetido>
+                        <ns2:BaseCalculo>15000.00</ns2:BaseCalculo>
+                        <ns2:Aliquota>4.00</ns2:Aliquota>
+                        <ns2:ValorLiquidoNfse>14077.50</ns2:ValorLiquidoNfse>
+                    </ns2:Valores>
+                    <ns2:ItemListaServico>701</ns2:ItemListaServico>
+                    <ns2:CodigoTributacaoMunicipio>7.01/711110000</ns2:CodigoTributacaoMunicipio>
+                    <ns2:Discriminacao>SERVIÇOS DE ARQUITETURA E ENGENHARIA
+PROJETO DE ÁREA DE CONVIVÊNCIA DA UNIADE CRUZ ALTA
+
+PROJETO DE ARQUITETURA DE COBERTURA E BULEVAR
+PROJETO DE DESIGN DE OBJETOS: POSTES ILUMINAÇÃO, FLOREIRAS, BANCOS E MESAS
+URBANIZAÇÃO DE ÁREA
+VISITAS TÉCNICAS PARA EXECUÇÃO DA PARTE METÁLICA
+VISITAS TÉCNICAS EM OBRA
+
+CONFORME PROPOSTA DE 16 DE JUNHO DE 2014
+
+M2&amp;D ARQUITETURA
+BRADESCO
+AGENCIA 0534
+CONTA CORRENTE 36.776-1</ns2:Discriminacao>
+                    <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                </ns2:Servico>
+                <ns2:ValorCredito>0</ns2:ValorCredito>
+                <ns2:PrestadorServico>
+                    <ns2:IdentificacaoPrestador>
+                        <ns2:Cnpj>08573971000132</ns2:Cnpj>
+                        <ns2:InscricaoMunicipal>11444</ns2:InscricaoMunicipal>
+                    </ns2:IdentificacaoPrestador>
+                    <ns2:RazaoSocial>M2&amp;D ARQUITETURA LTDA</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>RUA  SIRIA</ns2:Endereco>
+                        <ns2:Numero>756</ns2:Numero>
+                        <ns2:Bairro>SANTA CASA</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                        <ns2:Cep>154000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>173281 3004</ns2:Telefone>
+                    </ns2:Contato>
+                </ns2:PrestadorServico>
+                <ns2:TomadorServico>
+                    <ns2:IdentificacaoTomador>
+                        <ns2:CpfCnpj>
+                            <ns2:Cnpj>47080619001199</ns2:Cnpj>
+                        </ns2:CpfCnpj>
+                        <ns2:InscricaoMunicipal/>
+                    </ns2:IdentificacaoTomador>
+                    <ns2:RazaoSocial>ACUCAR GUARANI SA</ns2:RazaoSocial>
+                    <ns2:Endereco>
+                        <ns2:Endereco>ROD ASSIS CHATEAUBRIAND </ns2:Endereco>
+                        <ns2:Numero>155</ns2:Numero>
+                        <ns2:Complemento/>
+                        <ns2:Bairro>CRUZ ALTA</ns2:Bairro>
+                        <ns2:CodigoMunicipio>3533908</ns2:CodigoMunicipio>
+                        <ns2:Cep>154000</ns2:Cep>
+                    </ns2:Endereco>
+                    <ns2:Contato>
+                        <ns2:Telefone>1732801000</ns2:Telefone>
+                        <ns2:Email>armello@aguarani.com.br</ns2:Email>
+                    </ns2:Contato>
+                </ns2:TomadorServico>
+                <ns2:OrgaoGerador>
+                    <ns2:CodigoMunicipio>33908</ns2:CodigoMunicipio>
+                    <ns2:Uf>35</ns2:Uf>
+                </ns2:OrgaoGerador>
+            </ns2:InfNfse>
+        </ns2:Nfse></ns3:CompNfse>
+</ns2:NFSE>

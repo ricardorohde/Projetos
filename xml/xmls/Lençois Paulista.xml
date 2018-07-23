@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Notas>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>66739772000158</CPF_CNPJ>
+      <RazaoSocial>CORCRIL SERVICOS DE PINTURA LTDA - EPP</RazaoSocial>
+      <NomeFantasia>CORCRIL SERVICOS DE PINTURA LTDA - EPP</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>16978</Inscricao>
+      <Endereco>
+        <Logradouro>RUA JULIO ANDREOLLI</Logradouro>
+        <Numero>200</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.05</Codigo>
+        <Descricao>3.05 (5010) - MONTAGEM E DESMONTAGEM DE ANDAIMES E OUTRAS ESTRUTURAS TEMPORARIAS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>102</Numero>
+    <EmissaoData>03/05/2013</EmissaoData>
+    <EmissaoHora>08:05</EmissaoHora>
+    <CodigoValidacao>923A1 9E011</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>13182763000142</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>VR METALURGICA DE ASSIS LTDA EPP</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>AV.ABILIO DUARTE DE SOUZA </Logradouro>
+        <Numero>887</Numero>
+        <Complemento>SALA 2</Complemento>
+        <Bairro />
+        <Municipio>ASSIS</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>angelica@vrmetalurgica.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>REF. LOCAÇÃO, MONTAGEM E DESMONTAGEM DE ANDIAMES NA UNIDADE RAIZEN DE TARUMÃ
+2.423,70 M³ A R$ 25,00 O M³ = R$ 60.592,50, SENDO 50% LOCAÇÃO R$ 30.296,25 E 50% MONTAGEM E DESMONTAGEM R$
+30.296,25
+.
+DATA VENCIMENTO 29/05/2013
+
+CONTA PARA DEPOSITO BANCO DO BRASIL AG. 6666-4 C/C 40581-7
+RETENÇÃO INSS 3,5%( LEI FEDERAL Nº 12.794) S/ A MONTAGEM : R$ 1.060,37</Descricao>
+    <ValorTotal>60592,5</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>60592,5</BaseCalculo>
+    <ValorISS>2120,73</ValorISS>
+    <Aliquota>3,5</Aliquota>
+    <AliquotaRecalculada />
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>2</RecolhimentoForma>
+    <ValorPIS>0,00</ValorPIS>
+    <ValorCOFINS>0,00</ValorCOFINS>
+    <RetencaoIRRF>0,00</RetencaoIRRF>
+    <RetencaoINSS>1060,37</RetencaoINSS>
+    <RetencaoPIS>0,00</RetencaoPIS>
+    <RetencaoCOFINS>0,00</RetencaoCOFINS>
+    <RetencaoCSLL>0,00</RetencaoCSLL>
+    <EnviadoEmail>1</EnviadoEmail>
+    <TributacaoISS>0</TributacaoISS>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>A autenticidade desta NFS-e pode ser verificada no site https://apl2.lencoispaulista.sp.gov.br/nfs.</Informacao>
+      <Informacao>Os valores de retenção foram declarados pelo Prestador de Serviço.</Informacao>
+      <Informacao>O ISS desta NFS-e é devido FORA do Município.</Informacao>
+      <Informacao>Serviço realizado fora do município.</Informacao>
+      <Informacao>Uma via desta NFS-e foi enviada para o Tomador de Serviços por e-mail.</Informacao>
+      <Informacao>Alíquota informada pelo Prestador de Serviços.</Informacao>
+      <Informacao>ISS retido pelo TOMADOR conforme indicado pelo Prestador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>66739772000158</CPF_CNPJ>
+      <RazaoSocial>CORCRIL SERVICOS DE PINTURA LTDA - EPP</RazaoSocial>
+      <NomeFantasia>CORCRIL SERVICOS DE PINTURA LTDA - EPP</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>16978</Inscricao>
+      <Endereco>
+        <Logradouro>RUA JULIO ANDREOLLI</Logradouro>
+        <Numero>200</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.05</Codigo>
+        <Descricao>3.05 (5010) - MONTAGEM E DESMONTAGEM DE ANDAIMES E OUTRAS ESTRUTURAS TEMPORARIAS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>101</Numero>
+    <EmissaoData>02/05/2013</EmissaoData>
+    <EmissaoHora>12:48</EmissaoHora>
+    <CodigoValidacao>D5577 AD632</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>62092739000128</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>RAIZEN TARUMÃ S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>FAZENDA NOVA AMERICA</Logradouro>
+        <Numero>SNº</Numero>
+        <Complemento />
+        <Bairro />
+        <Municipio>TARUMA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>THAIS.ROLLIM@RAIZEN.COM</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>REF. LOCAÇÃO DE ANDAIMES NA RAIZEN TARUMÃ CONFORME PEDIDOS A SABER:
+DO PEDIDO 4502502165 ( ENCERRADO) : 716 M³ A R$ 19,00= R$ 13.604,00
+DO PEDIDO 4502529092 ( ENCERRADO): 1685 M³A R$ 19,00= R$  32.015,00
+DO PEDIDO 4502529094 (PARTE) : 95 M³ A R$ 19,00= R$ 1.805,00
+
+TOTAL.....................................................2.496 M³ A R$ 19,00= R$ 47.424,00
+DATA DO VENCIMENTO 30/05/2013
+</Descricao>
+    <ValorTotal>47424</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>47424</BaseCalculo>
+    <ValorISS>1659,84</ValorISS>
+    <Aliquota>3,5</Aliquota>
+    <AliquotaRecalculada />
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>2</RecolhimentoForma>
+    <ValorPIS>0,00</ValorPIS>
+    <ValorCOFINS>0,00</ValorCOFINS>
+    <RetencaoIRRF>0,00</RetencaoIRRF>
+    <RetencaoINSS>0,00</RetencaoINSS>
+    <RetencaoPIS>0,00</RetencaoPIS>
+    <RetencaoCOFINS>0,00</RetencaoCOFINS>
+    <RetencaoCSLL>0,00</RetencaoCSLL>
+    <EnviadoEmail>1</EnviadoEmail>
+    <TributacaoISS>0</TributacaoISS>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>A autenticidade desta NFS-e pode ser verificada no site https://apl2.lencoispaulista.sp.gov.br/nfs.</Informacao>
+      <Informacao>O ISS desta NFS-e é devido FORA do Município.</Informacao>
+      <Informacao>Serviço realizado fora do município.</Informacao>
+      <Informacao>Uma via desta NFS-e foi enviada para o Tomador de Serviços por e-mail.</Informacao>
+      <Informacao>Alíquota informada pelo Prestador de Serviços.</Informacao>
+      <Informacao>ISS retido pelo TOMADOR conforme indicado pelo Prestador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>66739772000158</CPF_CNPJ>
+      <RazaoSocial>CORCRIL SERVICOS DE PINTURA LTDA - EPP</RazaoSocial>
+      <NomeFantasia>CORCRIL SERVICOS DE PINTURA LTDA - EPP</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>16978</Inscricao>
+      <Endereco>
+        <Logradouro>RUA JULIO ANDREOLLI</Logradouro>
+        <Numero>200</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>3.05</Codigo>
+        <Descricao>3.05 (5010) - MONTAGEM E DESMONTAGEM DE ANDAIMES E OUTRAS ESTRUTURAS TEMPORARIAS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>100</Numero>
+    <EmissaoData>02/05/2013</EmissaoData>
+    <EmissaoHora>12:16</EmissaoHora>
+    <CodigoValidacao>48F93 B5D18</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>1</LocalExecucao>
+    <Tomador>
+      <Inscricao>08070508006532</Inscricao>
+      <InscricaoMunicipal />
+      <Nome>RAIZEN ENERGIA S/A</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA BRIG. FARIA LIMA KM 322</Logradouro>
+        <Numero>SNº</Numero>
+        <Complemento />
+        <Bairro />
+        <Municipio>GUARIBA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>marcelo.marcondes@raizen.com</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>REF. SERVIÇO DE MONTAGEM E DESMONTAGEM DE ANDAIMES- COMPLEMENTO DO PEDIDO DE COMPRAS Nº 4502407255.
+VALOR R$ 37.329,00
+
+DATA VENCIMENTO 30/05/2013
+
+RETENÇÃO 
+INSS 3,5%  LEI FEDERAL 12.794/2013: R$ 1.306,52
+</Descricao>
+    <ValorTotal>37329</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>37329</BaseCalculo>
+    <ValorISS>933,22</ValorISS>
+    <Aliquota>2,5</Aliquota>
+    <AliquotaRecalculada />
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>2</RecolhimentoForma>
+    <ValorPIS>0,00</ValorPIS>
+    <ValorCOFINS>0,00</ValorCOFINS>
+    <RetencaoIRRF>0,00</RetencaoIRRF>
+    <RetencaoINSS>1306,52</RetencaoINSS>
+    <RetencaoPIS>0,00</RetencaoPIS>
+    <RetencaoCOFINS>0,00</RetencaoCOFINS>
+    <RetencaoCSLL>0,00</RetencaoCSLL>
+    <EnviadoEmail>1</EnviadoEmail>
+    <TributacaoISS>0</TributacaoISS>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>A autenticidade desta NFS-e pode ser verificada no site https://apl2.lencoispaulista.sp.gov.br/nfs.</Informacao>
+      <Informacao>Os valores de retenção foram declarados pelo Prestador de Serviço.</Informacao>
+      <Informacao>O ISS desta NFS-e é devido FORA do Município.</Informacao>
+      <Informacao>Serviço realizado fora do município.</Informacao>
+      <Informacao>Uma via desta NFS-e foi enviada para o Tomador de Serviços por e-mail.</Informacao>
+      <Informacao>Alíquota informada pelo Prestador de Serviços.</Informacao>
+      <Informacao>ISS retido pelo TOMADOR conforme indicado pelo Prestador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>66739772000158</CPF_CNPJ>
+      <RazaoSocial>CORCRIL SERVICOS DE PINTURA LTDA - EPP</RazaoSocial>
+      <NomeFantasia>CORCRIL SERVICOS DE PINTURA LTDA - EPP</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>5643</Inscricao>
+      <Endereco>
+        <Logradouro>RUA JULIO ANDREOLLI</Logradouro>
+        <Numero>200</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>7.02</Codigo>
+        <Descricao>7.02 (3053) - SERVICOS DE PINTURAS EM CONSTRUCAO CIVIL</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>99</Numero>
+    <EmissaoData>24/04/2013</EmissaoData>
+    <EmissaoHora>10:56</EmissaoHora>
+    <CodigoValidacao>DCD2F 78E0B</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>46201083000188</Inscricao>
+      <InscricaoMunicipal>729</InscricaoMunicipal>
+      <Nome>LWART LUBRIFICANTES LTDA.</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA JULIANO LORENZETTI - LEP-060</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>AC R M RONDON KM304</Complemento>
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>contabil@lwart.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>REF. SERVIÇO PINTURA CIVIL DE SINALIZAÇÃO PARA EXTINTORES DE INCÊNDIO  CONFORME PEDIDO Nº 3325 L5, VALOR R$ 2.485,30
+
+DATA VENCIMENTO 30/04/2013
+
+RETENÇÃO INSS 11% R$ 136,69
+RETENÇÃO PIS COFINS CSLL 4,65% R$ 115,56</Descricao>
+    <ValorTotal>2485,3</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>2485,3</BaseCalculo>
+    <ValorISS>49,7</ValorISS>
+    <Aliquota>2</Aliquota>
+    <AliquotaRecalculada />
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <ValorPIS />
+    <ValorCOFINS />
+    <RetencaoIRRF />
+    <RetencaoINSS />
+    <RetencaoPIS />
+    <RetencaoCOFINS />
+    <RetencaoCSLL />
+    <EnviadoEmail>0</EnviadoEmail>
+    <TributacaoISS>0</TributacaoISS>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+</Notas>

@@ -1,0 +1,865 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<GovDigital>
+    <emissao>
+        <nf-e>
+            <prestacao>2012-08-03</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>09600114000147</documento>
+                <nome>AVELANOZO TRANSPORTES DE CARGAS LTDA</nome>
+                <cep>0315000</cep>
+                <logradouro>R. José Mascarenhas</logradouro>
+                <numero>367</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>São Paulo</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>ALINHAR MOLEJOS SERVIÇOS DE SOLDA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>110.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>110.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACA BWS 8986</obs>
+            <deducoes/>
+            <senha>13B5.86H2.X86T.W76P</senha>
+            <numero>8</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>110.00</valorTotal>
+            <valorBase>110.00</valorBase>
+            <valorImposto>2.20</valorImposto>
+            <valorLiquido>110.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-03</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>09600114000147</documento>
+                <nome>AVELANOZO TRANSPORTES DE CARGAS LTDA</nome>
+                <cep>0315000</cep>
+                <logradouro>R. José Mascarenhas</logradouro>
+                <numero>367</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>São Paulo</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>MAO DE OBRA DO MOLEJO SERVIÇO DE SOLDA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>150.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>150.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACA BTO1174</obs>
+            <deducoes/>
+            <senha>23VH.PBXG.KJ8T.57YZ</senha>
+            <numero>9</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>150.00</valorTotal>
+            <valorBase>150.00</valorBase>
+            <valorImposto>3.00</valorImposto>
+            <valorLiquido>150.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-03</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>02864605000237</documento>
+                <nome>COOPERATIVA DE PRODUCAO AGROP.DE ITATIBA</nome>
+                <cep>13290000</cep>
+                <logradouro>R. FRANCISCO PEREIRA DUTRA</logradouro>
+                <numero>1486</numero>
+                <complemento></complemento>
+                <bairro>ESTIVA</bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO MAO DE OBRA MOLEJO E SERVIÇO MAO DE OBRA SUPORTE</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>130.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>130.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACA BIP 9821</obs>
+            <deducoes/>
+            <senha>23QV.S62R.2A3T.3EVH</senha>
+            <numero>10</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>130.00</valorTotal>
+            <valorBase>130.00</valorBase>
+            <valorImposto>2.60</valorImposto>
+            <valorLiquido>130.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-03</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>09600114000147</documento>
+                <nome>AVELANOZO TRANSPORTES DE CARGAS LTDA</nome>
+                <cep>0315000</cep>
+                <logradouro>R. José Mascarenhas</logradouro>
+                <numero>367</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>São Paulo</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO MAO DE OBRA DE 2 MOLEJOS E REFORMA DE SUPORTE</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>220.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>220.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACA CRH 2505</obs>
+            <deducoes/>
+            <senha>1XBF.K7QP.KC57.4SBP</senha>
+            <numero>11</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>220.00</valorTotal>
+            <valorBase>220.00</valorBase>
+            <valorImposto>4.40</valorImposto>
+            <valorLiquido>220.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-09</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>50907450000130</documento>
+                <nome>ARLINDO GOMES PEDROSO ME</nome>
+                <cep>07600000</cep>
+                <logradouro>RUA ARI DA SILVA</logradouro>
+                <numero>364</numero>
+                <complemento></complemento>
+                <bairro>TERRA PRETA</bairro>
+                <estado>SP</estado>
+                <municipio>Mairiporã</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE MOLEJOS E SOLDA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>80.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>80.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS BTA5955</obs>
+            <deducoes/>
+            <senha>THS8.MJB1.FJJ9.4UAW</senha>
+            <numero>12</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>80.00</valorTotal>
+            <valorBase>80.00</valorBase>
+            <valorImposto>1.60</valorImposto>
+            <valorLiquido>80.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-10</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>52611183000185</documento>
+                <nome>VIDEIRA TRANSPORTES RODOVIÁRIOS LTDA</nome>
+                <cep>09842000</cep>
+                <logradouro>estrada Assumpta Sabatini Rossi</logradouro>
+                <numero>1500</numero>
+                <complemento></complemento>
+                <bairro>Batistini</bairro>
+                <estado>SP</estado>
+                <municipio>São Bernardo do Campo</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>estalaçao de suportes e paralamas</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>60.000000</valorUn>
+                    <quantidade>2.00</quantidade>
+                    <valor>120.00</valor>
+                </item>
+            </itens>
+            <obs>serviço executado no veiculo placa DPE 4132 FROTA 375</obs>
+            <deducoes/>
+            <senha>1BBK.LCT8.4O8P.V7LW</senha>
+            <numero>13</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>120.00</valorTotal>
+            <valorBase>120.00</valorBase>
+            <valorImposto>2.40</valorImposto>
+            <valorLiquido>120.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-17</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>84995414000198</documento>
+                <nome>ENERCITY ENGENHARIA E COMERCIO LTDA</nome>
+                <cep>80240210</cep>
+                <logradouro>Av. República Argentina</logradouro>
+                <numero>50</numero>
+                <complemento>6.ANDAR CJTO 62</complemento>
+                <bairro>Água Verde</bairro>
+                <estado>PR</estado>
+                <municipio>Curitiba</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE MAO DE OBRA TROCAR MOLAS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>70.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>70.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS AFL2178</obs>
+            <deducoes/>
+            <senha>2NZI.H149.SWSD.7T3Y</senha>
+            <numero>14</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>70.00</valorTotal>
+            <valorBase>70.00</valorBase>
+            <valorImposto>1.40</valorImposto>
+            <valorLiquido>70.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-17</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>52884061000162</documento>
+                <nome>DEMARCHI INDUSTRIA E COMERCIO DE FRUTAS TDA </nome>
+                <cep>13213245</cep>
+                <logradouro>Estrada Particular Demarchi</logradouro>
+                <numero> 470</numero>
+                <complemento></complemento>
+                <bairro>Poste</bairro>
+                <estado>SP</estado>
+                <municipio>Jundiaí</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO MAO DE OBRA TRCAR MOLAS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>60.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>60.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS CZP1191</obs>
+            <deducoes/>
+            <senha>1XMR.5CD4.5M5A.I4KN</senha>
+            <numero>15</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>60.00</valorTotal>
+            <valorBase>60.00</valorBase>
+            <valorImposto>1.20</valorImposto>
+            <valorLiquido>60.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-17</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>72812852000194</documento>
+                <nome>ATLANTIC STAR TRANSPORTES LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>RUA ATILIO BISCUOLA</logradouro>
+                <numero>2571</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SEVIÇO DE MOLEJOS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>70.000000</valorUn>
+                    <quantidade>3.00</quantidade>
+                    <valor>210.00</valor>
+                </item>
+            </itens>
+            <obs>SEVIÇO PRESTADO NO VEICULO PLACA CDR 7776</obs>
+            <deducoes/>
+            <senha>3227.1V5J.ZHXH.IXFA</senha>
+            <numero>16</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>210.00</valorTotal>
+            <valorBase>210.00</valorBase>
+            <valorImposto>4.20</valorImposto>
+            <valorLiquido>210.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-17</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>72908353001258</documento>
+                <nome>COMERCIAL FRANGO ASSADO LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>ROD. ANHANGUERA KM72</logradouro>
+                <numero></numero>
+                <complemento></complemento>
+                <bairro>SANTO ANTONIO</bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>TROCAR BORRACHAS DA BARRA ESTABILISADORA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>94.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>94.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS  DHW 1817</obs>
+            <deducoes/>
+            <senha>ITF5.I8LB.L2XZ.D6J0</senha>
+            <numero>17</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>94.00</valorTotal>
+            <valorBase>94.00</valorBase>
+            <valorImposto>1.88</valorImposto>
+            <valorLiquido>94.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>46917936000930</documento>
+                <nome>MARTINELLI &amp; MUFFA LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>Rod. VER GERALDO DIAS</logradouro>
+                <numero>1860</numero>
+                <complemento>.</complemento>
+                <bairro>LEITAO</bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>ALINHAR EIXOS  --SOLDAR SUPORTE DA BALANÇA--SOLDAR REFORÇO DO PE DA CARRETA      </descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>210.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>210.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACA BXF8148</obs>
+            <deducoes/>
+            <senha>1VCJ.9QJL.3GWC.S5RN</senha>
+            <numero>18</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>210.00</valorTotal>
+            <valorBase>210.00</valorBase>
+            <valorImposto>4.20</valorImposto>
+            <valorLiquido>210.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>61683652000162</documento>
+                <nome>TRANSFACE TRANSPORTE TLDA</nome>
+                <cep>14300000</cep>
+                <logradouro>Av. PRESIDENTE VARGA</logradouro>
+                <numero>344</numero>
+                <complemento></complemento>
+                <bairro>DISTR.INDUSTRIAL</bairro>
+                <estado>SP</estado>
+                <municipio>Batatais</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE SOLDAS--ALINHAMENTO DO S EIXOS DA CARRETA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>170.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>170.00</valor>
+                </item>
+            </itens>
+            <obs>SEVIÇO PRESTADO NO VEICULO PLACA GSU1470</obs>
+            <deducoes/>
+            <senha>12H5.FKEE.7H78.E218</senha>
+            <numero>19</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>170.00</valorTotal>
+            <valorBase>170.00</valorBase>
+            <valorImposto>3.40</valorImposto>
+            <valorLiquido>170.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>61683652000162</documento>
+                <nome>TRANSFACE TRANSPORTE TLDA</nome>
+                <cep>14300000</cep>
+                <logradouro>Av. PRESIDENTE VARGA</logradouro>
+                <numero>344</numero>
+                <complemento></complemento>
+                <bairro>DISTR.INDUSTRIAL</bairro>
+                <estado>SP</estado>
+                <municipio>Batatais</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE MOLEJOS DT</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>140.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>140.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS GSV.9910 DE RENATO COSTA LISBOA CARRETA PLACA BWO.7962</obs>
+            <deducoes/>
+            <senha>2NHZ.OYRC.JKGZ.Q610</senha>
+            <numero>20</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>140.00</valorTotal>
+            <valorBase>140.00</valorBase>
+            <valorImposto>2.80</valorImposto>
+            <valorLiquido>140.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>61683652000162</documento>
+                <nome>TRANSFACE TRANSPORTE TLDA</nome>
+                <cep>14300000</cep>
+                <logradouro>Av. PRESIDENTE VARGA</logradouro>
+                <numero>344</numero>
+                <complemento></complemento>
+                <bairro>DISTR.INDUSTRIAL</bairro>
+                <estado>SP</estado>
+                <municipio>Batatais</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE SOLDA-SERVIÇO DE 2 MOLEJOS TRAZEIROS-SERVIÇO DE MOLEJOS DIANTEIROS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>610.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>610.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADOS NO VEICULO PLACAS LZW.4705 DE JOSE HOMERO GANDOLFI  CARRETA PLACA MTP5126</obs>
+            <deducoes/>
+            <senha>ARYO.JMGC.KYF6.4KCW</senha>
+            <numero>21</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>610.00</valorTotal>
+            <valorBase>610.00</valorBase>
+            <valorImposto>12.20</valorImposto>
+            <valorLiquido>610.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>04361742000101</documento>
+                <nome>FAUSTO TRANSP. E SERVIÇOS LTDA</nome>
+                <cep></cep>
+                <logradouro>R. JOSE AUGUSTO ROXO MORENO</logradouro>
+                <numero>295</numero>
+                <complemento></complemento>
+                <bairro>RESD. SÃO LUIS</bairro>
+                <estado>SP</estado>
+                <municipio>Valinhos</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE MOLEJOS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>70.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>70.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS MFQ.2701</obs>
+            <deducoes/>
+            <senha>NLEO.8JLE.MR61.1N1L</senha>
+            <numero>22</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>70.00</valorTotal>
+            <valorBase>70.00</valorBase>
+            <valorImposto>1.40</valorImposto>
+            <valorLiquido>70.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>60037025000191</documento>
+                <nome>GEAN TRANSPORTE E LOGISTICA LTDA</nome>
+                <cep>12952817</cep>
+                <logradouro>ROD. EDGARD MAXIMO ZAMBOTO</logradouro>
+                <numero>KM 78,5</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>Atibaia</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE 2 MOLEJOS- SERVIÇO DE SOLDA NA SAPATA -REFORÇAR SUPORTE</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>250.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>250.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS BHT.8634</obs>
+            <deducoes/>
+            <senha>33AO.BBWD.3JPT.3ZY9</senha>
+            <numero>23</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>250.00</valorTotal>
+            <valorBase>250.00</valorBase>
+            <valorImposto>5.00</valorImposto>
+            <valorLiquido>250.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>52884061000162</documento>
+                <nome>DEMARCHI INDUSTRIA E COMERCIO DE FRUTAS TDA </nome>
+                <cep>13213245</cep>
+                <logradouro>Estrada Particular Demarchi</logradouro>
+                <numero> 470</numero>
+                <complemento></complemento>
+                <bairro>Poste</bairro>
+                <estado>SP</estado>
+                <municipio>Jundiaí</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE 2 MOLEJOS--SERVIÇO DE SOLDA</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>200.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>200.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS MDC.6405</obs>
+            <deducoes/>
+            <senha>1QQC.G21A.WZRU.U0B3</senha>
+            <numero>24</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>200.00</valorTotal>
+            <valorBase>200.00</valorBase>
+            <valorImposto>4.00</valorImposto>
+            <valorLiquido>200.00</valorLiquido>
+            <dataCancelamento>2012-09-10</dataCancelamento>
+            <motivoCancelamento>Foi emitido para outro cnpj.</motivoCancelamento>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>72812852000194</documento>
+                <nome>ATLANTIC STAR TRANSPORTES LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>R. ATILIO BISCUOLA</logradouro>
+                <numero>2571</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE 2 MOLEJOS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>70.000000</valorUn>
+                    <quantidade>2.00</quantidade>
+                    <valor>140.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS CPJ.7969</obs>
+            <deducoes/>
+            <senha>1GIB.4ZJM.JU8R.MA7Y</senha>
+            <numero>25</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>140.00</valorTotal>
+            <valorBase>140.00</valorBase>
+            <valorImposto>2.80</valorImposto>
+            <valorLiquido>140.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-22</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>52884061000162</documento>
+                <nome>DEMARCHI INDUSTRIA E COMERCIO DE FRUTAS TDA </nome>
+                <cep>13213245</cep>
+                <logradouro>Estrada Particular Demarchi</logradouro>
+                <numero> 470</numero>
+                <complemento></complemento>
+                <bairro>Poste</bairro>
+                <estado>SP</estado>
+                <municipio>Jundiaí</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE SOLDA NO SUPORTE</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>60.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>60.00</valor>
+                </item>
+            </itens>
+            <obs>SERVIÇO PRESTADO NO VEICULO PLACAS HIE.2266</obs>
+            <deducoes/>
+            <senha>2HL8.MUM6.J43F.LR5B</senha>
+            <numero>26</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>60.00</valorTotal>
+            <valorBase>60.00</valorBase>
+            <valorImposto>1.20</valorImposto>
+            <valorLiquido>60.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-28</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>78815958000551</documento>
+                <nome>JOSE OSVALDO DE OLIVEIRA - TRANSOLIVEIRA</nome>
+                <cep>13290000</cep>
+                <logradouro>R. ATILIO BISCUOLA</logradouro>
+                <numero>2658</numero>
+                <complemento></complemento>
+                <bairro>CAPIVARI</bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE TROCADE MOLAS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>80.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>80.00</valor>
+                </item>
+            </itens>
+            <obs>SEVIÇO PRESTADO NO VEICULO PLACAS MFO 3130</obs>
+            <deducoes/>
+            <senha>66RW.N64O.EDZL.Z40E</senha>
+            <numero>27</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>80.00</valorTotal>
+            <valorBase>80.00</valorBase>
+            <valorImposto>1.60</valorImposto>
+            <valorLiquido>80.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-31</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>72812852000194</documento>
+                <nome>ATLANTIC STAR TRANSPORTES LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>R. ATILIO BISCUOLA</logradouro>
+                <numero>2571</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE SOLDA E SERVIÇO DE MOLEJOS</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>110.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>110.00</valor>
+                </item>
+            </itens>
+            <obs>serviço prestado no veiculo placa JXB1818</obs>
+            <deducoes/>
+            <senha>28I5.TLIX.AS3Q.N0M0</senha>
+            <numero>28</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>110.00</valorTotal>
+            <valorBase>110.00</valorBase>
+            <valorImposto>2.20</valorImposto>
+            <valorLiquido>110.00</valorLiquido>
+        </nf-e>
+        <nf-e>
+            <prestacao>2012-08-31</prestacao>
+            <exigibilidade>1</exigibilidade>
+            <retido>2</retido>
+            <municipioIncidencia>3527306</municipioIncidencia>
+            <atividade>14.01</atividade>
+            <aliquota>0.02000</aliquota>
+            <tomador>
+                <documento>72812852000194</documento>
+                <nome>ATLANTIC STAR TRANSPORTES LTDA</nome>
+                <cep>13290000</cep>
+                <logradouro>R. ATILIO BISCUOLA</logradouro>
+                <numero>2571</numero>
+                <complemento></complemento>
+                <bairro></bairro>
+                <estado>SP</estado>
+                <municipio>Louveira</municipio>
+                <pais>Brasil</pais>
+            </tomador>
+            <itens>
+                <item>
+                    <atividade>14.01</atividade>
+                    <descricao>SERVIÇO DE ARQUEAMENTO DT--SERVIÇO DO MOLEJO TZ</descricao>
+                    <aliquota>0.02000</aliquota>
+                    <valorUn>130.000000</valorUn>
+                    <quantidade>1.00</quantidade>
+                    <valor>130.00</valor>
+                </item>
+            </itens>
+            <obs>serviço prestado no veiculo placas DGP.5654</obs>
+            <deducoes/>
+            <senha>3Y80.BYCW.XN2C.EUHD</senha>
+            <numero>29</numero>
+            <serie>NFS-e</serie>
+            <valorTotal>130.00</valorTotal>
+            <valorBase>130.00</valorBase>
+            <valorImposto>2.60</valorImposto>
+            <valorLiquido>130.00</valorLiquido>
+        </nf-e>
+    </emissao>
+</GovDigital>

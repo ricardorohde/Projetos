@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>110</Numero>
+      <CodigoVerificacao>VJHENDBTKR</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-10</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>3.762,50</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>16,54</ValorIss>
+        <BaseCalculo>827,08</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK 25,0 BO+I   Slump  8+-2 Volume 17,50   M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:153/154/157-DE 05/09/12&#13;
+Obra:RUA JOSE ASSAD ATALA AO LADO 116-BOITUVA&#13;
+&#13;
+Vencimento: 10/09/12 Valor Liquido: 1 262,50&#13;
+                     10/10/12            1 250,00&#13;
+                     10/11/12            1 250,00&#13;
+&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0010127263802</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>CARLOS EDUARDO ANDREO DOS SANTOS</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE ASSAD ATALA  116-LADO</Rua>
+        <Numero></Numero>
+        <Bairro>RESID DI LORENZI</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

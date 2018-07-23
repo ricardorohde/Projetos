@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CompNfse xmlns="http://www.abrasf.org.br/nfse.xsd" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#">
+    <Nfse versao="2.01">
+        <InfNfse Id="1069129SLK5CZTMWJI1XTY6VRNMD45XO">
+            <Numero>25</Numero>
+            <CodigoVerificacao>99F86VZF0</CodigoVerificacao>
+            <DataEmissao>2015-02-24T17:30:43</DataEmissao>
+            <ValoresNfse>
+                <BaseCalculo>2631.00</BaseCalculo>
+                <Aliquota>3.00</Aliquota>
+                <ValorIss>78.93</ValorIss>
+                <ValorLiquidoNfse>2591.53</ValorLiquidoNfse>
+            </ValoresNfse>
+            <PrestadorServico>
+                <IdentificacaoPrestador>
+                    <CpfCnpj>
+                        <Cnpj>08912676000163</Cnpj>
+                    </CpfCnpj>
+                    <InscricaoMunicipal>19719</InscricaoMunicipal>
+                </IdentificacaoPrestador>
+                <RazaoSocial>FERNANDO J. CONSANI VEICULOS</RazaoSocial>
+                <NomeFantasia>FERNANDO J. CONSANI VEICULOS   -  FERNANDO VEICULOS</NomeFantasia>
+                <Endereco>
+                    <Endereco>PREFEITO PAULO DE ARAUJO NOVAES</Endereco>
+                    <Numero>266</Numero>
+                    <Complemento>*****</Complemento>
+                    <Bairro>CENTRO</Bairro>
+                    <CodigoMunicipio>3504503</CodigoMunicipio>
+                    <Uf>SP</Uf>
+                    <CodigoPais>1058</CodigoPais>
+                    <Cep>18705000</Cep>
+                </Endereco>
+                <Contato>
+                    <Telefone>0037335136</Telefone>
+                    <Email></Email>
+                </Contato>
+            </PrestadorServico>
+            <OrgaoGerador>
+                <CodigoMunicipio>3504503</CodigoMunicipio>
+                <Uf>SP</Uf>
+            </OrgaoGerador>
+            <DeclaracaoPrestacaoServico>
+                <InfDeclaracaoPrestacaoServico>
+                    <Competencia>2015-02-24</Competencia>
+                    <Servico>
+                        <Valores>
+                            <ValorServicos>2631.00</ValorServicos>
+                            <ValorDeducoes>0.00</ValorDeducoes>
+                            <ValorPis>0.00</ValorPis>
+                            <ValorCofins>0.00</ValorCofins>
+                            <ValorInss>0.00</ValorInss>
+                            <ValorIr>39.47</ValorIr>
+                            <ValorCsll>0.00</ValorCsll>
+                            <OutrasRetencoes>0.00</OutrasRetencoes>
+                            <ValorIss>78.93</ValorIss>
+                            <Aliquota>3.00</Aliquota>
+                            <DescontoIncondicionado>0.00</DescontoIncondicionado>
+                            <DescontoCondicionado>0.00</DescontoCondicionado>
+                        </Valores>
+                        <IssRetido>2</IssRetido>
+                        <ResponsavelRetencao>1</ResponsavelRetencao>
+                        <ItemListaServico>10.02</ItemListaServico>
+                        <CodigoTributacaoMunicipio>0000100000002</CodigoTributacaoMunicipio>
+                        <Discriminacao>Agenciamento, corretagem ou intermediação de títulos em geral, valores mobiliários e contratos quaisquer - Referente à produção de 01/2015-2.631,00 </Discriminacao>
+                        <CodigoMunicipio>3504503</CodigoMunicipio>
+                        <ExigibilidadeISS>1</ExigibilidadeISS>
+                        <MunicipioIncidencia>3504503</MunicipioIncidencia>
+                    </Servico>
+                    <Prestador>
+                        <CpfCnpj>
+                            <Cnpj>08912676000163</Cnpj>
+                        </CpfCnpj>
+                        <InscricaoMunicipal>000019719</InscricaoMunicipal>
+                    </Prestador>
+                    <Tomador>
+                        <IdentificacaoTomador>
+                            <CpfCnpj>
+<Cnpj>07707650001192</Cnpj>
+                            </CpfCnpj>
+                            <InscricaoMunicipal></InscricaoMunicipal>
+                        </IdentificacaoTomador>
+                        <RazaoSocial>AYMORE CREDITO, FINANCIAMENTO E INVESTIMENTO S.A.</RazaoSocial>
+                        <Endereco>
+                            <Endereco>RUA RIO BRANCO</Endereco>
+                            <Numero>55</Numero>
+                            <Bairro>BAURU</Bairro>
+                            <CodigoMunicipio>3506003</CodigoMunicipio>
+                            <Uf>SP</Uf>
+                            <Cep>17010190</Cep>
+                        </Endereco>
+                        <Contato>
+                            <Telefone>0000000000</Telefone>
+                            <Email></Email>
+                        </Contato>
+                    </Tomador>
+                    <RegimeEspecialTributacao>0</RegimeEspecialTributacao>
+                    <OptanteSimplesNacional>2</OptanteSimplesNacional>
+                    <IncentivoFiscal>2</IncentivoFiscal>
+                </InfDeclaracaoPrestacaoServico>
+            </DeclaracaoPrestacaoServico>
+        </InfNfse>
+    </Nfse>
+</CompNfse>

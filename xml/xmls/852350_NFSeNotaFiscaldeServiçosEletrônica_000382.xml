@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ConsultarNfseRpsResposta xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd" xmlns:ts="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_simples.xsd" xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_rps_resposta.xsd">
+  <CompNfse>
+    <tc:Nfse>
+      <tc:InfNfse>
+        <tc:Numero>382</tc:Numero>
+        <tc:CodigoVerificacao> DB 32 14</tc:CodigoVerificacao>
+        <tc:DataEmissao>2012-08-29T19:09:46</tc:DataEmissao>
+        <tc:NaturezaOperacao>1</tc:NaturezaOperacao>
+        <tc:RegimeEspecialTributacao>1</tc:RegimeEspecialTributacao>
+        <tc:OptanteSimplesNacional>2</tc:OptanteSimplesNacional>
+        <tc:IncentivadorCultural>2</tc:IncentivadorCultural>
+        <tc:Competencia>201208</tc:Competencia>
+        <tc:NfseSubstituida>1</tc:NfseSubstituida>
+        <tc:OutrasInformacoes>Pagamento: 15 DD
+Conta p/ depósito: ITAU Ag 0465 c/c 61832-0
+
+Obs: A DIFERENCIAL tornou-se optante do sistema SIMPLES NACIONAL a partir de Fevereiro/2012.
+&lt;br&gt; &amp;bull; </tc:OutrasInformacoes>
+        <tc:Servico>
+          <tc:ItemListaServico>7</tc:ItemListaServico>
+          <tc:CodigoCnae>3314708</tc:CodigoCnae>
+          <tc:CodigoTributacaoMunicipio>3314708</tc:CodigoTributacaoMunicipio>
+          <tc:Discriminacao>Prestação de serviços</tc:Discriminacao>
+          <tc:MunicipioPrestacaoServico>3551009</tc:MunicipioPrestacaoServico>
+          <tc:Valores>
+            <tc:ValorServicos>8727.84</tc:ValorServicos>
+            <tc:ValorDeducoes>0</tc:ValorDeducoes>
+            <tc:ValorPis>0</tc:ValorPis>
+            <tc:ValorCofins>0</tc:ValorCofins>
+            <tc:ValorInss>0</tc:ValorInss>
+            <tc:ValorIr>0</tc:ValorIr>
+            <tc:ValorCsll>0</tc:ValorCsll>
+            <tc:IssRetido>2</tc:IssRetido>
+            <tc:OutrasRetencoes>0</tc:OutrasRetencoes>
+            <tc:BaseCalculo>8727.84</tc:BaseCalculo>
+            <tc:Aliquota>2</tc:Aliquota>
+            <tc:ValorLiquidoNfse>8727.84</tc:ValorLiquidoNfse>
+            <tc:ValorIssRetido>0</tc:ValorIssRetido>
+            <tc:ValorIss>174.56</tc:ValorIss>
+            <tc:DescontoCondicionado>0</tc:DescontoCondicionado>
+            <tc:DescontoIncondicionado>0</tc:DescontoIncondicionado>
+          </tc:Valores>
+        </tc:Servico>
+        <tc:PrestadorServico>
+          <tc:IdentificacaoPrestador>
+            <tc:CpfCnpj>
+              <tc:Cnpj>06745691000139</tc:Cnpj>
+            </tc:CpfCnpj>
+            <tc:InscricaoMunicipal>852350</tc:InscricaoMunicipal>
+          </tc:IdentificacaoPrestador>
+          <tc:RazaoSocial>Diferencial Montagens e Manutencao de Equipamento Ltda</tc:RazaoSocial>
+          <tc:NomeFantasia>Diferencial Montagens e Manutencao de Equipamento Ltda</tc:NomeFantasia>
+          <tc:Endereco>
+            <tc:Endereco>Rua Marechal Eurico Gaspar Dutra</tc:Endereco>
+            <tc:Numero>461</tc:Numero>
+            <tc:Bairro>Cidade Naútica</tc:Bairro>
+            <tc:Cidade>3551009</tc:Cidade>
+            <tc:Estado>SP</tc:Estado>
+            <tc:Cep>11350180</tc:Cep>
+          </tc:Endereco>
+          <tc:Contato>
+            <tc:Telefone>1321383693</tc:Telefone>
+            <tc:Email>mario@posturaconsultoria.com.br</tc:Email>
+          </tc:Contato>
+        </tc:PrestadorServico>
+        <tc:TomadorServico>
+          <tc:IdentificacaoTomador>
+            <tc:CpfCnpj>
+              <tc:Cnpj>55275911000466</tc:Cnpj>
+            </tc:CpfCnpj>
+          </tc:IdentificacaoTomador>
+          <tc:RazaoSocial>Montarte Industrial e Locadora Ltda.</tc:RazaoSocial>
+          <tc:Endereco>
+            <tc:Endereco>Av. Montarte</tc:Endereco>
+            <tc:Numero>60</tc:Numero>
+            <tc:Bairro>Cachoeira</tc:Bairro>
+            <tc:Cidade>3546801</tc:Cidade>
+            <tc:Estado>SP</tc:Estado>
+            <tc:Cep>07500970</tc:Cep>
+          </tc:Endereco>
+          <tc:Contato>
+            <tc:Telefone>1146577700</tc:Telefone>
+            <tc:Email>financeiro2@montarte.com.br</tc:Email>
+          </tc:Contato>
+        </tc:TomadorServico>
+        <tc:OrgaoGerador>
+          <tc:CodigoMunicipio>3551009</tc:CodigoMunicipio>
+          <tc:Uf>SP</tc:Uf>
+        </tc:OrgaoGerador>
+        <tc:ValorCredito>0</tc:ValorCredito>
+      </tc:InfNfse>
+      <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+          <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+          <Reference URI="http://www.w3.org/TR/2000/REC-xhtml1-20000126/">
+            <Transforms>
+              <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            </Transforms>
+            <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <DigestValue>oFfk+BuZdtQ+8HevMbx+h6ZCFTw=</DigestValue>
+          </Reference>
+        </SignedInfo>
+        <SignatureValue>
+        </SignatureValue>
+        <KeyInfo>
+          <X509Data>
+            <X509Certificate>
+            </X509Certificate>
+          </X509Data>
+        </KeyInfo>
+      </Signature>
+    </tc:Nfse>
+  </CompNfse>
+</ConsultarNfseRpsResposta>

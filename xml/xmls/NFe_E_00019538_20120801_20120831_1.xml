@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConsultarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+   <Prestador>
+      <Cnpj>60723236000188</Cnpj>
+      <InscricaoMunicipal>19538</InscricaoMunicipal>
+   </Prestador>
+   <PeriodoEmissao>
+      <DataInicial>2012-08-01</DataInicial>
+      <DataFinal>2012-08-31</DataFinal>
+   </PeriodoEmissao>
+   <Tomador>
+      <CpfCnpj>
+         <Cnpj>56978307000116</Cnpj>
+      </CpfCnpj>
+   </Tomador>
+</ConsultarNfseResposta>

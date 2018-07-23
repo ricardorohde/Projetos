@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<nfe>
+	<notafiscal>
+		<dadosprestador>
+			<im>00000002</im>
+			<numeronota>003012</numeronota>
+			<dataemissao>23/11/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>F</tipodoc>
+			<documento>92693118000160</documento>
+			<ie></ie>
+			<nometomador>BRADESCO SAUDE S A</nometomador>
+			<pais>Brasil</pais>
+			<logradouro>BARAO DE ITAPAGIPE</logradouro>
+			<numero>231225</numero>
+			<complemento>Sala 25</complemento>
+			<bairro>RIO COMPRIDO</bairro>
+			<uf>RJ</uf>
+			<cidade>RIO DE JANEIRO</cidade>
+			<cep>20261970</cep>
+			<email>www.bradescosaude.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>BARAO DE ITAPAGIPE</logradouro>
+			<numero>000225</numero>
+			<complemento>Sala 007</complemento>
+			<bairro>RIO COMPRIDO</bairro>
+			<uf>SP</uf>
+			<cidade>ATIBAIA</cidade>
+			<cep>20261970</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>EXAMES E DIAGNOSTICOS</descricao>
+				<valor>140.49</valor>
+				<codigo>0702</codigo>
+			</item>
+			
+			<descontoIncondicional>10.00</descontoIncondicional>
+			<inss>0.00</inss>
+			<ir>0.00</ir>
+			<csll>0.00</csll>
+			<cofins>0.00</cofins>
+			<pispasep>0.00</pispasep>
+			<deducaoMaterial>2.00</deducaoMaterial>
+			<issretido>0</issretido>
+			<obs>PRESTACAO DE SERVICOS HOSPITALARES CONFORME RELATORIO ANEXO  |27,40|0,00|Para fins de nao incidencia na fonte da CSLL, COFINS, PIS  Pasep e IR, a que se refere o artigo 33 da Lei 10 833 de 29 12 2003, declara que a instituicao de assistencia social a que se refere o artigo 12 da Lei N 9 532 de 10 12 1997</obs>
+		</detalheservico>
+	</notafiscal>
+	<notafiscal>
+		<dadosprestador>
+			<im>00000002</im>
+			<numeronota>003013</numeronota>
+			<dataemissao>23/11/2012</dataemissao>
+		</dadosprestador>
+		<dadostomador>
+			<tipodoc>F</tipodoc>
+			<documento>92693118000160</documento>
+			<nometomador>BRADESCO SAUDE S A</nometomador>
+			<pais>Brasil</pais>
+			<logradouro>BARAO DE ITAPAGIPE</logradouro>
+			<numero>231225</numero>
+			<complemento>Sala 25</complemento>
+			<bairro>RIO COMPRIDO</bairro>
+			<uf>RJ</uf>
+			<cidade>RIO DE JANEIRO</cidade>
+			<cep>20261970</cep>
+			<email>www.bradescosaude.com.br</email>
+		</dadostomador>
+		<dadosservico>
+			<pais>BRASIL</pais>
+			<logradouro>BARAO DE ITAPAGIPE</logradouro>
+			<numero>000225</numero>
+			<complemento>Sala 007</complemento>
+			<bairro>RIO COMPRIDO</bairro>
+			<uf>SP</uf>
+			<cidade>ATIBAIA</cidade>
+			<cep>20261970</cep>
+		</dadosservico>
+		<detalheservico>
+			<item>
+				<descricao>EXAMES E DIAGNOSTICOS</descricao>
+				<valor>140.49</valor>
+				<codigo>0702</codigo>
+			</item>
+			<descontoIncondicional>10.00</descontoIncondicional>
+			<inss>0.00</inss>
+			<ir>0.00</ir>
+			<csll>0.00</csll>
+			<cofins>0.00</cofins>
+			<pispasep>0.00</pispasep>
+			<deducaoMaterial>2.00</deducaoMaterial>
+			<issretido>0</issretido>
+			<obs>PRESTACAO DE SERVICOS HOSPITALARES CONFORME RELATORIO ANEXO  |27,40|0,00|Para fins de nao incidencia na fonte da CSLL, COFINS, PIS  Pasep e IR, a que se refere o artigo 33 da Lei 10 833 de 29 12 2003, declara que a instituicao de assistencia social a que se refere o artigo 12 da Lei N 9 532 de 10 12 1997</obs>
+		</detalheservico>
+	</notafiscal>
+
+
+</nfe>

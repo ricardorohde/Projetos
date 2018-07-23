@@ -1,0 +1,302 @@
+<?xml version="1.0"?>
+<ISSEletronico xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="XSDISSEletronico.xsd">
+  <Header>
+    <Versao>001</Versao>
+    <CNPJCPFPrestador>12291166000193</CNPJCPFPrestador>
+    <Chave>010126057084240188137019063038107137130134133039</Chave>
+  </Header>
+  <DadosNotaFiscal>
+    <ID>1</ID>
+    <NumeroNF>0000000016</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>2200</ValorItem>
+      <ValorDeducao>1000</ValorDeducao>
+      <Retido>S</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+  <DadosNotaFiscal>
+    <ID>2</ID>
+    <NumeroNF>0000000017</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>25600</ValorItem>
+      <ValorDeducao>0</ValorDeducao>
+      <Retido>N</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+  <DadosNotaFiscal>
+    <ID>3</ID>
+    <NumeroNF>0000000018</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>2540</ValorItem>
+      <ValorDeducao>0</ValorDeducao>
+      <Retido>N</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+  <DadosNotaFiscal>
+    <ID>4</ID>
+    <NumeroNF>0000000019</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>8540</ValorItem>
+      <ValorDeducao>0</ValorDeducao>
+      <Retido>N</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+  <DadosNotaFiscal>
+    <ID>5</ID>
+    <NumeroNF>0000000020</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>15490</ValorItem>
+      <ValorDeducao>0</ValorDeducao>
+      <Retido>N</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+  <DadosNotaFiscal>
+    <ID>6</ID>
+    <NumeroNF>0000000021</NumeroNF>
+    <SituacaoNF>N</SituacaoNF>
+    <TipoNF>P</TipoNF>
+    <Emissao>2011-04-20</Emissao>
+    <CNPJCPFTomador>12291166000193</CNPJCPFTomador>
+    <NomeTomador>RAZÃO SOCIAL TESTE</NomeTomador>
+    <UFTomador>SP</UFTomador>
+    <CidadeTomador>3547304</CidadeTomador>
+    <EnderecoTomador>Rua x</EnderecoTomador>
+    <NumeroTomador>1</NumeroTomador>
+    <ComplementoTomador>
+    </ComplementoTomador>
+    <BairroTomador>Bairro Y</BairroTomador>
+    <CEPTomador>18021-130</CEPTomador>
+    <EmailTomador>teste@teste.com.br</EmailTomador>
+    <Observacao>
+    </Observacao>
+    <NFSubstituta>0000000000</NFSubstituta>
+    <LocalPrestacao>1</LocalPrestacao>
+    <DescricaoLocalPrestacao>Local</DescricaoLocalPrestacao>
+    <DescricaoLocalPrestacaoComplementar>
+    </DescricaoLocalPrestacaoComplementar>
+    <InscricaoImovel>00000000000000008018</InscricaoImovel>
+    <UFLocalPrestacao>SP</UFLocalPrestacao>
+    <CidadeLocalPrestacao>3547304</CidadeLocalPrestacao>
+    <EnderecoLocalPrestacao>Rua Valins</EnderecoLocalPrestacao>
+    <NumeroLocalPrestacao>1820</NumeroLocalPrestacao>
+    <ComplementoLocalPrestacao>
+    </ComplementoLocalPrestacao>
+    <BairroLocalPrestacao>Vila Bom Gosto</BairroLocalPrestacao>
+    <CEPLocalPrestacao>18021-140</CEPLocalPrestacao>
+    <MotivoCancelamento>
+    </MotivoCancelamento>
+    <TipoDocumento>001</TipoDocumento>
+    <DadosItensNotaFiscal>
+      <ItemAtividade>813</ItemAtividade>
+      <TextoItem>Descrição da Nota Fiscal</TextoItem>
+      <ValorItem>1578</ValorItem>
+      <ValorDeducao>0</ValorDeducao>
+      <Retido>N</Retido>
+      <Pais>Brasil</Pais>
+    </DadosItensNotaFiscal>
+    <DadosImpostosNotaFiscal>
+      <Imposto>IRPJ</Imposto>
+      <ValorImposto>702</ValorImposto>
+    </DadosImpostosNotaFiscal>
+  </DadosNotaFiscal>
+</ISSEletronico>

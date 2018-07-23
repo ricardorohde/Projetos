@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<NFSE>
+	<NOTA>
+		<COD>9</COD>
+		<RPS/>
+		<ANOCOMP>2012</ANOCOMP>
+		<MESCOMP>8</MESCOMP>
+		<DATA>20/08/2012</DATA>
+		<HORA>01/01/0001 07:56:08</HORA>
+		<LOCALSERV>D</LOCALSERV>
+		<SERIECOD>2</SERIECOD>
+		<SERIEDESC/>
+		<SITCOD>2</SITCOD>
+		<SITABREV>S</SITABREV>
+		<SITDESC>Simples Nacional</SITDESC>
+		<OBSSERVICO>DUPLICA&amp;Ccedil;&amp;Atilde;O SP 463- RODOVIA ELIESER MONTENEGRO - SERVI&amp;Ccedil;O DE SINALIZA&amp;Ccedil;&amp;Atilde;O HORIZONTAL - &amp;nbsp;CONTRATO&lt;br /&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;4&amp;ordf; Medi&amp;ccedil;&amp;atilde;o:&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Descri&amp;ccedil;&amp;atilde;o do Servi&amp;ccedil;o:&amp;nbsp;&lt;b&gt;Execu&amp;ccedil;&amp;atilde;o de Pintura Provis&amp;oacute;ria na SP - 463&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Valor total:&amp;nbsp;&lt;b&gt;R$ 19.150,43&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Contrato:&amp;nbsp;&lt;b&gt;AN 01/2012&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Per&amp;iacute;odo:&amp;nbsp;&lt;b&gt;01/07/12 a 20/07/12&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Local:&lt;b&gt;&amp;nbsp;Ara&amp;ccedil;atuba&amp;nbsp;&amp;ndash;SP&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;CEI:&amp;nbsp;&lt;b&gt;51.213.93797/76&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p class=&quot;MsoNormal&quot; style=&quot;margin: 0px; color: rgb(34, 34, 34); font-family: arial, sans-serif; font-size: 13px; &quot;&gt;&lt;span style=&quot;font-size: 12pt; font-family: &apos;Times New Roman&apos;, serif; &quot;&gt;Centro de Custo:&amp;nbsp;&lt;b&gt;13.345&lt;/b&gt;&lt;/span&gt;&lt;/p&gt;</OBSSERVICO>
+		<RETIDO>S</RETIDO>
+		<ATIVCOD>4329101</ATIVCOD>
+		<ATIVDESC>Instalação de painéis publicitários</ATIVDESC>
+		<BASECALC>0.00</BASECALC>
+		<IMPOSTO>0.00</IMPOSTO>
+		<DEDUCAO>0.00</DEDUCAO>
+		<DEDMATERIAIS>N</DEDMATERIAIS>
+		<RETENCAO>957.52</RETENCAO>
+		<ALIQUOTA>5.00</ALIQUOTA>
+		<PRESTCODCONTRIB>767322</PRESTCODCONTRIB>
+		<PRESTCODMOBILIARIO>64189</PRESTCODMOBILIARIO>
+		<PRESTINSCRICAOMUN>64189</PRESTINSCRICAOMUN>
+		<PRESTCPFCNPJ>10991054000110</PRESTCPFCNPJ>
+		<PRESTNOMERAZAO>MOREIRA &amp; MATOS PLACAS DE SINALIZAÇÃO LTDA.-ME</PRESTNOMERAZAO>
+		<PRESTESTAB>S</PRESTESTAB>
+		<PRESTSUPERSIMP>S</PRESTSUPERSIMP>
+		<PRESTPREFIXOCOD>3</PRESTPREFIXOCOD>
+		<PRESTPREFIXODESC>RUA</PRESTPREFIXODESC>
+		<PRESTLOGCOD>532</PRESTLOGCOD>
+		<PRESTLOGDESC>AVIAÇÃO</PRESTLOGDESC>
+		<PRESTBAIRROCOD>674</PRESTBAIRROCOD>
+		<PRESTBAIRRODESC>MONTERREY</PRESTBAIRRODESC>
+		<PRESTMUNICIPIOCOD>3502804</PRESTMUNICIPIOCOD>
+		<PRESTMUNICIPIODESC>ARAÇATUBA</PRESTMUNICIPIODESC>
+		<PRESTMUNICIPIOUF>SP</PRESTMUNICIPIOUF>
+		<PRESTNUMERO>2025</PRESTNUMERO>
+		<PRESTCEP>16056675</PRESTCEP>
+		<TOMCODCONTRIB>787242</TOMCODCONTRIB>
+		<TOMCODMOBILIARIO>0</TOMCODMOBILIARIO>
+		<TOMINSCRICAOMUN/>
+		<TOMCPFCNPJ>72183486000151</TOMCPFCNPJ>
+		<TOMNOMERAZAO>ELLENCO CONSTRUCOES LTDA</TOMNOMERAZAO>
+		<TOMPREFIXOCOD>22</TOMPREFIXOCOD>
+		<TOMPREFIXODESC>AVENIDA</TOMPREFIXODESC>
+		<TOMLOGCOD>7804</TOMLOGCOD>
+		<TOMLOGDESC>ROBERTO SIMONSEN.</TOMLOGDESC>
+		<TOMBAIRROCOD>3216</TOMBAIRROCOD>
+		<TOMBAIRRODESC>JARDIM SANTA ROSALIA</TOMBAIRRODESC>
+		<TOMMUNICIPIOCOD>3552205</TOMMUNICIPIOCOD>
+		<TOMMUNICIPIODESC>SOROCABA</TOMMUNICIPIODESC>
+		<TOMMUNICIPIOUF>SP</TOMMUNICIPIOUF>
+		<TOMNUMERO>47</TOMNUMERO>
+		<TOMCEP>18090000</TOMCEP>
+		<DATAVENCIMENTO>20/08/2012</DATAVENCIMENTO>
+		<SERVICOS>
+			<SERVICO>
+				<CODIGO>3</CODIGO>
+				<DESCRICAO>VALOR DA MAO DE OBRA</DESCRICAO>
+				<QUANTIDADE>1.0000</QUANTIDADE>
+				<VALOR>6702.65</VALOR>
+			</SERVICO>
+			<SERVICO>
+				<CODIGO>2</CODIGO>
+				<DESCRICAO>VALOR DO EQUIPAMENTO</DESCRICAO>
+				<QUANTIDADE>1.0000</QUANTIDADE>
+				<VALOR>12447.77</VALOR>
+			</SERVICO>
+		</SERVICOS>
+	</NOTA>
+</NFSE>

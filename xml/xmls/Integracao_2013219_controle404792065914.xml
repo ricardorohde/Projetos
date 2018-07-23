@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Notas>
+  <Nota>
+    <Prestador>
+      <CPF_CNPJ>01025707000115</CPF_CNPJ>
+      <RazaoSocial>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</RazaoSocial>
+      <NomeFantasia>R. M. RODRIGUES MONTAGENS INDUSTRIAIS LTDA.</NomeFantasia>
+      <SuperSimples>0</SuperSimples>
+      <Inscricao>13779</Inscricao>
+      <Endereco>
+        <Logradouro>RUA LUIZ CONTI</Logradouro>
+        <Numero>100</Numero>
+        <Complemento />
+        <Bairro>DISTR. EMPRES. LUIZ TRECENTI</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Atividade>
+        <Codigo>14.01</Codigo>
+        <Descricao>14.01 (3161) - MANUTENCAO DE MAQUINAS E EQUIPAMENTOS INDUSTRIAIS</Descricao>
+      </Atividade>
+    </Prestador>
+    <Numero>26</Numero>
+    <EmissaoData>18/02/2013</EmissaoData>
+    <EmissaoHora>09:22</EmissaoHora>
+    <CodigoValidacao>7D368 43968</CodigoValidacao>
+    <Situacao>1</Situacao>
+    <LocalExecucao>0</LocalExecucao>
+    <Tomador>
+      <Inscricao>51422921001236</Inscricao>
+      <InscricaoMunicipal>448</InscricaoMunicipal>
+      <Nome>USINA BARRA GRANDE DE LENCOIS SA</Nome>
+      <TipoPessoa>1</TipoPessoa>
+      <Endereco>
+        <Logradouro>RODOVIA MAL.RONDON</Logradouro>
+        <Numero>0</Numero>
+        <Complemento>KM 289</Complemento>
+        <Bairro>RURAL</Bairro>
+        <Municipio>LENCOIS PAULISTA</Municipio>
+        <Estado>SP</Estado>
+      </Endereco>
+      <Email>cmatta@zilor.com.br</Email>
+      <Particular>0</Particular>
+    </Tomador>
+    <Rps>
+      <Numero />
+      <EmissaoData />
+    </Rps>
+    <Descricao>EQUIPAMENTOS UTILIZADOS NA OBRA CONFORME PEDIDO 711360.
+VALOR TOTAL: R$ 2.954,85.
+
+PRESTAÇÃO DE SERVIÇOS CONFORME PEDIDO 711360.
+VALOR TOTAL: R$ 2.954,85.
+
+RETENÇÕES:
+INSS 11%: R$ 325,03
+PIS/COFINS/CSLL 4,65%: R$ 274,80.
+
+CONDIÇÕES DE PAGAMENTO: 06/03/2013.
+</Descricao>
+    <ValorTotal>5909,7</ValorTotal>
+    <ValorDeducao>0</ValorDeducao>
+    <BaseCalculo>5909,7</BaseCalculo>
+    <ValorISS>177,29</ValorISS>
+    <Aliquota>3</Aliquota>
+    <AliquotaRecalculada>3</AliquotaRecalculada>
+    <RecolhimentoObrigacao>1</RecolhimentoObrigacao>
+    <RecolhimentoForma>0</RecolhimentoForma>
+    <Informacoes>
+      <Informacao>Esta NFS-e foi emitida com respaldo na Lei Complementar Nº 79 de 20/11/2012.</Informacao>
+      <Informacao>O ISS desta NFS-e deve ser RETIDO pelo Tomador de Serviços.</Informacao>
+    </Informacoes>
+    <CartasCorrecao />
+    <Cancelamento>
+      <DataCancelamento />
+      <Motivo />
+      <Descricao />
+    </Cancelamento>
+  </Nota>
+</Notas>

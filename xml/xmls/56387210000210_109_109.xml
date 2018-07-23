@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>109</Numero>
+      <CodigoVerificacao>NDALOSVJFP</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2012-09-10</DataEmissao>
+    <Regime>0</Regime>
+    <Competencia>09/2012</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>877,50</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>4,69</ValorIss>
+        <BaseCalculo>234,51</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>702</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>Serv de Concretagem FCK  18,0  B I  Slump  8+-2   Volume   4,50  M3&#13;
+Mat aplic nao se inclui na base de calculo do ISSQN, Art 78 Par 4 Lei Compl 1562 de 29/03/&#13;
+Ref NFeSR:155 DE 05/09/2012&#13;
+Obra:RUA LAURA ALVES DE MOURA 621-JD VITORIA-IPERO&#13;
+&#13;
+Vencimento: 10/09/12 Valor Liquido: 292,50&#13;
+                     10/10/12           292,50&#13;
+                     10/11/12           292,50&#13;
+Data Receb: ____/____/_______ Assinatura:__________________________________________</Discriminacao>
+      <MunicipioPrestacaoServico>Boituva</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>56387210000210</Cnpj>
+        <InscricaoMunicipal>009764</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>FIGUEIREDO CONCRETO LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>AV  ZELIA DE LIMA ROSA, 3555</Rua>
+        <Numero>3555</Numero>
+        <Bairro>PINHAL</Bairro>
+        <Cidade>BOITUVA</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 14  37111112</Telefone>
+        <Email>contabilidade.mario@figueiredoavare.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>0027273072842</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>HELOI LUIS BAPTISTA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA LAURA ALVES DE MOURA 621</Rua>
+        <Numero></Numero>
+        <Bairro>JD VITORIA</Bairro>
+        <Cidade>IPERO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>18 560-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Boituva</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>

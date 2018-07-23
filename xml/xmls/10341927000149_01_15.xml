@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<NFSE>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>13</Numero>
+      <CodigoVerificacao>NDFPALBTHE</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>8.446,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>51,08</ValorIss>
+        <BaseCalculo>2.553,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>C</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 145 510 737 116
+Prestacao de Servicos de Instalacao de CFTV e TI no Burguer King da Faria Lima III </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594007360</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>RUA TABAPUA, 1263 E 1265</Rua>
+        <Numero></Numero>
+        <Bairro>ITAIM BIBI</Bairro>
+        <Cidade>SAO PAULO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>22 640-101</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>9</Numero>
+      <CodigoVerificacao>OSVJMCALHE</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.000,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>6,00</ValorIss>
+        <BaseCalculo>300,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>C</CodigoTributacaoMunicipio>
+      <Discriminacao></Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>00222261000156</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>AGATHIS LTDA ME</RazaoSocial>
+      <Endereco>
+        <Rua>AV MARGINAL, 299</Rua>
+        <Numero></Numero>
+        <Bairro>BANDEIRANTES</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>1</Numero>
+      <CodigoVerificacao>FPALKRVJBT</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>2.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>15,00</ValorIss>
+        <BaseCalculo>750,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E  79 712 957
+Prestacao de Servicos de Gerenciamento de Abertura no Burguer King BK Carioca Shopping </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006984</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA VICENTE DE CARVALHO,909 ESPACO COMERCIAL 14</Rua>
+        <Numero></Numero>
+        <Bairro>VILA DA PENHA</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>21 210-623</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>2</Numero>
+      <CodigoVerificacao>OSHEALBTFP</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>4.466,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>26,80</ValorIss>
+        <BaseCalculo>1.339,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 79 712 957 Prest  de Serv  de Implant e Inst do Sist de Menuboard no Carioca Shopping </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006984</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA VICENTE DE CARVALHO,909 ESPACO COMERCIAL 14</Rua>
+        <Numero></Numero>
+        <Bairro>VILA DA PENHA</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>21 210-623</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>3</Numero>
+      <CodigoVerificacao>NDBTFPVJAL</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>2.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>15,00</ValorIss>
+        <BaseCalculo>750,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 407 298 588 115
+Prest  de Serv  de Ger  de Abertura no Burguer King BK Jundiai Shopping</Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006631</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AV  NOVE DE JULHO, 333 LOJAS 201A/201B</Rua>
+        <Numero></Numero>
+        <Bairro>ANHANGABAU</Bairro>
+        <Cidade>JUNDIAI</Cidade>
+        <Estado>SP</Estado>
+        <Cep>13 208-056</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>4</Numero>
+      <CodigoVerificacao>VJHEBTALKR</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>4.466,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>26,80</ValorIss>
+        <BaseCalculo>1.339,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 407 298 588 115
+Prest de Serv  de Imp e Inst  do Sist  de Menuboard no Jundiai Shopping </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006631</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AV  NOVE DE JULHO, 333 LOJAS 201A/201B</Rua>
+        <Numero></Numero>
+        <Bairro>ANHANGABAU</Bairro>
+        <Cidade>JUNDIAI</Cidade>
+        <Estado>SP</Estado>
+        <Cep>13 208-056</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>5</Numero>
+      <CodigoVerificacao>NDOSALFPKR</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>9,00</ValorIss>
+        <BaseCalculo>450,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 79 657 344
+Prest  de Servico  de Gerenc de Abertura no Burguer King Park Shopping Campo Grande </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594003535</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>ESTRADA DO MONTEIRO , 1200, LOJA 202 P/3</Rua>
+        <Numero></Numero>
+        <Bairro>CAMPO GRANDE</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>23 045-830</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>6</Numero>
+      <CodigoVerificacao>BTNDMCKROS</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>8.446,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>50,68</ValorIss>
+        <BaseCalculo>2.533,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 79 657 344
+Prest  de Servicos de Instalacao de CFTV e TI no Burguer King Park Shopping Campo Grande</Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594003535</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>ESTRADA DO MONTEIRO , 1200, LOJA 202 P/3</Rua>
+        <Numero></Numero>
+        <Bairro>CAMPO GRANDE</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>23 045-830</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>7</Numero>
+      <CodigoVerificacao>MCNDOSKRFP</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>9,00</ValorIss>
+        <BaseCalculo>450,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 688 195 786 110
+Prest  de Serv  de Gerenciamento de Abertura no Burguer King BK Via Vale Gardem Shopping </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006208</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA DOM PEDRO I , 7181 LOJA 16</Rua>
+        <Numero></Numero>
+        <Bairro>JARDIM BARONESA</Bairro>
+        <Cidade>TAUBATE</Cidade>
+        <Estado>SP</Estado>
+        <Cep>12 091-00</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>8</Numero>
+      <CodigoVerificacao>OSVJMCKRND</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>8.446,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>50,68</ValorIss>
+        <BaseCalculo>2.533,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 688 195 786 110
+Prest de Serv  de Inst  de CFTV e TI no Burguer King do Via Vale Garden Shopping </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594006208</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA DOM PEDRO I , 7181 LOJA 16</Rua>
+        <Numero></Numero>
+        <Bairro>JARDIM BARONESA</Bairro>
+        <Cidade>TAUBATE</Cidade>
+        <Estado>SP</Estado>
+        <Cep>12 091-00</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>10</Numero>
+      <CodigoVerificacao>BTALOSKRMC</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>9,00</ValorIss>
+        <BaseCalculo>450,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 79 671 070
+Prest  de Serv de Gerenc de Abertura no Burguer King BK 
+AV  das Americas - Barra </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594005406</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA DAS AMERICAS , 2250 LOTE TERRENO 21 DO PA 14263</Rua>
+        <Numero></Numero>
+        <Bairro>BARRA DA TIJUCA</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>22 640-101</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>11</Numero>
+      <CodigoVerificacao>NDBTMCVJOS</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>11.209,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>67,25</ValorIss>
+        <BaseCalculo>3.362,27</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 79 671 070
+Prestacao de Servicos de Instalacao de CFTV e TI no Burguer King 
+Av  das Americas - Barra </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594005406</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>AVENIDA DAS AMERICAS , 2250 LOTE TERRENO 21 DO PA 14263</Rua>
+        <Numero></Numero>
+        <Bairro>BARRA DA TIJUCA</Bairro>
+        <Cidade>RIO DE JANEIRO</Cidade>
+        <Estado>RJ</Estado>
+        <Cep>22 640-101</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>12</Numero>
+      <CodigoVerificacao>HEOSVJFPMC</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>9,00</ValorIss>
+        <BaseCalculo>450,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 145 510 737 116
+Prestacao de Servicos de Gerenciamento de Abertura no Burguer King Faria Lima II </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594007360</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>RUA TABAPUA, 1263 E 1265</Rua>
+        <Numero></Numero>
+        <Bairro>ITAIM BIBI</Bairro>
+        <Cidade>SAO PAULO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>22 640-101</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>14</Numero>
+      <CodigoVerificacao>NDFPHEALVJ</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>8.446,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>50,68</ValorIss>
+        <BaseCalculo>2.533,80</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>107</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E 145 510 737 116
+Prestacao de Servicos de Instalacao de CFTV e TI no Burguer King da Faria Lima II </Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594007360</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>RUA TABAPUA, 1263 E 1265</Rua>
+        <Numero></Numero>
+        <Bairro>ITAIM BIBI</Bairro>
+        <Cidade>SAO PAULO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>22 640-101</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+  <Nfse>
+    <IdentificacaoNfse>
+      <Numero>15</Numero>
+      <CodigoVerificacao>MCNDKRFPHE</CodigoVerificacao>
+    </IdentificacaoNfse>
+    <DataEmissao>2013-01-17</DataEmissao>
+    <Regime>6</Regime>
+    <Competencia>01/2013</Competencia>
+    <Servico>
+      <Valores>
+        <ValorServicos>1.500,00</ValorServicos>
+        <IssRetido>0,00</IssRetido>
+        <ValorIss>9,00</ValorIss>
+        <BaseCalculo>450,00</BaseCalculo>
+        <Aliquota>2,00</Aliquota>
+      </Valores>
+      <ItemListaServico>101</ItemListaServico>
+      <CodigoTributacaoMunicipio>N</CodigoTributacaoMunicipio>
+      <Discriminacao>I E  587 166 300 113
+Prestacao de Servicos de Gerenciamento de Abertura no Burguer King BK Filial Jardim Claret</Discriminacao>
+      <MunicipioPrestacaoServico>Pirapora do Bom Jesus</MunicipioPrestacaoServico>
+    </Servico>
+    <PrestadorServico>
+      <IdentificacaoPrestador>
+        <Cnpj>10341927000149</Cnpj>
+        <InscricaoMunicipal>6013</InscricaoMunicipal>
+      </IdentificacaoPrestador>
+      <RazaoSocial>SHEKINAH CONSULTORIA E INFRA-ESTRUTURA LTDA</RazaoSocial>
+      <Endereco>
+        <Rua>RUA JOSE BONIFACIO  83B  SALA 175</Rua>
+        <Numero></Numero>
+        <Bairro>CENTRO</Bairro>
+        <Cidade>PIRAPORA DO BOM JESUS</Cidade>
+        <Estado>SP</Estado>
+        <Cep>06 550-000</Cep>
+      </Endereco>
+      <Contato>
+        <Telefone> 11  2440-5297</Telefone>
+        <Email>rosana.lopes@shsys.com.br</Email>
+      </Contato>
+    </PrestadorServico>
+    <TomadorServico>
+      <IdentificacaoTomador>
+        <Cnpj>13574594007280</Cnpj>
+      </IdentificacaoTomador>
+      <RazaoSocial>BK BRASIL OPERACAO E ASSESSORIA A RESTAURANTES S A</RazaoSocial>
+      <Endereco>
+        <Rua>RUA 14 , 909</Rua>
+        <Numero></Numero>
+        <Bairro>CONSOLACAO</Bairro>
+        <Cidade>RIO CLARO</Cidade>
+        <Estado>SP</Estado>
+        <Cep>13 500-130</Cep>
+      </Endereco>
+    </TomadorServico>
+    <OrgaoGerador>
+      <CodigoMunicipio>Prefeitura do Municipio de Pirapora do Bom Jesus</CodigoMunicipio>
+      <Uf>SP</Uf>
+    </OrgaoGerador>
+  </Nfse>
+</NFSE>
