@@ -1,0 +1,12 @@
+@echo "Nome do seu projeto"
+@echo off
+@SET BDS=C:\Program Files (x86)\Embarcadero\RAD Studio\11.0
+@SET BDSINCLUDE=C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\include
+@SET BDSCOMMONDIR=C:\Program Files (x86)\Embarcadero\RAD Studio\11.0
+@SET FrameworkDir=C:\Windows\Microsoft.NET\Framework\v3.5
+@SET FrameworkVersion=v3.5
+@SET FrameworkSDKDir=
+@SET PATH=%FrameworkDir%;%FrameworkSDKDir%;C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\bin;C:\Program Files (x86)\Embarcadero\RAD Studio\11.0\bin64;%PATH%
+@SET LANGDIR=EN
+msbuild.exe /target:reBuild /p:config=Debug  "C:\Pasta\do\seu\projeto\seuprojeto.dproj" /clp:ErrorsOnly
+pause

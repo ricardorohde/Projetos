@@ -85,7 +85,3 @@ __recovery/
 *.res
 Fontes2009/Formulario/Module.dfm
 
-
-#ocultando arquivos .rar
-*.rar
-
