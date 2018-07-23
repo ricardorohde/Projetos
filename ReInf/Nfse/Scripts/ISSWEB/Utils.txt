@@ -1,0 +1,20 @@
+  function UnindentXml(const aXml: string): string;
+  var
+    _sl: TStringList;
+    i: integer;
+  begin
+    _sl := TStringList.Create;
+    _sl.Text := aXml;
+    for i:= 0 to _sl.Count-1 do
+      _sl[i] := Trim(_sl[i]);
+    Result := StringReplace(_sl.Text, #13#10, '', [rfReplaceAll]);
+    _sl.Free;
+  end;
+
+  // Retorno do cancelamento de certas cidades (ex: Vitória) não vem de acordo com o esquema, fazer ajustes
+  function CorrigirCancelamentoRetorno(const aXml: string): string;
+  begin
+    Result := StringReplace(aXml, 'ConfirmacaoCancelamento>', 'Confirmacao>', [rfReplaceAll]);
+    Result := StringReplace(Result, '<PedidoCancelamento>', '<Pedido>', [rfReplaceAll]);
+    Result := StringReplace(Result, '</PedidoCancelamento>', '</Pedido>', [rfReplaceAll]);
+  end;

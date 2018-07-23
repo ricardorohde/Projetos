@@ -1,0 +1,30 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+
+    Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+    _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+      '//*[namespace-uri()="http://iss.pontagrossa.pr.gov.br/Arquivos/nfse.xsd" and local-name()="CancelarNfseResposta"]');
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

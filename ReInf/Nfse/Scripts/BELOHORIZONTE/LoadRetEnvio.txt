@@ -1,0 +1,58 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _Header, _Value: string;
+
+  function GetXmlSincrono: String;
+  begin
+    Result := ExtractXMLIndent(Input);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result := StringReplace(Result, '<!--CRLF-->', '',[rfReplaceAll]);
+    _Header := '><?xml version='+ '''1.0''' +' encoding=' + '''UTF-8''' +'?>';
+    Result := StringReplace(Result, _Header, '>',[rfReplaceAll]);
+    Result := XmlDeepNodeSearch(Result, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/nfse.xsd" and local-name()="GerarNfseResposta"]');
+  end;
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+
+  Input := StringReplace(Input, '&amp;amp;', '&amp;', [rfReplaceAll]);
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/nfse.xsd" and local-name()="EnviarLoteRpsResposta"]');
+  if _Xml = '' then
+  begin
+    Datasets.XsdElementName := 'GerarNfseResposta';
+    Datasets.ConfigSection := 'RETORNO_GERARNFSE';
+    Datasets.CreateXSDDataset;
+    _Xml := GetXmlSincrono;
+    Params.Add('enviosincrono=1');
+  end;
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    if XmlSelectNodeValue(_Xml, '//*[local-name()="ListaMensagemRetornoLote"]', _Value) then
+      Params.Add('mensagemretornolote=1');
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlLote=' + _Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

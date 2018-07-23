@@ -1,0 +1,1 @@
+<urn:listarNotasXML soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><params xsi:type="xsd:string"><![CDATA[<?xml version="1.0" encoding="UTF-8"?><notas><ano>%s</ano><mes>%s</mes><cpfcnpj>%s</cpfcnpj><inscricao>%s</inscricao><chave>%s</chave></notas>]]></params></urn:listarNotasXML>

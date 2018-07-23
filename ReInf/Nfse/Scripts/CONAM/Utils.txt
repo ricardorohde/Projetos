@@ -1,0 +1,128 @@
+const
+  COMANDO_MOTIVOS = '//*[local-name()="Message"]';
+
+  function UnindentXml(const aXml: string): string;
+  var
+    _sl: TStringList;
+    i: integer;
+  begin
+    _sl := TStringList.Create;
+    _sl.Text := aXml;
+    for i:= 0 to _sl.Count-1 do
+      _sl[i] := Trim(_sl[i]);
+    Result := StringReplace(_sl.Text, #13#10, '', [rfReplaceAll]);
+    _sl.Free;
+  end;
+
+  function GetValueTag(aTag, aTxt: String): String;
+  Var
+    _PINI, _PFIN: integer;
+  begin
+    _PINI := Pos('<' + aTag + '>', aTxt) + (Length(aTag) + 2);
+    _PFIN := Pos('</' + aTag + '>', aTxt);
+    Result := Copy(aTxt, _PINI, _PFIN - _PINI);
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    result := StringReplace(result, Params.Values['DelimitadorDoCampo'],'\delimiter',[rfReplaceAll]);
+    result := StringReplace(result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    result := StringReplace(result, #13,'',[rfReplaceAll]);
+    result := StringReplace(result, #10,'',[rfReplaceAll]);
+  end;
+
+  function GetCodigo(const aXML: string): string;
+  var
+    _Cod : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="Id"]',_Cod) then
+      result := _Cod
+    else
+      result := '';
+  end;
+
+  function GetMensagem(const aXML: string) : string;
+  var
+    _Mensagem : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="Description"]',_Mensagem) then
+      result := _Mensagem
+    else
+      result := '';
+  end;
+
+  function GetNumeroNota(const aXML: string) : string;
+  var
+    _NumeroNota : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="NumNf"]',_NumeroNota) then
+      result := _NumeroNota
+    else
+      result := '';
+  end;
+
+  function GetSerieNota(const aXML: string) : string;
+  var
+    _SerieNota : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="SerNf"]', _SerieNota) then
+      result := _SerieNota
+    else
+      result := '';
+  end;
+
+  function GetNumeroRps(const aXML: string) : string;
+  var
+    _NumeroRps : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="NumRps"]', _NumeroRps) then
+      result := _NumeroRps
+    else
+      result := '';
+  end;
+
+  function GetSerieRps(const aXML: string) : string;
+  var
+    _SerieRps : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="SerRps"]', _SerieRps) then
+      result := _SerieRps
+    else
+      result := '';
+  end;
+
+  function GetValorNota(const aXML: string) : string;
+  var
+    _ValorNota : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="VlNFS"]', _ValorNota) then
+      result := _ValorNota
+    else
+      result := '';
+  end;
+
+  function GetMotivo(const aXML: string) : string;
+  var
+    i, _count: integer;
+    _Xml: string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService - ' + Params.Values['faultstring']
+    else if (Result = '') then
+    begin
+      _count := XmlSelectCountNode(aXml, COMANDO_MOTIVOS);
+      for i := 1 to _count do
+      begin
+        _Xml := XmlSelect(aXml, COMANDO_MOTIVOS + '['+ IntToStr(i) +']');
+        begin
+          if Result = '' then
+            Result := GetCodigo(_Xml) + '-' +
+              Trim(GetMensagem(_Xml))
+          else
+            result := Format3('%s; %s-%s ', Result, GetCodigo(_Xml),
+              Trim(GetMensagem(_Xml)));
+        end;
+      end;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;

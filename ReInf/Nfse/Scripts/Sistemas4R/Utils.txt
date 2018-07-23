@@ -1,0 +1,120 @@
+ //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+  // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+   //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseCancelamento : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','DataCancelamento']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(aValue, '&amp;', '@@@@@',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+    Result := StringReplace(Result,'@@@@@','&amp;',[rfReplaceAll]);
+  end;
+
+  function GetValueXml(const aXML, aComando: string): string;
+  Var
+    _Value: string;
+  begin
+    if xmlSelectNodeValue(aXml, aComando, _Value) then
+      Result := _Value;
+  end;
+
+  function GetStatus(const aXML:string): string;
+  Var
+    _str: string;
+  begin
+    if (Params.Values['faultstring'] <> '') or
+      (xmlSelectNodeValue(aXML, '//*[local-name() = "okk" and not (contains(text(), "www"))]', _str)) then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  function GetStatusEnvio(const aXML:string): string;
+  Var
+    _str: string;
+  begin
+    if (Params.Values['faultstring'] <> '') or
+      (xmlSelectNodeValue(aXML, '//*[local-name() = "okk" and text() != "OK"]', _str)) then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  function GetXmlNFSe(const aXml: string): string;
+  begin
+    Result := RemoveCaracteresInvalidosResposta(aXml);
+  end;
+
+  function DesescaparXml(const aXml: string): string;
+  begin
+    Result:= StringReplace(aXml, '&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;', '', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;amp;',   '&',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;',   '&',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&',   '&amp;',  [rfReplaceAll]);
+  end;

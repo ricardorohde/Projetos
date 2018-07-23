@@ -1,0 +1,6 @@
+<ConsultaNFePeriodoRequest xmlns="http://www.prefeitura.sp.gov.br/nfe">
+<VersaoSchema>1</VersaoSchema>
+<MensagemXML>
+<![CDATA[%s]]>  
+</MensagemXML>
+</ConsultaNFePeriodoRequest>

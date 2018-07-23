@@ -1,0 +1,10 @@
+<ConsultarNfseEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">
+<Prestador>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+%s
+%s
+%s
+%s
+</ConsultarNfseEnvio>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+  xmlns:rgm1="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+  xmlns:rgm2="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+  xmlns:rgm="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem">
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+    schemaLocation="rgm1.xsd"/>
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem"
+    schemaLocation="spdXsdOsasco.xsd"/>
+  <xs:element name="CNPJ" type="xs:string"/>
+  <xs:element name="CPF" type="xs:string"/>
+  <xs:element name="DDD" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="Endereco">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rgm2:Bairro" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:CEP" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Cidade" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Complemento" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Estado" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Logradouro" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Numero" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Pais" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:TipoLogradouro" maxOccurs="1" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Bairro" type="xs:string"/>
+  <xs:element name="CEP" type="xs:string"/>
+  <xs:element name="Cidade" type="xs:string"/>
+  <xs:element name="Complemento" type="xs:string"/>
+  <xs:element name="Estado" type="xs:string"/>
+  <xs:element name="Logradouro" type="xs:string"/>
+  <xs:element name="Numero" type="xs:string"/>
+  <xs:element name="Pais" type="xs:string"/>
+  <xs:element name="TipoLogradouro" type="xs:string"/>
+  <xs:element name="InscricaoMunicipal" type="xs:string"/>
+  <xs:element name="Nome" type="xs:string"/>
+  <xs:element name="Telefone" type="xs:string"/>
+</xs:schema>

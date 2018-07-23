@@ -1,0 +1,70 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=tcRetornoLoteRps
+XSDFile=NFSeGoverna.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[tcRetornoLoteRps]
+NumeroProtocolo=tcRetornoLoteRps/tcRetRps/tcInfRetRps/tsNumNot
+MotivoCodigo=tcRetornoLoteRps/tcValidaLoteRps/tsFlgEtt
+MotivoMensagem=tcRetornoLoteRps/tcValidaLoteRps/tsDesOco
+; não tem MotivoCorrecao
+
+
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno da Consulta de NFSe por RPS
+;*****************************************************************************************************************************************
+[RETORNO_CONSULTARNFSEPORRPS]
+XSDElementName=tcRetornoConsultaRPS
+XSDFile=NFSeGoverna.xsd
+XSDStartNode=
+IgnoredXpaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno da Consulta NFSe por RPS
+;*****************************************************************************************************************************************
+[tcRetornoConsultaRPS]
+NumeroNFSe=tcRetornoConsultaRPS/tcRetConsultaRPS/tcInfRetConsultaRPS/tsNumNot
+CodVerificacao=tcRetornoConsultaRPS/tcRetConsultaRPS/tcInfRetConsultaRPS/tsCodVer
+NumeroRps=tcRetornoConsultaRPS/tcRetConsultaRPS/tcInfRetConsultaRPS/tsNumRps
+;SerieRps=
+;Tipo=
+;DataEmissaoNFSe=
+;DataAutorizacao=
+;Cnpj=
+;InscMunicipal=
+;DataCancelamento=
+;CodigoCancelamento=
+MotivoCodigo=tcRetornoConsultaRPS/tcValidaConsultaRPS/tsFlgEtt
+MotivoMensagem=tcRetornoConsultaRPS/tcValidaConsultaRPS/tsDesOco
+;MotivoCorrecao=
+
+
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=tcRetornoLoteCancelamento
+XSDFile=NFSeGoverna.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Retorno de Cancelamento
+;***************************************************************************************************
+[tcRetornoLoteCancelamento]
+;DataCancelamento=
+MotivoCodigo=tcRetornoLoteCancelamento/tcValidaLoteCancelamento/tsFlgEtt
+MotivoMensagem=tcRetornoLoteCancelamento/tcValidaLoteCancelamento/tsDesOco
+;MotivoCorrecao=

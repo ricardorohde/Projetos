@@ -1,0 +1,5 @@
+<web:nfdEntradaCancelar>
+  <cpfUsuario>%s</cpfUsuario>
+  <hashSenha>%s</hashSenha>
+  <nfd><![CDATA[%s]]></nfd>
+</web:nfdEntradaCancelar>

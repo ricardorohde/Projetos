@@ -1,0 +1,76 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha: TSpdXSDClientDataSet;
+  _ListFields: TStringList;
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := SameText(Params.Values['EnvioSincrono'], 'true');
+  end;
+
+  function LoteFoiAprovado: boolean;
+  begin
+    { Para Vitória o retorno do envio sempre retorna protocolo e motivo.
+        Temos que verificar o código do retorno para saber se o envio
+        foi aprovado (A31 é lote aprovado).}
+    Result := (SameText(_DSFalha.FieldByName('Codigo').AsString, 'A32') or SameText(_DSFalha.FieldByName('Codigo').AsString, 'A31'));
+  end;
+
+  function GetNumeroProtocolo: string;
+  begin
+    // Só retorna protocolo se o lote foi aprovado.
+    if LoteFoiAprovado then
+      Result := _DSSucesso.FieldByName('Protocolo').AsString
+    else
+      Result := '';
+  end;
+
+  function GetStatusEnvio: string;
+  begin
+    if LoteFoiAprovado then
+      Result := 'SUCESSO'
+    else
+      Result := 'ERRO';
+  end;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+
+    if EnvioSincrono then
+      GetPonteirosDataSets('CompNfse', 'MensagemRetorno', _DSSucesso, _DSFalha)
+    else
+      GetPonteirosDataSets('EnviarLoteRpsResposta', 'MensagemRetorno', _DSSucesso, _DSFalha);
+
+    if not EnvioSincrono then
+    begin
+      _ListFields := CreateFieldsResponseEnvioAssincrono;
+      if _ListFields <> nil then
+        Try
+          Progress('Adicionando valores aos campos.');
+          AddValueListFields('Motivo', GetMotivo(_DSFalha), _ListFields);
+          AddValueListFields('Status', GetStatusEnvio, _ListFields);
+          AddValueListFields('NumeroProtocolo', GetNumeroProtocolo, _ListFields);
+          Output := FormatLineResult(_ListFields);
+        Finally
+          _ListFields.Free;
+        end;
+    end
+    else
+      Output := GetListFieldsNota(_DSSucesso, _DSFalha,
+        _ListFields, '//*[local-name()="InfNfse"]/*[local-name()="Numero" and text()="%s"]/../../..', 'XmlLote');
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Nfse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="EmissaoNota" minOccurs="1" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmissaoNota">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="DescricaoObservacao"/>
+        <xs:element ref="DataCompetencia"/>
+        <xs:element ref="ValorNf"/>
+        <xs:element ref="DescontosLegais"/>
+        <xs:element ref="ValorInss"/>
+        <xs:element ref="ValorIrrf"/>
+        <xs:element ref="ValorCsll"/>
+        <xs:element ref="ValorPis"/>
+        <xs:element ref="ValorCofins"/>
+        <xs:element ref="DadosTomador"/>
+        <xs:element ref="NumeroCnaeAtividade"/>
+        <xs:element ref="CnaeItemLista"/>
+        <xs:element ref="ValorBaseCalculo"/>
+        <xs:element ref="AliquotaSimplesNacional"/>
+        <xs:element ref="NomCidadePrestacao"/>
+        <xs:element ref="NomUfPrestacao"/>
+        <xs:element ref="IssPagoTomadorServico"/>
+      </xs:sequence>
+	  <xs:attribute name="IdBloco" use="required" type="xs:string"/>
+      <xs:attribute name="InscricaoMunicipal" use="required" type="xs:string"/>
+      <xs:attribute name="Operacao" use="required" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DescricaoObservacao" type="xs:string"/>
+  <xs:element name="DataCompetencia" type="xs:string"/>
+  <xs:element name="ValorNf" type="xs:string"/>
+  <xs:element name="DescontosLegais" type="xs:string"/>
+  <xs:element name="ValorInss" type="xs:string"/>
+  <xs:element name="ValorIrrf" type="xs:string"/>
+  <xs:element name="ValorCsll" type="xs:string"/>
+  <xs:element name="ValorPis" type="xs:string"/>
+  <xs:element name="ValorCofins" type="xs:string"/>
+  <xs:element name="DadosTomador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="NumCpf"/>
+        <xs:element ref="NumCnpj"/>
+        <xs:element ref="InscMunicipalTomador"/>
+        <xs:element ref="RazaoSocial"/>
+        <xs:element ref="Endereco"/>
+        <xs:element ref="Numero"/>
+        <xs:element ref="Complemento"/>
+        <xs:element ref="Bairro"/>
+        <xs:element ref="Cidade"/>
+        <xs:element ref="Uf"/>
+        <xs:element ref="Cep"/>
+        <xs:element ref="Telefone"/>
+        <xs:element ref="Fax"/>
+        <xs:element ref="Email"/>
+        <xs:element ref="InscricaoEstadual"/>
+        <xs:element ref="StaEstrangeiro"/>
+        <xs:element ref="Siaf"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumCpf" type="xs:string"/>
+  <xs:element name="NumCnpj" type="xs:string"/>
+  <xs:element name="InscMunicipalTomador" type="xs:string"/>
+  <xs:element name="RazaoSocial" type="xs:string"/>
+  <xs:element name="Endereco" type="xs:string"/>
+  <xs:element name="Numero" type="xs:string"/>
+  <xs:element name="Complemento" type="xs:string"/>
+  <xs:element name="Bairro" type="xs:string"/>
+  <xs:element name="Cidade" type="xs:string"/>
+  <xs:element name="Uf" type="xs:string"/>
+  <xs:element name="Cep" type="xs:string"/>
+  <xs:element name="Telefone" type="xs:string"/>
+  <xs:element name="Fax" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="InscricaoEstadual" type="xs:string"/>
+  <xs:element name="StaEstrangeiro" type="xs:string"/>
+  <xs:element name="Siaf" type="xs:string"/>
+  <xs:element name="NumeroCnaeAtividade" type="xs:string"/>
+  <xs:element name="CnaeItemLista" type="xs:string"/>
+  <xs:element name="ValorBaseCalculo" type="xs:string"/>
+  <xs:element name="AliquotaSimplesNacional" type="xs:string"/>
+  <xs:element name="NomCidadePrestacao" type="xs:string"/>
+  <xs:element name="NomUfPrestacao" type="xs:string"/>
+  <xs:element name="IssPagoTomadorServico" type="xs:string"/>
+</xs:schema>

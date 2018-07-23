@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0051)http://www.uri.br/~preuss/socket/socketsdelphi.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+ 
+  
+ 
+  <meta name="Generator" content="Microsoft Word 97">
+  <title>Sockets em Delphi</title>
+</head>
+ <body>
+  <b><font face="Arial" size="4">
+<p align="justify">Sockets em Delphi</p>
+ </font></b>
+<p align="justify">&nbsp;</p>
+ <b><i><font face="Arial">
+<p align="justify">Servidor</p>
+ </font></i></b>
+<p align="justify">Para programar um servidor com sockets em Delphi, crie
+uma nova aplicação e inclua um componente SERVERSOCKET que está na palheta
+INTERNET. Configure a porta de comunicação (PORT)  e defina ACTIVE como <b>true</b>.</p>
+ 
+<p align="justify">Para fazer o envio de uma mensagem utilize:</p>
+ 
+<p align="justify"></p>
+ 
+<p align="justify">ServerSocket1.Socket.Connections[0].SendText(   texto
+a ser enviado   );</p>
+ 
+<p align="justify"></p>
+ 
+<p align="justify">Para receber uma mensagem utilize o evento <b>onClientRead</b></p>
+ 
+<p align="justify">&nbsp;</p>
+ <b><i><font face="Arial">
+<p align="justify">Cliente</p>
+ </font></i></b>
+<p align="justify">Para programar um cliente com sockets em Delphi, crie
+uma nova aplicação e inclua um componente CLIENTSOCKET que está na palheta
+INTERNET. Configure o servidor através do endereço (ADDRESS) ou o nome do
+servidor (HOST), a porta de comunicação (PORT)  e defina ACTIVE como <b>true</b>.</p>
+ 
+<p align="justify">Para fazer o envio de uma mensagem utilize:</p>
+ 
+<p align="justify"></p>
+ 
+<p align="justify">ClientSocket1.Socket.SendText(   texto a ser enviado 
+ );</p>
+ 
+<p align="justify"></p>
+ 
+<p align="justify">Para receber uma mensagem utilize o evento <b>onClientRead</b></p>
+ 
+<p align="justify">&nbsp;</p>
+ <b><i><font face="Arial">
+<p align="justify">Exemplo de Servidor</p>
+ </font></i></b>
+<p align="justify"><img src="./Bíblia em HTML da IEADUV_files/Image1.gif" width="314" height="189">
+</p>
+ <b>
+<p align="justify">Propriedades do ServerSocket:</p>
+ </b>
+<p align="justify">Port = 3100</p>
+ 
+<p align="justify">ServerType = stNonBlocking</p>
+ 
+<p align="justify">Active = True</p>
+ 
+<p align="justify"></p>
+ 
+<p align="justify">&nbsp;</p>
+ 
+<pre>unit UnServidor;<br><br>interface<br><br>uses<br>  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,<br>  ScktComp, StdCtrls;<br><br>type<br>  TForm1 = class(TForm)<br>    Label1: TLabel;<br>    Label2: TLabel;<br>    Edit1: TEdit;<br>    Button1: TButton;<br>    ServerSocket1: TServerSocket;<br>    procedure ServerSocket1ClientRead(Sender: TObject;<br>      Socket: TCustomWinSocket);<br>    procedure Button1Click(Sender: TObject);<br>    procedure ServerSocket1ClientConnect(Sender: TObject;<br>      Socket: TCustomWinSocket);<br>    procedure FormCreate(Sender: TObject);<br>  private<br>    { Private declarations }<br>  public<br>    { Public declarations }<br>  end;<br><br>var<br>  Form1: TForm1;<br>  meunro, nrorec: integer;<br><br>implementation<br><br>{$R *.DFM}<br><br>procedure TForm1.ServerSocket1ClientRead(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>nrorec:= strtointdef(Socket.ReceiveText,0);<br>if meunro &gt; 0 then<br>    begin<br>    if (nrorec + meunro) mod 2 = 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br>end;<br><br>procedure TForm1.Button1Click(Sender: TObject);<br>begin<br>meunro:=strtointdef(Edit1.text,0);<br>ServerSocket1.Socket.Connections[0].SendText(Edit1.text);<br>if nrorec&gt;0 then<br>    begin<br>    if (nrorec + meunro) mod 2 = 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br>end;<br><br>procedure TForm1.ServerSocket1ClientConnect(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>showmessage('Cliente conectou!');<br>Button1.Enabled:=true;<br>end;<br><br>procedure TForm1.FormCreate(Sender: TObject);<br>begin<br>Button1.Enabled:=false;<br>end;<br><br>end.<br></pre>
+   
+<p align="justify"></p>
+ 
+<p align="justify">&nbsp;</p>
+ 
+<p align="justify">&nbsp;</p>
+ <b><i><font face="Arial">
+<p align="justify">&nbsp;</p>
+ 
+<p align="justify">Exemplo de Cliente</p>
+ </font></i></b>
+<p align="justify"><img src="./Bíblia em HTML da IEADUV_files/Image2.gif" width="353" height="230">
+</p>
+ 
+<p align="justify"></p>
+ <font face="Courier New"></font>
+<p align="justify"></p>
+  
+<pre><font face="Courier New">unit UnCliente;<br><br>interface<br><br>uses<br>  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,<br>  StdCtrls, ScktComp;<br><br>type<br>  TForm1 = class(TForm)<br>    ClientSocket1: TClientSocket;<br>    Label1: TLabel;<br>    Label2: TLabel;<br>    Edit1: TEdit;<br>    Edit2: TEdit;<br>    Button1: TButton;<br>    Button2: TButton;<br>    Label3: TLabel;<br>    Edit3: TEdit;<br>    Label4: TLabel;<br>    procedure Button1Click(Sender: TObject);<br>    procedure ClientSocket1Read(Sender: TObject; Socket: TCustomWinSocket);<br>    procedure Button2Click(Sender: TObject);<br>    procedure ClientSocket1Connect(Sender: TObject;<br>      Socket: TCustomWinSocket);<br>    procedure FormCreate(Sender: TObject);<br>  private<br>    { Private declarations }<br>  public<br>    { Public declarations }<br>  end;<br><br>var<br>  Form1: TForm1;<br>  meunro, nrorec: integer;<br><br>implementation<br><br>{$R *.DFM}<br><br>procedure TForm1.Button1Click(Sender: TObject);<br>begin<br>ClientSocket1.Host:=edit1.text;<br>ClientSocket1.port:=strtointdef(edit2.text,0);<br>ClientSocket1.Active:=true;<br>Button2.Enabled:=true;<br>end;<br><br>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;<br>procedure TForm1.ClientSocket1Read(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>nrorec:= strtointdef(Socket.ReceiveText,0);<br>if meunro &gt; 0 then<br>    begin<br>    if (nrorec + meunro) mod 2 &lt;&gt; 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br>end;<br><br>procedure TForm1.Button2Click(Sender: TObject);<br>begin<br>meunro:=strtointdef(Edit3.text,0);<br>ClientSocket1.Socket.SendText(Edit3.text);<br>if nrorec&gt;0 then<br>    begin<br>    if (nrorec + meunro) mod 2 &lt;&gt; 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br>end;<br><br>procedure TForm1.ClientSocket1Connect(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>showmessage('Conectado!');<br>end;<br><br>procedure TForm1.FormCreate(Sender: TObject);<br>begin<br>button2.Enabled:=false;<br>end;<br><br>end.<br><br><br><br></font><br><p align="justify">&nbsp;</p></pre>
+<hr width="100%" size="2">
+<h3>Sockets em Delphi com Variáveis numéricas</h3>
+  Para fazer a comunicação (escrita e leitura) de variáveis que não são texto, 
+devem ser usados os métodos<br>
+  <br>
+  <b>ReceiveBuf</b> ao invés de <b>ReceiveText<br>
+ </b>e<br>
+  <b>SendBuf</b> ao invés de <b>SendText</b><br>
+  <br>
+  O exemplo a seguir é semelhante ao anterior, porém permite a comunicação 
+enviando e recebendo um número inteiro.<br>
+  O programa a seguir pode se comunicar com o servidor do exemplo desenvolvido 
+em linguagem C para Linux.<br>
+  <br>
+  
+<pre>unit UnCliente;<br><br>interface<br><br>uses<br>  Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,<br>  ScktComp, StdCtrls;<br><br>type<br>  TForm1 = class(TForm)<br>    ClientSocket1: TClientSocket;<br>    Button1: TButton;<br>    Edit1: TEdit;<br>    Button2: TButton;<br>    Edit2: TEdit;<br>    Edit3: TEdit;<br>    Label1: TLabel;<br>    Label2: TLabel;<br>    Label3: TLabel;<br>    Label4: TLabel;<br>    procedure ClientSocket1Connect(Sender: TObject;<br>      Socket: TCustomWinSocket);<br>    procedure Button1Click(Sender: TObject);<br>    procedure Button2Click(Sender: TObject);<br>    procedure ClientSocket1Read(Sender: TObject; Socket: TCustomWinSocket);<br>    procedure FormCreate(Sender: TObject);<br>  private<br>    { Private declarations }<br>  public<br>    { Public declarations }<br>  end;<br><br>var<br>  Form1: TForm1;<br>  meunro, nrorec: integer;<br>implementation<br><br>{$R *.DFM}<br><br>procedure TForm1.ClientSocket1Connect(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>showmessage('conectou');<br>end;<br><br>procedure TForm1.Button1Click(Sender: TObject);<br>begin<br>ClientSocket1.Host:=edit1.text;<br>ClientSocket1.port:=strtointdef(edit2.text,0);<br>ClientSocket1.Active:=true;<br>Button2.Enabled:=true;<br>end;<br><br>procedure TForm1.Button2Click(Sender: TObject);<br>begin<br>meunro:=strtointdef(Edit3.text,0);<br>ClientSocket1.Socket.SendBuf(meunro,sizeof(meunro));<br>if nrorec&gt;0 then<br>    begin<br>    if (nrorec + meunro) mod 2 &lt;&gt; 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br>end;<br><br>procedure TForm1.ClientSocket1Read(Sender: TObject;<br>  Socket: TCustomWinSocket);<br>begin<br>Socket.ReceiveBuf(nrorec,sizeof(nrorec));<br>if meunro &gt; 0 then<br>    begin<br>    if (nrorec + meunro) mod 2 &lt;&gt; 0 then<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ GANHOU!');<br>        end<br>    else<br>        begin<br>        showmessage('Seu Nro: ' + inttostr(meunro) + '   Nro Recebido: '+ inttostr(nrorec) + '  VOCÊ PERDEU!');<br>        end;<br>    nrorec:=0;<br>    meunro:=0;<br>    end;<br><br>end;<br><br>procedure TForm1.FormCreate(Sender: TObject);<br>begin<br>button2.Enabled:=false;<br>end;<br><br>end.<br><br></pre>
+ <br>
+
+
+</body></html>

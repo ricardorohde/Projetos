@@ -1,0 +1,14 @@
+<tem:RecepcionarLoteNotasCanceladas xmlns="http://tempuri.org/">
+<tem:pArquivoXML><![CDATA[<tcLoteCancelamento>
+<tsCodCadBic>%s</tsCodCadBic>
+<tsVrsArq>3</tsVrsArq>
+<tsChvAcs>%s</tsChvAcs>
+<tcNotCan>
+<tcInfNotCan>
+<tsNumNot>%s</tsNumNot>
+<tsCodVer>%s</tsCodVer>
+<tsDesMotCan>%s</tsDesMotCan>
+</tcInfNotCan>
+</tcNotCan>
+</tcLoteCancelamento>]]></tem:pArquivoXML>
+</tem:RecepcionarLoteNotasCanceladas>

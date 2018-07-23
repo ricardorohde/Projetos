@@ -1,0 +1,41 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml,_XmlNFSe, _SituacaoLote : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if XmlSelectNodeValue(Input,'//*[namespace-uri()="" and local-name()="Header"]//*[local-name()="SituacaoLote"]', _SituacaoLote) then
+    Params.Add('SituacaoLote='+_SituacaoLote)
+  else
+    Params.Add('SituacaoLote=');
+
+  Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+  Input := StringReplace(Input, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[namespace-uri()="http://www.prefeitura.sp.gov.br/nfe" and local-name()="RetornoConsulta"]');
+  _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _XmlNFSe := XmlSelect(_Xml, '//*[namespace-uri()="http://www.prefeitura.sp.gov.br/nfe" and local-name()="RetornoConsulta"]');
+    Params.Add('XmlNFSe='+_XmlNFSe);
+    Progress('XML carregado com sucesso');
+  end;
+end.

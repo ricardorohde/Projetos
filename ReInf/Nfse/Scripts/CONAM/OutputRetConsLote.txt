@@ -1,0 +1,179 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Motivo, _Status, _Xml : String;
+
+{$I Utils.txt}
+
+  function GetStatus : String;
+  var
+    _Retorno : string;
+  begin
+    if xmlSelectNodeValue(Params.Values['XML'],  '//*[local-name()="Retorno"]', _Retorno) then
+    begin
+      if (Params.Values['faultstring'] = '') and (_Retorno = 'true') then
+      begin
+        result := 'SUCESSO';
+      end
+      else
+      begin
+        if (Pos('Em Processamento', GetMensagem(Params.Values['XML'])) > 0) or
+          (Pos('Aguardando Processamento', GetMensagem(Params.Values['XML'])) > 0) then
+          result := 'EMPROCESSAMENTO'
+        else
+          result := 'ERRO';
+      end;
+    end;
+  end;
+
+  function GetSituacaoNFSE : string;
+  begin
+    if (GetValueTag('SitNf', Params.Values['XML']) <> '2') then
+    begin
+      if (GetStatus = 'ERRO') then
+        result := 'ERRO'
+      else
+        result := 'AUTORIZADA';
+    end
+    else
+      result := 'CANCELADA';
+  end;
+
+  function GetChaveCancelamento : string;
+  var
+    _Xml : string;
+  begin
+    // No caso do padrão CONAM é uma concatenação separada por underline dos dados NUMERONOTA_SERIENOTA_SERIERPS_NUMERORPS_VALORNOTA
+    _Xml := Params.Values['XML'];
+    Result := GetNumeroNota(_Xml) + '_' + GetSerieNota(_Xml) + '_' + GetSerieRps(_Xml) + '_' + GetNumeroRps(_Xml) + '_' + GetValorNota(_Xml);
+  end;
+
+  function GetXmlNFSe: string;
+  begin
+    Result := XmlSelect(Params.Values['XML'], '//*[local-name()="XML_Notas"]');
+    Result := StringReplace(Result, ';', '\delimiter', [rfReplaceAll]);
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    result := TStringList.Create;
+    result.Add('Status');
+    result.Add('Motivo');
+  end;
+
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Output := '';
+
+  Progress('Adicionando valores aos campos.');
+  _Xml := Params.Values['XML'];
+  _Motivo := GetMotivo(_Xml);
+  _Status := GetStatus;
+  if _Status = 'EMPROCESSAMENTO' then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseProcessamento;
+
+      AddValueListFields('Status', 'EMPROCESSAMENTO');
+
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else if _Status = 'ERRO' then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo',_Motivo);
+
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+       _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    _ListFields := CreateFieldsResponse;
+    Try
+      if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+      begin
+        AddValueListFields('Status', 'SUCESSO');
+        AddValueListFields('Motivo', '');
+        AddValueListFields('Cnpj', GetValueTag('CpfCnpj', _Xml));
+        AddValueListFields('InscMunicipal', '');
+        AddValueListFields('SerieRps', GetValueTag('SerRps', _Xml));
+        AddValueListFields('NumeroRps', GetValueTag('NumRps', _Xml));
+        AddValueListFields('NumeroNFSe', GetValueTag('NumNf', _Xml));
+        AddValueListFields('DataEmissaoNFSe', GetValueTag('DtEmiRps', _Xml));
+        AddValueListFields('DataAutorizacao', GetValueTag('DtEmiNf', _Xml));
+        AddValueListFields('CodVerificacao', GetValueTag('CodVernf', _Xml));
+        AddValueListFields('Situacao', GetSituacaoNFSe);
+        AddValueListFields('DataCancelamento', GetValueTag('DataCncNf', _Xml));
+        AddValueListFields('ChaveCancelamento', GetChaveCancelamento);
+        AddValueListFields('Xml', GetXmlNFSe);
+        AddValueListFields('Tipo', '');
+
+      if (Params.Values['DelimitadorDaLinha'] = '') then
+        Output := Output + FormatLineResult + #13#10
+      else
+        Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+      end;
+    Finally
+      _ListFields.Free;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

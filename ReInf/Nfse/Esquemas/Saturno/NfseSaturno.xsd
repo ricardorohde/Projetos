@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <xsd:complexType name="Contribuinte">
+        <xsd:all>
+            <xsd:element name="endereco" type="xsd:string"/>
+            <xsd:element name="numero" type="xsd:integer"/>
+            <xsd:element name="complemento" type="xsd:string"/>
+            <xsd:element name="bairro" type="xsd:string"/>
+            <xsd:element name="cep" type="xsd:string"/>
+            <xsd:element name="cidade" type="xsd:string"/>
+            <xsd:element name="uf" type="xsd:string"/>
+            <xsd:element name="pais" type="xsd:string"/>
+            <xsd:element name="nome" type="xsd:string"/>
+            <xsd:element name="nomefantasia" type="xsd:string"/>
+            <xsd:element name="inscricao" type="xsd:string"/>
+            <xsd:element name="passaporte" type="xsd:string"/>
+            <xsd:element name="cpfcnpj" type="xsd:string"/>
+            <xsd:element name="rgie" type="xsd:string"/>
+            <xsd:element name="email" type="xsd:string"/>
+            <xsd:element name="ddd" type="xsd:integer"/>
+            <xsd:element name="fone" type="xsd:integer"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="Servico">
+        <xsd:all>
+            <xsd:element name="quantidade" type="xsd:double"/>
+            <xsd:element name="atividade" type="xsd:string"/>
+            <xsd:element name="valor" type="xsd:double"/>
+            <xsd:element name="deducao" type="xsd:double"/>
+            <xsd:element name="codigoservico" type="xsd:string"/>
+            <xsd:element name="aliquota" type="xsd:double"/>
+            <xsd:element name="inss" type="xsd:double"/>
+            <xsd:element name="total" type="xsd:double"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="ServicosArray">
+        <xsd:sequence>
+            <xsd:element name="servico" type="Servico" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="NotaEnvio">
+        <xsd:all>
+            <xsd:element name="cpfcnpj" type="xsd:string"/>
+            <xsd:element name="inscricao" type="xsd:string"/>
+            <xsd:element name="cep" type="xsd:string"/>
+            <xsd:element name="data" type="xsd:date"/>
+            <xsd:element name="modelo" type="xsd:string"/>
+            <xsd:element name="serie" type="xsd:string"/>
+            <xsd:element name="fatura" type="xsd:string"/>
+            <xsd:element name="orcamento" type="xsd:string"/>
+            <xsd:element name="vencimento" type="xsd:date"/>
+            <xsd:element name="tipo" type="xsd:string"/>
+            <xsd:element name="pis" type="xsd:double"/>
+            <xsd:element name="csll" type="xsd:double"/>
+            <xsd:element name="cofins" type="xsd:double"/>
+            <xsd:element name="irff" type="xsd:double"/>
+            <xsd:element name="situacao" type="xsd:string"/>
+            <xsd:element name="optante" type="xsd:string"/>
+            <xsd:element name="aliquota" type="xsd:double"/>
+            <xsd:element name="texto" type="xsd:string"/>
+            <xsd:element name="servicos" type="ServicosArray"/>
+            <xsd:element name="tomador" type="Contribuinte"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:complexType name="NotaRetorno">
+        <xsd:all>
+            <xsd:element name="guia" type="xsd:string"/>
+            <xsd:element name="escdetanoexercicio" type="xsd:string"/>
+            <xsd:element name="numero" type="xsd:integer"/>
+            <xsd:element name="mes" type="xsd:integer"/>
+            <xsd:element name="cidade" type="xsd:string"/>
+            <xsd:element name="uf" type="xsd:string"/>
+            <xsd:element name="exercicio" type="xsd:integer"/>
+            <xsd:element name="data" type="xsd:date"/>
+            <xsd:element name="modelo" type="xsd:string"/>
+            <xsd:element name="serie" type="xsd:string"/>
+            <xsd:element name="apuracao" type="xsd:string"/>
+            <xsd:element name="valor" type="xsd:double"/>
+            <xsd:element name="valorimposto" type="xsd:double"/>
+            <xsd:element name="situacao" type="xsd:string"/>
+            <xsd:element name="deducao" type="xsd:double"/>
+            <xsd:element name="basecalculo" type="xsd:double"/>
+            <xsd:element name="servicos" type="ServicosArray"/>
+            <xsd:element name="tomador" type="Contribuinte"/>
+            <xsd:element name="prestador" type="Contribuinte"/>
+            <xsd:element name="url" type="xsd:string"/>
+            <xsd:element name="codigo" type="xsd:integer"/>
+            <xsd:element name="mensagem" type="xsd:string"/>
+        </xsd:all>
+    </xsd:complexType>
+
+    <xsd:element name="nota" type="NotaEnvio"/>
+    <xsd:element name="notas">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="nota" type="NotaRetorno" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+</xsd:schema>

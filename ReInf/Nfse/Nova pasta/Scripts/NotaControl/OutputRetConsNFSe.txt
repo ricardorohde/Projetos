@@ -1,0 +1,132 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _ListFields : TStringList;
+  _Motivo, _Status : String;
+
+  function GetStatus : string;
+  begin
+    if Params.Values['XmlNFSe'] <> '' then
+      Result := 'SUCESSO'
+    else
+      Result := 'ERRO';
+  end;
+
+  function GetXmlNFSe : string;
+  var
+    _aux : String;
+  begin
+    _aux := StringReplace(Params.Values['XmlNFSe'], '&amp;', '&',[rfReplaceAll]);
+    Result := _aux;
+  end;
+
+  function GetMotivo : string;
+  var
+    _Valor, _faultstring : string;
+  begin
+    _faultstring := Params.Values['Faultstring'];
+    if _faultstring <> '' then
+      Result := 'Falha na comunicação com WebService-' + _faultstring
+    else If Params.Values['XmlNFSe'] = '' then
+    begin
+      XmlSelectNodeValue(Input, '//*[local-name()="util"]', _Valor)
+      Result :=  _Valor;
+    end
+    else
+      Result := '';
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que passa o valor a lista de Resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+  function GetCnpj: string;
+  Var
+    _PIni, _Comprimento: integer;
+  begin
+    _PIni := Pos( 'cnpj=', Input) + 5;
+    _Comprimento := Pos('&numero', Input) - _PIni;
+    Result := Copy(Input, _PIni, _Comprimento);
+  end;
+
+  function GetNumeroNfse: string;
+  Var
+    _PIni, _Comprimento: integer;
+  begin
+    _PIni := Pos( 'numero=', Input) + 7;
+    _Comprimento := Pos('&chave', Input) - _PIni;
+    Result := Copy(Input, _PIni, _Comprimento);
+  end;
+
+begin
+  Progress('ConsultaNFseUrl');
+  Output := '';
+  _Status := GetStatus;
+  _Motivo := GetMotivo;
+  _ListFields := CreateFieldsResponse;
+  if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+  Try
+    AddValueListFields('Status', _Status);
+    AddValueListFields('Motivo', _Motivo);
+
+    If (_Motivo = '') or (_Status = 'SUCESSO') then
+    begin
+      AddValueListFields('Cnpj', GetCnpj);
+      AddValueListFields('InscMunicipal','');
+      AddValueListFields('SerieRps','');
+      AddValueListFields('NumeroRps','');
+      AddValueListFields('NumeroNFSe', GetNumeroNfse);
+      AddValueListFields('DataEmissaoNFSe','');
+      AddValueListFields('DataAutorizacao','');
+      AddValueListFields('CodVerificacao', '');
+      AddValueListFields('Situacao','');
+      AddValueListFields('DataCancelamento','');
+      AddValueListFields('ChaveCancelamento','');
+      AddValueListFields('Xml', GetXmlNFSe);
+      AddValueListFields('Tipo','');
+    end;
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

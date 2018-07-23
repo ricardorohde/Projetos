@@ -1,0 +1,59 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _XmlErro : string;
+
+  {$I ..\Comuns\Utils.txt}
+  function TrataXml(aXml: string): string;
+  begin
+    if pos('<DiscriminacaoServico>', aXml) = 0 then      
+      Result := ExtractEscapedContent(aXml)
+    else
+      Result := aXml;
+    // Todo "&" vira "&amp;" e todo "&amp;" continua sendo "&amp;":
+    Result := StringReplace(Result, '&amp;','&',[rfReplaceAll]);
+    Result := StringReplace(Result, '&',  '&amp;',  [rfReplaceAll]);
+  end;
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoConsultaNFSeRPS.xsd';
+  Datasets.XsdElementName := 'RetornoConsultaNFSeRPS';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if pos('<!--CRLF-->', Input) > 0 then
+  begin
+    _Xml := StringReplace(Input, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := TrataXml(_Xml);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://localhost:8080/WsNFe2/lote" and local-name()="RetornoConsultaNFSeRPS"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+  begin
+    _Xml := TrataXml(Input);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://localhost:8080/WsNFe2/lote" and local-name()="RetornoConsultaNFSeRPS"]');
+
+  end;
+
+  if _Xml = '' then
+    _XmlErro := getValueTag('consultarNFSeRpsReturn',input);
+  if (Pos('<faultstring',input) > 0) or (_XmlErro <> '') then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://localhost:8080/WsNFe2/lote" and local-name()="RetornoConsultaNFSeRPS"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

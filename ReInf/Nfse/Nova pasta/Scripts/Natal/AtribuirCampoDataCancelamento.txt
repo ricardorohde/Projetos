@@ -1,0 +1,26 @@
+procedure AtribuirCampoDataCancelamento(aDatasets: TspdXSDDataset; const aXML, aNomeDsNotas: string);
+var
+  _Notas: TSpdXSDClientDataSet;
+  i: integer;
+  _DataHora: string;
+begin
+  _Notas := aDatasets.GetDataSetByName(aNomeDsNotas);
+  if _Notas <> nil then
+  begin
+    _Notas.First;
+    i:= 1;  // XPath é 1-based
+    while not _Notas.Eof do
+    begin
+      if XmlSelectNodeValue(aXML, '//*[local-name()="CompNfse"]['+IntToStr(i)+']'+
+        '//*[local-name()="NfseCancelamento"]//*[local-name()="Datahora" or local-name()="DataHora"]', _DataHora) then
+      begin
+        _Notas.Edit;
+        _Notas.FieldByName('DataCancelamento').AsString := _DataHora;
+        _Notas.Post;
+      end;
+      i := i+1;
+      _Notas.Next;
+    end;
+    _Notas.First;
+  end;
+end;

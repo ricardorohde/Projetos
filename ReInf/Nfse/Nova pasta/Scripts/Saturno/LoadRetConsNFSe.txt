@@ -1,0 +1,35 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\Utils.txt}
+
+Var
+  _Xml : string;
+
+begin
+  Progress('Carregando XML de Retorno de Envio');
+
+  _Xml := UnEscapeXml(input);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="ISO-8859-1"?>', '', []);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', []);
+  _Xml := StringReplace(_Xml, '&amp', '&amp;', [rfreplaceall]);
+  _Xml := StringReplace(_Xml, '&', '&amp;', [rfreplaceall]);
+  _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [rfreplaceall]);
+
+
+  _Xml := XmlSelect(_Xml, '//*[local-name()="nota"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XML=' + _Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+
+end.

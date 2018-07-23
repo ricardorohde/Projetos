@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="nfse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="identificador"/>	  
+        <xs:element ref="nf"/>
+        <xs:element ref="prestador"/>
+        <xs:element ref="tomador"/>
+        <xs:element ref="itens"/>
+        <xs:element ref="genericos"/>
+        <xs:element ref="produtos"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="nf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="numero" minOccurs="0"/>
+        <xs:element ref="situacao" minOccurs="0"/>
+        <xs:element ref="data_fato_gerador" minOccurs="0"/>
+        <xs:element ref="valor_total"/>
+        <xs:element ref="valor_desconto" minOccurs="0"/>
+        <xs:element ref="valor_ir" minOccurs="0"/>
+        <xs:element ref="valor_inss" minOccurs="0"/>
+        <xs:element ref="valor_contribuicao_social" minOccurs="0"/>
+        <xs:element ref="valor_rps" minOccurs="0"/>
+        <xs:element ref="valor_pis" minOccurs="0"/>
+        <xs:element ref="valor_cofins" minOccurs="0"/>
+        <xs:element ref="observacao" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numero" type="xs:string"/>
+  <xs:element name="situacao" type="xs:string"/>
+  <xs:element name="data_fato_gerador" type="xs:string"/>
+  <xs:element name="valor_total" type="xs:string"/>
+  <xs:element name="valor_desconto" type="xs:string"/>
+  <xs:element name="valor_ir" type="xs:string"/>
+  <xs:element name="valor_inss" type="xs:string"/>
+  <xs:element name="valor_contribuicao_social" type="xs:string"/>
+  <xs:element name="valor_rps" type="xs:string"/>
+  <xs:element name="valor_pis" type="xs:string"/>
+  <xs:element name="valor_cofins" type="xs:string"/>
+  <xs:element name="observacao">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="1000"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="prestador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cpfcnpj"/>
+        <xs:element ref="cidade" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="tomador">
+    <xs:complexType>
+      <xs:sequence>
+		<xs:element ref="endereco_informado" minOccurs="0"/>
+        <xs:element ref="tipo" minOccurs="1"/>		
+        <xs:element ref="identificador" minOccurs="0"/>
+        <xs:element ref="estado" minOccurs="0"/>
+        <xs:element ref="pais" minOccurs="0"/>
+        <xs:element ref="cpfcnpj" minOccurs="0"/>
+        <xs:element ref="ie" minOccurs="0"/>
+        <xs:element ref="nome_razao_social" minOccurs="0"/>
+        <xs:element ref="sobrenome_nome_fantasia" minOccurs="0"/>		
+        <xs:element ref="logradouro" minOccurs="0"/>
+        <xs:element ref="email" minOccurs="0"/>
+        <xs:element ref="numero_residencia" minOccurs="0"/>
+        <xs:element ref="complemento" minOccurs="0"/>
+        <xs:element ref="ponto_referencia" minOccurs="0"/>
+        <xs:element ref="bairro" minOccurs="0"/>
+        <xs:element ref="cidade" minOccurs="0"/>
+        <xs:element ref="cep" minOccurs="0"/>
+        <xs:element ref="ddd_fone_comercial" minOccurs="0"/>
+        <xs:element ref="fone_comercial" minOccurs="0"/>
+        <xs:element ref="ddd_fone_residencial" minOccurs="0"/>
+        <xs:element ref="fone_residencial" minOccurs="0"/>
+        <xs:element ref="ddd_fax" minOccurs="0"/>
+        <xs:element ref="fone_fax" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="endereco_informado" type="xs:string"/>
+  <xs:element name="tipo" type="xs:string"/>
+  <xs:element name="identificador" type="xs:string"/>
+  <xs:element name="estado" type="xs:string"/>
+  <xs:element name="pais" type="xs:string"/>
+  <xs:element name="ie" type="xs:string"/>
+  <xs:element name="nome_razao_social" type="xs:string"/>
+  <xs:element name="sobrenome_nome_fantasia" type="xs:string"/>
+  <xs:element name="logradouro" type="xs:string"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="numero_residencia" type="xs:string"/>
+  <xs:element name="complemento" type="xs:string"/>
+  <xs:element name="ponto_referencia" type="xs:string"/>
+  <xs:element name="bairro" type="xs:string"/>
+  <xs:element name="cep" type="xs:string"/>
+  <xs:element name="ddd_fone_comercial" type="xs:string"/>
+  <xs:element name="fone_comercial" type="xs:string"/>
+  <xs:element name="ddd_fone_residencial" type="xs:string"/>
+  <xs:element name="fone_residencial" type="xs:string"/>
+  <xs:element name="ddd_fax" type="xs:string"/>
+  <xs:element name="fone_fax" type="xs:string"/>
+  <xs:element name="itens">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="lista" type="tclista" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="tclista">
+    <xs:sequence>
+      <xs:element ref="tributa_municipio_prestador"/>
+      <xs:element ref="codigo_local_prestacao_servico"/>
+      <xs:element ref="unidade_codigo" minOccurs="0"/>
+      <xs:element ref="unidade_quantidade" minOccurs="0"/>
+      <xs:element ref="unidade_valor_unitario" minOccurs="0"/>
+      <xs:element ref="codigo_item_lista_servico"/>
+      <xs:element ref="descritivo"/>
+      <xs:element ref="aliquota_item_lista_servico"/>
+      <xs:element ref="situacao_tributaria"/>
+      <xs:element ref="valor_tributavel"/>
+      <xs:element ref="valor_deducao" minOccurs="0"/>
+      <xs:element ref="valor_issrf" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="tributa_municipio_prestador" type="xs:string"/>
+  <xs:element name="codigo_local_prestacao_servico" type="xs:string"/>
+  <xs:element name="unidade_codigo" type="xs:string"/>
+  <xs:element name="unidade_quantidade" type="xs:string"/>
+  <xs:element name="unidade_valor_unitario" type="xs:string"/>
+  <xs:element name="codigo_item_lista_servico" type="xs:string"/>
+  <xs:element name="descritivo">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:maxLength value="1000"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="aliquota_item_lista_servico" type="xs:string"/>
+  <xs:element name="situacao_tributaria" type="xs:string"/>
+  <xs:element name="valor_tributavel" type="xs:string"/>
+  <xs:element name="valor_deducao" type="xs:string"/>
+  <xs:element name="valor_issrf" type="xs:string"/>
+  <xs:element name="genericos">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element name="linha" type="tclinha" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="tclinha">
+    <xs:sequence>
+      <xs:element ref="titulo" minOccurs="0"/>
+      <xs:element ref="descricao" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="titulo" type="xs:string"/>
+  <xs:element name="produtos">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="descricao" minOccurs="0"/>
+        <xs:element ref="valor" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="valor" type="xs:string"/>
+  <xs:element name="identificador" type="xs:string"/>  
+  <xs:element name="cpfcnpj" type="xs:string"/>
+  <xs:element name="cidade" type="xs:string"/>
+  <xs:element name="descricao" type="xs:string"/>
+</xs:schema>

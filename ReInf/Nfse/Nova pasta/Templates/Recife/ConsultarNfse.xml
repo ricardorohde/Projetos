@@ -1,0 +1,10 @@
+<nfse:ConsultarNfseRequest>
+  <nfse:inputXML>
+    <![CDATA[
+    <ConsultarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+      <Prestador>
+        <Cnpj>%s</Cnpj>
+        <InscricaoMunicipal>%s</InscricaoMunicipal>
+      </Prestador>%s%s%s%s</ConsultarNfseEnvio>]]>
+  </nfse:inputXML>
+</nfse:ConsultarNfseRequest>

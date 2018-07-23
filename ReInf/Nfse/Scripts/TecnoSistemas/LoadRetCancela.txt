@@ -1,0 +1,28 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'CancelarNfseResposta.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  _Xml := StringReplace(Input, '<?xml version="1.0" encoding="utf-8"?>', '', [rfReplaceAll]);
+  _Xml := XmlSelect(_Xml, '//*[local-name()="CancelarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

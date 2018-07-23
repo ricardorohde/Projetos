@@ -1,0 +1,34 @@
+  function UnEscapeXml(const aXML: string): string;
+  begin
+    // "Desescapar" o XML
+    Result:= aXML;
+    Result:= StringReplace(Result, '&amp;', '&', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&#xD;', #13,  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&', '&amp;', [rfReplaceAll]);
+  end;
+
+  function UnindentXml(const aXml: string): string;
+  var
+    _sl: TStringList;
+    i: integer;
+  begin
+    _sl := TStringList.Create;
+    _sl.Text := aXml;
+    for i:= 0 to _sl.Count-1 do
+      _sl[i] := Trim(_sl[i]);
+    Result := StringReplace(_sl.Text, #13#10, '', [rfReplaceAll]);
+    _sl.Free;
+  end;
+
+  function GetValueRpsByXpath(const aXml:string): string;
+  var
+    _ID : string;
+  begin
+    XmlSelectNodeValue(aXml,'//*[local-name()="nfse"]/@IdBloco', _ID);
+    Result := _ID;
+  end;

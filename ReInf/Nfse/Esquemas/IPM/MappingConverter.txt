@@ -1,0 +1,23 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=retorno
+XSDFile=spdRetornoEnvio.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[retorno]
+numero_nfse=retorno/numero_nfse
+serie_nfse=retorno/serie_nfse
+data_nfse=retorno/data_nfse
+hora_nfse=retorno/hora_nfse
+arquivo_gerador_nfse=retorno/arquivo_gerador_nfse
+nome_arquivo_gerado=retorno/nome_arquivo_gerado_eletron
+link_nfse=retorno/link_nfse
+cod_verificador_autenticidade=retorno/cod_verificador_autenticidade
+codigo_html=retorno/codigo_html
+codigo=retorno/mensagem/codigo

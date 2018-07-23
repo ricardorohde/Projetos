@@ -1,0 +1,12 @@
+<nfse:RecepcionarLoteRpsSincronoRequest>
+	<nfseCabecMsg>
+		<![CDATA[
+			<cabecalho xmlns="http://www.abrasf.org.br/nfse.xsd" versao="2.00">
+			<versaoDados>2.00</versaoDados>
+			</cabecalho>]]>
+	</nfseCabecMsg>
+	<nfseDadosMsg>
+		<![CDATA[%s]]>
+	</nfseDadosMsg>
+</nfse:RecepcionarLoteRpsSincronoRequest>
+

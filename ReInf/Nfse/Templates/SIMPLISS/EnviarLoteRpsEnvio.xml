@@ -1,0 +1,10 @@
+<EnviarLoteRpsEnvio xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">
+<LoteRps xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd" %s="L1">
+<NumeroLote>%s</NumeroLote>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<QuantidadeRps>%s</QuantidadeRps>
+%s
+</LoteRps>
+%s
+</EnviarLoteRpsEnvio>

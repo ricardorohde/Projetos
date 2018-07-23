@@ -1,0 +1,956 @@
+EurekaLog 6.0.9
+
+Aplicação:
+------------------------------------------------------
+  1.1 Data Início    : Mon, 30 May 2011 16:53:34 -0300
+  1.2 Nome           : pdiminuihora.exe
+  1.3 Versão         : 
+  1.4 Parâmetros     : 
+  1.5 Data Compilação: Thu, 12 May 2011 10:33:23 -0300
+  1.6 Tempo Ativo    : 5 seconds
+
+Exceção:
+-----------------------------------------------------------------------------
+  2.1 Data         : Mon, 30 May 2011 16:53:40 -0300
+  2.2 Endereço     : 004AD478
+  2.3 Nome Módulo  : pdiminuihora.exe
+  2.4 Versão Módulo: 
+  2.5 Tipo         : EDBEditError
+  2.6 Mensagem     : Invalid input value.  Use escape key to abandon changes.
+  2.7 ID           : F57A
+  2.8 Contador     : 1
+  2.9 Status       : New
+  2.10 Observação  : 
+
+Usuário:
+--------------------------------------------------------
+  3.1 ID         : edson.dsn.pack
+  3.2 Nome       : Computador
+  3.3 Email      : 
+  3.4 Empresa    : 
+  3.5 Privilégios: SeChangeNotifyPrivilege         - ON
+                   SeSecurityPrivilege             - OFF
+                   SeBackupPrivilege               - OFF
+                   SeRestorePrivilege              - OFF
+                   SeSystemtimePrivilege           - OFF
+                   SeShutdownPrivilege             - OFF
+                   SeRemoteShutdownPrivilege       - OFF
+                   SeTakeOwnershipPrivilege        - OFF
+                   SeDebugPrivilege                - OFF
+                   SeSystemEnvironmentPrivilege    - OFF
+                   SeSystemProfilePrivilege        - OFF
+                   SeProfileSingleProcessPrivilege - OFF
+                   SeIncreaseBasePriorityPrivilege - OFF
+                   SeLoadDriverPrivilege           - ON
+                   SeCreatePagefilePrivilege       - OFF
+                   SeIncreaseQuotaPrivilege        - OFF
+                   SeUndockPrivilege               - ON
+                   SeManageVolumePrivilege         - OFF
+                   SeImpersonatePrivilege          - ON
+                   SeCreateGlobalPrivilege         - ON
+
+Controles Ativos:
+------------------------------
+  4.1 Form Class   : TForm1
+  4.2 Form Text    : Form1
+  4.3 Control Class: TMaskEdit
+  4.4 Control Text : 08:00:0 
+
+Computador:
+---------------------------------------------------------------------------------------------------
+  5.1 Nome               : PAT685
+  5.2 Memória Total      : 2037 Mb
+  5.3 Memória Livre      : 947 Mb
+  5.4 Total Disco        : 232,77 Gb
+  5.5 Disco Livre        : 171,03 Gb
+  5.6 Tempo Ativo Sistema: 8 hours, 45 minutes, 28 seconds
+  5.7 Processador        : Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+  5.8 Resolução de vídeo : 1280 x 960, 32 bit
+  5.9 DPI                : 96
+  5.10 Placa de vídeo    : Intel(R) G33/G31 Express Chipset Family (driver 6.14.10.4957 - RAM 0 MB)
+  5.11 Impressora        : Microsoft XPS Document Writer (driver 6.0.6001.22204)
+
+Sistema Operacional:
+-------------------------------------
+  6.1 Type     : Microsoft Windows XP
+  6.2 Build #  : 2600
+  6.3 Update   : Service Pack 3
+  6.4 Linguagem: Portuguese
+  6.5 Charset  : 0
+
+Network:
+----------------------------------------------------------------------
+  7.1 Endereço IP: 010.000.003.034 - 192.168.204.001 - 192.168.074.001
+  7.2 Sub-máscara: 255.000.000.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway    : 010.000.000.080 - 000.000.000.000 - 000.000.000.000
+  7.4 DNS 1      : 010.000.000.006 - 000.000.000.000 - 000.000.000.000
+  7.5 DNS 2      : 010.000.000.027 - 000.000.000.000 - 000.000.000.000
+  7.6 DHCP       : ON              - OFF             - OFF            
+
+Informações da Pilha:
+--------------------------------------------------------------------------------
+|Endereço|Módulo          |Unit            |Classe|Procedimento/Método   |Line |
+--------------------------------------------------------------------------------
+|Tarefa em execução: ID=5420; Prioridade=0; Classe=; [Main]                    |
+|------------------------------------------------------------------------------|
+|7E37A993|user32.dll      |                |      |CallWindowProcA       |     |
+|7E37B3FC|user32.dll      |                |      |CallNextHookEx        |     |
+|7E37F406|user32.dll      |                |      |SendMessageA          |     |
+|7E3696C2|user32.dll      |                |      |DispatchMessageA      |     |
+|7E3696B8|user32.dll      |                |      |DispatchMessageA      |     |
+|004AE573|pdiminuihora.exe|pdiminuihora.dpr|      |                      |13[3]|
+|7C90DCB8|ntdll.dll       |                |      |ZwSetInformationThread|     |
+--------------------------------------------------------------------------------
+
+Informações dos Módulos:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Nome            |Descrição                                         |Versão        |Size   |Modificado         |Caminho                                                                                             |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|pdiminuihora.exe|                                                  |              |823808 |2011-05-12 10:33:24|C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                       |
+|10000000|HookDLL.dll     |                                                  |              |43008  |2011-05-16 15:45:26|C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                |
+|5B1C0000|uxtheme.dll     |Biblioteca UxTheme Microsoft                      |6.0.2900.5512 |219648 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|5D510000|comctl32.dll    |Common Controls Library                           |5.82.2900.6028|617472 |2010-08-23 13:12:00|C:\WINDOWS\system32                                                                                 |
+|6D020000|adialhk.dll     |kldialhk                                          |6.0.4.1448    |85080  |2010-12-14 11:00:46|C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4        |
+|71A60000|WS2HELP.dll     |DLL de ajuda do Windows Socket 2.0 para Windows NT|5.1.2600.5512 |19968  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A70000|WS2_32.dll      |Windows Socket 2.0 32-Bit DLL                     |5.1.2600.5512 |82432  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|wsock32.dll     |DLL de soquete para Windows de 32 bits            |5.1.2600.5512 |25088  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|72FB0000|winspool.drv    |Driver de spooler do Windows                      |5.1.2600.5512 |146944 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|746E0000|MSCTF.dll       |DLL de servidor MSCTF                             |5.1.2600.5512 |297984 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|75290000|msctfime.ime    |Microsoft Text Frame Work Service IME             |5.1.2600.5512 |177152 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76360000|IMM32.DLL       |Windows XP IMM32 API Client DLL                   |5.1.2600.5512 |110080 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76BD0000|PSAPI.DLL       |Process Status Helper                             |5.1.2600.5512 |23040  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77100000|oleaut32.dll    |                                                  |5.1.2600.5512 |551936 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|773B0000|comctl32.dll    |User Experience Controls Library                  |6.0.2900.6028 |1054208|2010-08-23 13:11:58|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202|
+|774C0000|ole32.dll       |Microsoft OLE para Windows e Windows NT           |5.1.2600.6010 |1287680|2010-07-16 09:00:24|C:\WINDOWS\system32                                                                                 |
+|77BE0000|version.dll     |Version Checking and File Installation Libraries  |5.1.2600.5512 |18944  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77BF0000|msvcrt.dll      |Windows NT CRT DLL                                |7.0.2600.5512 |343040 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77DB0000|RPCRT4.dll      |Remote Procedure Call Runtime                     |5.1.2600.6022 |590848 |2010-08-16 05:45:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|GDI32.dll       |GDI Client DLL                                    |5.1.2600.5698 |286720 |2008-10-23 09:37:46|C:\WINDOWS\system32                                                                                 |
+|77EA0000|SHLWAPI.dll     |Biblioteca de utilitário abreviado para Shell     |6.0.2900.5912 |474112 |2009-12-08 06:24:26|C:\WINDOWS\system32                                                                                 |
+|77F20000|Secur32.dll     |Security Support Provider Interface               |5.1.2600.5834 |56832  |2009-06-25 05:27:14|C:\WINDOWS\system32                                                                                 |
+|77F50000|advapi32.dll    |API de base do Windows 32 avançada                |5.1.2600.5755 |683520 |2009-02-09 07:53:26|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll    |DLL cliente da API BASE do Windows NT             |5.1.2600.5781 |1028608|2009-03-21 11:08:54|C:\WINDOWS\system32                                                                                 |
+|7C900000|ntdll.dll       |DLL de nível do NT                                |5.1.2600.6055 |734208 |2010-12-09 12:15:18|C:\WINDOWS\system32                                                                                 |
+|7C9C0000|shell32.dll     |DLL comum do Shell do Windows                     |6.0.2900.6072 |8492032|2011-01-21 11:44:12|C:\WINDOWS\system32                                                                                 |
+|7E360000|user32.dll      |DLL de Cliente API de usuário Windows XP          |5.1.2600.5512 |579072 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informações dos Processos:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Nome                    |Descrição                                   |Versão          |Memória  |Prioridade  |Tarefas|Caminho                                                                                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System                  |                                            |                |200704   |Normal      |74     |                                                                                                            |
+|116 |klnagent.exe            |Kaspersky Administration Kit Network Agent  |8.0.2134.0      |5599232  |Normal      |26     |C:\Arquivos de programas\Kaspersky Lab\NetworkAgent 8                                                       |
+|244 |FwcMgmt.exe             |Microsoft Firewall Client Management        |4.0.3442.654    |3239936  |Normal      |3      |C:\Arquivos de programas\Microsoft Firewall Client 2004                                                     |
+|368 |svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |33144832 |Normal      |79     |C:\WINDOWS\System32                                                                                         |
+|436 |vmware-usbarbitrator.exe|VMware USB Arbitration Service              |7.1.3.14951     |2490368  |Normal      |2      |C:\Arquivos de programas\Common Files\VMware\USB                                                            |
+|524 |ORACLE.EXE              |Oracle RDBMS Kernel Executable              |10.2.0.1        |15200256 |Normal      |25     |c:\oraclexe\app\oracle\product\10.2.0\server\bin                                                            |
+|580 |fbguard.exe             |Firebird SQL Server                         |2.0.0.12654     |2260992  |Normal      |4      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|764 |sqlwriter.exe           |SQL Server VSS Writer                       |2007.100.1600.22|3022848  |Normal      |3      |c:\Arquivos de programas\Microsoft SQL Server\90\Shared                                                     |
+|780 |fbserver.exe            |Firebird SQL Server                         |2.0.0.12654     |3629056  |Normal      |8      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|828 |java.exe                |Java(TM) Platform SE binary                 |6.0.240.7       |103272448|Normal      |66     |C:\WINDOWS\system32                                                                                         |
+|832 |chrome.exe              |Google Chrome                               |                |28229632 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|868 |avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |31600640 |Normal      |44     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|880 |unsecapp.exe            |WMI                                         |5.1.2600.0      |5279744  |Normal      |6      |C:\WINDOWS\system32\wbem                                                                                    |
+|1052|smss.exe                |                                            |                |376832   |Normal      |3      |\SystemRoot\System32                                                                                        |
+|1124|winlogon.exe            |                                            |                |8855552  |High        |23     |C:\WINDOWS\system32                                                                                         |
+|1172|services.exe            |Aplicativo de serviços e controle           |5.1.2600.5755   |4427776  |Normal      |16     |C:\WINDOWS\system32                                                                                         |
+|1184|lsass.exe               |LSA Shell (Export Version)                  |5.1.2600.5512   |5414912  |Normal      |24     |C:\WINDOWS\system32                                                                                         |
+|1248|mysqld.exe              |                                            |                |56549376 |Normal      |24     |C:\Arquivos de programas\Digicon\Diginet\mysql\bin                                                          |
+|1264|spoolsv.exe             |Spooler SubSystem App                       |5.1.2600.6024   |6131712  |Normal      |14     |C:\WINDOWS\system32                                                                                         |
+|1396|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |4866048  |Normal      |19     |C:\WINDOWS\system32                                                                                         |
+|1528|ibguard.exe             |InterBase Server                            |6.5.0.28        |2154496  |Normal      |4      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|1672|vmnetdhcp.exe           |VMware VMnet DHCP service                   |7.1.3.14951     |1773568  |Normal      |2      |C:\WINDOWS\system32                                                                                         |
+|1720|jqs.exe                 |Java(TM) Quick Starter Service              |6.0.240.7       |1429504  |Low         |16     |C:\Arquivos de programas\Java\jre6\bin                                                                      |
+|1936|sqlservr.exe            |SQL Server Windows NT                       |2007.100.1600.22|1662976  |Normal      |28     |c:\Arquivos de programas\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\Binn                                    |
+|2068|ibserver.exe            |InterBase Server                            |6.5.0.28        |3297280  |Normal      |7      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|2452|tnslsnr.exe             |                                            |                |6647808  |Normal      |5      |C:\oraclexe\app\oracle\product\10.2.0\server\BIN                                                            |
+|2548|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |3817472  |Normal      |7      |C:\WINDOWS\system32                                                                                         |
+|2588|tomcat6.exe             |Commons Daemon Service Runner               |1.0.2.0         |94457856 |Normal      |22     |C:\Arquivos de programas\Digicon\Diginet\Tomcat 6.0\bin                                                     |
+|2776|winamp.exe              |Winamp                                      |5.6.0.3091      |85475328 |Normal      |30     |C:\Arquivos de programas\Winamp                                                                             |
+|2824|NOTEPAD.EXE             |Bloco de notas                              |5.1.2600.5512   |1122304  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|2840|avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |4554752  |Normal      |10     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|2868|ctfmon.exe              |CTF Loader                                  |5.1.2600.5512   |2973696  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|2912|WPonto.exe              |Ponto Eletrônico                            |5.12.12.2       |65867776 |Normal      |24     |C:\temp\exe                                                                                                 |
+|3068|vmnat.exe               |VMware NAT Service                          |7.1.3.14951     |2138112  |Normal      |4      |C:\WINDOWS\system32                                                                                         |
+|3108|wrapper.exe             |Java Service Wrapper Community Edition 3.3.6|3.3.6.0         |3063808  |Normal      |5      |C:\Arquivos de programas\Digicon\Diginet\dig-task\bin                                                       |
+|3580|CRMProducao.exe         |                                            |                |20832256 |Normal      |7      |C:\Arquivos de programas\Alterdata\ERP                                                                      |
+|3808|Explorer.EXE            |Windows Explorer                            |6.0.2900.5512   |4747264  |Normal      |34     |C:\WINDOWS                                                                                                  |
+|3816|nxServer.Exe            |                                            |1.0.0.0         |52334592 |Normal      |18     |C:\Arquivos de programas\Alterdata\Servidor                                                                 |
+|3960|ComAgent.exe            |ComAgent                                    |12.0.0.0        |11784192 |Normal      |13     |C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                        |
+|4604|TSVNCache.exe           |TortoiseSVN status cache                    |1.6.99.16302    |29978624 |Normal      |7      |C:\Arquivos de programas\TortoiseSVN\bin                                                                    |
+|5100|chrome.exe              |Google Chrome                               |                |23085056 |Normal      |25     |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|5480|TortoiseProc.exe        |TortoiseSVN client                          |1.6.99.16302    |17555456 |Normal      |4      |C:\Arquivos de programas\TortoiseSVN\bin                                                                    |
+|5488|Ssms.exe                |SSMS - SQL Server Management Studio         |2007.100.1600.22|75689984 |Normal      |15     |C:\Arquivos de programas\Microsoft SQL Server\100\Tools\Binn\VSShell\Common7\IDE                            |
+|6020|pdiminuihora.exe        |                                            |                |5185536  |Normal      |3      |C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                               |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informação Assembler:
+------------------------------------------------------------------
+; Mask.TCustomMaskEdit.ValidateError (Line=0 - Offset=0)
+; ------------------------------------------------------
+004AD450  call    MessageBeep
+004AD455  mov     eax, [ebx+$0220]
+004AD45B  mov     [esp], eax
+004AD45E  mov     byte ptr [esp+$04], $0B
+004AD463  push    esp
+004AD464  push    $00
+004AD466  mov     ecx, [$4B625C]
+004AD46C  mov     dl, $01
+004AD46E  mov     eax, dword ptr [EDBEditError]
+004AD473  call    SysUtils.Exception.CreateResFmt
+004AD478  call    System._RaiseExcept              ; <-- EXCEPTION
+004AD47D  pop     ecx
+004AD47E  pop     edx
+004AD47F  pop     ebx
+004AD480  ret
+
+Registradores:
+-----------------------------
+EAX: 00B7DC24   EDI: 0012FE28
+EBX: 00B7CEC0   ESI: 00B7CEC0
+ECX: 00000000   ESP: 0012FBF8
+EDX: 004AD47D   EIP: 004AD478
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+0012FBF8: 00B7D29C   004AD478: E8 F7 70 F5 FF 59 5A 5B C3 8D 40 00 55 8B EC 51  ..p..YZ[..@.U..Q
+0012FBFC: 00B7CE0B   004AD488: 53 56 57 88 4D FF 8B F2 8B D8 8B 7D 08 80 7D FF  SVW.M......}..}.
+0012FC00: 004AB89C   004AD498: 00 75 12 57 B1 20 8B D6 8B 83 20 02 00 00 E8 4D  .u.W. .... ....M
+0012FC04: 004AD424   004AD4A8: D9 FF FF EB 14 57 8A 8B 24 02 00 00 8B D6 8B 83  .....W..$.......
+0012FC08: 0012FC2C   004AD4B8: 20 02 00 00 E8 37 D9 FF FF 5F 5E 5B 59 5D C2 04   ....7..._^[Y]..
+0012FC0C: 004044A8   004AD4C8: 00 8D 40 00 55 8B EC 83 C4 E8 53 56 57 33 DB 89  ..@.U.....SVW3..
+0012FC10: 0012FC24   004AD4D8: 5D EC 89 5D E8 8B F1 8B DA 89 45 FC 33 C0 55 68  ]..]......E.3.Uh
+0012FC14: 00B7CEC0   004AD4E8: 92 D6 4A 00 64 FF 30 64 89 20 C7 45 F4 01 00 00  ..J.d.0d. .E....
+0012FC18: 0012FC8C   004AD4F8: 00 8B C6 8B D3 E8 56 77 F5 FF 8B 45 FC 8B 80 20  ......Vw...E... 
+0012FC1C: 00000007   004AD508: 02 00 00 E8 D0 79 F5 FF 8B D8 85 DB 7E 6E BF 01  .....y......~n..
+0012FC20: 00000000   004AD518: 00 00 00 8B 45 FC 8B 80 20 02 00 00 8B D7 E8 DD  ....E... .......
+0012FC24: 0012FC78   004AD528: D6 FF FF 88 45 F3 8A 45 F3 48 2C 02 73 3E 8D 45  ....E..E.H,.s>.E
+0012FC28: 004ACC39   004AD538: EC 50 8B 06 E8 9F 79 F5 FF 8B C8 2B 4D F4 8B 55  .P....y....+M..U
+0012FC2C: 0012FDF8   004AD548: F4 42 8B 06 E8 EF 7B F5 FF 8B 45 EC 50 8D 45 E8  .B....{...E.P.E.
+0012FC30: 004044A8   004AD558: 50 8B 4D F4 49 8B 06 BA 01 00 00 00 E8 D7 7B F5  P.M.I.........{.
+0012FC34: 0012FC78   004AD568: FF 8B 55 E8 8B C6 59 E8 B8 79 F5 FF 8A 45 F3 04  ..U...Y..y...E..
+
+
+
+EurekaLog 6.0.9
+
+Aplicação:
+------------------------------------------------------
+  1.1 Data Início    : Tue, 31 May 2011 10:16:07 -0300
+  1.2 Nome           : pdiminuihora.exe
+  1.3 Versão         : 
+  1.4 Parâmetros     : 
+  1.5 Data Compilação: Thu, 12 May 2011 10:33:23 -0300
+  1.6 Tempo Ativo    : 7 seconds
+
+Exceção:
+-----------------------------------------------------------------------------
+  2.1 Data         : Tue, 31 May 2011 10:16:14 -0300
+  2.2 Endereço     : 004AD478
+  2.3 Nome Módulo  : pdiminuihora.exe
+  2.4 Versão Módulo: 
+  2.5 Tipo         : EDBEditError
+  2.6 Mensagem     : Invalid input value.  Use escape key to abandon changes.
+  2.7 ID           : F57A
+  2.8 Contador     : 1
+  2.9 Status       : New
+  2.10 Observação  : 
+
+Usuário:
+--------------------------------------------------------
+  3.1 ID         : edson.dsn.pack
+  3.2 Nome       : Computador
+  3.3 Email      : 
+  3.4 Empresa    : 
+  3.5 Privilégios: SeChangeNotifyPrivilege         - ON
+                   SeSecurityPrivilege             - OFF
+                   SeBackupPrivilege               - OFF
+                   SeRestorePrivilege              - OFF
+                   SeSystemtimePrivilege           - OFF
+                   SeShutdownPrivilege             - OFF
+                   SeRemoteShutdownPrivilege       - OFF
+                   SeTakeOwnershipPrivilege        - OFF
+                   SeDebugPrivilege                - OFF
+                   SeSystemEnvironmentPrivilege    - OFF
+                   SeSystemProfilePrivilege        - OFF
+                   SeProfileSingleProcessPrivilege - OFF
+                   SeIncreaseBasePriorityPrivilege - OFF
+                   SeLoadDriverPrivilege           - ON
+                   SeCreatePagefilePrivilege       - OFF
+                   SeIncreaseQuotaPrivilege        - OFF
+                   SeUndockPrivilege               - ON
+                   SeManageVolumePrivilege         - OFF
+                   SeImpersonatePrivilege          - ON
+                   SeCreateGlobalPrivilege         - ON
+
+Controles Ativos:
+------------------------------
+  4.1 Form Class   : TForm1
+  4.2 Form Text    : Form1
+  4.3 Control Class: TMaskEdit
+  4.4 Control Text : 08:00:0 
+
+Computador:
+---------------------------------------------------------------------------------------------------
+  5.1 Nome               : PAT685
+  5.2 Memória Total      : 2037 Mb
+  5.3 Memória Livre      : 733 Mb
+  5.4 Total Disco        : 232,77 Gb
+  5.5 Disco Livre        : 171,02 Gb
+  5.6 Tempo Ativo Sistema: 2 hours, 16 minutes, 14 seconds
+  5.7 Processador        : Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+  5.8 Resolução de vídeo : 1280 x 960, 32 bit
+  5.9 DPI                : 96
+  5.10 Placa de vídeo    : Intel(R) G33/G31 Express Chipset Family (driver 6.14.10.4957 - RAM 0 MB)
+  5.11 Impressora        : Microsoft XPS Document Writer (driver 6.0.6001.22204)
+
+Sistema Operacional:
+-------------------------------------
+  6.1 Type     : Microsoft Windows XP
+  6.2 Build #  : 2600
+  6.3 Update   : Service Pack 3
+  6.4 Linguagem: Portuguese
+  6.5 Charset  : 0
+
+Network:
+----------------------------------------------------------------------
+  7.1 Endereço IP: 010.000.003.034 - 192.168.204.001 - 192.168.074.001
+  7.2 Sub-máscara: 255.000.000.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway    : 010.000.000.080 - 000.000.000.000 - 000.000.000.000
+  7.4 DNS 1      : 010.000.000.006 - 000.000.000.000 - 000.000.000.000
+  7.5 DNS 2      : 010.000.000.027 - 000.000.000.000 - 000.000.000.000
+  7.6 DHCP       : ON              - OFF             - OFF            
+
+Informações da Pilha:
+--------------------------------------------------------------------------------
+|Endereço|Módulo          |Unit            |Classe|Procedimento/Método   |Line |
+--------------------------------------------------------------------------------
+|Tarefa em execução: ID=4528; Prioridade=0; Classe=; [Main]                    |
+|------------------------------------------------------------------------------|
+|7E37A993|user32.dll      |                |      |CallWindowProcA       |     |
+|7E37B3FC|user32.dll      |                |      |CallNextHookEx        |     |
+|7E37F406|user32.dll      |                |      |SendMessageA          |     |
+|7E3696C2|user32.dll      |                |      |DispatchMessageA      |     |
+|7E3696B8|user32.dll      |                |      |DispatchMessageA      |     |
+|004AE573|pdiminuihora.exe|pdiminuihora.dpr|      |                      |13[3]|
+|7C90DCB8|ntdll.dll       |                |      |ZwSetInformationThread|     |
+--------------------------------------------------------------------------------
+
+Informações dos Módulos:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Nome            |Descrição                                         |Versão        |Size   |Modificado         |Caminho                                                                                             |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|pdiminuihora.exe|                                                  |              |823808 |2011-05-12 10:33:24|C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                       |
+|10000000|HookDLL.dll     |                                                  |              |43008  |2011-05-16 15:45:26|C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                |
+|5B1C0000|uxtheme.dll     |Biblioteca UxTheme Microsoft                      |6.0.2900.5512 |219648 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|5D510000|comctl32.dll    |Common Controls Library                           |5.82.2900.6028|617472 |2010-08-23 13:12:00|C:\WINDOWS\system32                                                                                 |
+|6D020000|adialhk.dll     |kldialhk                                          |6.0.4.1448    |85080  |2010-12-14 11:00:46|C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4        |
+|71A60000|WS2HELP.dll     |DLL de ajuda do Windows Socket 2.0 para Windows NT|5.1.2600.5512 |19968  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A70000|WS2_32.dll      |Windows Socket 2.0 32-Bit DLL                     |5.1.2600.5512 |82432  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|wsock32.dll     |DLL de soquete para Windows de 32 bits            |5.1.2600.5512 |25088  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|72FB0000|winspool.drv    |Driver de spooler do Windows                      |5.1.2600.5512 |146944 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|746E0000|MSCTF.dll       |DLL de servidor MSCTF                             |5.1.2600.5512 |297984 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|75290000|msctfime.ime    |Microsoft Text Frame Work Service IME             |5.1.2600.5512 |177152 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76360000|IMM32.DLL       |Windows XP IMM32 API Client DLL                   |5.1.2600.5512 |110080 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76BD0000|PSAPI.DLL       |Process Status Helper                             |5.1.2600.5512 |23040  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77100000|oleaut32.dll    |                                                  |5.1.2600.5512 |551936 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|773B0000|comctl32.dll    |User Experience Controls Library                  |6.0.2900.6028 |1054208|2010-08-23 13:11:58|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202|
+|774C0000|ole32.dll       |Microsoft OLE para Windows e Windows NT           |5.1.2600.6010 |1287680|2010-07-16 09:00:24|C:\WINDOWS\system32                                                                                 |
+|77BE0000|version.dll     |Version Checking and File Installation Libraries  |5.1.2600.5512 |18944  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77BF0000|msvcrt.dll      |Windows NT CRT DLL                                |7.0.2600.5512 |343040 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77DB0000|RPCRT4.dll      |Remote Procedure Call Runtime                     |5.1.2600.6022 |590848 |2010-08-16 05:45:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|GDI32.dll       |GDI Client DLL                                    |5.1.2600.5698 |286720 |2008-10-23 09:37:46|C:\WINDOWS\system32                                                                                 |
+|77EA0000|SHLWAPI.dll     |Biblioteca de utilitário abreviado para Shell     |6.0.2900.5912 |474112 |2009-12-08 06:24:26|C:\WINDOWS\system32                                                                                 |
+|77F20000|Secur32.dll     |Security Support Provider Interface               |5.1.2600.5834 |56832  |2009-06-25 05:27:14|C:\WINDOWS\system32                                                                                 |
+|77F50000|advapi32.dll    |API de base do Windows 32 avançada                |5.1.2600.5755 |683520 |2009-02-09 07:53:26|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll    |DLL cliente da API BASE do Windows NT             |5.1.2600.5781 |1028608|2009-03-21 11:08:54|C:\WINDOWS\system32                                                                                 |
+|7C900000|ntdll.dll       |DLL de nível do NT                                |5.1.2600.6055 |734208 |2010-12-09 12:15:18|C:\WINDOWS\system32                                                                                 |
+|7C9C0000|shell32.dll     |DLL comum do Shell do Windows                     |6.0.2900.6072 |8492032|2011-01-21 11:44:12|C:\WINDOWS\system32                                                                                 |
+|7E360000|user32.dll      |DLL de Cliente API de usuário Windows XP          |5.1.2600.5512 |579072 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informações dos Processos:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Nome                    |Descrição                                   |Versão          |Memória  |Prioridade  |Tarefas|Caminho                                                                                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System                  |                                            |                |253952   |Normal      |75     |                                                                                                            |
+|176 |ORACLE.EXE              |Oracle RDBMS Kernel Executable              |10.2.0.1        |20955136 |Normal      |26     |c:\oraclexe\app\oracle\product\10.2.0\server\bin                                                            |
+|192 |mysqld.exe              |                                            |                |57733120 |Normal      |24     |C:\Arquivos de programas\Digicon\Diginet\mysql\bin                                                          |
+|236 |jqs.exe                 |Java(TM) Quick Starter Service              |6.0.240.7       |1474560  |Low         |16     |C:\Arquivos de programas\Java\jre6\bin                                                                      |
+|256 |pdiminuihora.exe        |                                            |                |5070848  |Normal      |3      |C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                               |
+|368 |svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |32362496 |Normal      |76     |C:\WINDOWS\System32                                                                                         |
+|592 |ComAgent.exe            |ComAgent                                    |12.0.0.0        |8122368  |Normal      |11     |C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                        |
+|616 |klnagent.exe            |Kaspersky Administration Kit Network Agent  |8.0.2134.0      |3850240  |Normal      |26     |C:\Arquivos de programas\Kaspersky Lab\NetworkAgent 8                                                       |
+|664 |vmnat.exe               |VMware NAT Service                          |7.1.3.14951     |2564096  |Normal      |4      |C:\WINDOWS\system32                                                                                         |
+|796 |sqlservr.exe            |SQL Server Windows NT                       |2007.100.1600.22|2691072  |Normal      |28     |c:\Arquivos de programas\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\Binn                                    |
+|1052|smss.exe                |                                            |                |446464   |Normal      |3      |\SystemRoot\System32                                                                                        |
+|1124|winlogon.exe            |                                            |                |8347648  |High        |25     |C:\WINDOWS\system32                                                                                         |
+|1172|services.exe            |Aplicativo de serviços e controle           |5.1.2600.5755   |5279744  |Normal      |16     |C:\WINDOWS\system32                                                                                         |
+|1184|lsass.exe               |LSA Shell (Export Version)                  |5.1.2600.5512   |3469312  |Normal      |24     |C:\WINDOWS\system32                                                                                         |
+|1188|FwcMgmt.exe             |Microsoft Firewall Client Management        |4.0.3442.654    |3837952  |Normal      |3      |C:\Arquivos de programas\Microsoft Firewall Client 2004                                                     |
+|1260|spoolsv.exe             |Spooler SubSystem App                       |5.1.2600.6024   |6782976  |Normal      |14     |C:\WINDOWS\system32                                                                                         |
+|1376|TSVNCache.exe           |TortoiseSVN status cache                    |1.6.99.16302    |30580736 |Normal      |10     |C:\Arquivos de programas\TortoiseSVN\bin                                                                    |
+|1392|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |5349376  |Normal      |18     |C:\WINDOWS\system32                                                                                         |
+|1680|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |4489216  |Normal      |6      |C:\WINDOWS\system32                                                                                         |
+|1720|tomcat6.exe             |Commons Daemon Service Runner               |1.0.2.0         |95604736 |Normal      |22     |C:\Arquivos de programas\Digicon\Diginet\Tomcat 6.0\bin                                                     |
+|1728|chrome.exe              |Google Chrome                               |                |31854592 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|1772|vmnetdhcp.exe           |VMware VMnet DHCP service                   |7.1.3.14951     |2158592  |Normal      |2      |C:\WINDOWS\system32                                                                                         |
+|1840|avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |32542720 |Normal      |43     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|1900|fbguard.exe             |Firebird SQL Server                         |2.0.0.12654     |2674688  |Normal      |4      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|1980|vmware-usbarbitrator.exe|VMware USB Arbitration Service              |7.1.3.14951     |3076096  |Normal      |2      |C:\Arquivos de programas\Common Files\VMware\USB                                                            |
+|1992|ibguard.exe             |InterBase Server                            |6.5.0.28        |2633728  |Normal      |4      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|2092|java.exe                |Java(TM) Platform SE binary                 |6.0.240.7       |96399360 |Normal      |59     |C:\WINDOWS\system32                                                                                         |
+|2316|Explorer.EXE            |Windows Explorer                            |6.0.2900.5512   |27869184 |Normal      |25     |C:\WINDOWS                                                                                                  |
+|2368|chrome.exe              |Google Chrome                               |                |25116672 |Normal      |24     |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|2664|fbserver.exe            |Firebird SQL Server                         |2.0.0.12654     |4370432  |Normal      |8      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|2932|vmware-authd.exe        |VMware Authorization Service                |7.1.3.14951     |9224192  |Normal      |9      |C:\Arquivos de programas\VMware\VMware Player                                                               |
+|2960|avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |4853760  |Normal      |10     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|3056|ctfmon.exe              |CTF Loader                                  |5.1.2600.5512   |3448832  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|3176|winamp.exe              |Winamp                                      |5.6.0.3091      |47792128 |Normal      |22     |C:\Arquivos de programas\Winamp                                                                             |
+|3248|wrapper.exe             |Java Service Wrapper Community Edition 3.3.6|3.3.6.0         |3448832  |Normal      |5      |C:\Arquivos de programas\Digicon\Diginet\dig-task\bin                                                       |
+|3612|tnslsnr.exe             |                                            |                |7852032  |Normal      |5      |C:\oraclexe\app\oracle\product\10.2.0\server\BIN                                                            |
+|3636|nxServer.Exe            |                                            |1.0.0.0         |16789504 |Normal      |17     |C:\Arquivos de programas\Alterdata\Servidor                                                                 |
+|3788|sqlwriter.exe           |SQL Server VSS Writer                       |2007.100.1600.22|3715072  |Normal      |3      |c:\Arquivos de programas\Microsoft SQL Server\90\Shared                                                     |
+|3992|ibserver.exe            |InterBase Server                            |6.5.0.28        |3891200  |Normal      |7      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|4356|delphi32.exe            |Delphi-32 Development Environment           |7.0.8.1         |299577344|Normal      |10     |C:\Arquivos de programas\Borland\Delphi7\Bin                                                                |
+|5248|CRMProducao.exe         |                                            |                |21671936 |Normal      |6      |C:\Arquivos de programas\Alterdata\ERP                                                                      |
+|5524|notepad.exe             |Bloco de notas                              |5.1.2600.5512   |9625600  |Normal      |2      |C:\WINDOWS\system32                                                                                         |
+|6076|WPonto.exe              |Ponto Eletrônico                            |5.12.12.2       |76455936 |Normal      |23     |c:\temp\EXE                                                                                                 |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informação Assembler:
+------------------------------------------------------------------
+; Mask.TCustomMaskEdit.ValidateError (Line=0 - Offset=0)
+; ------------------------------------------------------
+004AD450  call    MessageBeep
+004AD455  mov     eax, [ebx+$0220]
+004AD45B  mov     [esp], eax
+004AD45E  mov     byte ptr [esp+$04], $0B
+004AD463  push    esp
+004AD464  push    $00
+004AD466  mov     ecx, [$4B625C]
+004AD46C  mov     dl, $01
+004AD46E  mov     eax, dword ptr [EDBEditError]
+004AD473  call    SysUtils.Exception.CreateResFmt
+004AD478  call    System._RaiseExcept              ; <-- EXCEPTION
+004AD47D  pop     ecx
+004AD47E  pop     edx
+004AD47F  pop     ebx
+004AD480  ret
+
+Registradores:
+-----------------------------
+EAX: 00B7DC24   EDI: 0012FE28
+EBX: 00B7CEC0   ESI: 00B7CEC0
+ECX: 00000000   ESP: 0012FBF8
+EDX: 004AD47D   EIP: 004AD478
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+0012FBF8: 00B7D29C   004AD478: E8 F7 70 F5 FF 59 5A 5B C3 8D 40 00 55 8B EC 51  ..p..YZ[..@.U..Q
+0012FBFC: 00B7CE0B   004AD488: 53 56 57 88 4D FF 8B F2 8B D8 8B 7D 08 80 7D FF  SVW.M......}..}.
+0012FC00: 004AB89C   004AD498: 00 75 12 57 B1 20 8B D6 8B 83 20 02 00 00 E8 4D  .u.W. .... ....M
+0012FC04: 004AD424   004AD4A8: D9 FF FF EB 14 57 8A 8B 24 02 00 00 8B D6 8B 83  .....W..$.......
+0012FC08: 0012FC2C   004AD4B8: 20 02 00 00 E8 37 D9 FF FF 5F 5E 5B 59 5D C2 04   ....7..._^[Y]..
+0012FC0C: 004044A8   004AD4C8: 00 8D 40 00 55 8B EC 83 C4 E8 53 56 57 33 DB 89  ..@.U.....SVW3..
+0012FC10: 0012FC24   004AD4D8: 5D EC 89 5D E8 8B F1 8B DA 89 45 FC 33 C0 55 68  ]..]......E.3.Uh
+0012FC14: 00B7CEC0   004AD4E8: 92 D6 4A 00 64 FF 30 64 89 20 C7 45 F4 01 00 00  ..J.d.0d. .E....
+0012FC18: 0012FC8C   004AD4F8: 00 8B C6 8B D3 E8 56 77 F5 FF 8B 45 FC 8B 80 20  ......Vw...E... 
+0012FC1C: 00000007   004AD508: 02 00 00 E8 D0 79 F5 FF 8B D8 85 DB 7E 6E BF 01  .....y......~n..
+0012FC20: 00000000   004AD518: 00 00 00 8B 45 FC 8B 80 20 02 00 00 8B D7 E8 DD  ....E... .......
+0012FC24: 0012FC78   004AD528: D6 FF FF 88 45 F3 8A 45 F3 48 2C 02 73 3E 8D 45  ....E..E.H,.s>.E
+0012FC28: 004ACC39   004AD538: EC 50 8B 06 E8 9F 79 F5 FF 8B C8 2B 4D F4 8B 55  .P....y....+M..U
+0012FC2C: 0012FDF8   004AD548: F4 42 8B 06 E8 EF 7B F5 FF 8B 45 EC 50 8D 45 E8  .B....{...E.P.E.
+0012FC30: 004044A8   004AD558: 50 8B 4D F4 49 8B 06 BA 01 00 00 00 E8 D7 7B F5  P.M.I.........{.
+0012FC34: 0012FC78   004AD568: FF 8B 55 E8 8B C6 59 E8 B8 79 F5 FF 8A 45 F3 04  ..U...Y..y...E..
+
+
+
+EurekaLog 6.0.9
+
+Aplicação:
+-----------------------------------------------------
+  1.1 Data Início    : Wed, 1 Jun 2011 11:18:48 -0300
+  1.2 Nome           : pdiminuihora.exe
+  1.3 Versão         : 
+  1.4 Parâmetros     : 
+  1.5 Data Compilação: Wed, 1 Jun 2011 11:18:48 -0300
+  1.6 Tempo Ativo    : 2 seconds
+
+Exceção:
+---------------------------------------------------
+  2.1 Data         : Wed, 1 Jun 2011 11:18:51 -0300
+  2.2 Endereço     : 77E55D94
+  2.3 Nome Módulo  : GDI32.dll - (GDI Client DLL)
+  2.4 Versão Módulo: 5.1.2600.5698
+  2.5 Tipo         : EStackOverflow
+  2.6 Mensagem     : Stack overflow.
+  2.7 ID           : E913
+  2.8 Contador     : 1
+  2.9 Status       : New
+  2.10 Observação  : 
+
+Usuário:
+--------------------------------------------------------
+  3.1 ID         : edson.dsn.pack
+  3.2 Nome       : Computador
+  3.3 Email      : 
+  3.4 Empresa    : 
+  3.5 Privilégios: SeChangeNotifyPrivilege         - ON
+                   SeSecurityPrivilege             - OFF
+                   SeBackupPrivilege               - OFF
+                   SeRestorePrivilege              - OFF
+                   SeSystemtimePrivilege           - OFF
+                   SeShutdownPrivilege             - OFF
+                   SeRemoteShutdownPrivilege       - OFF
+                   SeTakeOwnershipPrivilege        - OFF
+                   SeDebugPrivilege                - OFF
+                   SeSystemEnvironmentPrivilege    - OFF
+                   SeSystemProfilePrivilege        - OFF
+                   SeProfileSingleProcessPrivilege - OFF
+                   SeIncreaseBasePriorityPrivilege - OFF
+                   SeLoadDriverPrivilege           - ON
+                   SeCreatePagefilePrivilege       - OFF
+                   SeIncreaseQuotaPrivilege        - OFF
+                   SeUndockPrivilege               - ON
+                   SeManageVolumePrivilege         - OFF
+                   SeImpersonatePrivilege          - ON
+                   SeCreateGlobalPrivilege         - ON
+
+Controles Ativos:
+-------------------------------------
+  4.1 Form Class   : TForm1
+  4.2 Form Text    : Form1
+  4.3 Control Class: TRadioButton
+  4.4 Control Text : Hora para Double
+
+Computador:
+---------------------------------------------------------------------------------------------------
+  5.1 Nome               : PAT685
+  5.2 Memória Total      : 2037 Mb
+  5.3 Memória Livre      : 551 Mb
+  5.4 Total Disco        : 232,77 Gb
+  5.5 Disco Livre        : 171,06 Gb
+  5.6 Tempo Ativo Sistema: 14 hours, 19 minutes, 51 seconds
+  5.7 Processador        : Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+  5.8 Resolução de vídeo : 1280 x 960, 32 bit
+  5.9 DPI                : 96
+  5.10 Placa de vídeo    : Intel(R) G33/G31 Express Chipset Family (driver 6.14.10.4957 - RAM 0 MB)
+  5.11 Impressora        : Microsoft XPS Document Writer (driver 6.0.6001.22204)
+
+Sistema Operacional:
+-------------------------------------
+  6.1 Type     : Microsoft Windows XP
+  6.2 Build #  : 2600
+  6.3 Update   : Service Pack 3
+  6.4 Linguagem: Portuguese
+  6.5 Charset  : 0
+
+Network:
+----------------------------------------------------------------------
+  7.1 Endereço IP: 010.000.003.034 - 192.168.204.001 - 192.168.074.001
+  7.2 Sub-máscara: 255.000.000.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway    : 010.000.000.080 - 000.000.000.000 - 000.000.000.000
+  7.4 DNS 1      : 010.000.000.006 - 000.000.000.000 - 000.000.000.000
+  7.5 DNS 2      : 010.000.000.027 - 000.000.000.000 - 000.000.000.000
+  7.6 DHCP       : ON              - OFF             - OFF            
+
+Informações da Pilha:
+----------------------------------------------------------------------
+|Endereço|Módulo          |Unit     |Classe|Procedimento/Método|Line |
+----------------------------------------------------------------------
+|*Erro de exceção na execução da tarefa: ID=4864; Prioridade=0; Class|
+|--------------------------------------------------------------------|
+|77E55D94|GDI32.dll       |         |      |SetTextColor       |     |
+|77E55D77|GDI32.dll       |         |      |SetTextColor       |     |
+|7E37F406|user32.dll      |         |      |SendMessageA       |     |
+|7E37F3C2|user32.dll      |         |      |SendMessageA       |     |
+|7E37A993|user32.dll      |         |      |CallWindowProcA    |     |
+|7E37A97D|user32.dll      |         |      |CallWindowProcA    |     |
+|7E37F406|user32.dll      |         |      |SendMessageA       |     |
+|7E37F3C2|user32.dll      |         |      |SendMessageA       |     |
+|004B2A09|pdiminuihora.exe|Unit1.pas|TForm1|rbHoraToDoubleClick|58[1]|
+|004B2A28|pdiminuihora.exe|Unit1.pas|TForm1|rbHoraToDoubleClick|59[2]|
+|004B29E0|pdiminuihora.exe|Unit1.pas|TForm1|rbDoubleToHoraClick|53[2]|
+----------------------------------------------------------------------
+
+Informações dos Módulos:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Nome            |Descrição                                         |Versão        |Size   |Modificado         |Caminho                                                                                             |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|pdiminuihora.exe|                                                  |              |843776 |2011-06-01 11:18:50|C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                       |
+|10000000|HookDLL.dll     |                                                  |              |43008  |2011-05-16 15:45:26|C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                |
+|5B1C0000|uxtheme.dll     |Biblioteca UxTheme Microsoft                      |6.0.2900.5512 |219648 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|5D510000|comctl32.dll    |Common Controls Library                           |5.82.2900.6028|617472 |2010-08-23 13:12:00|C:\WINDOWS\system32                                                                                 |
+|6D020000|adialhk.dll     |kldialhk                                          |6.0.4.1448    |85080  |2010-12-14 11:00:46|C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4        |
+|71A60000|WS2HELP.dll     |DLL de ajuda do Windows Socket 2.0 para Windows NT|5.1.2600.5512 |19968  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A70000|WS2_32.dll      |Windows Socket 2.0 32-Bit DLL                     |5.1.2600.5512 |82432  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|wsock32.dll     |DLL de soquete para Windows de 32 bits            |5.1.2600.5512 |25088  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|72FB0000|winspool.drv    |Driver de spooler do Windows                      |5.1.2600.5512 |146944 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|746E0000|MSCTF.dll       |DLL de servidor MSCTF                             |5.1.2600.5512 |297984 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|75290000|msctfime.ime    |Microsoft Text Frame Work Service IME             |5.1.2600.5512 |177152 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76360000|IMM32.DLL       |Windows XP IMM32 API Client DLL                   |5.1.2600.5512 |110080 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76BD0000|PSAPI.DLL       |Process Status Helper                             |5.1.2600.5512 |23040  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77100000|oleaut32.dll    |                                                  |5.1.2600.5512 |551936 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|773B0000|comctl32.dll    |User Experience Controls Library                  |6.0.2900.6028 |1054208|2010-08-23 13:11:58|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202|
+|774C0000|ole32.dll       |Microsoft OLE para Windows e Windows NT           |5.1.2600.6010 |1287680|2010-07-16 09:00:24|C:\WINDOWS\system32                                                                                 |
+|77BE0000|version.dll     |Version Checking and File Installation Libraries  |5.1.2600.5512 |18944  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77BF0000|msvcrt.dll      |Windows NT CRT DLL                                |7.0.2600.5512 |343040 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77DB0000|RPCRT4.dll      |Remote Procedure Call Runtime                     |5.1.2600.6022 |590848 |2010-08-16 05:45:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|GDI32.dll       |GDI Client DLL                                    |5.1.2600.5698 |286720 |2008-10-23 09:37:46|C:\WINDOWS\system32                                                                                 |
+|77EA0000|SHLWAPI.dll     |Biblioteca de utilitário abreviado para Shell     |6.0.2900.5912 |474112 |2009-12-08 06:24:26|C:\WINDOWS\system32                                                                                 |
+|77F20000|Secur32.dll     |Security Support Provider Interface               |5.1.2600.5834 |56832  |2009-06-25 05:27:14|C:\WINDOWS\system32                                                                                 |
+|77F50000|advapi32.dll    |API de base do Windows 32 avançada                |5.1.2600.5755 |683520 |2009-02-09 07:53:26|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll    |DLL cliente da API BASE do Windows NT             |5.1.2600.5781 |1028608|2009-03-21 11:08:54|C:\WINDOWS\system32                                                                                 |
+|7C900000|ntdll.dll       |DLL de nível do NT                                |5.1.2600.6055 |734208 |2010-12-09 12:15:18|C:\WINDOWS\system32                                                                                 |
+|7C9C0000|shell32.dll     |DLL comum do Shell do Windows                     |6.0.2900.6072 |8492032|2011-01-21 11:44:12|C:\WINDOWS\system32                                                                                 |
+|7E360000|user32.dll      |DLL de Cliente API de usuário Windows XP          |5.1.2600.5512 |579072 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informações dos Processos:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Nome                    |Descrição                                   |Versão          |Memória  |Prioridade  |Tarefas|Caminho                                                                                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System                  |                                            |                |253952   |Normal      |72     |                                                                                                            |
+|228 |sqlservr.exe            |SQL Server Windows NT                       |2007.100.1600.22|11567104 |Normal      |32     |c:\Arquivos de programas\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\Binn                                    |
+|244 |avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |4612096  |Normal      |10     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|304 |winampa.exe             |Winamp Agent                                |5.6.0.3091      |2502656  |Normal      |1      |C:\Arquivos de programas\Winamp                                                                             |
+|324 |FOXITR~1.EXE            |Foxit Reader, Best Reader for Everyday Use! |3.0.2009.1817   |32247808 |Normal      |3      |C:\ARQUIV~1\FOXITS~1\FOXITR~1                                                                               |
+|368 |svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |32624640 |Normal      |76     |C:\WINDOWS\System32                                                                                         |
+|452 |mysqld.exe              |                                            |                |59113472 |Normal      |24     |C:\Arquivos de programas\Digicon\Diginet\mysql\bin                                                          |
+|796 |ibserver.exe            |InterBase Server                            |6.5.0.28        |4104192  |Normal      |7      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|868 |avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |32489472 |Normal      |43     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|960 |TSVNCache.exe           |TortoiseSVN status cache                    |1.6.99.16302    |5578752  |Normal      |8      |C:\Arquivos de programas\TortoiseSVN\bin                                                                    |
+|1008|fbguard.exe             |Firebird SQL Server                         |2.0.0.12654     |2904064  |Normal      |4      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|1032|wrapper.exe             |Java Service Wrapper Community Edition 3.3.6|3.3.6.0         |3620864  |Normal      |5      |C:\Arquivos de programas\Digicon\Diginet\dig-task\bin                                                       |
+|1044|tomcat6.exe             |Commons Daemon Service Runner               |1.0.2.0         |105758720|Normal      |29     |C:\Arquivos de programas\Digicon\Diginet\Tomcat 6.0\bin                                                     |
+|1052|smss.exe                |                                            |                |458752   |Normal      |3      |\SystemRoot\System32                                                                                        |
+|1124|winlogon.exe            |                                            |                |7892992  |High        |23     |C:\WINDOWS\system32                                                                                         |
+|1172|services.exe            |Aplicativo de serviços e controle           |5.1.2600.5755   |7233536  |Normal      |16     |C:\WINDOWS\system32                                                                                         |
+|1184|lsass.exe               |LSA Shell (Export Version)                  |5.1.2600.5512   |913408   |Normal      |23     |C:\WINDOWS\system32                                                                                         |
+|1268|spoolsv.exe             |Spooler SubSystem App                       |5.1.2600.6024   |8949760  |Normal      |13     |C:\WINDOWS\system32                                                                                         |
+|1392|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |5713920  |Normal      |19     |C:\WINDOWS\system32                                                                                         |
+|1492|ctfmon.exe              |CTF Loader                                  |5.1.2600.5512   |3379200  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|1512|java.exe                |Java(TM) Platform SE binary                 |6.0.240.7       |105574400|Normal      |69     |C:\WINDOWS\system32                                                                                         |
+|1532|ibguard.exe             |InterBase Server                            |6.5.0.28        |2793472  |Normal      |4      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|1616|chrome.exe              |Google Chrome                               |                |56930304 |Normal      |25     |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|1716|jqs.exe                 |Java(TM) Quick Starter Service              |6.0.240.7       |1445888  |Low         |16     |C:\Arquivos de programas\Java\jre6\bin                                                                      |
+|1744|ORACLE.EXE              |Oracle RDBMS Kernel Executable              |10.2.0.1        |9854976  |Normal      |25     |c:\oraclexe\app\oracle\product\10.2.0\server\bin                                                            |
+|1824|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |4743168  |Normal      |6      |C:\WINDOWS\system32                                                                                         |
+|2036|klnagent.exe            |Kaspersky Administration Kit Network Agent  |8.0.2134.0      |5660672  |Normal      |26     |C:\Arquivos de programas\Kaspersky Lab\NetworkAgent 8                                                       |
+|2096|chrome.exe              |Google Chrome                               |                |40091648 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|2240|tnslsnr.exe             |                                            |                |8450048  |Normal      |5      |C:\oraclexe\app\oracle\product\10.2.0\server\BIN                                                            |
+|2380|nxServer.Exe            |                                            |1.0.0.0         |17141760 |Normal      |16     |C:\Arquivos de programas\Alterdata\Servidor                                                                 |
+|2472|vmnetdhcp.exe           |VMware VMnet DHCP service                   |7.1.3.14951     |2228224  |Normal      |2      |C:\WINDOWS\system32                                                                                         |
+|2616|FwcMgmt.exe             |Microsoft Firewall Client Management        |4.0.3442.654    |3801088  |Normal      |3      |C:\Arquivos de programas\Microsoft Firewall Client 2004                                                     |
+|2992|vmnat.exe               |VMware NAT Service                          |7.1.3.14951     |2756608  |Normal      |4      |C:\WINDOWS\system32                                                                                         |
+|3076|vmware-usbarbitrator.exe|VMware USB Arbitration Service              |7.1.3.14951     |3223552  |Normal      |2      |C:\Arquivos de programas\Common Files\VMware\USB                                                            |
+|3560|fbserver.exe            |Firebird SQL Server                         |2.0.0.12654     |4784128  |Normal      |8      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|3564|sqlwriter.exe           |SQL Server VSS Writer                       |2007.100.1600.22|3866624  |Normal      |3      |c:\Arquivos de programas\Microsoft SQL Server\90\Shared                                                     |
+|3576|chrome.exe              |Google Chrome                               |                |23011328 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|3888|pdiminuihora.exe        |                                            |                |6316032  |Normal      |3      |C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                               |
+|3900|Explorer.EXE            |Windows Explorer                            |6.0.2900.5512   |22110208 |Normal      |22     |C:\WINDOWS                                                                                                  |
+|4064|ComAgent.exe            |ComAgent                                    |12.0.0.0        |12689408 |Normal      |11     |C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                        |
+|4556|WPonto.exe              |Ponto Eletrônico                            |5.12.12.2       |122802176|Normal      |17     |c:\temp\EXE                                                                                                 |
+|5188|delphi32.exe            |Delphi-32 Development Environment           |7.0.8.1         |136134656|Normal      |10     |C:\Arquivos de programas\Borland\Delphi7\Bin                                                                |
+|5236|chrome.exe              |Google Chrome                               |                |29941760 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|5380|TextPad.exe             |TextPad                                     |4.0.7.2         |6336512  |Normal      |3      |C:\ARQUIV~1\TEXTPA~1                                                                                        |
+|5708|NOTEPAD.EXE             |Bloco de notas                              |5.1.2600.5512   |3706880  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|5872|delphi32.exe            |Delphi-32 Development Environment           |7.0.8.1         |291139584|Normal      |10     |C:\Arquivos de programas\Borland\Delphi7\Bin                                                                |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informação Assembler:
+------------------------------------------------------------
+; SetTextColor (Line=0 - Offset=0)
+; --------------------------------
+77E55D7A  mov     ebp, esp
+77E55D7C  push    ecx
+77E55D7D  or      dword ptr [ebp-$04], -$01
+77E55D81  push    ebx
+77E55D82  mov     ebx, [ebp+$08]
+77E55D85  push    esi
+77E55D86  mov     eax, ebx
+77E55D88  and     eax, $007F0000             ; ''...
+77E55D8D  mov     esi, $00010000             ; '='
+77E55D92  cmp     eax, esi
+77E55D94  push    edi                        ; <-- EXCEPTION
+77E55D95  mov     edi, [ebp+$0C]
+77E55D98  jnz     +$0000BF13
+77E55D9E  mov     eax, ebx
+77E55DA0  and     eax, $0000FFFF             ; ''...
+77E55DA5  cmp     eax, esi
+77E55DA7  jnb     +$00013F37
+77E55DAD  shl     eax, $04
+77E55DB0  add     eax, [$77E94000]
+77E55DB6  cmp     byte ptr [eax+$0A], $01
+77E55DBA  jnz     +$00013F24
+
+Registradores:
+-----------------------------
+EAX: 00010000   EDI: 0000BD38
+EBX: 740115C6   ESI: 00010000
+ECX: 005B0650   ESP: 00033000
+EDX: 000331C8   EIP: 77E55D94
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+00033000: 00B2BDE0   77E55D94: 57 8B 7D 0C 0F 85 13 BF 00 00 8B C3 25 FF FF 00  W.}.........%...
+00033004: 000331C8   77E55DA4: 00 3B C6 0F 83 37 3F 01 00 C1 E0 04 03 05 00 40  .;...7?........@
+00033008: FFFFFFFF   77E55DB4: E9 77 80 78 0A 01 0F 85 24 3F 01 00 8B CB C1 E9  .w.x....$?......
+0003300C: 00033160   77E55DC4: 10 66 39 48 08 0F 85 15 3F 01 00 8B 48 04 83 E1  .f9H....?...H...
+00033010: 00492855   77E55DD4: FE 3B 0D 04 40 E9 77 0F 85 03 3F 01 00 8B 70 0C  .;..@.w...?...p.
+00033014: 740115C6   77E55DE4: 85 F6 0F 84 F8 3E 01 00 8B 46 1C 89 7E 1C 81 E7  .....>...F..~...
+00033018: 00000000   77E55DF4: FF FF FF 13 F7 C7 00 00 00 01 89 45 FC 75 0B 8B  ...........E.u..
+0003301C: 00033160   77E55E04: 46 5C A8 01 0F 85 A6 3E 01 00 39 7E 18 74 07 83  F\.....>..9~.t..
+00033020: 000331C8   77E55E14: 4E 04 07 89 7E 18 8B 45 FC 5F 5E 5B C9 C2 08 00  N...~..E._^[....
+00033024: 00B2BDE0   77E55E24: 90 90 90 90 90 8B FF 55 8B EC 51 83 4D FC FF 53  .......U..Q.M..S
+00033028: 00B2D2E0   77E55E34: 8B 5D 08 56 8B C3 25 00 00 7F 00 BE 00 00 01 00  .].V..%.........
+0003302C: 00487BA3   77E55E44: 3B C6 57 8B 7D 0C 0F 85 AD BE 00 00 8B C3 25 FF  ;.W.}.........%.
+00033030: 000331C8   77E55E54: FF 00 00 3B C6 0F 83 C1 3E 01 00 C1 E0 04 03 05  ...;....>.......
+00033034: 00B2BDE0   77E55E64: 00 40 E9 77 80 78 0A 01 0F 85 AE 3E 01 00 8B CB  .@.w.x.....>....
+00033038: 000331C8   77E55E74: C1 E9 10 66 39 48 08 0F 85 9F 3E 01 00 8B 48 04  ...f9H....>...H.
+0003303C: 0048F877   77E55E84: 83 E1 FE 3B 0D 04 40 E9 77 0F 85 8D 3E 01 00 8B  ...;..@.w...>...
+
+
+
+EurekaLog 6.0.9
+
+Aplicação:
+-----------------------------------------------------
+  1.1 Data Início    : Wed, 1 Jun 2011 11:19:25 -0300
+  1.2 Nome           : pdiminuihora.exe
+  1.3 Versão         : 
+  1.4 Parâmetros     : 
+  1.5 Data Compilação: Wed, 1 Jun 2011 11:19:24 -0300
+  1.6 Tempo Ativo    : 2 seconds
+
+Exceção:
+---------------------------------------------------
+  2.1 Data         : Wed, 1 Jun 2011 11:19:27 -0300
+  2.2 Endereço     : 77E55D7C
+  2.3 Nome Módulo  : GDI32.dll - (GDI Client DLL)
+  2.4 Versão Módulo: 5.1.2600.5698
+  2.5 Tipo         : EStackOverflow
+  2.6 Mensagem     : Stack overflow.
+  2.7 ID           : 8D20
+  2.8 Contador     : 1
+  2.9 Status       : New
+  2.10 Observação  : 
+
+Usuário:
+--------------------------------------------------------
+  3.1 ID         : edson.dsn.pack
+  3.2 Nome       : Computador
+  3.3 Email      : 
+  3.4 Empresa    : 
+  3.5 Privilégios: SeChangeNotifyPrivilege         - ON
+                   SeSecurityPrivilege             - OFF
+                   SeBackupPrivilege               - OFF
+                   SeRestorePrivilege              - OFF
+                   SeSystemtimePrivilege           - OFF
+                   SeShutdownPrivilege             - OFF
+                   SeRemoteShutdownPrivilege       - OFF
+                   SeTakeOwnershipPrivilege        - OFF
+                   SeDebugPrivilege                - OFF
+                   SeSystemEnvironmentPrivilege    - OFF
+                   SeSystemProfilePrivilege        - OFF
+                   SeProfileSingleProcessPrivilege - OFF
+                   SeIncreaseBasePriorityPrivilege - OFF
+                   SeLoadDriverPrivilege           - ON
+                   SeCreatePagefilePrivilege       - OFF
+                   SeIncreaseQuotaPrivilege        - OFF
+                   SeUndockPrivilege               - ON
+                   SeManageVolumePrivilege         - OFF
+                   SeImpersonatePrivilege          - ON
+                   SeCreateGlobalPrivilege         - ON
+
+Controles Ativos:
+-------------------------------------
+  4.1 Form Class   : TForm1
+  4.2 Form Text    : Form1
+  4.3 Control Class: TRadioButton
+  4.4 Control Text : Hora para Double
+
+Computador:
+---------------------------------------------------------------------------------------------------
+  5.1 Nome               : PAT685
+  5.2 Memória Total      : 2037 Mb
+  5.3 Memória Livre      : 548 Mb
+  5.4 Total Disco        : 232,77 Gb
+  5.5 Disco Livre        : 171,06 Gb
+  5.6 Tempo Ativo Sistema: 14 hours, 20 minutes, 26 seconds
+  5.7 Processador        : Intel(R) Core(TM)2 Duo CPU     E7500  @ 2.93GHz
+  5.8 Resolução de vídeo : 1280 x 960, 32 bit
+  5.9 DPI                : 96
+  5.10 Placa de vídeo    : Intel(R) G33/G31 Express Chipset Family (driver 6.14.10.4957 - RAM 0 MB)
+  5.11 Impressora        : Microsoft XPS Document Writer (driver 6.0.6001.22204)
+
+Sistema Operacional:
+-------------------------------------
+  6.1 Type     : Microsoft Windows XP
+  6.2 Build #  : 2600
+  6.3 Update   : Service Pack 3
+  6.4 Linguagem: Portuguese
+  6.5 Charset  : 0
+
+Network:
+----------------------------------------------------------------------
+  7.1 Endereço IP: 010.000.003.034 - 192.168.204.001 - 192.168.074.001
+  7.2 Sub-máscara: 255.000.000.000 - 255.255.255.000 - 255.255.255.000
+  7.3 Gateway    : 010.000.000.080 - 000.000.000.000 - 000.000.000.000
+  7.4 DNS 1      : 010.000.000.006 - 000.000.000.000 - 000.000.000.000
+  7.5 DNS 2      : 010.000.000.027 - 000.000.000.000 - 000.000.000.000
+  7.6 DHCP       : ON              - OFF             - OFF            
+
+Informações da Pilha:
+----------------------------------------------------------------------
+|Endereço|Módulo          |Unit     |Classe|Procedimento/Método|Line |
+----------------------------------------------------------------------
+|*Erro de exceção na execução da tarefa: ID=5724; Prioridade=0; Class|
+|--------------------------------------------------------------------|
+|77E55D7C|GDI32.dll       |         |      |SetTextColor       |     |
+|77E55D77|GDI32.dll       |         |      |SetTextColor       |     |
+|7E37F406|user32.dll      |         |      |SendMessageA       |     |
+|7E37F3C2|user32.dll      |         |      |SendMessageA       |     |
+|7E379C79|user32.dll      |         |      |FillRect           |     |
+|7E37A993|user32.dll      |         |      |CallWindowProcA    |     |
+|7E37A97D|user32.dll      |         |      |CallWindowProcA    |     |
+|7E37F406|user32.dll      |         |      |SendMessageA       |     |
+|7E37F3C2|user32.dll      |         |      |SendMessageA       |     |
+|004B29E9|pdiminuihora.exe|Unit1.pas|TForm1|rbHoraToDoubleClick|59[2]|
+|004B29C1|pdiminuihora.exe|Unit1.pas|TForm1|rbDoubleToHoraClick|53[2]|
+----------------------------------------------------------------------
+
+Informações dos Módulos:
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|Handle  |Nome            |Descrição                                         |Versão        |Size   |Modificado         |Caminho                                                                                             |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|00400000|pdiminuihora.exe|                                                  |              |843776 |2011-06-01 11:19:26|C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                       |
+|10000000|HookDLL.dll     |                                                  |              |43008  |2011-05-16 15:45:26|C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                |
+|5B1C0000|uxtheme.dll     |Biblioteca UxTheme Microsoft                      |6.0.2900.5512 |219648 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|5D510000|comctl32.dll    |Common Controls Library                           |5.82.2900.6028|617472 |2010-08-23 13:12:00|C:\WINDOWS\system32                                                                                 |
+|6D020000|adialhk.dll     |kldialhk                                          |6.0.4.1448    |85080  |2010-12-14 11:00:46|C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4        |
+|71A60000|WS2HELP.dll     |DLL de ajuda do Windows Socket 2.0 para Windows NT|5.1.2600.5512 |19968  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A70000|WS2_32.dll      |Windows Socket 2.0 32-Bit DLL                     |5.1.2600.5512 |82432  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|71A90000|wsock32.dll     |DLL de soquete para Windows de 32 bits            |5.1.2600.5512 |25088  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|72FB0000|winspool.drv    |Driver de spooler do Windows                      |5.1.2600.5512 |146944 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|746E0000|MSCTF.dll       |DLL de servidor MSCTF                             |5.1.2600.5512 |297984 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|75290000|msctfime.ime    |Microsoft Text Frame Work Service IME             |5.1.2600.5512 |177152 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76360000|IMM32.DLL       |Windows XP IMM32 API Client DLL                   |5.1.2600.5512 |110080 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|76BD0000|PSAPI.DLL       |Process Status Helper                             |5.1.2600.5512 |23040  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77100000|oleaut32.dll    |                                                  |5.1.2600.5512 |551936 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|773B0000|comctl32.dll    |User Experience Controls Library                  |6.0.2900.6028 |1054208|2010-08-23 13:11:58|C:\WINDOWS\WinSxS\x86_Microsoft.Windows.Common-Controls_6595b64144ccf1df_6.0.2600.6028_x-ww_61e65202|
+|774C0000|ole32.dll       |Microsoft OLE para Windows e Windows NT           |5.1.2600.6010 |1287680|2010-07-16 09:00:24|C:\WINDOWS\system32                                                                                 |
+|77BE0000|version.dll     |Version Checking and File Installation Libraries  |5.1.2600.5512 |18944  |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77BF0000|msvcrt.dll      |Windows NT CRT DLL                                |7.0.2600.5512 |343040 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+|77DB0000|RPCRT4.dll      |Remote Procedure Call Runtime                     |5.1.2600.6022 |590848 |2010-08-16 05:45:00|C:\WINDOWS\system32                                                                                 |
+|77E50000|GDI32.dll       |GDI Client DLL                                    |5.1.2600.5698 |286720 |2008-10-23 09:37:46|C:\WINDOWS\system32                                                                                 |
+|77EA0000|SHLWAPI.dll     |Biblioteca de utilitário abreviado para Shell     |6.0.2900.5912 |474112 |2009-12-08 06:24:26|C:\WINDOWS\system32                                                                                 |
+|77F20000|Secur32.dll     |Security Support Provider Interface               |5.1.2600.5834 |56832  |2009-06-25 05:27:14|C:\WINDOWS\system32                                                                                 |
+|77F50000|advapi32.dll    |API de base do Windows 32 avançada                |5.1.2600.5755 |683520 |2009-02-09 07:53:26|C:\WINDOWS\system32                                                                                 |
+|7C800000|kernel32.dll    |DLL cliente da API BASE do Windows NT             |5.1.2600.5781 |1028608|2009-03-21 11:08:54|C:\WINDOWS\system32                                                                                 |
+|7C900000|ntdll.dll       |DLL de nível do NT                                |5.1.2600.6055 |734208 |2010-12-09 12:15:18|C:\WINDOWS\system32                                                                                 |
+|7C9C0000|shell32.dll     |DLL comum do Shell do Windows                     |6.0.2900.6072 |8492032|2011-01-21 11:44:12|C:\WINDOWS\system32                                                                                 |
+|7E360000|user32.dll      |DLL de Cliente API de usuário Windows XP          |5.1.2600.5512 |579072 |2008-04-14 09:00:00|C:\WINDOWS\system32                                                                                 |
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informações dos Processos:
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|ID  |Nome                    |Descrição                                   |Versão          |Memória  |Prioridade  |Tarefas|Caminho                                                                                                     |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|4   |System                  |                                            |                |253952   |Normal      |72     |                                                                                                            |
+|228 |sqlservr.exe            |SQL Server Windows NT                       |2007.100.1600.22|11554816 |Normal      |32     |c:\Arquivos de programas\Microsoft SQL Server\MSSQL10.SQL2008\MSSQL\Binn                                    |
+|244 |avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |4612096  |Normal      |10     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|304 |winampa.exe             |Winamp Agent                                |5.6.0.3091      |2502656  |Normal      |1      |C:\Arquivos de programas\Winamp                                                                             |
+|324 |FOXITR~1.EXE            |Foxit Reader, Best Reader for Everyday Use! |3.0.2009.1817   |32247808 |Normal      |3      |C:\ARQUIV~1\FOXITS~1\FOXITR~1                                                                               |
+|368 |svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |32624640 |Normal      |76     |C:\WINDOWS\System32                                                                                         |
+|452 |mysqld.exe              |                                            |                |59113472 |Normal      |24     |C:\Arquivos de programas\Digicon\Diginet\mysql\bin                                                          |
+|796 |ibserver.exe            |InterBase Server                            |6.5.0.28        |4104192  |Normal      |7      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|868 |avp.exe                 |Kaspersky Anti-Virus                        |6.0.4.1424      |33148928 |Normal      |42     |C:\Arquivos de programas\Kaspersky Lab\Kaspersky Anti-Virus 6.0 for Windows Workstations MP4                |
+|960 |TSVNCache.exe           |TortoiseSVN status cache                    |1.6.99.16302    |5578752  |Normal      |8      |C:\Arquivos de programas\TortoiseSVN\bin                                                                    |
+|1008|fbguard.exe             |Firebird SQL Server                         |2.0.0.12654     |2904064  |Normal      |4      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|1032|wrapper.exe             |Java Service Wrapper Community Edition 3.3.6|3.3.6.0         |3620864  |Normal      |5      |C:\Arquivos de programas\Digicon\Diginet\dig-task\bin                                                       |
+|1044|tomcat6.exe             |Commons Daemon Service Runner               |1.0.2.0         |105758720|Normal      |29     |C:\Arquivos de programas\Digicon\Diginet\Tomcat 6.0\bin                                                     |
+|1052|smss.exe                |                                            |                |458752   |Normal      |3      |\SystemRoot\System32                                                                                        |
+|1124|winlogon.exe            |                                            |                |7892992  |High        |23     |C:\WINDOWS\system32                                                                                         |
+|1172|services.exe            |Aplicativo de serviços e controle           |5.1.2600.5755   |7233536  |Normal      |16     |C:\WINDOWS\system32                                                                                         |
+|1184|lsass.exe               |LSA Shell (Export Version)                  |5.1.2600.5512   |1277952  |Normal      |23     |C:\WINDOWS\system32                                                                                         |
+|1268|spoolsv.exe             |Spooler SubSystem App                       |5.1.2600.6024   |8957952  |Normal      |14     |C:\WINDOWS\system32                                                                                         |
+|1392|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |5713920  |Normal      |19     |C:\WINDOWS\system32                                                                                         |
+|1492|ctfmon.exe              |CTF Loader                                  |5.1.2600.5512   |3379200  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|1512|java.exe                |Java(TM) Platform SE binary                 |6.0.240.7       |105549824|Normal      |68     |C:\WINDOWS\system32                                                                                         |
+|1532|ibguard.exe             |InterBase Server                            |6.5.0.28        |2793472  |Normal      |4      |C:\Arquivos de programas\Borland\InterBase\bin                                                              |
+|1616|chrome.exe              |Google Chrome                               |                |56930304 |Normal      |25     |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|1716|jqs.exe                 |Java(TM) Quick Starter Service              |6.0.240.7       |1445888  |Low         |16     |C:\Arquivos de programas\Java\jre6\bin                                                                      |
+|1744|ORACLE.EXE              |Oracle RDBMS Kernel Executable              |10.2.0.1        |10170368 |Normal      |25     |c:\oraclexe\app\oracle\product\10.2.0\server\bin                                                            |
+|1824|svchost.exe             |Generic Host Process for Win32 Services     |5.1.2600.5512   |4743168  |Normal      |6      |C:\WINDOWS\system32                                                                                         |
+|2036|klnagent.exe            |Kaspersky Administration Kit Network Agent  |8.0.2134.0      |3633152  |Normal      |26     |C:\Arquivos de programas\Kaspersky Lab\NetworkAgent 8                                                       |
+|2096|chrome.exe              |Google Chrome                               |                |40095744 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|2240|tnslsnr.exe             |                                            |                |8450048  |Normal      |5      |C:\oraclexe\app\oracle\product\10.2.0\server\BIN                                                            |
+|2380|nxServer.Exe            |                                            |1.0.0.0         |17141760 |Normal      |16     |C:\Arquivos de programas\Alterdata\Servidor                                                                 |
+|2472|vmnetdhcp.exe           |VMware VMnet DHCP service                   |7.1.3.14951     |2228224  |Normal      |2      |C:\WINDOWS\system32                                                                                         |
+|2616|FwcMgmt.exe             |Microsoft Firewall Client Management        |4.0.3442.654    |3801088  |Normal      |3      |C:\Arquivos de programas\Microsoft Firewall Client 2004                                                     |
+|2992|vmnat.exe               |VMware NAT Service                          |7.1.3.14951     |2756608  |Normal      |4      |C:\WINDOWS\system32                                                                                         |
+|3076|vmware-usbarbitrator.exe|VMware USB Arbitration Service              |7.1.3.14951     |3223552  |Normal      |2      |C:\Arquivos de programas\Common Files\VMware\USB                                                            |
+|3560|fbserver.exe            |Firebird SQL Server                         |2.0.0.12654     |4784128  |Normal      |8      |C:\Arquivos de programas\Firebird\Firebird_2_0\bin                                                          |
+|3564|sqlwriter.exe           |SQL Server VSS Writer                       |2007.100.1600.22|3866624  |Normal      |3      |c:\Arquivos de programas\Microsoft SQL Server\90\Shared                                                     |
+|3576|chrome.exe              |Google Chrome                               |                |23011328 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|3620|pdiminuihora.exe        |                                            |                |6291456  |Normal      |3      |C:\Documents and Settings\edson.dsn.pack\Desktop\diminui hora                                               |
+|3900|Explorer.EXE            |Windows Explorer                            |6.0.2900.5512   |22122496 |Normal      |22     |C:\WINDOWS                                                                                                  |
+|4064|ComAgent.exe            |ComAgent                                    |12.0.0.0        |12689408 |Normal      |11     |C:\Arquivos de programas\Alt-N Technologies\ComAgent                                                        |
+|4556|WPonto.exe              |Ponto Eletrônico                            |5.12.12.2       |122802176|Normal      |17     |c:\temp\EXE                                                                                                 |
+|5188|delphi32.exe            |Delphi-32 Development Environment           |7.0.8.1         |139042816|Normal      |10     |C:\Arquivos de programas\Borland\Delphi7\Bin                                                                |
+|5236|chrome.exe              |Google Chrome                               |                |29941760 |Below-Normal|4      |C:\Documents and Settings\edson.dsn.pack\Configurações locais\Dados de aplicativos\Google\Chrome\Application|
+|5380|TextPad.exe             |TextPad                                     |4.0.7.2         |6336512  |Normal      |3      |C:\ARQUIV~1\TEXTPA~1                                                                                        |
+|5708|NOTEPAD.EXE             |Bloco de notas                              |5.1.2600.5512   |3706880  |Normal      |1      |C:\WINDOWS\system32                                                                                         |
+|5872|delphi32.exe            |Delphi-32 Development Environment           |7.0.8.1         |291151872|Normal      |10     |C:\Arquivos de programas\Borland\Delphi7\Bin                                                                |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Informação Assembler:
+------------------------------------------------------------
+; SetTextColor (Line=0 - Offset=0)
+; --------------------------------
+77E55D77  mov     edi, edi
+77E55D79  push    ebp
+77E55D7A  mov     ebp, esp
+77E55D7C  push    ecx                        ; <-- EXCEPTION
+77E55D7D  or      dword ptr [ebp-$04], -$01
+77E55D81  push    ebx
+77E55D82  mov     ebx, [ebp+$08]
+77E55D85  push    esi
+77E55D86  mov     eax, ebx
+77E55D88  and     eax, $007F0000             ; ''...
+77E55D8D  mov     esi, $00010000             ; '='
+77E55D92  cmp     eax, esi
+77E55D94  push    edi
+77E55D95  mov     edi, [ebp+$0C]
+
+Registradores:
+-----------------------------
+EAX: 03011792   EDI: 0000BD38
+EBX: 000331BC   ESI: 00B2F11C
+ECX: 005B0650   ESP: 00033000
+EDX: 000331BC   EIP: 77E55D7C
+
+Stack:               Memory Dump:
+------------------   ---------------------------------------------------------------------------
+00033000: 00033154   77E55D7C: 51 83 4D FC FF 53 8B 5D 08 56 8B C3 25 00 00 7F  Q.M..S.].V..%...
+00033004: 00492855   77E55D8C: 00 BE 00 00 01 00 3B C6 57 8B 7D 0C 0F 85 13 BF  ......;.W.}.....
+00033008: 03011792   77E55D9C: 00 00 8B C3 25 FF FF 00 00 3B C6 0F 83 37 3F 01  ....%....;...7?.
+0003300C: 00000000   77E55DAC: 00 C1 E0 04 03 05 00 40 E9 77 80 78 0A 01 0F 85  .......@.w.x....
+00033010: 00033154   77E55DBC: 24 3F 01 00 8B CB C1 E9 10 66 39 48 08 0F 85 15  $?.......f9H....
+00033014: 000331BC   77E55DCC: 3F 01 00 8B 48 04 83 E1 FE 3B 0D 04 40 E9 77 0F  ?...H....;..@.w.
+00033018: 00B2F11C   77E55DDC: 85 03 3F 01 00 8B 70 0C 85 F6 0F 84 F8 3E 01 00  ..?...p......>..
+0003301C: 00B2D3F0   77E55DEC: 8B 46 1C 89 7E 1C 81 E7 FF FF FF 13 F7 C7 00 00  .F..~...........
+00033020: 00487BA3   77E55DFC: 00 01 89 45 FC 75 0B 8B 46 5C A8 01 0F 85 A6 3E  ...E.u..F\.....>
+00033024: 000331BC   77E55E0C: 01 00 39 7E 18 74 07 83 4E 04 07 89 7E 18 8B 45  ..9~.t..N...~..E
+00033028: 00B2F11C   77E55E1C: FC 5F 5E 5B C9 C2 08 00 90 90 90 90 90 8B FF 55  ._^[...........U
+0003302C: 000331BC   77E55E2C: 8B EC 51 83 4D FC FF 53 8B 5D 08 56 8B C3 25 00  ..Q.M..S.].V..%.
+00033030: 0048F877   77E55E3C: 00 7F 00 BE 00 00 01 00 3B C6 57 8B 7D 0C 0F 85  ........;.W.}...
+00033034: 000331BC   77E55E4C: AD BE 00 00 8B C3 25 FF FF 00 00 3B C6 0F 83 C1  ......%....;....
+00033038: 000331BC   77E55E5C: 3E 01 00 C1 E0 04 03 05 00 40 E9 77 80 78 0A 01  >........@.w.x..
+0003303C: 00B2F11C   77E55E6C: 0F 85 AE 3E 01 00 8B CB C1 E9 10 66 39 48 08 0F  ...>.......f9H..
+
+
+

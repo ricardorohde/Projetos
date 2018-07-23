@@ -1,0 +1,8 @@
+<ginfes:ConsultarNfsePorRpsV3 xmlns:ginfes="http://producao.issfortaleza.com.br">
+<Cabecalho>
+<![CDATA[
+<ns2:cabecalho versao="3" xmlns:ns2="http://www.ginfes.com.br/cabecalho_v03.xsd"><versaoDados>3</versaoDados></ns2:cabecalho>
+]]>
+</Cabecalho>
+<ConsultarNfseRpsEnvio><![CDATA[%s]]></ConsultarNfseRpsEnvio>
+</ginfes:ConsultarNfsePorRpsV3>

@@ -1,0 +1,361 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := (UpperCase(Params.Values['EnvioSincrono'])) = 'TRUE';
+  end;
+
+  procedure GetPonteirosDataSets(const aDataSetNameSucesso, aDatasetNameFalha : string;
+                                 var aDSSucesso, aDSFalha : TSpdXSDClientDataSet);
+  begin
+    aDSSucesso := Datasets.GetDataSetByName(aDataSetNameSucesso);
+    aDSFalha := Datasets.GetDataSetByName(aDatasetNameFalha);
+    if (aDSSucesso = nil) then
+      RaiseException('DataSet ' + aDataSetNameSucesso + ' não foi carregado corretamente.');
+    if (aDSFalha = nil) then
+      RaiseException('DataSet ' + aDatasetNameFalha + ' não foi carregado corretamente.');
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(Result, ';', '\delimiter', [rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+  end;
+
+  function GetMotivo(const aDSFalha : TSpdXSDClientDataSet) : string;
+  var
+    _Correcao : string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+    begin
+      Result := 'Falha na comunicação com WebService-' +
+        RemoveCaracteresInvalidosResposta(Input);
+    end
+    else if (aDSFalha <> nil) then
+    begin
+      aDSFalha.First;
+      while Not aDSFalha.Eof do
+      begin
+        _Correcao := '';
+
+        if aDSFalha.FieldList.IndexOf('MotivoCorrecao') > -1 then
+          _Correcao := aDSFalha.FieldByName('MotivoCorrecao').AsString;
+
+        if (Result = '') then
+          Result := Format3('%s-%s (%s)', aDSFalha.FieldByName('MotivoCodigo').AsString,
+                                         Trim(aDSFalha.FieldByName('MotivoMensagem').AsString),
+                                         Trim(_Correcao))
+        else
+          Result := Format4('%s: %s-%s (%s)', Result, aDSFalha.FieldByName('MotivoCodigo').AsString,
+                                             Trim(aDSFalha.FieldByName('MotivoMensagem').AsString),
+                                             Trim(_Correcao));
+        aDSFalha.Next;
+      end;
+      Result := RemoveCaracteresInvalidosResposta(Result);
+
+    end
+    else
+      Result := '';
+  end;
+
+  function GetNumeroProtocoloAssinc : string;
+  begin
+    Result := _DSSucesso.FieldByName('NumeroProtocolo').AsString;
+  end;
+
+  function GetStatus : string;
+  begin
+    if EnvioSincrono then
+    begin
+      if (_DSSucesso.FieldByName('CodigoVerificacao').AsString = '') then
+        Result := 'ERRO'
+      else
+        Result := 'SUCESSO';
+    end
+    else
+    begin
+      if (_DSSucesso.FieldByName('NumeroProtocolo').AsString = '') then
+        Result := 'ERRO'
+      else
+        Result := 'SUCESSO';
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','NumeroProtocolo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para ordem dos Campos do Params
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de Resultado
+  procedure AddValueListFields(const aFieldName : string; const aFieldValue : string;
+    var aListFields : TStringList);
+  begin
+    if aListFields.IndexOf(aFieldName) > -1 then
+      aListFields[aListFields.IndexOf(aFieldName)] := aFieldValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult(var aListFields : TStringList) : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to aListFields.Count - 1 do
+      Result := Result + aListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+  function RetornouNota: Boolean;
+  var
+    _str: string;
+  begin
+    if (xmlSelectNodeValue(Input, '//*[local-name() = "NovaNfse"]', _str)) or
+       (Pos('&lt;nfse:NovaNfse&gt;', Input) > 0) or
+       (Pos('&lt;NovaNfse&gt;&lt;IdentificacaoNfse&gt;', Input) > 0) then
+      Result :=  true;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseNota : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo', 'Link']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para ordem dos Campos do Params
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+  end;
+
+  function GetResult(const aListFieldsResult : TStringList) : string;
+  begin
+    if (Params.Values['DelimitadorDaLinha'] = '') then
+      Result := FormatLineResult(aListFieldsResult) + #13#10
+    else
+      Result := FormatLineResult(aListFieldsResult) +
+        Params.Values['DelimitadorDaLinha'];
+  end;
+
+  function GetXmlNFSe(const aXpath, aParamName : string) : string;
+  begin
+    if aXpath = '' then
+      Result := XmlSelect(Params.Values[aParamName], '//*[local-name()="NovaNfse"]')
+    else
+      Result := XmlSelect(Params.Values[aParamName], aXpath);
+
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  // Captura a mensagem do retorno faulstring
+  function GetFaultString(aInput: string): string;
+  var
+    _Value : string;
+  begin
+    if xmlSelectNodeValue(aInput, '//*[local-name()="faultstring"]', _Value) then
+      Result := _Value
+    else
+      Result := aInput;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetListFieldsFaulstring(var aListFields : TStringList; const aInput: string): String;
+  var
+    _Motivo: string;
+  begin
+    aListFields := CreateFieldsResponseFalha;
+    try
+      _Motivo := 'Falha na comunicação com WebService-' + GetFaultString(aInput);
+      AddValueListFields('Status', 'ERRO', aListFields);
+      AddValueListFields('Motivo',_Motivo, aListFields);
+      Result := FormatLineResult(aListFields) + Params.Values['DelimitadorDaLinha'];
+    Finally
+      aListFields.Free;
+    end;
+  end;
+
+  function GetListFieldsNota(var aDSSucesso, aDSFalha : TSpdXSDClientDataSet;
+    var aListFields : TStringList; const aXpathNFSe, aParamName : string): String;
+  var
+    _Motivo, _ValorCampo: string;
+  begin
+    _Motivo := aDSFalha.FieldByName('MotivoMensagem').AsString;
+
+    //SUCESSO
+    if RetornouNota then
+    begin
+      aDSSucesso.First;
+      while not aDSSucesso.Eof do
+      begin
+        aListFields := CreateFieldsResponseNota;
+        try
+          AddValueListFields('Motivo', '', aListFields);
+          AddValueListFields('Status', 'SUCESSO', aListFields);
+
+          _ValorCampo := aDSSucesso.FieldByName('Cnpj').AsString;
+          if _ValorCampo <> '' then
+            AddValueListFields('Cnpj', _ValorCampo, aListFields)
+          else
+            AddValueListFields('Cnpj', aDSSucesso.FieldByName('Cnpj').AsString,
+              aListFields);
+
+          _ValorCampo := aDSSucesso.FieldByName('InscricaoMunicipal').AsString;
+          if _ValorCampo <> '' then
+            AddValueListFields('InscMunicipal', _ValorCampo, aListFields);
+
+          AddValueListFields('NumeroRps', '', aListFields);
+
+          AddValueListFields('DataAutorizacao', '', aListFields);
+
+          AddValueListFields('NumeroNFSe', aDSSucesso.FieldByName('Numero').AsString,
+            aListFields);
+          AddValueListFields('SerieRps',  aDSSucesso.FieldByName('Serie').AsString,
+            aListFields);
+          AddValueListFields('DataEmissaoNFSe', aDSSucesso.FieldByName('DataEmissao').AsString,
+            aListFields);
+          _ValorCampo := aDSSucesso.FieldByName('CodigoVerificacao').AsString;
+          AddValueListFields('CodVerificacao', _ValorCampo, aListFields);
+
+          If _ValorCampo = '' then
+            AddValueListFields('Situacao', 'ERRO', aListFields)
+          else
+            AddValueListFields('Situacao', 'AUTORIZADA', aListFields);
+
+          AddValueListFields('DataCancelamento', '', aListFields);
+
+          AddValueListFields('ChaveCancelamento', aDSSucesso.FieldByName('Numero').AsString,
+              aListFields);
+
+          AddValueListFields('Tipo', '', aListFields);
+
+          AddValueListFields('Xml', GetXmlNFSe(Format1(aXpathNFSe, aDSSucesso.FieldByName('Numero').AsString),
+                               aParamName), aListFields);
+
+          _ValorCampo := aDSSucesso.FieldByName('Link').AsString;
+          if _ValorCampo <> '' then
+            AddValueListFields('Link', _ValorCampo, aListFields);
+
+          Result := Result + GetResult(aListFields);
+        Finally
+          aListFields.Free;
+        end;
+        aDSSucesso.Next;
+      end;
+    end;
+
+    // PROCESSAMENTO
+    if (Params.Values['SituacaoLote'] = '2') then
+    begin
+      try
+        aListFields := CreateFieldsResponseProcessamento;
+        AddValueListFields('Status', 'EMPROCESSAMENTO', aListFields);
+        Result := Result + GetResult(aListFields);
+      finally
+        aListFields.Free;
+      end;
+    end
+    else
+    begin
+      //ERRO
+      If _Motivo <> '' then
+      begin
+        aListFields := CreateFieldsResponseNota;
+        try
+          AddValueListFields('Motivo', _Motivo, aListFields);
+          AddValueListFields('Status', 'ERRO', aListFields);
+          AddValueListFields('Cnpj', '', aListFields);
+          AddValueListFields('InscMunicipal', '', aListFields);
+          AddValueListFields('Serie',  '', aListFields);
+          AddValueListFields('Numero', '', aListFields);
+          AddValueListFields('DataEmissao', '', aListFields);
+          AddValueListFields('CodVerificacao', '', aListFields);
+          AddValueListFields('Situacao', '', aListFields);
+          AddValueListFields('DataCancelamento', '', aListFields);
+          AddValueListFields('ChaveCancelamento', '', aListFields);
+          AddValueListFields('Xml', '', aListFields);
+          Result := Result + GetResult(aListFields);
+        Finally
+          aListFields.Free;
+        end;
+      end;
+    end;
+  end;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+
+    if EnvioSincrono then
+      GetPonteirosDataSets('GerarNovaNfseResposta', 'MensagemRetorno', _DSSucesso, _DSFalha)
+    else
+      GetPonteirosDataSets('EnviarLoteRpsResposta', 'MensagemRetorno', _DSSucesso, _DSFalha);
+
+    if not EnvioSincrono then
+    begin
+      _ListFields := CreateFieldsResponse;
+      if _ListFields <> nil then
+      Try
+        Progress('Adicionando valores aos campos.');
+        AddValueListFields('Motivo',GetMotivo(_DSFalha),_ListFields);
+        AddValueListFields('Status', GetStatus, _ListFields);
+        AddValueListFields('NumeroProtocolo',GetNumeroProtocoloAssinc, _ListFields);
+        Output := FormatLineResult(_ListFields);
+      Finally
+        _ListFields.Free;
+      end;
+    end
+    else
+      Output := GetListFieldsNota(_DSSucesso, _DSFalha, _ListFields,
+        '//*[local-name()="IdentificacaoNfse"]/*[local-name()="Numero" and text()="%s"]/../../..', 'XmlLote');
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

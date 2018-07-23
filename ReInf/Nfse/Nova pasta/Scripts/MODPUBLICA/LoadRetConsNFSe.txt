@@ -1,0 +1,48 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+
+{$I Utils.txt}
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    _Xml := UnEscapeXml(Input);
+    _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="iso-8859-1"?>', '', [rfReplaceAll]);
+    //As operações abaixo são necessárias para adequar o Xml retornado pelo WS ao schema.
+    _Xml := StringReplace(_Xml, '<Erro>', '<ConsultarNfseFaixaResposta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.abrasf.org.br/nfse.xsd"><ListaMensagemRetorno><MensagemRetorno>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '</Erro>', '</MensagemRetorno></ListaMensagemRetorno></ConsultarNfseFaixaResposta>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '<ErroMensagem>', '<Mensagem>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '</ErroMensagem>', '</Mensagem>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '<ErroSolucao>', '<Correcao>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '</ErroSolucao>', '</Correcao>', [rfReplaceAll]);
+
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseFaixaResposta"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+
+  end;
+end.

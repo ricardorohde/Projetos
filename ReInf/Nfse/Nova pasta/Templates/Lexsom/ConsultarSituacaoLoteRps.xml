@@ -1,0 +1,11 @@
+<tem:ConsultarSituacaoLoteRPS>        
+<tem:xml>
+    <ConsultarSituacaoLoteRpsEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+      <Prestador>
+        <Cnpj>%s</Cnpj>
+        <InscricaoMunicipal>%s</InscricaoMunicipal>
+      </Prestador>
+      <Protocolo>%s</Protocolo>
+    </ConsultarSituacaoLoteRpsEnvio>
+</tem:xml>
+</tem:ConsultarSituacaoLoteRPS>

@@ -1,0 +1,13 @@
+<fiss:WS_ConsultaNfsePorRps.Execute>
+  <fiss:Consultarnfserpsenvio>
+    <IdentificacaoRps>
+      <Numero>%s</Numero>
+      <Serie>%s</Serie>
+      <Tipo>%s</Tipo>
+    </IdentificacaoRps>
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+  </fiss:Consultarnfserpsenvio>
+</fiss:WS_ConsultaNfsePorRps.Execute>

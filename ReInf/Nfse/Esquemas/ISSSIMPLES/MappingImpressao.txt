@@ -1,0 +1,185 @@
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosNFSe]
+Numero=/Nfse/Rps/InfRps/IdentificacaoRps/Numero
+Serie=/Nfse/Rps/InfRps/IdentificacaoRps/Serie
+Tipo=/Nfse/Rps/InfRps/IdentificacaoRps/Tipo
+DataEmissao=/Nfse/Rps/InfRps/DataEmissao
+NaturezaOperacao=/Nfse/Rps/InfRps/NaturezaOperacao
+RegimeEspecialTributacao=/Nfse/Rps/InfRps/RegimeEspecialTributacao
+OptanteSimplesNacional=/Nfse/Rps/InfRps/OptanteSimplesNacional
+IncentivadorCultural=/Nfse/Rps/InfRps/IncentivadorCultural
+Status=/Nfse/Rps/InfRps/Status
+NumeroRpsSubstituido=/Nfse/Rps/InfRps/RpsSubstituido/Numero
+SerieRpsSubstituido=/Nfse/Rps/InfRps/RpsSubstituido/Serie
+TipoRpsSubstituido=/Nfse/Rps/InfRps/RpsSubstituido/Tipo
+
+;Dados do Serviço
+ValorServicos=/Nfse/Rps/InfRps/Servico/Valores/ValorServicos
+ValorDeducoes=/Nfse/Rps/InfRps/Servico/Valores/ValorDeducoes
+ValorPis=/Nfse/Rps/InfRps/Servico/Valores/ValorPis
+ValorCofins=/Nfse/Rps/InfRps/Servico/Valores/ValorCofins
+ValorInss=/Nfse/Rps/InfRps/Servico/Valores/ValorInss
+ValorIr=/Nfse/Rps/InfRps/Servico/Valores/ValorIr
+ValorCsll=/Nfse/Rps/InfRps/Servico/Valores/ValorCsll
+IssRetido=/Nfse/Rps/InfRps/Servico/Valores/IssRetido
+ValorIss=/Nfse/Rps/InfRps/Servico/Valores/ValorIss
+ValorIssRetido=/Nfse/Rps/InfRps/Servico/Valores/ValorIssRetido
+OutrasRetencoes=/Nfse/Rps/InfRps/Servico/Valores/OutrasRetencoes
+BaseCalculo=/Nfse/Rps/InfRps/Servico/Valores/BaseCalculo
+Aliquota=/Nfse/Rps/InfRps/Servico/Valores/Aliquota
+ValorLiquidoNfse=/Nfse/Rps/InfRps/Servico/Valores/ValorLiquidoNfse
+DescontoIncondicionado=/Nfse/Rps/InfRps/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/Nfse/Rps/InfRps/Servico/Valores/DescontoCondicionado
+ItemListaServico=/Nfse/Rps/InfRps/Servico/ItemListaServico
+CodigoCnae=/Nfse/Rps/InfRps/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/Nfse/Rps/InfRps/Servico/CodigoTributacaoMunicipio
+Discriminacao=/Nfse/Rps/InfRps/Servico/Discriminacao
+CodigoMunicipio=/Nfse/Rps/InfRps/Servico/CodigoMunicipio
+
+;Dados do Prestador
+CnpjPrestador=/Nfse/Rps/InfRps/Prestador/Cnpj
+InscricaoPrestador=/Nfse/Rps/InfRps/Prestador/InscricaoMunicipal
+
+;Dados do Tomador
+CpfTomador=/Nfse/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/Nfse/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/Nfse/Rps/InfRps/Tomador/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/Nfse/Rps/InfRps/Tomador/RazaoSocial
+EnderecoTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Endereco
+NumeroEnderecoTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Numero
+ComplementoEnderecoTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Complemento
+BairroTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Bairro
+CodigoMunicipioTomador=/Nfse/Rps/InfRps/Tomador/Endereco/CodigoMunicipio
+UFTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Uf
+CepTomador=/Nfse/Rps/InfRps/Tomador/Endereco/Cep
+TelefoneTomador=/Nfse/Rps/InfRps/Tomador/Contato/Telefone
+EmailTomador=/Nfse/Rps/InfRps/Tomador/Contato/Email
+
+
+;Dados do Intermediário
+RazaoSocialIntermediario=/Nfse/Rps/InfRps/IntermediarioServico/RazaoSocial
+CpfIntermediario=/Nfse/Rps/InfRps/IntermediarioServico/CpfCnpj/Cpf
+CnpjIntermediario=/Nfse/Rps/InfRps/IntermediarioServico/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/Nfse/Rps/InfRps/IntermediarioServico/InscricaoMunicipal
+
+;Dados da Obra
+CodigoObra=/Nfse/Rps/InfRps/ConstrucaoCivil/CodigoObra
+Art=/Nfse/Rps/InfRps/ConstrucaoCivil/Art
+
+
+
+;Campos Customizados
+NumeroNfse=string[20]
+CodigoVerificacao=string[40]
+RazaoSocialPrestador=string[80]
+CpfCnpjPrestador=string[40]
+IMunPrestador=string[10]
+IEstPrestador=string[10]
+EnderecoPrestador=string[40]
+
+EmailPrestador=string[60]
+IEstTomador=string[10]
+TipoServico=string[50]
+BCListaAtividade=string[10]
+DeducoesAtividade=string[10]
+CreditoIPTU=string[10]
+
+;CAMPOS NÃO UTILIZADOS NA IMPRESSÃO DE NFSe
+UFPrestador=string[2]
+DHPrestacao=string[20]
+OutrosValores=string[10]
+OutrasInformacoes=string[255]
+
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+;Dados do RPS
+Id=/Rps/InfRps/@Id
+Numero=/Rps/InfRps/IdentificacaoRps/Numero
+Serie=/Rps/InfRps/IdentificacaoRps/Serie
+Tipo=/Rps/InfRps/IdentificacaoRps/Tipo
+DataEmissao=/Rps/InfRps/DataEmissao
+NaturezaOperacao=/Rps/InfRps/NaturezaOperacao
+RegimeEspecialTributacao=/Rps/InfRps/RegimeEspecialTributacao
+OptanteSimplesNacional=/Rps/InfRps/OptanteSimplesNacional
+IncentivadorCultural=/Rps/InfRps/IncentivadorCultural
+Status=/Rps/InfRps/Status
+NumeroRpsSubstituido=/Rps/InfRps/RpsSubstituido/Numero
+SerieRpsSubstituido=/Rps/InfRps/RpsSubstituido/Serie
+TipoRpsSubstituido=/Rps/InfRps/RpsSubstituido/Tipo
+
+;Dados do Serviço
+ValorServicos=/Rps/InfRps/Servico/Valores/ValorServicos
+ValorDeducoes=/Rps/InfRps/Servico/Valores/ValorDeducoes
+ValorPis=/Rps/InfRps/Servico/Valores/ValorPis
+ValorCofins=/Rps/InfRps/Servico/Valores/ValorCofins
+ValorInss=/Rps/InfRps/Servico/Valores/ValorInss
+ValorIr=/Rps/InfRps/Servico/Valores/ValorIr
+ValorCsll=/Rps/InfRps/Servico/Valores/ValorCsll
+IssRetido=/Rps/InfRps/Servico/Valores/IssRetido
+ValorIss=/Rps/InfRps/Servico/Valores/ValorIss
+ValorIssRetido=/Rps/InfRps/Servico/Valores/ValorIssRetido
+OutrasRetencoes=/Rps/InfRps/Servico/Valores/OutrasRetencoes
+BaseCalculo=/Rps/InfRps/Servico/Valores/BaseCalculo
+Aliquota=/Rps/InfRps/Servico/Valores/Aliquota
+ValorLiquidoNfse=/Rps/InfRps/Servico/Valores/ValorLiquidoNfse
+DescontoIncondicionado=/Rps/InfRps/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/Rps/InfRps/Servico/Valores/DescontoCondicionado
+ItemListaServico=/Rps/InfRps/Servico/ItemListaServico
+CodigoCnae=/Rps/InfRps/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/Rps/InfRps/Servico/CodigoTributacaoMunicipio
+Discriminacao=/Rps/InfRps/Servico/Discriminacao
+CodigoMunicipio=/Rps/InfRps/Servico/CodigoMunicipio
+
+;Dados do Prestador
+CnpjPrestador=/Rps/InfRps/Prestador/Cnpj
+InscricaoPrestador=/Rps/InfRps/Prestador/InscricaoMunicipal
+
+;Dados do Tomador
+CpfTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/Rps/InfRps/Tomador/RazaoSocial
+EnderecoTomador=/Rps/InfRps/Tomador/Endereco/Endereco
+NumeroEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Numero
+ComplementoEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Complemento
+BairroTomador=/Rps/InfRps/Tomador/Endereco/Bairro
+CodigoMunicipioTomador=/Rps/InfRps/Tomador/Endereco/CodigoMunicipio
+UFTomador=/Rps/InfRps/Tomador/Endereco/Uf
+CepTomador=/Rps/InfRps/Tomador/Endereco/Cep
+TelefoneTomador=/Rps/InfRps/Tomador/Contato/Telefone
+EmailTomador=/Rps/InfRps/Tomador/Contato/Email
+
+;Dados do Intermediário
+RazaoSocialIntermediario=/Rps/InfRps/IntermediarioServico/RazaoSocial
+CpfIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cpf
+CnpjIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/Rps/InfRps/IntermediarioServico/InscricaoMunicipal
+
+;Dados da Obra
+CodigoObra=/Rps/InfRps/ConstrucaoCivil/CodigoObra
+Art=/Rps/InfRps/ConstrucaoCivil/Art
+
+;Campos Customizados
+NomeFantasiaPrestador=String[80]
+RazaoSocialPrestador=string[80]
+CpfCnpjPrestador=string[40]
+IMunPrestador=string[10]
+IEstPrestador=string[10]
+EnderecoPrestador=string[40]
+EmailPrestador=string[60]
+IEstTomador=string[10]
+TipoServico=string[50]
+BCListaAtividade=string[10]
+DeducoesAtividade=string[10]
+CreditoIPTU=string[10]
+
+CAMPOS NÃO UTILIZADOS NA IMPRESSÃO DE RPS
+CodigoVerificacao=string[40]
+UFPrestador=string[2]
+DHPrestacao=string[20]
+OutrosValores=string[10]
+OutrasInformacoes=string[255]

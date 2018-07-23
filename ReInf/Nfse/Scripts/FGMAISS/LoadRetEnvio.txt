@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _Xml : string;
+begin
+  Progress('Carregando XML de Retorno de Envio');
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, '<!--CRLF-->', '', [rfReplaceAll]);
+    Params.Add('faultstring=' + Input);
+  end
+  else
+  begin
+    _Xml := XmlSelect(Input, '//*[local-name()="EnvNfeResponse"]');
+    Params.Add('XML=' + _Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PontoEletronicoModelStoreContainer" CdmEntityContainer="PontoEletronicoEntities">
+    <EntitySetMapping Name="Conf_WebService">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Conf_WebService">
+        <MappingFragment StoreEntitySet="Conf_WebService">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NmIdentificacao" ColumnName="NmIdentificacao" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+          <ScalarProperty Name="Arquivo" ColumnName="Arquivo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configuracao">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Configuracao">
+        <MappingFragment StoreEntitySet="Configuracao">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="NmIdentificacao" ColumnName="NmIdentificacao" />
+          <ScalarProperty Name="Valor" ColumnName="Valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Digital">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Digital">
+        <MappingFragment StoreEntitySet="Digital">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="Digital1" ColumnName="Digital" />
+          <ScalarProperty Name="DtAlteracaoCad" ColumnName="DtAlteracaoCad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Funcionario">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Funcionario">
+        <MappingFragment StoreEntitySet="Funcionario">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="IdEmpresaExterno" ColumnName="IdEmpresaExterno" />
+          <ScalarProperty Name="IdFuncionarioExterno" ColumnName="IdFuncionarioExterno" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="NomeCurto" ColumnName="NomeCurto" />
+          <ScalarProperty Name="DtNascimento" ColumnName="DtNascimento" />
+          <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+          <ScalarProperty Name="HrEntrada" ColumnName="HrEntrada" />
+          <ScalarProperty Name="HrSaidaAlmoco" ColumnName="HrSaidaAlmoco" />
+          <ScalarProperty Name="HrEntradaAlmoco" ColumnName="HrEntradaAlmoco" />
+          <ScalarProperty Name="HrSaida" ColumnName="HrSaida" />
+          <ScalarProperty Name="HrSaidaIntervalo" ColumnName="HrSaidaIntervalo" />
+          <ScalarProperty Name="HrEntradaIntervalo" ColumnName="HrEntradaIntervalo" />
+          <ScalarProperty Name="DiasFolga" ColumnName="DiasFolga" />
+          <ScalarProperty Name="VerificaMarcacaoDIG" ColumnName="VerificaMarcacaoDIG" />
+          <ScalarProperty Name="VerificaMarcacaoCod" ColumnName="VerificaMarcacaoCod" />
+          <ScalarProperty Name="DtDemissao" ColumnName="DtDemissao" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="TpPessoa" ColumnName="TpPessoa" />
+          <ScalarProperty Name="VerificaMarcacaoSenha" ColumnName="VerificaMarcacaoSenha" />
+          <ScalarProperty Name="DtAlteracaoCad" ColumnName="DtAlteracaoCad" />
+          <ScalarProperty Name="IntervaloMinimoAlmoco" ColumnName="IntervaloMinimoAlmoco" />
+          <ScalarProperty Name="ConsideraAlmoco" ColumnName="ConsideraAlmoco" />
+          <ScalarProperty Name="PIS" ColumnName="PIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FuncionarioTolerancia">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.FuncionarioTolerancia">
+        <MappingFragment StoreEntitySet="FuncionarioTolerancia">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="IgnoraToleranciaEntrada" ColumnName="IgnoraToleranciaEntrada" />
+          <ScalarProperty Name="IgnoraToleranciaEntradaAntecipada" ColumnName="IgnoraToleranciaEntradaAntecipada" />
+          <ScalarProperty Name="IgnoraToleranciaSaidaAlmoco" ColumnName="IgnoraToleranciaSaidaAlmoco" />
+          <ScalarProperty Name="IgnoraToleranciaSaidaAlmocoAntecipada" ColumnName="IgnoraToleranciaSaidaAlmocoAntecipada" />
+          <ScalarProperty Name="IgnoraToleranciaEntradaAlmoco" ColumnName="IgnoraToleranciaEntradaAlmoco" />
+          <ScalarProperty Name="IgnoraToleranciaEntradaAlmocoAntecipada" ColumnName="IgnoraToleranciaEntradaAlmocoAntecipada" />
+          <ScalarProperty Name="IgnoraToleranciaSaida" ColumnName="IgnoraToleranciaSaida" />
+          <ScalarProperty Name="IgnoraToleranciaSaidaAntecipada" ColumnName="IgnoraToleranciaSaidaAntecipada" />
+          <ScalarProperty Name="ToleranciaEntrada" ColumnName="ToleranciaEntrada" />
+          <ScalarProperty Name="ToleranciaEntradaAntecipada" ColumnName="ToleranciaEntradaAntecipada" />
+          <ScalarProperty Name="ToleranciaSaidaAlmoco" ColumnName="ToleranciaSaidaAlmoco" />
+          <ScalarProperty Name="ToleranciaSaidaAlmocoAntecipada" ColumnName="ToleranciaSaidaAlmocoAntecipada" />
+          <ScalarProperty Name="ToleranciaEntradaAlmoco" ColumnName="ToleranciaEntradaAlmoco" />
+          <ScalarProperty Name="ToleranciaEntradaAlmocoAntecipada" ColumnName="ToleranciaEntradaAlmocoAntecipada" />
+          <ScalarProperty Name="ToleranciaSaida" ColumnName="ToleranciaSaida" />
+          <ScalarProperty Name="ToleranciaSaidaAntecipada" ColumnName="ToleranciaSaidaAntecipada" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gestor">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Gestor">
+        <MappingFragment StoreEntitySet="Gestor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+          <ScalarProperty Name="Cadastro" ColumnName="Cadastro" />
+          <ScalarProperty Name="Ativacao" ColumnName="Ativacao" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Obs" ColumnName="Obs" />
+          <ScalarProperty Name="AtivaRelacionamento" ColumnName="AtivaRelacionamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorarioComplementar">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.HorarioComplementar">
+        <MappingFragment StoreEntitySet="HorarioComplementar">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+          <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+          <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+          <ScalarProperty Name="Saida" ColumnName="Saida" />
+          <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+          <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Fim" ColumnName="Fim" />
+          <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorarioEscala">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.HorarioEscala">
+        <MappingFragment StoreEntitySet="HorarioEscala">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+          <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+          <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+          <ScalarProperty Name="Saida" ColumnName="Saida" />
+          <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+          <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+          <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+          <ScalarProperty Name="Folga" ColumnName="Folga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HorarioTurno">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.HorarioTurno">
+        <MappingFragment StoreEntitySet="HorarioTurno">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+          <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+          <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+          <ScalarProperty Name="Saida" ColumnName="Saida" />
+          <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+          <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+          <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+          <ScalarProperty Name="Fim" ColumnName="Fim" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Movimento">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Movimento">
+        <MappingFragment StoreEntitySet="Movimento">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+          <ScalarProperty Name="DtHrMovimentacao" ColumnName="DtHrMovimentacao" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="TerminaldeMarcacao" ColumnName="TerminaldeMarcacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Terminal">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.Terminal">
+        <MappingFragment StoreEntitySet="Terminal">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+          <ScalarProperty Name="Mec_terminal" ColumnName="Mec_terminal" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="UF" ColumnName="UF" />
+          <ScalarProperty Name="DtHoraUltimoEnvio" ColumnName="DtHoraUltimoEnvio" />
+          <ScalarProperty Name="DtHoraProximoEnvio" ColumnName="DtHoraProximoEnvio" />
+          <ScalarProperty Name="VersaoIcartao" ColumnName="VersaoIcartao" />
+          <ScalarProperty Name="RecebeMov" ColumnName="RecebeMov" />
+          <ScalarProperty Name="REPUltimaImportacao" ColumnName="REPUltimaImportacao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TerminalDigital">
+      <EntityTypeMapping TypeName="PontoEletronicoModel.TerminalDigital">
+        <MappingFragment StoreEntitySet="TerminalDigital">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IdTerminal" ColumnName="IdTerminal" />
+          <ScalarProperty Name="IdDigital" ColumnName="IdDigital" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

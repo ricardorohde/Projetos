@@ -1,0 +1,11 @@
+<urn:ConsultarNotaPrestador soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+  <DadosPrestador xsi:type="urn:tcDadosPrestador">
+    <ccm>%s</ccm>
+    <cnpj>%s</cnpj>
+    <senha>%s</senha>
+    <crc>%s</crc>
+    <crc_estado>%s</crc_estado>
+    <aliquota_simples>%s</aliquota_simples>
+  </DadosPrestador>
+  <Nota>%s</Nota>
+</urn:ConsultarNotaPrestador>

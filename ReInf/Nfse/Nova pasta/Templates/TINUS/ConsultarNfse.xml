@@ -1,0 +1,12 @@
+<ConsultarNfse>
+<Arg>
+<Prestador>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+%s
+%s
+%s
+%s
+</Arg>
+</ConsultarNfse>

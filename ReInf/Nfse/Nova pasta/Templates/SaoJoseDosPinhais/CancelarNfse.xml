@@ -1,0 +1,7 @@
+<CancelarNfseEnvio xmlns="http://nfe.sjp.pr.gov.br/servico_cancelar_nfse_envio">
+<Prestador>
+<Cnpj xmlns="http://nfe.sjp.pr.gov.br/tipos">%s</Cnpj>
+<InscricaoMunicipal xmlns="http://nfe.sjp.pr.gov.br/tipos">%s</InscricaoMunicipal>
+</Prestador>
+<NumeroNfse>%s</NumeroNfse>
+</CancelarNfseEnvio>

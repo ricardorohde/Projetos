@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Result, _Xml : string;
+
+{$I Utils.txt}
+
+begin
+  Progress('Carregando XML de Retorno de Consulta de Lote');
+  if Pos('faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, '<!--CRLF-->', '', [rfReplaceAll]);
+    Params.Add('faultstring=' + Input);
+  end
+  else
+  begin
+    if xmlSelectNodeValue(Input, '//*[local-name()="ws_nfe.CONSULTANOTASPROTOCOLOResponse"]', _Result) then
+    begin
+      _Xml := XmlSelect(Input, '//*[local-name()="ws_nfe.CONSULTANOTASPROTOCOLOResponse"]');
+      _Xml := UnindentXml(_Xml);
+      if _Xml <> '' then
+        Params.Add('XML='+ _Xml)
+      else
+        Params.Add('XML='+ Input);
+      Progress('Retorno carregado com sucesso');
+    end;
+  end;
+end.

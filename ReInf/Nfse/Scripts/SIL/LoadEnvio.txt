@@ -1,0 +1,868 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha: string;
+  _NomeCampo: string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _DsServicoAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+  _QtdeRps: Integer;
+  _ValorCampoIssRetido: string;
+  CODIGOS_CIDADES : array[0..14] of string;
+  NOMES_CIDADES : array[0..14] of string;
+  _CidadeConfigurada: string;
+  _IndexCidadeConfig: Integer;
+  _CodigoCidadeConfig: string;
+  i : Integer;
+
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSTECNO_SERVICO = 'Servico';
+  DSCIDADE_LOTE = 'tbnfd';
+  DSCIDADE_NOTA = 'nfd';
+  DSCIDADE_SERV = 'servico';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasetsItens.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\VerificaEnvioLote.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  procedure SetarCampoCurrencyServicoNC(const aCampo, aValor: string);
+  begin
+    Campo(_DsServicoAtual, aCampo).AsString := aValor;
+  end;
+
+  procedure SetarCampoCurrencyNC(const aCampoTecno, aCampoNC: string; const SetarSeZero: boolean);
+  var _Valor: Currency;
+  begin
+    { Padrão SIL: no envio os campos de valores currency têm vírgula como separador de decimais. }
+    _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+    if (_Valor <> 0) or SetarSeZero then
+      Campo(_DsCidadeAtual, aCampoNC).AsString := CurrToStr(_Valor);
+  end;
+
+  procedure SetarCampoBooleanNC(const aCampoTecno, aCampoNC: string);
+  begin
+    case AnsiIndexText(CampoTecno(aCampoTecno), ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+      0, 1, 2: SetarCampoValor(aCampoNC, 'True');
+      3, 4, 5, 6: SetarCampoValor(aCampoNC, 'False')
+    else
+      RaiseException('Valor inválido para o campo ' + aCampoTecno + '. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+    end;
+  end;
+
+  procedure SetarCampoCurrencyServNC(const aCampoNC, aCampoTecno: string; const SetarSeZero: boolean);
+  var _Valor: Currency;
+  begin
+     _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+     if (_Valor <> 0) or SetarSeZero then
+        Campo(_DsServicoAtual, aCampoNC).AsString :=
+          CurrToStr(_Valor);
+  end;
+
+  procedure SetarCampoValorDSServico(const aCampo, aValor: string);
+  begin
+    Campo(_DsServicoAtual, aCampo).AsString := aValor;
+  end;
+
+  procedure SetarCampoCurrencyValorDSServico(const aCampo, aValor: string; const SetarSeZero: boolean);
+  var _Valor: Currency;
+  begin
+    _Valor := AnyCurrencyToCurrency(aValor);
+    if (_Valor <> 0) or SetarSeZero then
+      Campo(_DsServicoAtual, aCampo).AsString :=
+        CurrencyToXsdCurrency(_Valor);
+  end;
+
+
+  function IssRetido: boolean;
+  begin
+    Result := AnsiIndexText(CampoTecno('IssRetido'), ['1', 'sim', 'true', 'Sim']) <> -1;
+  end;
+
+   function TomadorEstrangeiro: boolean;
+  begin
+    Result := AnsiIndexText(CampoTecno('PaisTomador'), ['', 'Brasil', 'BRASIL', 'BR', '1058', '01058']) = -1;
+  end;
+
+begin
+  CODIGOS_CIDADES[0] := '3503901';
+  CODIGOS_CIDADES[1] := '3506508';
+  CODIGOS_CIDADES[2] := '3201308';
+  CODIGOS_CIDADES[3] := '3513504';
+  CODIGOS_CIDADES[4] := '3516408';
+  CODIGOS_CIDADES[5] := '3522505';
+  CODIGOS_CIDADES[6] := '3522703';
+  CODIGOS_CIDADES[7] := '3523107';
+  CODIGOS_CIDADES[8] := '3529302';
+  CODIGOS_CIDADES[9] := '3530607';
+  CODIGOS_CIDADES[10] := '3534708';
+  CODIGOS_CIDADES[11] := '3205002';
+  CODIGOS_CIDADES[12] := '3551702';
+  CODIGOS_CIDADES[13] := '3533403';
+  CODIGOS_CIDADES[14] := '3525003';
+
+  NOMES_CIDADES[0] := 'ARUJASP';
+  NOMES_CIDADES[1] := 'BIRIGUI';
+  NOMES_CIDADES[2] := 'CARIACICA';
+  NOMES_CIDADES[3] := 'CUBATAOSP';
+  NOMES_CIDADES[4] := 'FRANCODAROCHASP';
+  NOMES_CIDADES[5] := 'ITAPEVISP';
+  NOMES_CIDADES[6] := 'ITAPOLISSP';
+  NOMES_CIDADES[7] := 'ITAQUAQUECETUBASP';
+  NOMES_CIDADES[8] := 'MATAOSP';
+  NOMES_CIDADES[9] := 'MOGIDASCRUZESSP';
+  NOMES_CIDADES[10] := 'OURINHOSSP';
+  NOMES_CIDADES[11] := 'SERRA';
+  NOMES_CIDADES[12] := 'SERTAOZINHOSP';
+  NOMES_CIDADES[13] := 'NOVAODESSASP';
+  NOMES_CIDADES[14] := 'JANDIRASP';
+
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+    _DsTecnoAtual := nil;
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasetsItens;
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual  := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+      _DsServicoAtual := Datasets.GetDataSetByName(DSCIDADE_SERV);
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+
+      if UpperCase(Params.Values['Cidade']) <> 'CARIACICA' then
+        VerificaLoteTecnoNFSe(_DsTecnoAtual);
+
+      _DsTecnoAtual.First;
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+
+        _CidadeConfigurada := UpperCase(Params.Values['Cidade']);
+
+
+        for i:=0 to 13 do
+        begin
+          if SameText(_CidadeConfigurada, NOMES_CIDADES[i]) then
+            _IndexCidadeConfig := i;
+        end;
+
+        if _IndexCidadeConfig >= 0 then
+          _CodigoCidadeConfig := CODIGOS_CIDADES[_IndexCidadeConfig];
+
+        case _IndexCidadeConfig of
+          1, 7, 12: //Birigui, Itaquaquecetuba, Sertãozinho
+          begin
+            if TomadorEstrangeiro then
+            begin
+              if IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','722')
+              else
+                SetarCampoValor('CodNaturezaOperacao','711')
+            end;
+
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              3:
+              begin
+                if not IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','615')
+              end;
+              6:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','522')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','622')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+              else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+                + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município" ou "3 - Não Incidência no Município');
+            end;
+          //final do case Birigui, Itaquaquecetuba, Sertãozinho
+          end;
+          2: //Cariacica
+          begin
+            if TomadorEstrangeiro then
+              SetarCampoValor('CodNaturezaOperacao','711');
+
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              1,2,4:
+              begin
+                SetarCampoValor('CodNaturezaOperacao','549');
+              end;
+              3:
+              begin
+                if not IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','615');
+              end;
+              5:
+              begin
+               SetarCampoValor('CodNaturezaOperacao','539');
+              end;
+              6:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','522')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','622')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+              else
+                RaiseException('Valor inválido para o campo TipoTributacao.'
+                  + ' Valores aceitos: 1 - Isenta de ISS" ou "2 - Imune" ou "3 - Não Incidência no Município" ou "4 - Não tributável "ou "5 - retida"'+
+                  +'ou 6 - Tributável dentro do Município" ou "7 - Tributável fora do Município');
+            end;
+            // final do case Cariacica
+          end;
+          3: //Cubatão
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              6:
+              begin
+                if IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                If IssRetido then
+
+                SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+                    + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+            end;
+          // final do case de Cubatão
+          end;
+          4: //Franco da Rocha
+          begin
+            if TomadorEstrangeiro then
+                  SetarCampoValor('CodNaturezaOperacao','711');
+
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              3:
+              begin
+                if (not IssRetido) then
+                  SetarCampoValor('CodNaturezaOperacao','615');
+              end;
+              6:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','522')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','622')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+              + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município " ou " 3 - Não incidência no Município');
+            end;
+          // final do case de franco da Rocha
+          end;
+          5: //Itapevi
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              3:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','615');
+                if (not (IssRetido)) and (TomadorEstrangeiro) then
+                  SetarCampoValor('CodNaturezaOperacao','715');
+              end;
+              6:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+                + ' Valores aceitos: "3 - Não Incidência no Município,'
+                + ' 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+            end;
+          // final do case de Itapevi
+          end;
+          6: //Itápolis
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              6:
+              begin
+                  if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','522')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','622')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+              else
+                RaiseException('Valor inválido para o campo TipoTributacao.'
+                      + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+              end;
+          // final do case de itapolis
+          end;
+          0,8: // Arujá, Matão
+          begin
+            if TomadorEstrangeiro then
+            begin
+              if IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','711')
+              else
+                SetarCampoValor('CodNaturezaOperacao','722');
+            end;
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              3:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','615')
+              end;
+              6:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','522')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','622')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+                + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município" ou "3 - Não incidência no Município');
+            end;
+          // final do case de Arujá, Matão
+          end;
+          9: //Mogi das Cruzes
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              1,3,4:
+              begin
+                SetarCampoValor('CodNaturezaOperacao','711');
+              end;
+              6:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+                + ' Valores aceitos: 1 - Isento de ISS" ou "3 - Não incidência no Município" ou "4 - Não tributável" ou "6 - Tributável dentro do Município" ou "7- Tributável fora do Município');
+            end;
+          // final do case de Mogi das Cruzes
+          end;
+          10: //Ourinhos
+          begin
+            if TomadorEstrangeiro then
+            begin
+              if IssRetido then
+                SetarCampoValor('CodNaturezaOperacao','722')
+              else
+              if (CODIGOS_CIDADES[_IndexCidadeConfig]) = CampoTecno('MunicipioIncidencia') then
+                SetarCampoValor('CodNaturezaOperacao','711')
+              else
+                SetarCampoValor('CodNaturezaOperacao','721');
+            end;
+
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              3:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','615');
+              end;
+              6:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','522')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','521');
+                end;
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                if CampoTecno('CodigoObra') <> '' then
+                begin
+                  if IssRetido then
+                    SetarCampoValor('CodNaturezaOperacao','622')
+                  else
+                    SetarCampoValor('CodNaturezaOperacao','621');
+                end;
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','612')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','611');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao.'
+              + ' Valores aceitos: 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município" ou "3 - Não incidência no Município');
+            end;
+          // final do case de ourinhos
+          end;
+          11: //Serra
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              1:
+              begin
+                SetarCampoValor('CodNaturezaOperacao','300');
+              end;
+              2:
+              begin
+                SetarCampoValor('CodNaturezaOperacao','200');
+              end;
+              3:
+              begin
+                SetarCampoValor('CodNaturezaOperacao','400');
+              end;
+              6:
+              begin
+                if IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','512')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','511');
+              end;
+              7:
+              begin
+                If IssRetido then
+                  SetarCampoValor('CodNaturezaOperacao','616')
+                else
+                  SetarCampoValor('CodNaturezaOperacao','615');
+              end;
+            end;
+          // final do case de serra
+          end;
+          13, 14: //Nova Odessa e Jandira
+          begin
+            if CampoTecno('CodigoCidadePrestacao') = '' then
+              RaiseException('O preenchimento do campo CodigoCidadePrestacao é obrigatório.')
+            else
+              case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+                  6:
+                begin
+                  if CampoTecno('CodigoCidadePrestacao') = (CODIGOS_CIDADES[_IndexCidadeConfig]) then
+                  begin
+                    if IssRetido then
+                      SetarCampoValor('CodNaturezaOperacao','512')
+                    else
+                      SetarCampoValor('CodNaturezaOperacao','511');
+                  end
+                  else
+                    if IssRetido then
+                      SetarCampoValor('CodNaturezaOperacao','612')
+                    else
+                      SetarCampoValor('CodNaturezaOperacao','611');
+
+                end;
+                3, 7:
+                  SetarCampoValor('CodNaturezaOperacao','615');
+              else
+                RaiseException('Valor inválido para o campo TipoTributacao.'
+                  + ' Valores aceitos: "3 - Não Incidência no Município,'
+                  + ' 6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+              end;
+          // final do case de nova Odessa e Jandira
+          end;
+        //final do case de todas as cidades
+        end;
+
+        //Numero Nfse e um campo obrigatorio para autorizar a nota, caso não seja informado  é insirido 0 automaticamente.
+        if CampoTecno('NumeroNfse') <> '' then
+          SetarCampoValor('numeronfd',CampoTecno('NumeroNfse'))
+        else
+          SetarCampoValor('numeronfd','0');
+
+        SetarCampoValor('codseriedocumento',CampoTecno('SerieNfse'));
+
+        _ValorCampo := CampoTecno('DataEmissaoNfse');
+        if _ValorCampo <>'' then
+        begin
+          _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissaoNfse'), 'dd/mm/yyyy');
+          SetarCampoValor('dataemissao', _ValorCampo);
+        end
+        else
+        begin
+          _ValorCampo := CampoTecno('DataEmissao');
+          if _ValorCampo <>'' then
+          begin
+            _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'dd/mm/yyyy');
+            SetarCampoValor('dataemissao', _ValorCampo);
+          end;
+        end;
+
+        _ValorCampo := CampoTecno('CodigoCidadePrestacao');
+        if _ValorCampo <> '3' then
+          _ValorCampo := ConverterCodigoMunicipio(_ValorCampo, True);
+
+        SetarCampoValor('CodigoCidade', _ValorCampo);
+
+
+        SetarCampoValor('InscricaoMunicipalEmissor', RemoveMascara(CampoTecno('InscricaoMunicipalPrestador')));
+
+        SetarCampoValor('RazaoTomador',CampoTecno('RazaoSocialTomador'));
+
+        SetarCampoValor('EnderecoTomador',CampoTecno('EnderecoTomador'));
+        SetarCampoValor('NumeroEnderecoTomador',CampoTecno('NumeroTomador'));
+
+        if CampoTecno('DescricaoCidadeTomador') <> '' then
+          SetarCampoValor('CidadeTomador', CampoTecno('DescricaoCidadeTomador'))
+        else if (not TomadorEstrangeiro) then
+        begin
+          if CampoTecno('CodigoCidadeTomador') <> '' then
+          begin
+            _ValorCampo := BuscarInfoCidade('CodIBGE', CampoTecno('CodigoCidadeTomador'), 'NomeMunicIBGE');
+            SetarCampoValor('CidadeTomador', _ValorCampo);
+          end
+          else
+            RaiseException('Favor, preencher a descricao da cidade do tomador.');
+        end;
+
+        if CampoTecno('UfTomador') <> '' then
+            SetarCampoValor('EstadoTomador',CampoTecno('UfTomador'))
+        else
+        begin
+          if (not TomadorEstrangeiro) then
+          begin
+            Try
+              if CampoTecno('DescricaoCidadeTomador') <> '' then
+              begin
+                _ValorCampo := BuscarInfoCidade('NomeMunicIBGE', CampoTecno('DescricaoCidadeTomador'), 'UF');
+                SetarCampoValor('EstadoTomador', _ValorCampo);
+              end
+              else if CampoTecno('CodigoCidadeTomador') <> '' then
+              begin
+                _ValorCampo := BuscarInfoCidade('CodIBGE', CampoTecno('CodigoCidadeTomador'), 'UF');
+                SetarCampoValor('EstadoTomador', _ValorCampo);
+              end
+              else
+                RaiseException('Favor, preencher UF do tomador.');
+            except
+              RaiseException('Favor, preencher UF do tomador.');
+            end;
+          end;
+        end;
+
+
+        if CampoTecno('PaisTomador') <> '' then
+          SetarCampoValor('PaisTomador',CampoTecno('PaisTomador'))
+        else
+        begin
+          Try
+            If CampoTecno('DescricaoCidadeTomador') <> '' then
+            begin
+              If BuscarInfoCidade('NomeMunicIBGE', CampoTecno('DescricaoCidadeTomador'), 'CodIBGE') <> '' then
+                SetarCampoValor('PaisTomador','Brasil')
+            end
+            else If CampoTecno('CodigoCidadeTomador') <> '' then
+            begin
+              if BuscarInfoCidade('CodIBGE', CampoTecno('CodigoCidadeTomador'), 'NomeMunicIBGE') <> '' then
+                SetarCampoValor('PaisTomador','Brasil');
+            end
+            else
+              RaiseException('Favor, preencher país do tomador.');
+          except
+            RaiseException('Favor, preencher país do tomador.');
+          end;
+        end;
+
+        VerificaDDD('TelefoneTomador', 'FoneTomador', 'DDDTomador');
+        SetarCampoValor('CepTomador', CampoTecno('CepTomador'));
+        SetarCampoValor('BairroTomador', CampoTecno('BairroTomador'));
+        SetarCampoValor('EmailTomador', CampoTecno('EmailTomador'));
+        SetarCampoValor('CpfCnpjTomador', RemoveMascara(CampoTecno('CpfCnpjTomador')));
+        SetarCampoValor('InscricaoEstadualTomador', CampoTecno('InscricaoEstadualTomador'));
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+
+        SetarCampoValor('NumeroRt',CampoTecno('NumeroRps'));
+        SetarCampoValor('CodigoSerieRt',CampoTecno('SerieRps'));
+
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'dd/mm/yyyy');
+        SetarCampoValor('DataEmissaoRt', _ValorCampo);
+
+
+        _DsCidadeAtual := Datasets.GetDataSetByName('servico');
+        _DsCidadeAtual.Append;
+
+        _ValorCampo := CampoTecno('QuantidadeServicos');
+        if _ValorCampo = '' then
+          _ValorCampo := '1';
+        SetarCampoValor('quantidade',_ValorCampo);
+
+        SetarCampoValor('Descricao',CampoTecno('DiscriminacaoServico'));
+
+        SetarCampoValor('Codatividade',CampoTecno('CodigoTributacaoMunicipio'));
+        _ValorCampo := CampoTecno('ValorUnitarioServico');
+        if _ValorCampo = '' then
+          SetarCampoCurrencyNC('ValorServicos', 'ValorUnitario', True)
+        else
+          SetarCampoCurrencyNC('ValorUnitarioServico', 'ValorUnitario', True);
+
+
+
+        // Para SIL, 5,5% = 5,5
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _Vlr := AnyCurrencyToCurrency(CampoTecno('AliquotaISS'));
+          _ValorCampo := FormatX('%g', [_Vlr]);  // 5 --> 5     5,5 --> 5,5
+          SetarCampoValor('Aliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+
+        SetarCampoBooleanNC('IssRetido', 'ImpostoRetido');
+        if CampoTecno('Operacao') = 'C' then
+          SetarCampoValor('ImpostoRetido', 'I');
+
+
+        _DsCidadeAtual.Post;
+
+        // Voltar a usar o dataset "nfd"
+        _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+        SetarCampoCurrencyNC('ValorPis', 'Pis', True);
+        SetarCampoCurrencyNC('ValorCofins', 'Cofins', True);
+        SetarCampoCurrencyNC('ValorCsll', 'Csll', True);
+        SetarCampoCurrencyNC('ValorIr', 'Irrf', True);
+        SetarCampoCurrencyNC('ValorInss', 'Inss', True);
+
+        case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+          6 : SetarCampoValor('tributadonomunicipio', 'True');  // Tributavel dentro do municipio
+          7 : SetarCampoValor('tributadonomunicipio', 'False');  // Tributavel fora do municipio
+        end;
+
+
+        _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_SERVICO);
+        _DsTecnoAtual.First;
+
+        //Inserção de vários serviços
+        while not _DsTecnoAtual.Eof do
+        begin
+          _DsServicoAtual.Append;
+
+          if CampoTecno('QuantidadeServicos') <> '' then
+            SetarCampoCurrencyServicoNC('Quantidade',CampoTecno('QuantidadeServicos'))
+          else
+            SetarCampoValorDSServico('Quantidade', '1');
+
+          if CampoTecno('ValorUnitarioServico') <> '' then
+            SetarCampoCurrencyServNC('Valorunitario','ValorUnitarioServico',False)
+          else
+            SetarCampoCurrencyValorDSServico('Valorunitario', TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('ValorServicos').AsString, False);
+
+          SetarCampoCurrencyServicoNC('Descricao',Copy(CampoTecno('DiscriminacaoServico'), 0, 1300));
+          SetarCampoCurrencyServicoNC('Codatividade',TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CodigoTributacaoMunicipio').AsString);
+
+          //Tratamento para o campo ImpostoRetido.
+          case AnsiIndexText(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('IssRetido').AsString, ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+            0, 1, 2: _ValorCampo := 'True';
+            3, 4, 5, 6: _ValorCampo := 'False';
+          else
+            RaiseException('Valor inválido para o campo IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+          end;
+
+          SetarCampoValorDSServico('impostoRetido',_ValorCampo);
+
+          if DivideCampoPorcentagem(CampoTecno('AliquotaServico')) then
+          begin
+            _Vlr := AnyCurrencyToCurrency(CampoTecno('AliquotaServico'));
+            _ValorCampo := FormatX('%g', [_Vlr]);  // 5 --> 5     5,5 --> 5,5
+
+            SetarCampoCurrencyServicoNC('Aliquota', _ValorCampo);
+          end
+          else
+            RaiseException('Valor inválido para o campo AliquotaServico.');
+
+          _DsServicoAtual.Post;
+          _DsTecnoAtual.Next;
+          //Fim de varios serviços
+        end;
+       _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+
+        _DsCidadeAtual.Post;
+        _DsTecnoAtual.Next;
+      end;
+
+
+      SetarCamposMunicipio;
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      _DsCidadeAtual.Post;
+
+    end
+    else
+    begin
+      VerificaLoteTx2Municipio(_Tx2, 'INCLUIRRPS');
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

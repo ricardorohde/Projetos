@@ -1,0 +1,3 @@
+<fiss:WS_RecepcionarLoteRps.Execute>
+	<fiss:Enviarloterpsenvio>%s</fiss:Enviarloterpsenvio>
+</fiss:WS_RecepcionarLoteRps.Execute>

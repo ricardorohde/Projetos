@@ -1,0 +1,28 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'spdResposta.xsd';
+  Datasets.XsdElementName := 'xmlNfpse';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Retorno de Envio');
+  _Xml := Input;
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

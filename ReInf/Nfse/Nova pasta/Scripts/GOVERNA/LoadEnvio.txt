@@ -1,0 +1,363 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha, _NomeCampo, _ValorCampo, _PastaTecnoNFSe, _CodIbgeMun: string;
+  _DsTecnoAtual, _DsCidadeAtual: TSpdXSDClientDataSet;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'tcLoteRps';
+  DSCIDADE_NOTA = 'tcInfRps';
+  DSCIDADE_ITEM = 'tcItemRps';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  procedure SetarCampoCurrencyGoverna(const aCampoTecno, aCampo: string; const SetarSeZero: boolean);
+  var
+    _Valor: Currency;
+  begin
+    _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+    if (_Valor <> 0) or SetarSeZero then
+    begin
+      Campo(_DsCidadeAtual, aCampo).AsString :=
+        CurrToStr(_Valor);  // Separador de decimal é a vírgula
+    end;
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        SetarCampoValor('tsNumRps', CampoTecno('NumeroRps'));
+        SetarCampoValor('tsCodVer', CampoTecno('TipoRps'));
+
+        // tsVrsImp: fixo '3'
+        SetarCampoValor('tsVrsImp', '3');
+
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'YYYYMMDD');
+        SetarCampoValor('tsDatEmsRps', _ValorCampo);
+
+         if CampoTecno('SituacaoNota') = '2' then  // Nota cancelada
+        begin
+          SetarCampoValor('tsRegRec', '2');
+          SetarCampoValor('tsFrmRec', '5');
+        end
+        else
+        if CampoTecno('OptanteSimplesNacional') = '1' then
+        begin
+          SetarCampoValor('tsRegRec', '11');
+          SetarCampoValor('tsFrmRec', '3');
+        end
+        else
+        begin
+          // Nota normal
+          if Trim(CampoTecno('TipoTributacao')) <> '' then
+          begin
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+              1:  // Isento
+              begin
+                SetarCampoValor('tsRegRec', '3');
+                SetarCampoValor('tsFrmRec', '5');
+              end;
+              2:  // Imune
+              begin
+                SetarCampoValor('tsRegRec', '4');
+                SetarCampoValor('tsFrmRec', '5');
+              end;
+              3:  // Não Incidente
+              begin
+                SetarCampoValor('tsRegRec', '7');
+                SetarCampoValor('tsFrmRec', '5');
+              end;
+              4:  // Não Tributável
+              begin
+                SetarCampoValor('tsRegRec', '7');
+                SetarCampoValor('tsFrmRec', '5');
+              end;
+              // Retida
+              5:  RaiseException('Valor não suportado para o campo TipoTributacao. Para o padrão GOVERNA o '+
+                    'TipoTributacao não pode ser "5 - Retida". Para isso pode se utilizar "6 - Tributavel '+
+                    'dentro do municipio" ou "7 - Tributável fora do município');
+              6:  // Tributavel dentro do municipio
+              begin
+                SetarCampoValor('tsRegRec', '0');
+                SetarCampoValor('tsFrmRec', '0');
+              end;
+              7:  // Tributável fora do município
+              begin
+                SetarCampoValor('tsRegRec', '0');
+                SetarCampoValor('tsFrmRec', '6');
+              end;
+            else
+              RaiseException('Valor inválido para o campo TipoTributacao. Valores aceitos: 1, 2, 3, 4, 6, 7.');
+            end;
+          end
+          else
+          begin
+            // Se não for informado o TipoTributacao, olhar para o NaturezaTributacao
+            if Trim(CampoTecno('NaturezaTributacao')) <> '' then
+            begin
+              case StrToIntDef(CampoTecno('NaturezaTributacao'), -1) of
+                1:
+                begin
+                  SetarCampoValor('tsFrmRec', '3');
+                end;
+                2:  // Fixo
+                begin
+                  SetarCampoValor('tsRegRec', '9');
+                  SetarCampoValor('tsFrmRec', '4');
+                end;
+                // Depósito em Juízo
+                3:  RaiseException('Valor não suportado para o campo NaturezaTributacao. Para o padrão GOVERNA o '+
+                      'TipoTributacao não pode ser "3" (Depósito em Juízo).');
+                // Exigibilidade suspensa por decisão judicial
+                4:  RaiseException('Valor não suportado para o campo NaturezaTributacao. Para o padrão GOVERNA o '+
+                      'TipoTributacao não pode ser "4" (Exigibilidade suspensa por decisão judicial).');
+                // Exigibilidade suspensa por procedimento administrativo
+                5:  RaiseException('Valor não suportado para o campo NaturezaTributacao. Para o padrão GOVERNA o '+
+                      'TipoTributacao não pode ser "5" (Exigibilidade suspensa por procedimento administrativo).');
+              else
+                RaiseException('Valor inválido para o campo NaturezaTributacao. Valores aceitos: 1, 2.');
+              end;
+            end
+            else
+            begin
+              // Se não for informado o NaturezaTributacao, olhar para o RegimeEspecialTributacao
+              case StrToIntDef(CampoTecno('RegimeEspecialTributacao'), -1) of
+                // Microempresa Municipal
+                1:  RaiseException('Valor não suportado para o campo RegimeEspecialTributacao. Para o padrão GOVERNA o '+
+                      'TipoTributacao não pode ser "1" (Microempresa Municipal).');
+                2, 4:  // Estimativa, Cooperativa
+                begin
+                  SetarCampoValor('tsRegRec', '8');
+                  SetarCampoValor('tsFrmRec', '0');
+                end;
+                3:  // Sociedade profissional
+                begin
+                  SetarCampoValor('tsRegRec', '9');
+                  SetarCampoValor('tsFrmRec', '4');
+                end;
+                5:  // MEI
+                begin
+                  SetarCampoValor('tsRegRec', '12');
+                  SetarCampoValor('tsFrmRec', '4');
+                end;
+                6:  // MEEPP
+                begin
+                  SetarCampoValor('tsRegRec', '0');
+                  SetarCampoValor('tsFrmRec', '0');
+                end;
+              else
+                RaiseException('Valor inválido para o campo RegimeEspecialTributacao. Valores aceitos: 2, 3, 4, 5, 6.');
+              end;
+            end;
+          end;
+        end;
+
+        // Criar 1 item para setar a discriminação e o valor dos serviços
+        _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_ITEM);
+        _DsCidadeAtual.Append;
+        SetarCampoValor('tsSeqItem', '1');
+        SetarCampoValor('tsDesSvc', CampoTecno('DiscriminacaoServico'));
+        SetarCampoCurrencyGoverna('ValorServicos', 'tsVlrUnt', True);
+
+        _DsCidadeAtual.Post;
+        _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+        SetarCampoCurrencyGoverna('ValorDeducoes', 'tsVlrDed', True);
+        SetarCampoCurrencyGoverna('ValorPis', 'tsVlrPIS', True);
+        SetarCampoCurrencyGoverna('ValorCofins', 'tsVlrCOFINS', True);
+        SetarCampoCurrencyGoverna('ValorInss', 'tsVlrINSS', True);
+        SetarCampoCurrencyGoverna('ValorIr', 'tsVlrIR', True);
+        SetarCampoCurrencyGoverna('ValorCsll', 'tsVlrCSLL', True);
+        SetarCampoCurrencyGoverna('OutrasRetencoes', 'tsVlrOtrRtn', True);
+        SetarCampoCurrencyGoverna('DescontoIncondicionado', 'tsVlrDsc', True);
+
+        // tsVlrRep (Valor do Repasse) não é suportado pelo Padrão Único (deve ser informado com @, ex: tsVlrRep=1,23)
+        SetarCampoValor('tsVlrRep', '0,00');
+
+        // Para o padrão GOVERNA, 5% = 5,00
+        if CampoTecno('AliquotaISS') <> '' then
+          SetarCampoCurrencyGoverna('AliquotaISS', 'tsPerAlq', True)
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ValorCampo := FormatarCodigoItemListaServico(_ValorCampo, False);  // GOVERNA: sem ponto no ItemListaServico
+        SetarCampoValor('tsCodAti', _ValorCampo);
+
+        { O campo tsMunSvc recebe o nome do município da prestação, se tiver informado o
+            DescricaoCidadePrestacao usa ele, senão deduzir do CodigoCidadePrestacao }
+        if CampoTecno('DescricaoCidadePrestacao') <> '' then
+          SetarCampoValor('tsMunSvc', CampoTecno('DescricaoCidadePrestacao'))
+        else if CampoTecno('CodigoCidadePrestacao') <> '' then
+        begin
+          _CodIbgeMun := ConverterCodigoMunicipio(CampoTecno('CodigoCidadePrestacao'), True);
+          _ValorCampo := BuscarInfoCidade('CodIBGE', _CodIbgeMun, 'NomeMunicIBGE');
+          SetarCampoValor('tsMunSvc', _ValorCampo);
+        end;
+
+        // Deduzir tsEstServ (UF da cidade da prestação) a partir do CodigoCidadeTomador
+        if CampoTecno('CodigoCidadePrestacao') <> '' then
+        begin
+          _CodIbgeMun := ConverterCodigoMunicipio(CampoTecno('CodigoCidadePrestacao'), True);
+          _ValorCampo := BuscarInfoCidade('CodIBGE', _CodIbgeMun, 'UF');
+          SetarCampoValor('tsEstServ', _ValorCampo);
+        end;
+
+        if CampoTecno('CpfCnpjTomador') <> '' then
+        begin
+          _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+          case Length(_ValorCampo) of
+            11, 14: SetarCampoValor('tsNumDocTmd', _ValorCampo);
+          else
+            RaiseException('Valor inválido para o campo CpfCnpjtsNomCidTmdTomador');
+          end;
+        end;
+
+        if CampoTecno('RazaoSocialTomador') <> '' then
+          SetarCampoValor('tsNomTmd', CampoTecno('RazaoSocialTomador'))
+        else
+          SetarCampoValor('tsNomTmd', CampoTecno('NomeFantasiaTomador'));
+
+        SetarCampoValor('tsInsMunTmd', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+        if CampoTecno('InscricaoEstadualTomador') <> '' then
+          SetarCampoValor('tsInsEstTmd', RemoveMascara(CampoTecno('InscricaoEstadualTomador')))
+        else
+          SetarCampoValor('tsInsEstTmd', 'Isento');
+
+        _ValorCampo := CampoTecno('EnderecoTomador');
+        if CampoTecno('NumeroTomador') <> '' then
+          _ValorCampo := _ValorCampo + ', ' + CampoTecno('NumeroTomador');
+        if CampoTecno('ComplementoTomador') <> '' then
+          _ValorCampo := _ValorCampo + ', ' + CampoTecno('ComplementoTomador');
+        SetarCampoValor('tsDesEndTmd', _ValorCampo);
+
+        SetarCampoValor('tsNomBaiTmd', CampoTecno('BairroTomador'));
+
+        { O campo tsNomCidTmd recebe o nome do município, se tiver informado o
+            DescricaoCidadeTomador usa ele, senão deduzir do CodigoCidadeTomador }
+        if CampoTecno('DescricaoCidadeTomador') <> '' then
+          SetarCampoValor('tsNomCidTmd', CampoTecno('DescricaoCidadeTomador'))
+        else if CampoTecno('CodigoCidadeTomador') <> '' then
+        begin
+          _CodIbgeMun := ConverterCodigoMunicipio(CampoTecno('CodigoCidadeTomador'), True);
+          _ValorCampo := BuscarInfoCidade('CodIBGE', _CodIbgeMun, 'NomeMunicIBGE');
+          SetarCampoValor('tsNomCidTmd', _ValorCampo);
+        end;
+
+        // Se tiver informado o campo UfTomador, usa ele no tsCodEstTmd, senão deduzir do CodigoCidadeTomador
+        if CampoTecno('UfTomador') <> '' then
+          SetarCampoValor('tsCodEstTmd', CampoTecno('UfTomador'))
+        else if CampoTecno('CodigoCidadeTomador') <> '' then
+        begin
+          _CodIbgeMun := ConverterCodigoMunicipio(CampoTecno('CodigoCidadeTomador'), True);
+          _ValorCampo := BuscarInfoCidade('CodIBGE', _CodIbgeMun, 'UF');
+          SetarCampoValor('tsCodEstTmd', _ValorCampo);
+        end;
+
+        SetarCampoValor('tsCEPTmd', CampoTecno('CepTomador'));
+
+        // Seta o telefone do padrão GOVERNA de acordo com o DDDTomador e TelefoneTomador do Padrão Único
+        VerificaDDD('TelefoneTomador', 'tsTlfTmd', 'DDDTomador');
+        SetarCampoValor('tsEmlTmd', CampoTecno('EmailTomador'));
+
+        { Campo obrigatório mas exclusivo do padrão GOVERNA, para usar outro valor
+            deve ser informado com @. Ex: @tsDesOtrRtn=Descrição das Outras Retenções }
+        SetarCampoValor('tsDesOtrRtn', 'Outras retencoes');
+
+        if CampoTecno('DescricaoRPS') <> '' then
+          SetarCampoValor('tsObs', CampoTecno('DescricaoRPS'))
+        else
+          SetarCampoValor('tsObs', CampoTecno('DiscriminacaoServico'));
+
+        _DsCidadeAtual.Post;
+
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipio;
+
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      _ValorCampo := CampoTecno('InscricaoMunicipalRemetente');
+      if _ValorCampo = '' then
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('InscricaoMunicipalPrestador').AsString;
+      SetarCampoValor('tsCodCadBic', RemoveMascara(_ValorCampo));
+
+      _ValorCampo := CampoTecno('Versao');
+      if _ValorCampo = '' then
+        _ValorCampo := '3';
+      SetarCampoValor('tsVrsArq', _ValorCampo);
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

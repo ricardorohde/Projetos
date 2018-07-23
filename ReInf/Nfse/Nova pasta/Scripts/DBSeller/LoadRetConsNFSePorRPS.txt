@@ -1,0 +1,40 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+var
+  _Xml: string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    _Xml := StringReplace(Input, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="urn:DBSeller" and local-name()="ConsultarNfseRpsResposta"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+    //As operações abaixo são necessárias para adaptar o XML retornado ao schema.
+    _Xml := StringReplace(_Xml, '<ii:InfConfirmacaoCancelamento>', '', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '</ii:InfConfirmacaoCancelamento>', '', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '<ii:DataHora>', '<ii:DataHoraCancelamento>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '</ii:DataHora>', '</ii:DataHoraCancelamento>', [rfReplaceAll]);
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlNFSe=' + _Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

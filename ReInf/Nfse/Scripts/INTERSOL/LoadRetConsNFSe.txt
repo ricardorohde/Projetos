@@ -1,0 +1,50 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml: string;
+const
+  PATH = '//*[local-name()="ConsultarNfseResposta"]';
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'consultar_nfse_resposta_v1.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  //Retorno não segue o schema, sendo necessário alguns ajustes.
+  _Xml := StringReplace(Input, '&lt;MensagemRetorno&gt;', '&lt;ListaMensagemRetorno&gt;&lt;MensagemRetorno&gt;', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&lt;/MensagemRetorno&gt;', '&lt;/MensagemRetorno&gt;&lt;/ListaMensagemRetorno&gt;', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<MensagemRetorno>', '<ListaMensagemRetorno><MensagemRetorno>', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '</MensagemRetorno>', '</MensagemRetorno></ListaMensagemRetorno>', [RfReplaceAll]);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := Trim(_Xml);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, PATH);
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, PATH);
+
+  if Pos('<faultstring',Input) > 0 then
+    Params.Add('faultstring='+Input)
+  else if (Pos('<ListaNfse/>', Input) > 0) or (Pos('ListaNfse/', Input) > 0) then
+    Params.Add('erro='+ 'Xml vazio')
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com Sucesso');
+  end;
+end.

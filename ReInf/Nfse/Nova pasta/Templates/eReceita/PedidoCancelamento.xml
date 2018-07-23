@@ -1,0 +1,13 @@
+<Pedido>
+<InfPedidoCancelamento Id="%s">
+<IdentificacaoNfse>
+<Numero>%s</Numero>
+<CpfCnpj>
+<Cnpj>%s</Cnpj>
+</CpfCnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<CodigoMunicipio>%s</CodigoMunicipio>
+</IdentificacaoNfse>
+<CodigoCancelamento>%s</CodigoCancelamento>
+</InfPedidoCancelamento>
+</Pedido>

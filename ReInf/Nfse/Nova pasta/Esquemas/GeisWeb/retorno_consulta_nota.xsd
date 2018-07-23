@@ -1,0 +1,51 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="MsgConsultaNota">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:int" name="Erro"/>
+        <xs:element type="xs:string" name="Status"/>
+        <xs:element name="Notas">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ConjuntoMsgConsultaNota">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ItensMsgConsultaNota" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="NumeroNfse"/>
+                          <xs:element type="xs:string" name="CnpjPrestador"/>
+                          <xs:element type="xs:string" name="RazaoPrest"/>
+                          <xs:element type="xs:string" name="TipoPrest"/>
+                          <xs:element type="xs:string" name="EmailPrest"/>
+                          <xs:element type="xs:string" name="Tomador"/>
+                          <xs:element type="xs:string" name="RazaoTomador"/>
+                          <xs:element type="xs:float" name="ValorNfse"/>
+                          <xs:element type="xs:float" name="BaseCalc"/>
+                          <xs:element type="xs:float" name="Aliquota"/>
+                          <xs:element type="xs:float" name="ISSDevido"/>
+                          <xs:element type="xs:float" name="ISSRetido"/>
+                          <xs:element type="xs:string" name="Impostos"/>
+                          <xs:element type="xs:string" name="Tipo"/>
+                          <xs:element type="xs:string" name="TipoLcmto"/>
+                          <xs:element type="xs:string" name="FgEmit"/>
+                          <xs:element type="xs:string" name="FgEmail"/>
+                          <xs:element type="xs:string" name="CodVerificacao"/>
+                          <xs:element type="xs:string" name="DtEmissao"/>
+                          <xs:element type="xs:string" name="Competencia"/>
+                          <xs:element type="xs:int" name="CodServ"/>
+                          <xs:element type="xs:string" name="DescServ"/>
+                          <xs:element type="xs:string" name="Descricao"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

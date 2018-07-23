@@ -1,0 +1,11 @@
+<tem:RecepcionarConsultaRPS>
+<tem:pArquivoXML><![CDATA[<tcConsultaRPS>
+<tsCodCadBic>%s</tsCodCadBic>
+<tsVrsArq>3</tsVrsArq>
+<tsChvAcs>%s</tsChvAcs>
+<tcInfConsultaRPS>
+<tsNumRPS>%s</tsNumRPS>
+<tsCodVer>%s</tsCodVer>
+</tcInfConsultaRPS>
+</tcConsultaRPS>]]></tem:pArquivoXML>
+</tem:RecepcionarConsultaRPS>

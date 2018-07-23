@@ -1,0 +1,58 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="EnviaLoteRPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="xs:string" name="Usuario"/>
+        <xs:element type="xs:string" name="Senha"/>
+        <xs:element type="xs:string" name="NumeroLote"/>
+        <xs:element name="Rps">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ConjuntoLotes">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ItensLote" maxOccurs="unbounded" minOccurs="0">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element type="xs:int" name="NumeroRps"/>
+                          <xs:element type="xs:string" name="Serie"/>
+                          <xs:element type="xs:string" name="Tipo"/>
+                          <xs:element type="xs:string" name="TipoLcmto"/>
+                          <xs:element type="xs:int"    name="CodServ"/>
+                          <xs:element type="xs:string" name="DtEmissao"/>
+                          <xs:element type="xs:string" name="Aliquota"/>
+                          <xs:element type="xs:string" name="Valor"/>
+                          <xs:element type="xs:string" name="BaseCalc"/>
+                          <xs:element name="Tomador">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <xs:element type="xs:string" name="CnpjCpfTomador"/>
+                                <xs:element type="xs:string" name="TipoTomador"/>
+                                <xs:element type="xs:string" name="RazaoTomador"/>
+                                <xs:element type="xs:string" name="EnderecoTomador"/>
+                                <xs:element type="xs:string" name="BairroTomador"/>
+                                <xs:element type="xs:string" name="CidadeTomador"/>
+                                <xs:element type="xs:string" name="EstadoTomador"/>
+                                <xs:element type="xs:string" name="CEPTomador"/>
+                                <xs:element type="xs:string" name="TelefoneTomador"/>
+                                <xs:element type="xs:string" name="EmailTomador"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                          <xs:element type="xs:string" name="Municipio"/>
+                          <xs:element type="xs:string" name="DtLanc"/>
+                          <xs:element type="xs:string" name="Descricao"/>
+                          <xs:element type="xs:string" name="OutrosImp"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

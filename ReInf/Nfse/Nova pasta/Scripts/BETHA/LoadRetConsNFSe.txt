@@ -1,0 +1,30 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'TiposNFe_v01.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Retorno de Envio de lote');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := StringReplace(Input, '&', '&amp;', [RfReplaceAll]);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://www.betha.com.br/e-nota-contribuinte-ws" and local-name()="ConsultarNfseEnvioResponse"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

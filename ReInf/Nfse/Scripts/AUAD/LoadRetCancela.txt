@@ -1,0 +1,32 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'servico_cancelar_nfse_resposta.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := StringReplace(Input, '<![CDATA[<?xml version="1.0" encoding="UTF-8" standalone="yes"?>', '', []);
+  _Xml := StringReplace(_Xml, ']]>', '', []);
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://tempuri.org/tipos_complexos.xsd" and local-name()="CancelarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

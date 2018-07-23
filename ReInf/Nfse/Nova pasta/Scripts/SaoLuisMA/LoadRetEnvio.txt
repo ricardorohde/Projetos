@@ -1,0 +1,43 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml, _Sucesso: string;
+  Value: Boolean;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoEnvioLoteRPS.xsd';
+  Datasets.XsdElementName := 'RetornoEnvioLoteRPS';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := UnEscapeXml(Input);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+
+  Value := XmlSelectNodeValue(_Xml,'//*[local-name()="Sucesso"]',_Sucesso);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    if (_Sucesso = 'false') or (_Sucesso = 'N') then
+    begin
+      Value := XmlSelectNodeValue(Input,'//enviarReturn/text()',_Xml);
+      Params.Add('Erro='+_Xml);
+    end
+    else
+    begin
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="RetornoEnvioLoteRPS"]');
+      Datasets.LoadFromXMLContent(_Xml);
+      Progress('XML carregado com sucesso');
+    end;
+  end;
+end.

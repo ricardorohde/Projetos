@@ -1,0 +1,14 @@
+<ConsultarSituacaoLoteRPS xmlns="http://www.issnetonline.com.br/webservice/nfd">
+  <xml>
+    <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+    <ConsultarSituacaoLoteRpsEnvio xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_situacao_lote_rps_envio.xsd" xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd">
+      <Prestador>
+        <tc:CpfCnpj>
+          <tc:Cnpj>%s</tc:Cnpj>
+        </tc:CpfCnpj>
+        <tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+      </Prestador>
+      <Protocolo>%s</Protocolo>
+    </ConsultarSituacaoLoteRpsEnvio>]]>
+  </xml>
+</ConsultarSituacaoLoteRPS>

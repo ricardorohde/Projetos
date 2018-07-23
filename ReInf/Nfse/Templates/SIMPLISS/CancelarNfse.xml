@@ -1,0 +1,9 @@
+<CancelarNfse xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">         
+ <CancelarNfseEnvio xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">            
+%s
+ </CancelarNfseEnvio>         
+ <pParam xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">
+	<P1 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P1>            
+	<P2 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P2>
+ </pParam>
+</CancelarNfse>   

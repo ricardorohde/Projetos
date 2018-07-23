@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+  <xs:element name="NFSE">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="IDENTIFICACAO" type="tc_IDENTIFICACAO" minOccurs="1" maxOccurs="1"/>
+        <xs:element name="NOTAS" type="tc_NOTAS" minOccurs="1" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_IDENTIFICACAO">
+    <xs:sequence>
+      <xs:element name="MESCOMP" type="xs:integer"/>
+      <xs:element name="ANOCOMP" type="xs:integer"/>
+      <xs:element name="INSCRICAO" type="xs:integer"/>
+      <xs:element name="VERSAO" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tc_NOTAS">
+    <xs:sequence>
+      <xs:element name="NOTA" type="tc_NOTA" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="tc_NOTA">
+    <xs:sequence>
+      <xs:element name="RPS" type="xs:string"/>
+      <xs:element name="LOTE" type="xs:integer"/>
+      <xs:element name="SEQUENCIA" type="xs:integer"/>
+      <xs:element name="DATAEMISSAO" type="xs:string"/>
+      <xs:element name="HORAEMISSAO" type="xs:string"/>
+      <xs:element name="LOCAL" type="xs:string"/>
+      <xs:element name="UFFORA" type="xs:string"/>
+      <xs:element name="MUNICIPIOFORA" type="xs:string"/>
+      <xs:element name="PAISFORA" type="xs:string"/>
+      <xs:element name="SITUACAO" type="xs:integer"/>
+      <xs:element name="RETIDO" type="xs:string"/>
+      <xs:element name="ATIVIDADE" type="xs:string"/>
+      <xs:element name="ALIQUOTAAPLICADA" type="xs:string"/>
+      <xs:element name="DEDUCAO" type="xs:string"/>
+      <xs:element name="IMPOSTO" type="xs:string"/>
+      <xs:element name="RETENCAO" type="xs:string"/>
+      <xs:element name="OBSERVACAO" type="xs:string"/>
+      <xs:element name="CPFCNPJ" type="xs:integer"/>
+      <xs:element name="REGIE" type="xs:integer"/>      
+      <xs:element name="NOMERAZAO" type="xs:string"/>
+      <xs:element name="NOMEFANTASIA" type="xs:string"/>
+      <xs:element name="MUNICIPIO" type="xs:string"/>
+      <xs:element name="BAIRRO" type="xs:string"/>
+      <xs:element name="CEP" type="xs:string"/>
+      <xs:element name="PREFIXO" type="xs:string"/>
+      <xs:element name="LOGRADOURO" type="xs:string"/>
+      <xs:element name="COMPLEMENTO" type="xs:string"/>
+      <xs:element name="NUMERO" type="xs:integer"/>
+      <xs:element name="EMAIL" type="xs:string"/>      
+      <xs:element name="DENTROPAIS" type="xs:string"/>
+      <xs:element name="DEDMATERIAIS" type="xs:string"/>
+      <xs:element name="DATAVENCIMENTO" type="xs:string"/>
+      <xs:element name="CONTRAAPRESENTACAO" type="xs:string"/>      
+      <xs:element name="PIS" type="xs:string"/>
+      <xs:element name="RETPIS" type="xs:string"/>
+      <xs:element name="COFINS" type="xs:string"/>
+      <xs:element name="RETCOFINS" type="xs:string"/>
+      <xs:element name="INSS" type="xs:string"/>
+      <xs:element name="RETINSS" type="xs:string"/>
+      <xs:element name="IR" type="xs:string"/>
+      <xs:element name="RETIR" type="xs:string"/>
+      <xs:element name="CSLL" type="xs:string"/>
+      <xs:element name="RETCSLL" type="xs:string"/>
+      <xs:element name="ICMS" type="xs:string"/>
+      <xs:element name="RETICMS" type="xs:string"/>
+      <xs:element name="IPI" type="xs:string"/>
+      <xs:element name="RETIPI" type="xs:string"/>
+      <xs:element name="IOF" type="xs:string"/>
+      <xs:element name="RETIOF" type="xs:string"/> 
+      <xs:element name="CIDE" type="xs:string"/>
+      <xs:element name="RETCIDE" type="xs:string"/>
+      <xs:element name="OUTROSTRIBUTOS" type="xs:string"/>
+      <xs:element name="RETOUTROSTRIBUTOS" type="xs:string"/>      
+      <xs:element name="OUTRASRETENCOES" type="xs:string"/>
+      <xs:element name="RETOUTRASRETENCOES" type="xs:string"/>
+      <xs:element name="OBRA" type="xs:string"/>      
+      
+      <xs:element ref="SERVICOS"/>
+      
+      <xs:element ref="MATERIAIS"/>
+
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="SERVICOS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="SERVICO" type="tc_SERVICO" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_SERVICO">
+    <xs:sequence>
+      <xs:element name="DESCRICAO" type="xs:string"/>
+      <xs:element name="VALORUNIT" type="xs:string"/>
+      <xs:element name="QUANTIDADE" type="xs:string"/>
+      <xs:element name="DESCONTO" type="xs:string"/>
+      <xs:element name="ALIQUOTATRIBUTOS" type="xs:string"/>      
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="MATERIAIS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="MATERIAL" type="tc_MATERIAL" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_MATERIAL">
+    <xs:sequence>
+      <xs:element name="MATDESCRICAO" type="xs:string"/>
+      <xs:element name="MATVALORUNIT" type="xs:string"/>
+      <xs:element name="MATQUANTIDADE" type="xs:string"/>
+      <xs:element name="MATNOTA" type="xs:integer"/>
+      <xs:element name="MATCPFCNPJ" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

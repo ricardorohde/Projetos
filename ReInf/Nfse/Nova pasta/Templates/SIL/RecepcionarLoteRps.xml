@@ -1,0 +1,6 @@
+<web:nfdEntrada>
+<cpfUsuario>%s</cpfUsuario>
+<hashSenha>%s</hashSenha>
+<codigoMunicipio>%s</codigoMunicipio>
+<nfd><![CDATA[<?xml version="1.0" encoding="utf-8"?>%s]]></nfd>
+</web:nfdEntrada>

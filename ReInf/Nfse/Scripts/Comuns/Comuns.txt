@@ -1,0 +1,204 @@
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseEnvioAssincrono : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','NumeroProtocolo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseCancelamento : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','DataCancelamento']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseNota : TStringList;
+  var
+    _i: Integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para ordem dos Campos do Params
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função para ordem dos Campos do Params
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+  end;
+
+  //Função que passa o valor a lista de Resultado
+  procedure AddValueListFields(const aFieldName : string; const aFieldValue : string;
+    var aListFields : TStringList);
+  begin
+    if aListFields.IndexOf(aFieldName) > -1 then
+      aListFields[aListFields.IndexOf(aFieldName)] := aFieldValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult(var aListFields : TStringList) : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to aListFields.Count - 1 do
+      Result := Result + aListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+   function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(aValue, '&amp;', '@@@@@',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13#10, '|', [rfReplaceAll]);
+    Result := StringReplace(Result, #13, '|', [rfReplaceAll]);
+    Result := StringReplace(Result, #10, '|', [rfReplaceAll]);
+    Result := StringReplace(Result,'@@@@@','&amp;',[rfReplaceAll]);
+  end;
+
+  function GetMotivo(const aDSFalha : TSpdXSDClientDataSet) : string;
+  var
+    _Correcao : string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+    begin
+      Result := 'Falha na comunicação com WebService-' + RemoveCaracteresInvalidosResposta(Input);
+    end
+    else if (aDSFalha <> nil) then
+    begin
+      aDSFalha.First;
+      while Not aDSFalha.Eof do
+      begin
+        _Correcao := '';
+
+        if aDSFalha.FieldList.IndexOf('Correcao') > -1 then
+          _Correcao := aDSFalha.FieldByName('Correcao').AsString;
+
+        if (Result = '') then
+          Result := Format3('%s-%s (%s)', aDSFalha.FieldByName('Codigo').AsString,
+                                          Trim(aDSFalha.FieldByName('Mensagem').AsString),
+                                          Trim(_Correcao))
+        else
+          Result := Format4('%s: %s-%s (%s)', Result, aDSFalha.FieldByName('Codigo').AsString,
+                                              Trim(aDSFalha.FieldByName('Mensagem').AsString),
+                                              Trim(_Correcao));
+        aDSFalha.Next;
+      end;
+      Result := RemoveCaracteresInvalidosResposta(Result);
+
+    end
+    else
+      Result := '';
+  end;
+
+  procedure GetPonteirosDataSets(const aDataSetNameSucesso, aDatasetNameFalha : string;
+                                 var aDSSucesso, aDSFalha : TSpdXSDClientDataSet);
+  begin
+    aDSSucesso := Datasets.GetDataSetByName(aDataSetNameSucesso);
+    aDSFalha := Datasets.GetDataSetByName(aDatasetNameFalha);
+    if (aDSSucesso = nil) then
+      RaiseException('DataSet ' + aDataSetNameSucesso + ' não foi carregado corretamente.');
+    if (aDSFalha = nil) then
+      RaiseException('DataSet ' + aDatasetNameFalha + ' não foi carregado corretamente.');
+  end;
+
+  // Captura a mensagem do retorno faulstring
+  function GetFaultString(aInput: string): string;
+  var
+    _Value : string;
+  begin
+    if xmlSelectNodeValue(aInput, '//*[local-name()="faultstring"]', _Value) then
+      Result := _Value
+    else
+      Result := aInput;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetStatus(const aDSFalha : TSpdXSDClientDataSet) : String;
+  begin
+    if (Params.Values['SituacaoLote'] = '2') then
+      Result := 'EMPROCESSAMENTO'
+    else
+    begin
+      if (Params.Values['faultstring'] = '') and (GetMotivo(aDSFalha) = '') then
+        Result := 'SUCESSO'
+      else
+        Result := 'ERRO';
+    end;
+  end;
+
+  function RemoveMascara(const aValor : String) : String;
+  begin
+    Result := StringReplace(aValor, '/', '', [rfReplaceAll, rfIgnoreCase]);
+    Result := StringReplace(Result, '-', '', [rfReplaceAll, rfIgnoreCase]);
+    Result := StringReplace(Result, '.', '', [rfReplaceAll, rfIgnoreCase]);
+  end;
+
+  // Esta função verifica se o valor do campo ja esta dividido por 100 e se não esta vazio;
+  function DivideCampoPorcentagem(aValor : String) : Boolean;
+  begin
+    aValor := StringReplace(aValor, ',', '.', [rfReplaceAll]);
+    Result := (aValor <> '') and ((pos('0.0', aValor) <> 1) or (pos('0.00', aValor) = 1))
+  end;
+
+  function VerificaOcorrenciaString(SubStr, Str: String): Integer;
+  var
+    Posi: Integer;
+  begin
+    Result := 0;
+    Posi := Pos(SubStr, Str);
+    while (Posi > 0) do
+    begin
+      Inc(Result);
+      Str := Copy(Str, Posi + Length(SubStr), Length(Str));
+      Posi := Pos(SubStr, Str);
+    end;
+  end;
+
+  // Função utilizada para colocar ponto.
+  // Caso a string seja: XXXX -> XX.XX
+  function AdicionarPonto(Str: String): String;
+  begin
+    Result := Copy(Str, 0, 2) + '.' + Copy(Str, 3, 4);
+  end;

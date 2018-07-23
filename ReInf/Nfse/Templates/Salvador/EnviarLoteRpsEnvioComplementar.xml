@@ -1,0 +1,6 @@
+<EnvioDadosComplementares xmlns="https://nfse.sefaz.salvador.ba.gov.br/OnLine/XSD/DadosComplementares.xsd">
+  <DadosComplementares %s="D1">
+    <NumeroLote>%s</NumeroLote>%s</DadosComplementares>
+</EnvioDadosComplementares>
+
+

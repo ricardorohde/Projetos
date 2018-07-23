@@ -1,0 +1,10 @@
+<ws:consultarNotaFiscal>
+<xml>
+<![CDATA[
+<pedConsultaTrans versao="1.0">
+<CNPJ>%s</CNPJ>
+<chvAcessoNFS-e>%s</chvAcessoNFS-e>
+</pedConsultaTrans>
+]]>
+</xml>
+</ws:consultarNotaFiscal>

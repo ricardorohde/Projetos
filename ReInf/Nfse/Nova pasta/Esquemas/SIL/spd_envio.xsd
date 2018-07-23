@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="tbnfd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nfd" type="tc_nfd" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_nfd">
+    <xs:sequence>
+      <xs:element name="numeronfd" type="xs:integer"/>
+      <xs:element name="codseriedocumento" type="xs:integer"/>
+      <xs:element name="codnaturezaoperacao" type="xs:integer"/>
+      <xs:element name="codigocidade" type="xs:integer"/>
+      <xs:element name="inscricaomunicipalemissor" type="xs:integer"/>
+      <xs:element name="dataemissao" type="xs:string"/>
+      <xs:element name="razaotomador" type="xs:string"/>
+      <xs:element name="nomefantasiatomador" type="xs:string"/>
+      <xs:element name="enderecotomador" type="xs:string"/>
+      <xs:element name="numeroendereco" type="xs:integer"/>
+      <xs:element name="cidadetomador" type="xs:NCName"/>
+      <xs:element name="estadotomador" type="xs:NCName"/>
+      <xs:element name="paistomador" type="xs:NCName"/>
+      <xs:element name="fonetomador" type="xs:integer"/>
+      <xs:element name="faxtomador" type="xs:integer"/>
+      <xs:element name="ceptomador" type="xs:integer"/>
+      <xs:element name="bairrotomador" type="xs:string"/>
+      <xs:element name="emailtomador" type="xs:string"/>
+      <xs:element name="tppessoa " type="ts_tppessoa"/>
+      <xs:element name="cpfcnpjtomador" type="xs:integer"/>
+      <xs:element name="inscricaoestadualtomador" type="xs:integer"/>
+      <xs:element name="inscricaomunicipaltomador" type="xs:integer"/>
+      <xs:element ref="tbfatura"/>
+      <xs:element ref="tbservico"/>
+      <xs:element name="observacao" type="xs:string"/>
+      <xs:element name="razaotransportadora" type="xs:string"/>
+      <xs:element name="cpfcnpjtransportadora" type="xs:integer"/>
+      <xs:element name="enderecotransportadora" type="xs:string"/>
+      <xs:element name="pis" type="xs:string"/>
+      <xs:element name="cofins" type="xs:string"/>
+      <xs:element name="csll" type="xs:string"/>
+      <xs:element name="irrf" type="xs:string"/>
+      <xs:element name="inss" type="xs:string"/>
+      <xs:element name="descdeducoesconstrucao" type="xs:string"/>
+      <xs:element name="totaldeducoesconstrucao" type="xs:string"/>
+      <xs:element name="tributadonomunicipio" type="xs:integer"/>
+	  <xs:element name="vlroutros" type="xs:string"/>
+      <xs:element name="numerort" type="xs:integer"/>
+      <xs:element name="codigoseriert" type="xs:integer"/>
+      <xs:element name="dataemissaort" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="tbfatura">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="fatura" type="tc_fatura" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_fatura">
+    <xs:sequence>
+      <xs:element name="numfatura" type="xs:integer"/>
+      <xs:element name="vencimentofatura" type="xs:string"/>
+      <xs:element name="valorfatura" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="tbservico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="servico" type="tc_servico" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_servico">
+    <xs:sequence>   
+      <xs:element name="quantidade" type="xs:integer"/>
+      <xs:element name="descricao" type="xs:string"/>
+      <xs:element name="codatividade" type="xs:integer"/>
+      <xs:element name="valorunitario" type="xs:string"/>
+      <xs:element name="aliquota" type="xs:integer"/>
+      <xs:element name="impostoretido" type="xs:NCName"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ts_tppessoa">
+    <xs:annotation>
+      <xs:documentation>utilizado para tomadores de outro pais</xs:documentation>
+      <xs:documentation>F - fIsica</xs:documentation>
+      <xs:documentation>J - jurIdica</xs:documentation>
+      <xs:documentation>O - outro</xs:documentation>      
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[FJO]{1}" />
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

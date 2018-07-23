@@ -1,0 +1,63 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := Pos('GerarNfseResposta', Input) > 0;
+  end;
+
+  function GetConfigSection: string;
+  begin
+    if EnvioSincrono then
+      Result := 'RETORNO_ENVIOSINCRONO'
+    else
+      Result := 'RETORNO_ENVIAR';
+  end;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'tipos_nfse_v01.xsd';
+  Datasets.ConfigSection := GetConfigSection;
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if EnvioSincrono then
+  begin
+    if Pos('<!--CRLF-->', Input) > 0 then
+    begin
+      _Xml := StringReplace(Input, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="GerarNfseResposta"]');
+      _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+    end
+    else
+    begin
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="GerarNfseResposta"]');
+    end;
+    Params.Add('EnvioSincrono=true');
+    Params.Add('XmlNFSe=' + _Xml);
+  end
+  else
+  begin
+    _Xml := StringReplace(Input,'<EnviarLoteRpsResposta>', '<outputXML>',[rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'</EnviarLoteRpsResposta>', '</outputXML>',[rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'<EnviarLoteRpsResposta ', '<RecepcionarLoteRpsResponse ',[rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'</EnviarLoteRpsResposta>', '</RecepcionarLoteRpsResponse>',[rfIgnoreCase]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="EnviarLoteRpsResposta"]');
+  end;
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

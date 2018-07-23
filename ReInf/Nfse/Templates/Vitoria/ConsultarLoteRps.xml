@@ -1,0 +1,3 @@
+<ConsultarLoteRps xmlns="http://www.abrasf.org.br/nfse.xsd">
+<mensagemXML><![CDATA[<ConsultarLoteRpsEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">%s<Protocolo>%s</Protocolo></ConsultarLoteRpsEnvio>]]></mensagemXML>
+</ConsultarLoteRps>

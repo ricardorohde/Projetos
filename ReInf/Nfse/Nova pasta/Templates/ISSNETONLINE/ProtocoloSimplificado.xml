@@ -1,0 +1,9 @@
+<nfd>
+  <recibo>
+    <codrecibo>%s</codrecibo>
+    <datahora>%s</datahora>
+    <numeronotas>%s</numeronotas>
+    <codmunicipio>%s</codmunicipio>
+  </recibo>
+</nfd>
+

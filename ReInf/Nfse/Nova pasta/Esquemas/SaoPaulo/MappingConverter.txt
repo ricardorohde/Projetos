@@ -1,0 +1,86 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno da Consulta de NFSe
+;*****************************************************************************************************************************************
+[RETORNO_CONSULTARNFSE]
+XSDElementName=RetornoConsulta
+XSDFile=RetornoConsulta_v01.xsd
+XSDStartNode=
+IgnoredXPaths=RetornoConsulta/NFe/Assinatura
+
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno da Consulta NFSe
+;*****************************************************************************************************************************************
+[RetornoConsulta]
+Sucesso=RetornoConsulta/Cabecalho/Sucesso
+NumeroNFSe=RetornoConsulta/NFe/ChaveNFe/NumeroNFe
+CodVerificacao=RetornoConsulta/NFe/ChaveNFe/CodigoVerificacao
+DataEmissaoNFSe=RetornoConsulta/NFe/DataEmissaoRPS
+NumeroRps=RetornoConsulta/NFe/ChaveRPS/NumeroRPS
+SerieRps=RetornoConsulta/NFe/ChaveRPS/SerieRPS
+Tipo=RetornoConsulta/NFe/TipoRPS
+DataAutorizacao=RetornoConsulta/NFe/DataEmissaoNFe
+CNPJ=RetornoConsulta/NFe/CPFCNPJPrestador/CNPJ
+InscMunicipal=RetornoConsulta/NFe/ChaveRPS/InscricaoPrestador
+DataCancelamento=RetornoConsulta/NFe/DataCancelamento
+MotivoCodigo=RetornoConsulta/Erro/Codigo
+MotivoMensagem=RetornoConsulta/Erro/Descricao
+MotivoCodigoAlerta=RetornoConsulta/Alerta/Codigo
+MotivoMensagemAlerta=RetornoConsulta/Alerta/Descricao
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=RetornoEnvioLoteRPS
+XSDFile=RetornoEnvioLoteRPS_v01.xsd
+XSDStartNode=
+IgnoredXPaths=RetornoConsulta/NFe/Assinatura
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RetornoEnvioLoteRPS]
+NumeroProtocolo=RetornoEnvioLoteRPS/Cabecalho/InformacoesLote/NumeroLote
+Codigo=RetornoEnvioLoteRPS/Erro/Codigo
+Descricao=RetornoEnvioLoteRPS/Erro/Descricao
+Codigo=RetornoEnvioLoteRPS/Alerta/Codigo
+Descricao=RetornoEnvioLoteRPS/Alerta/Descricao
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=RetornoCancelamentoNFe
+XSDFile=RetornoCancelamentoNFe_v01.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Retorno de Cancelamento
+;***************************************************************************************************
+[RetornoCancelamentoNFe]
+Sucesso=RetornoCancelamentoNFe/Cabecalho/Sucesso
+MotivoCodigo=RetornoCancelamentoNFe/Erro/Codigo
+MotivoMensagem=RetornoCancelamentoNFe/Erro/Descricao
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Retorno de Lote
+;***************************************************************************************************
+[RETORNO_CONSULTARLOTE]
+XSDElementName=RetornoConsulta
+XSDFile=RetornoConsulta_v01.xsd
+IgnoredXPaths=RetornoConsulta/NFe/Assinatura
+UseNamespacePrefixes=0
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno da Consulta de NFSe por RPS
+;*****************************************************************************************************************************************
+[RETORNO_CONSULTARNFSEPORRPS]
+XSDElementName=RetornoConsulta
+XSDFile=RetornoConsulta_v01.xsd
+XSDStartNode=
+IgnoredXpaths=RetornoConsulta/NFe/Assinatura

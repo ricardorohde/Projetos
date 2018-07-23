@@ -1,0 +1,7 @@
+<RPSConsulta>
+  <RPS Id="%s">
+    <InscricaoMunicipalPrestador>%s</InscricaoMunicipalPrestador>
+    <NumeroRPS>%s</NumeroRPS>
+    <SeriePrestacao>%s</SeriePrestacao>
+  </RPS>
+</RPSConsulta>

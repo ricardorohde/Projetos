@@ -1,0 +1,36 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse v2 01.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := UnEscapeXml(input);
+  _Xml := XmlSelect(_Xml, '//*[local-name()="EnviarLoteRpsResposta"]//*[local-name()="EnviarLoteRpsResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

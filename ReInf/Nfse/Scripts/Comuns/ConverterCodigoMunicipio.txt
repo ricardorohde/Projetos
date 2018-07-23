@@ -1,0 +1,31 @@
+  function ConverterCodigoMunicipio(const aCodigoCidade: string; const RetornarIBGE: Boolean): string;
+  var
+    _LenCod: Integer;
+    _CampoBusca: string;
+    _CampoRetorno: string;
+  begin
+    _LenCod := Length(IntToStr(StrToInt(aCodigoCidade)));
+
+    if not IntInArray(_LenCod, [1,2,3,4,7]) then
+      RaiseException('Formato do código do município inválido (use código IBGE ou SIAFI)');
+
+    // IBGE --> IBGE ou SIAFI --> SIAFI: não converter, devolver como está
+    if (RetornarIBGE and (_LenCod = 7)) or (not RetornarIBGE and (IntInArray(_LenCod, [1,2,3,4]))) then
+      Result := aCodigoCidade
+    else
+    begin
+      // IBGE --> SIAFI ou SIAFI --> IBGE: converter
+      if RetornarIBGE then
+      begin
+        _CampoBusca := 'CodSIAFI';
+        _CampoRetorno := 'CodIBGE';
+      end
+      else
+      begin
+        _CampoBusca := 'CodIBGE';
+        _CampoRetorno := 'CodSIAFI';
+      end;
+
+      Result := BuscarInfoCidade(_CampoBusca, aCodigoCidade, _CampoRetorno);
+    end;
+  end;

@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><S:Body><ns2:run xmlns:ns2="http://nfse.giap.com.br/"><p_token>%s</p_token><p_xml><![CDATA[%s]]></p_xml><p_operacao>%s</p_operacao></ns2:run></S:Body></S:Envelope>

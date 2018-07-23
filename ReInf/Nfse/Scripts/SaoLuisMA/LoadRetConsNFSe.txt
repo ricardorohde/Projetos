@@ -1,0 +1,50 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _XmlErro : string;
+
+  {$I ..\Comuns\Utils.txt}
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoConsultaNFSeRPS.xsd';
+  Datasets.XsdElementName := 'RetornoConsultaNFSeRPS';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := Input;
+  // Todo "&" vira "&amp;" e todo "&amp;" continua sendo "&amp;":
+  _Xml := StringReplace(_Xml, '&LT;',  '&lt;',  [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&GT;',  '&gt;',  [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&amp;','&',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="RetornoConsultaNFSeRPS"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="RetornoConsultaNFSeRPS"]');
+
+  if (Pos('<faultstring',input) > 0) then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[local-name()="RetornoConsultaNFSeRPS"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

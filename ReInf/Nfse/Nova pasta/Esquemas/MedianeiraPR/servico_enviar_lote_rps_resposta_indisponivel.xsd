@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:ns1="http://tempuri.org/">
+  <xs:element name="RecepcionarLoteRpsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:RecepcionarLoteRpsResult"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecepcionarLoteRpsResult" type="xs:string"/>
+</xs:schema>

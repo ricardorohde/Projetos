@@ -1,0 +1,72 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml,_XmlListaNFSe, _XmlErro : string;
+
+  {$I ..\Comuns\Utils.txt}
+  function DesescapaXml(const aXML: string): string;
+  begin
+    Result:= aXML;
+    Result:= StringReplace(Result, '&amp;', '&', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&#xD;', #13,  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&', '&amp;', [rfReplaceAll]);
+  end;
+
+  function CorrigeXmlQuebrado(aXml: string): string;
+  begin
+    Result := aXml;
+    if Pos('</ns1:RetornoConsultaLote>', Result) = 0 then
+      Result := StringReplace(Result, '</consultarLoteReturn>',  '</ns1:RetornoConsultaLote></consultarLoteReturn>',  [rfReplaceAll,rfIgnoreCase]);
+    if Pos('</Erros>', Result) = 0 then
+      Result := StringReplace(Result, '</ns1:RetornoConsultaLote>',  '</Erros></ns1:RetornoConsultaLote>',  [rfReplaceAll,rfIgnoreCase]);
+    if Pos('</Erro></Erros></ns1:RetornoConsultaLote>', Result) = 0 then
+      Result := StringReplace(Result, '</Erros></ns1:RetornoConsultaLote>',  '</Erro></Erros></ns1:RetornoConsultaLote>',  [rfReplaceAll,rfIgnoreCase]);
+    if Pos('</Descricao></Erro></Erros></ns1:RetornoConsultaLote>', Result) = 0 then
+      Result := StringReplace(Result, '</Erro></Erros></ns1:RetornoConsultaLote>',  '</Descricao></Erro></Erros></ns1:RetornoConsultaLote>',  [rfReplaceAll,rfIgnoreCase]);
+  end;
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoConsultaLote.xsd';
+  Datasets.XsdElementName := 'RetornoConsultaLote';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _xml := DesescapaXml(Input);
+  if (Pos('consultarLoteReturn', _Xml) > 0) and (Pos('<Codigo>', _Xml) = 0)
+    and (Pos('<ConsultaNFSe>', _Xml) = 0) then
+    _XmlErro := getValueTag('consultarLoteReturn',_xml);
+  _Xml := StringReplace(_xml, ';',  '',  [rfReplaceAll,rfIgnoreCase]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := StringReplace(_xml, '<?xml version="1.0" encoding="UTF-8" ?>',  '',  [rfReplaceAll,rfIgnoreCase]);
+  _Xml := StringReplace(_xml, '<?xml version="1.0" encoding="utf-8"?>',  '',  [rfReplaceAll,rfIgnoreCase]);
+
+  if (Pos('<Codigo>', _Xml) > 0) and (Pos('<Descricao>', _Xml) > 0)
+    and (Pos('<Alerta>', _Xml) = 0) then
+    _Xml := CorrigeXmlQuebrado(_Xml);
+
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://localhost:8080/WsNFe2/lote" and local-name()="RetornoConsultaLote"]');
+
+  if (Pos('<faultstring',input) > 0) or (_XmlErro <> '') then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _XmlListaNFSe := XmlSelect(_Xml,'//*[namespace-uri()="" and local-name()="ListaNFSe"]');
+    Params.Add('XmlNFSe='+_XmlListaNFSe);
+    Progress('XML carregado com sucesso');
+  end;
+end.

@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<tem:mConsultaSequenciaLoteNotaRPS>
+			<tem:remessa>
+				<![CDATA[<ConsultarSequenciaLoteNotaRPSEnvio xmlns="http://www.abrasf.org.br/nfse.xsd"><Prestador><CpfCnpj>%s</CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador></ConsultarSequenciaLoteNotaRPSEnvio>]]>
+			</tem:remessa>
+			<tem:cabecalho>
+				<![CDATA[<cabecalho xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.abrasf.org.br/nfse.xsd"><versaoDados>20.01</versaoDados></cabecalho>]]>
+			</tem:cabecalho>
+		</tem:mConsultaSequenciaLoteNotaRPS>
+	</soapenv:Body>
+</soapenv:Envelope>

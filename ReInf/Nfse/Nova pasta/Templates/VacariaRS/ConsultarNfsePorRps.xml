@@ -1,0 +1,2 @@
+<tem:ConsultarNfsePorRps><tem:xmlEnvio><![CDATA[<ConsultarNfseRpsEnvio><IdentificacaoRps><Numero>%s</Numero><Serie>%s</Serie><Tipo>%s</Tipo></IdentificacaoRps><Prestador><CpfCnpj>%s</CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador></ConsultarNfseRpsEnvio>]]></tem:xmlEnvio></tem:ConsultarNfsePorRps>
+

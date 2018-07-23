@@ -1,0 +1,266 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _PadraoTecnoNFSe: Boolean;
+  _ValorCampo : string;
+  _ValorCampoVal, _ValorCampoValtrib : string;
+  _NomeCampo: string;
+  _inicio: Integer;
+  _linha: string;
+  _PastaTecnoNFSe: string;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_NOTA = 'Nome';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  procedure ExceptionValorInvalidoCampo(const aNomeCampo: string);
+  begin
+    RaiseException('Valor inválido para o campo: ' + aNomeCampo);
+  end;
+
+  procedure SetarCampoCurrencyMakerPlanet(const aCampoTecno, aCampo: string);
+  var
+    _ValorCur: Currency;
+    _ValorStr: string;
+  begin
+    if CampoTecno(aCampoTecno) <> '' then
+    begin
+      try
+        _ValorCur := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+        _ValorStr := CurrencyToXsdCurrency(_ValorCur);
+      except
+        RaiseException('Não foi possível realizar a conversão do campo: ' + aCampoTecno);
+      end;
+
+      _ValorStr := StringReplace(_ValorStr, ',', '.',[]);
+      Campo(_DsCidadeAtual, aCampo).AsString := _ValorStr;
+    end
+    else
+      Campo(_DsCidadeAtual, aCampo).AsString := '0.00';
+  end;
+
+  procedure SetarCampoNumericoObrigatorio(const aCampoCidade: string);
+  var
+    _ValorCur: Currency;
+    _ValorStr: string;
+  begin
+    if CampoCidade(aCampoCidade) <> '' then
+    begin
+      try
+        _ValorCur := AnyCurrencyToCurrency(CampoCidade(aCampoCidade));
+        _ValorStr := CurrencyToXsdCurrency(_ValorCur);
+      except
+        RaiseException('Não foi possível realizar a conversão do campo: ' + aCampoCidade);
+      end;
+
+      _ValorStr := StringReplace(_ValorStr, ',', '.',[]);
+      Campo(_DsCidadeAtual, aCampoCidade).AsString := _ValorStr;
+    end
+    else
+      Campo(_DsCidadeAtual, aCampoCidade).AsString := '0.00';
+  end;
+
+  procedure SetarCampoRetidoObrigatorio(const aCampoCidade: string);
+  begin
+    if CampoCidade(aCampoCidade) <> '' then
+    begin
+      case AnsiIndexText(CampoCidade(aCampoCidade), ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+        0, 1, 2 : Campo(_DsCidadeAtual, aCampoCidade).AsString := '1';
+        3, 4, 5, 6 : Campo(_DsCidadeAtual, aCampoCidade).AsString := '0';
+      else
+        ExceptionValorInvalidoCampo('IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+      end;
+    end
+    else
+      Campo(_DsCidadeAtual, aCampoCidade).AsString := '0';
+  end;
+
+  procedure SetarCampoVencimentoObrigatorio(const aCampoCidade: string);
+  begin
+    if CampoCidade(aCampoCidade) = '' then
+      Campo(_DsCidadeAtual, aCampoCidade).AsString := 'A vista';
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    if Pos('|', _Tx2.Text) > 0 then
+      _Tx2.Text := StringReplace(_Tx2.Text, '|', '', [RfReplaceAll]);
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      // Editar dados carregados no Datasets, para fazer algumas transformações
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      if _DsTecnoAtual.RecordCount > 1 then
+        RaiseException('Envio em Lote não suportado para Maker Planet.');
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        _ValorCampo := CampoTecno('CpfCnpjPrestador');
+        if _ValorCampo <> '' then
+        begin
+          _ValorCampo := RemoveMascara(_ValorCampo);
+          case length(_ValorCampo) of
+            11 : SetarCampoValor('cnpjemi', _ValorCampo);
+            14 : SetarCampoValor('cnpjemi', _ValorCampo)
+          else
+            ExceptionValorInvalidoCampo('CpfCnpjPrestador');
+          end;
+        end;
+
+        SetarCampoValor('rps', CampoTecno('NumeroRps'));
+
+        _ValorCampo := CampoTecno('CpfCnpjTomador');
+        if _ValorCampo <> '' then
+        begin
+          _ValorCampo := RemoveMascara(_ValorCampo);
+          case length(_ValorCampo) of
+            11 : SetarCampoValor('cnpjtom', _ValorCampo);
+            14 : SetarCampoValor('cnpjtom', _ValorCampo)
+          else
+            ExceptionValorInvalidoCampo('CpfCnpjTomador');
+          end;
+        end;
+
+        SetarCampoValor('raznome', CampoTecno('RazaoSocialTomador'));
+        SetarCampoValor('ie', CampoTecno('InscricaoEstadualTomador'));
+        SetarCampoValor('im', CampoTecno('InscricaoMunicipalTomador'));
+        SetarCampoValor('end', CampoTecno('EnderecoTomador'));
+        SetarCampoValor('num', CampoTecno('NumeroTomador'));
+        SetarCampoValor('compl', CampoTecno('ComplementoTomador'));
+        SetarCampoValor('bai', CampoTecno('BairroTomador'));
+        SetarCampoValor('cid', CampoTecno('DescricaoCidadeTomador'));
+        SetarCampoValor('est', CampoTecno('UfTomador'));
+        SetarCampoValor('cep', FormatMaskText('AAAAA-AAA;0;0', CampoTecno('CepTomador')));
+        VerificaDDD('TelefoneTomador', 'fone', 'DDDTomador');
+        SetarCampoValor('email', CampoTecno('EmailTomador'));
+
+        _ValorCampo := CampoTecno('DataEmissao');
+        if _ValorCampo <> '' then
+        begin
+          try
+            _ValorCampo := FormatAnyDateTime(_ValorCampo, 'DD/MM/YYYY');
+          except
+            ExceptionValorInvalidoCampo('DataEmissao');
+          end;
+          SetarCampoValor('dtemissao',_ValorCampo);
+        end;
+
+        SetarCampoValor('item1', CampoTecno('CodigoItemListaServico'));
+
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+          SetarCampoCurrencyMakerPlanet('AliquotaISS', 'aliq1')
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+        _ValorCampo := CampoTecno('IssRetido');
+        case AnsiIndexText(_ValorCampo, ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          0, 1, 2 : SetarCampoValor('ret1', '1');
+          3, 4, 5, 6 : SetarCampoValor('ret1', '0')
+        else
+          ExceptionValorInvalidoCampo('IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;
+
+        SetarCampoValor('desc1', CampoTecno('DiscriminacaoServico'));
+        SetarCampoCurrencyMakerPlanet('ValorServicos', 'valitem1');
+        SetarCampoCurrencyMakerPlanet('ValorServicos', 'vlrfat1');
+        SetarCampoCurrencyMakerPlanet('ValorServicos', 'val');
+        SetarCampoCurrencyMakerPlanet('ValorLiquidoNfse', 'valtrib');
+        SetarCampoCurrencyMakerPlanet('ValorIss', 'iss');
+        SetarCampoCurrencyMakerPlanet('ValorIss', 'valiss');
+        SetarCampoCurrencyMakerPlanet('ValorIss', 'valissitem1');
+        SetarCampoCurrencyMakerPlanet('ValorIssRetido', 'issret');
+        SetarCampoCurrencyMakerPlanet('DescontoIncondicionado', 'desci' );
+        SetarCampoCurrencyMakerPlanet('DescontoCondicionado', 'desco');
+        SetarCampoCurrencyMakerPlanet('BaseCalculo', 'binss');
+        SetarCampoCurrencyMakerPlanet('BaseCalculo', 'birrf');
+        SetarCampoCurrencyMakerPlanet('BaseCalculo', 'bcsll');
+        SetarCampoCurrencyMakerPlanet('BaseCalculo', 'bpis');
+        SetarCampoCurrencyMakerPlanet('BaseCalculo', 'bcofins');
+        SetarCampoCurrencyMakerPlanet('AliquotaINSS', 'ainss');
+        SetarCampoCurrencyMakerPlanet('AliquotaIR', 'airrf');
+        SetarCampoCurrencyMakerPlanet('AliquotaCSLL', 'acsll');
+        SetarCampoCurrencyMakerPlanet('AliquotaPIS', 'apis');
+        SetarCampoCurrencyMakerPlanet('AliquotaCOFINS', 'acofins');
+        SetarCampoCurrencyMakerPlanet('ValorInss', 'inss');
+        SetarCampoCurrencyMakerPlanet('ValorIr', 'irrf');
+        SetarCampoCurrencyMakerPlanet('ValorCsll', 'csll');
+        SetarCampoCurrencyMakerPlanet('ValorPis', 'pis');
+        SetarCampoCurrencyMakerPlanet('ValorCofins', 'cofins');
+
+        _DsCidadeAtual.Post;
+        _DsTecnoAtual.Next;
+      end;
+      SetarCamposMunicipio;
+      _DsCidadeAtual.Edit;
+      SetarCampoVencimentoObrigatorio('vencto1');
+      SetarCampoNumericoObrigatorio('vlrfat2');
+      SetarCampoNumericoObrigatorio('vlrfat3');
+      SetarCampoNumericoObrigatorio('vlrfat4');
+      SetarCampoNumericoObrigatorio('vlrfat5');
+      SetarCampoNumericoObrigatorio('vlrfat6');
+      SetarCampoNumericoObrigatorio('vlrfat7');
+      SetarCampoNumericoObrigatorio('vlrfat8');
+      SetarCampoNumericoObrigatorio('vlrfat9');
+      SetarCampoNumericoObrigatorio('vlrfat10');
+      SetarCampoNumericoObrigatorio('vlrfat11');
+      SetarCampoNumericoObrigatorio('vlrfat12');
+      SetarCampoNumericoObrigatorio('aliq2');
+      SetarCampoNumericoObrigatorio('aliq3');
+      SetarCampoNumericoObrigatorio('valitem2');
+      SetarCampoNumericoObrigatorio('valitem3');
+      SetarCampoNumericoObrigatorio('valissitem2');
+      SetarCampoNumericoObrigatorio('valissitem3');
+      SetarCampoRetidoObrigatorio('ret2');
+      SetarCampoRetidoObrigatorio('ret3');
+      _DsCidadeAtual.Post;
+    end
+    else
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+  finally
+    _Tx2.free;
+    _CamposMunicipio.free;
+    Progress('Arquivo TX2 carregado com Sucesso')
+  end;
+end.

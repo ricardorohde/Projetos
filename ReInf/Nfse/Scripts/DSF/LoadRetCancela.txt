@@ -1,0 +1,31 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _XmlErro : string;
+
+{$I ..\Comuns\Utils.txt}
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoCancelamentoNFSe.xsd';
+  Datasets.XsdElementName := 'RetornoCancelamentoNFSe';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[namespace-uri()="http://localhost:8080/WsNFe2/lote" and local-name()="RetornoCancelamentoNFSe"]');
+  _XmlErro := getValueTag('cancelarReturn',input);
+  if (Pos('<faultstring',input) > 0) or (_XmlErro <> '') then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

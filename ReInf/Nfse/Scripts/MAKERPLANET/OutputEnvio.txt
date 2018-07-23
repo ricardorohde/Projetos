@@ -1,0 +1,51 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+  function RealizarDelimitacaoLoteRps(const aXML: string): string;
+  var
+    _DelimitadorRPS: String;
+  begin
+    _DelimitadorRPS := Params.Values['DelimitadorRPS'];
+    if _DelimitadorRPS = '' then
+      _DelimitadorRPS := Params.Values['Delimitador'];
+
+    if _DelimitadorRPS <> '' then
+      Result := _DelimitadorRPS + Trim(aXML) + _DelimitadorRPS
+    else
+      Result := aXML;
+  end;
+
+  function MontarXml: String;
+  var
+    _i : integer;
+    _ds : TSpdXSDClientDataSet;
+  begin
+    Result := '';
+    _ds := Datasets.GetDataSetByName('Nome');
+    if _ds <> nil then
+    begin
+      for _i := 0 to _ds.Fields.Count - 1 do
+      begin
+        if Result = '' then
+          Result := '<Nome xsi:type="xsd:string">'
+        else
+          Result := Result + '|' + _ds.Fields[_i].AsString;
+      end;
+    end;
+    Result := StringReplace(Result, '<Nome xsi:type="xsd:string">|', '<Nome xsi:type="xsd:string">', []);
+    Result := Result + '</Nome>';
+  end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := MontarXml;
+  Output := RealizarDelimitacaoLoteRps(Output);
+  //Tratar a quebra de linha na estória de impressão.
+  //Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_FGMAISS);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

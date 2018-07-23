@@ -1,0 +1,123 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params: TStringList;
+}
+
+Var
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+
+  procedure GetPonteirosDataSets;
+  begin
+    _DSSucesso := Datasets.GetDataSetByName('tcInfRetNotCan');
+    _DSFalha := Datasets.GetDataSetByName('tcRetornoLoteCancelamento');
+   if (_DSSucesso = nil) then
+     RaiseException('DataSet tcInfRetNotCan não foi carregado corretamente.');
+   if (_DSFalha = nil) then
+     RaiseException('DataSet tcRetornoLoteCancelamento não foi carregado corretamente.');
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue: string): string;
+  begin
+    Result := StringReplace(aValue, Params.Values['DelimitadorDoCampo'], '', [rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'], '', [rfReplaceAll]);
+    Result := StringReplace(Result, #13, '', [rfReplaceAll]);
+    Result := StringReplace(Result, #10, '', [rfReplaceAll]);
+  end;
+
+  function GetMotivo: string;
+  var
+    _Codigo, _Mensagem: string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+    begin
+      Result := 'Falha na comunicação com WebService-' + Input;
+    end
+    else if (_DSFalha <> nil) then
+    begin
+      _DSFalha.First;
+
+      // Falha de XML: erro vai no dataset tcRetornoLoteRps
+      if _DSFalha.FieldByName('MotivoCodigo').AsString = 'F' then
+      begin
+        _Codigo := 'F';
+        _Mensagem := Trim(_DSFalha.FieldByName('MotivoMensagem').AsString);
+      end
+      else
+      begin
+        // XML OK, mas com erro de dados (ex: duplicidade): dataset tcInfRetRps
+        _Codigo := _DSSucesso.FieldByName('tsFlgRet').AsString;
+        _Mensagem := _DSSucesso.FieldByName('tsDesOco').AsString;
+      end;
+
+      Result := Format2('%s-%s ()', _Codigo, _Mensagem);
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetStatus : string;
+  begin
+    if (_DSSucesso.FieldByName('tsDesOco').AsString = 'Nota Fiscal cancelada com sucesso.') then
+     result := 'SUCESSO'
+  else
+     result := 'ERRO';
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','DataCancelamento']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Progress('Obtendo ponteiros dos datasets.');
+  GetPonteirosDataSets;
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponse;
+
+  if _ListFields <> nil then
+  begin
+    try
+      AddValueListFields('Motivo', GetMotivo);
+      AddValueListFields('Status', GetStatus);
+      AddValueListFields('DataCancelamento', '');
+      Output := FormatLineResult;
+    finally
+      _ListFields.Free;
+      Progress('Valores adicionados com sucesso.');
+    end;
+  end;
+end.

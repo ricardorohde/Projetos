@@ -1,0 +1,40 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _DataHora, _Sucesso, _Codigo, _Mensagem, _Correcao: string;
+begin
+  Progress('Carregando XML de Cancelamento.');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := XmlDeepNodeSearch(Input,'CancelarNfseResposta', '//*[local-name()="CancelarNfseResposta"]');
+
+    if xmlSelectNodeValue(_Xml,'//*[local-name()="Sucesso"]',_Sucesso) then
+       Params.Add('Sucesso='+_Sucesso)
+    else
+       Params.Add('Sucesso=false');
+
+    if _Sucesso = 'true' then
+    begin
+      XmlSelectNodeValue(_Xml, '//*[local-name()="DataHora"]',_DataHora);
+      Params.Add('DataHora='+_DataHora);
+    end
+    else
+    begin
+      xmlSelectNodeValue(_Xml,'//*[local-name()="Codigo"]',_Codigo);
+      xmlSelectNodeValue(_Xml,'//*[local-name()="Mensagem"]',_Mensagem);
+      xmlSelectNodeValue(_Xml,'//*[local-name()="Correcao"]',_Correcao);
+
+      Params.Add('Codigo='+_Codigo);
+      Params.Add('Mensagem='+_Mensagem);
+      Params.Add('Correcao='+_Correcao);
+    end;
+    Progress('XML carregado com sucesso.');
+  end;
+end.

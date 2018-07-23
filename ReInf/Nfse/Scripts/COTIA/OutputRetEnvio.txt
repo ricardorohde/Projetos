@@ -1,0 +1,188 @@
+{
+  Variáveis externas disponíveis:
+    MappingXsdFileName: string;
+    Input: string;
+}
+{$I Utils.txt}
+Var
+  _ListFields : TStringList;
+  _Status, _Motivo, _Xml: string;
+  _count, i: integer;
+
+const
+  XPATH_SUCESSO = '//*[local-name()="nfeResposta"]/*[local-name()="notaFiscal"]';
+
+  function GetValueTag(aTag, aTxt: String): String;
+  Var
+    _PINI, _PFIN: integer;
+  begin
+    _PINI := Pos('<' + aTag + '>', aTxt) + (Length(aTag) + 2);
+    _PFIN := Pos('</' + aTag + '>', aTxt);
+    Result := Copy(aTxt, _PINI, _PFIN - _PINI);
+  end;
+
+  function GetStatus(const aXml: String) : string;
+  var
+    _status : String;
+  begin
+    if XmlSelectNodeValue(aXml,'//*[local-name()="statusEmissao"]', _status)  then
+    begin
+      if _status <> '200' then
+        Result := 'ERRO'
+      else
+        Result := 'SUCESSO';
+    end;
+  end;
+
+  function GetMotivo : String;
+  begin
+    Result := '';
+    if Params.Values['Erro'] <> '' then
+    begin
+      Result := Params.Values['Erro'];
+    end
+    else
+    XmlSelectNodeValue(Params.Values['XML'], '//*[local-name()="messages"]/@message', Result);
+  end;
+
+  function GetXmlNFSe(const aXml : string) : string;
+  begin
+    Result := XmlSelect(aXml, '//*[local-name()="notaFiscal"]')
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo', '', 'Cnpj', 'InscMunicipal', 'SerieRps',
+      'NumeroRps', 'NumeroNFSe', 'DataEmissaoNFSe', 'DataAutorizacao', 'CodVerificacao', 'Situacao',
+      'DataCancelamento', 'ChaveCancelamento', 'Xml', 'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para ordem dos Campos do Params
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult(var aListFields : TStringList) : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to aListFields.Count - 1 do
+      Result := Result + aListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+  function GetResult(const aListFieldsResult : TStringList) : string;
+  begin
+    if (Params.Values['DelimitadorDaLinha'] = '') then
+      Result := FormatLineResult(aListFieldsResult) + #13#10
+    else
+      Result := FormatLineResult(aListFieldsResult) +
+        Params.Values['DelimitadorDaLinha'];
+  end;
+
+begin
+  _count := XmlSelectCountNode(Params.Values['XML'], XPATH_SUCESSO);
+
+  for i := 1 to _count do
+  begin
+    _Xml := XmlSelect(Params.Values['XML'], '//*[local-name()="notaFiscal"]' + '['+ IntToStr(i) +']');
+
+    _Status := GetStatus(_Xml);
+    _Motivo := GetMotivo;
+    
+    if _Status = 'SUCESSO' then
+    begin
+      _ListFields := CreateFieldsResponse;
+      if _ListFields <> nil then
+      begin
+        try
+          Progress('Adicionando valores aos campos.');
+          AddValueListFields('Status', 'SUCESSO');
+          AddValueListFields('Motivo', '');
+          AddValueListFields('Cnpj', '');
+          AddValueListFields('InscMunicipal', '');
+          AddValueListFields('SerieRps', '');
+          AddValueListFields('NumeroRps', GetValueTag('numeroRps', _Xml));
+          AddValueListFields('NumeroNFSe', GetValueTag('numeroNota', _Xml));
+          AddValueListFields('DataEmissaoNFSe', '');
+          AddValueListFields('DataAutorizacao', '');
+          AddValueListFields('CodVerificacao', GetValueTag('codigoVerificacao', _Xml));
+          AddValueListFields('Situacao', 'AUTORIZADA');
+          AddValueListFields('DataCancelamento', '');
+          AddValueListFields('ChaveCancelamento', GetValueTag('numeroNota', _Xml));
+          AddValueListFields('Tipo', '');
+          AddValueListFields('Xml', GetXmlNFSe(_Xml));
+          Output := Output + GetResult(_ListFields);
+        finally
+          _ListFields.Free;
+        end;
+      end;
+    end
+    else
+    begin
+      _ListFields := CreateFieldsResponseFalha;
+      if _ListFields <> nil then
+      begin
+        try
+          AddValueListFields('Status', 'ERRO');
+          AddValueListFields('Motivo', _Motivo);
+          Output := FormatLineResult(_ListFields);
+        finally
+          _ListFields.Free;
+        end;
+      end;
+    end;
+  end;
+  if Params.Values['Erro'] <> '' then
+  begin
+    _ListFields := CreateFieldsResponseFalha;
+    if _ListFields <> nil then
+    begin
+      try
+        AddValueListFields('Status', 'ERRO');
+        AddValueListFields('Motivo', GetMotivo);
+        Output := FormatLineResult(_ListFields);
+      finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  if pos('HTTP Status 401 - Unauthorized', Params.values['XML']) > 0 then
+  begin
+    _ListFields := CreateFieldsResponseFalha;
+    if _ListFields <> nil then
+    begin
+      try
+        AddValueListFields('Status', 'ERRO');
+        AddValueListFields('Motivo', 'Erro interno no WebService, verifique o parâmetro extra "Senha".');
+        Output := FormatLineResult(_ListFields);
+      finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

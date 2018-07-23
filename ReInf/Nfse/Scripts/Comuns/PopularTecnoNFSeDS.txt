@@ -1,0 +1,54 @@
+{$I ..\Comuns\ObterNomeValor.txt}
+
+  procedure PopularTecnoNFSeDS;
+  var
+    _i: Integer;
+  begin
+    for _i := _inicio to _Tx2.Count - 1 do
+    begin
+      _linha := Trim(_Tx2[_i]);
+
+      // Adiciona numa lista temporária os campos personalizados por município que não fazem parte do TecnoNFSe
+      if (_linha <> '') and (_linha[1] = '@') then
+        _CamposMunicipio.Add(IntToStr(_DsTecnoAtual.RecordCount) + _linha);
+
+      if (_linha <> '') and (_linha[1] <> ';') and (_linha[1] <> '@')then  // pular linhas em branco,comentários e campos personalizados
+      begin
+        if EhComando(_linha) then
+        begin
+          case AnsiIndexText(_linha, ['INCLUIR', 'SALVAR', 'INCLUIRRPS', 'SALVARRPS']) of
+            0:
+            begin
+              _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+              _DsTecnoAtual.Append;
+            end;
+            1:
+            begin
+              _DsTecnoAtual.Post;
+              _DsTecnoAtual := nil;
+            end;
+            2:
+            begin
+              _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+              _DsTecnoAtual.Append;
+            end;
+            3:
+            begin
+              _DsTecnoAtual.Post;
+              _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+            end;
+          else
+            RaiseException('Comando desconhecido: ' + _linha);
+          end;
+        end
+        else
+        begin
+          ObterNomeValor(_linha, _NomeCampo, _ValorCampo);
+          if _DsTecnoAtual <> nil then
+            Campo(_DsTecnoAtual, _NomeCampo).AsString := _ValorCampo
+          else
+            RaiseException('Favor atribuir valores a campos somente entre os comandos de inserção e gravação');
+        end;
+      end;
+    end;
+  end;

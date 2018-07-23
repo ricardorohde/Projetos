@@ -1,0 +1,71 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Status, _Xml: String;
+
+{$I ..\Bauru\Utils.TXT}
+
+  function GetMotivo(const aXML:string) : string;
+  Var
+    i, _QtdErros: Integer;
+    _Aux, _FaultString: string;
+  begin
+    Result := '';
+    _FaultString := Params.Values['faultstring'];
+    if _FaultString <> '' then
+    begin
+      if xmlSelectNodeValue(Params.Values['faultstring'], '//*[local-name()="faultstring"]', _Aux) then
+        Result := 'Falha na comunicação com WebService-' + _Aux
+      else
+        Result := 'Falha na comunicação com WebService-' + _FaultString;
+    end
+    else
+    begin
+      _QtdErros := XmlSelectCountNode(aXML, '//*[local-name()="tcEstruturaDescricaoErros"]');
+      for i := 0 to _QtdErros -1 do
+      begin
+        _Aux := XmlSelectItemIndexNode(aXML, '//*[local-name()="DescricaoErro"]', i);
+        xmlSelectNodeValue(_Aux, '//*[local-name()="DescricaoErro"]', _Aux);
+
+        if Result = '' then
+          Result := Format2('%s: %s.', IntToStr(i+1), _Aux)
+        else
+          Result := Format3('%s %s: %s', Result, IntToStr(i+1), _Aux);
+      end;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+    Result := StringReplace(Result, Chr(9),' ',[rfReplaceAll]);
+  end;
+
+begin
+  _Xml := Params.Values['XML'];
+  _Status := GetStatus(_Xml);
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponseCancelamento;
+  if _ListFields <> nil then
+  Try
+    AddValueListFields('Status', _Status);
+    if _Status = 'SUCESSO' then
+    begin
+      AddValueListFields('Motivo', '');
+      AddValueListFields('DataCancelamento', FormatDateTime('yyyy-mm-dd', now));
+    end
+    else
+    begin
+      AddValueListFields('DataCancelamento', '');
+      AddValueListFields('Motivo', GetMotivo(_XML));
+    end;
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

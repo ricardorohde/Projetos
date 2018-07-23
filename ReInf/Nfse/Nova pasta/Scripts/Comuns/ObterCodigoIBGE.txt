@@ -1,0 +1,9 @@
+  function ObterCodigoIBGE(const aXml: string): string;
+  var
+    _CodIBGE: String;
+  begin
+    if xmlSelectNodeValue(aXML,'//*[local-name()="Nfse"]//*[local-name()="PrestadorServico"]//*[local-name()="Cidade"]',_CodIBGE) then
+      Result := _CodIBGE
+    else
+      Result := '';
+  end;

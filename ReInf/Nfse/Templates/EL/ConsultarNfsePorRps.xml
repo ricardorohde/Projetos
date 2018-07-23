@@ -1,0 +1,4 @@
+<el:ConsultarNfseRpsEnvio>
+ <identificacaoRps>%s</identificacaoRps>
+ <identificacaoPrestador>%s</identificacaoPrestador>
+</el:ConsultarNfseRpsEnvio>

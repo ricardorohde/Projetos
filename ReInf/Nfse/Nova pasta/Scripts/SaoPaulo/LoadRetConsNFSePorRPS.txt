@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoConsulta_v01.xsd';
+  Datasets.XsdElementName := 'RetornoConsulta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[namespace-uri()="http://www.prefeitura.sp.gov.br/nfe" and local-name()="RetornoConsulta"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://www.prefeitura.sp.gov.br/nfe" and local-name()="RetornoConsulta"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+
+end.

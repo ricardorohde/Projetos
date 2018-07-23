@@ -1,0 +1,29 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'esConsultarNfsePorRpsResposta_v01.xsd ';
+  Datasets.XsdElementName := 'esConsultarNfsePorRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Consulta de NFSe');
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[namespace-uri()="http://www.equiplano.com.br/esnfs" and local-name()="esConsultarNfsePorRpsResposta"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+
+end.

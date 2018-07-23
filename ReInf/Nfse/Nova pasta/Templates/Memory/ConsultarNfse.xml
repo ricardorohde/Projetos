@@ -1,0 +1,6 @@
+      <urn:tm_lote_rps_service.consultarNFSE soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <numeroNFSE xsi:type="xsd:string">%s</numeroNFSE>
+         <codMunicipio xsi:type="xsd:string">%s</codMunicipio>
+         <cnpjPrestador xsi:type="xsd:string">%s</cnpjPrestador>
+         <hashValidador xsi:type="xsd:string">%s</hashValidador>
+      </urn:tm_lote_rps_service.consultarNFSE>

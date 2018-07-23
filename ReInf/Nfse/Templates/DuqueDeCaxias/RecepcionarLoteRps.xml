@@ -1,0 +1,3 @@
+<RecepcionarLoteRpsRequest xmlns="http://www.nfe.com.br/">
+<inputXML><![CDATA[%s]]></inputXML>
+</RecepcionarLoteRpsRequest>

@@ -1,0 +1,15 @@
+<urn:ConsultarNfseServicoPrestado soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<Value xsi:type="xsd:string">
+<ConsultarNfseServicoPrestadoEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">
+<Prestador>
+%s
+</Prestador>
+%s
+%s
+%s
+%s
+%s
+<Pagina>%s</Pagina>
+</ConsultarNfseServicoPrestadoEnvio>
+</Value>
+</urn:ConsultarNfseServicoPrestado>

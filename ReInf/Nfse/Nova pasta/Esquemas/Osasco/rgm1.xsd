@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+  xmlns:rgm1="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+  xmlns:rgm2="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+  xmlns:rgm="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem">
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+    schemaLocation="rgm2.xsd"/>
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem"
+    schemaLocation="spdXsdOsasco.xsd"/>
+  <xs:element name="Aliquota" type="xs:decimal"/>
+  <xs:element name="Atividade" type="xs:string"/>
+  <xs:element name="ChaveAutenticacao" type="xs:string"/>
+  <xs:element name="Homologacao" type="xs:string"/>
+  <xs:element name="InformacoesAdicionais" type="xs:string"/>
+  <xs:element name="NotificarTomadorPorEmail" type="xs:string"/>
+  <xs:element name="SubstituicaoTributaria" type="xs:string"/>
+  <xs:element name="Tomador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rgm2:CNPJ" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:CPF" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:DDD" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Email" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Endereco" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:InscricaoMunicipal" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Nome" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm2:Telefone" maxOccurs="1" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TomadorEstrangeiro" type="xs:string"/>
+  <xs:element name="Valor" type="xs:decimal"/>
+  <xs:element name="ValorDeducao" type="xs:decimal"/>
+</xs:schema>

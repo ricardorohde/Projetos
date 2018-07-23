@@ -1,0 +1,115 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+var
+  _DSSucesso, _DSFalha: TSpdXSDClientDataSet;
+  _ListFields: TStringList;
+
+
+procedure GetPonteirosDataSets;
+begin
+  _DSSucesso := Datasets.GetDataSetByName('CancelarNfseResposta');
+  _DSFalha := Datasets.GetDataSetByName('MensagemRetorno');
+
+
+
+  if (_DSSucesso = nil) then
+    RaiseException('DataSet CancelarNfseResposta não foi carregado corretamente.');
+  if (_DSFalha = nil) then
+    RaiseException('DataSet MensagemRetorno não foi carregado corretamente.');
+end;
+
+function GetMotivo: string;
+begin
+  if Params.Values['faultstring'] <> '' then
+  begin
+    Result := 'Falha na comunicação com WebService-' + Input;
+  end
+  else if Params.Values['fault'] <> '' then
+  begin
+    Result := 'Falha na comunicação com WebService-' + Input;
+  end
+  else if (_DSFalha <> nil) then
+  begin
+    _DSFalha.First;
+    while Not _DSFalha.Eof do
+    begin
+      if (Result = '') then
+        Result := Format3('%s-%s (%s)', _DSFalha.FieldByName('MotivoCodigo').AsString,
+                                        Trim(_DSFalha.FieldByName('MotivoMensagem').AsString),
+                                        Trim(_DSFalha.FieldByName('MotivoCorrecao').AsString))
+      else
+        Result := Format4('%s: %s-%s (%s)', Result, _DSFalha.FieldByName('MotivoCodigo').AsString,
+                                            Trim(_DSFalha.FieldByName('MotivoMensagem').AsString),
+                                            Trim(_DSFalha.FieldByName('MotivoCorrecao').AsString));
+      _DSFalha.Next;
+    end;
+  end;
+end;
+
+function GetStatus: string;
+begin
+  if (Params.Values['Sucesso'] <> '0') then
+    Result := 'SUCESSO'
+  else
+    Result := 'ERRO';
+end;
+
+// Função para Capturar a Ordem dos Campos do Params
+function CreateFieldsResponse: TStringList;
+var
+  _i: Integer;
+begin
+  Result := TStringList.Create;
+  Result.Text := StringReplace(Params.Values['ListaCampos'], ',', #13#10, [rfReplaceAll]);
+  // Checar se os campos da ListaCampos são suportados
+  for _i := 0 to Result.Count - 1 do
+  begin
+    if not AnsiMatchText(Trim(Result[_i]), ['Status', 'Motivo', 'DataCancelamento']) then
+      RaiseException('Campo "' + Result[_i] + '" não suportado')
+    else
+      Result[_i] := Trim(Result[_i]);
+  end;
+end;
+
+// Função que passa o valor a lista de resultado
+procedure AddValueListFields(const aParamName, aValue: string);
+begin
+  if _ListFields.IndexOf(aParamName) > -1 then
+    _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+end;
+
+// Função que formata a lista em resposta, considerando DelimitadorDoCampo
+function FormatLineResult: string;
+var
+  i: Integer;
+begin
+  Result := '';
+  for i := 0 to _ListFields.Count - 1 do
+    Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo'];
+end;
+
+begin
+  Progress('Obtendo ponteiros dos datasets.');
+  GetPonteirosDataSets;
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponse;
+  if _ListFields <> nil then
+  begin
+    try
+      AddValueListFields('Motivo', GetMotivo);
+      AddValueListFields('Status', GetStatus);
+      AddValueListFields('DataCancelamento', Params.Values['Datahora']);
+      Output := FormatLineResult;
+    finally
+      _ListFields.Free;
+      Progress('Valores adicionados com sucesso.');
+    end;
+  end;
+end.

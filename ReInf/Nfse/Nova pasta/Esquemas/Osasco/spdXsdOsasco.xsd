@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+  targetNamespace="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem"
+  xmlns:rgm1="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+  xmlns:rgm2="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+  xmlns:rgm="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem">
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte"
+    schemaLocation="rgm2.xsd"/>
+  <xs:import
+    namespace="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador"
+    schemaLocation="rgm1.xsd"/>
+  <xs:element name="NotaFiscal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="rgm1:Aliquota" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:Atividade" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:InformacoesAdicionais" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:NotificarTomadorPorEmail" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:SubstituicaoTributaria" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:Tomador" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:TomadorEstrangeiro" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:Valor" maxOccurs="1" minOccurs="1"/>
+        <xs:element ref="rgm1:ValorDeducao" maxOccurs="1" minOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

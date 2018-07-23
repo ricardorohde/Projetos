@@ -1,0 +1,9 @@
+<v1:ConsultarNfseServicoPrestado>
+  <ConsultarNfseServicoPrestadoEnvio>
+    <ccm>%s</ccm>
+    <cnpj>%s</cnpj>
+    <cpf>%s</cpf>
+    <senha>%s</senha>
+    <numero_nfse>%s</numero_nfse>
+  </ConsultarNfseServicoPrestadoEnvio>
+</v1:ConsultarNfseServicoPrestado>

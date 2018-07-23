@@ -1,0 +1,54 @@
+ {
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _XmlLote, _FaultString, _SituacaoLote : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := StringReplace(Input, '&', '&amp;', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [rfReplaceAll]);
+
+  //Capturando o xml da consulta de situação do lote.
+  _SituacaoLote :=  XmlDeepNodeSearch(_Xml,'ConsultarSituacaoLoteRpsResponse','//*[local-name()="ConsultarSituacaoLoteRpsResponse"]');
+
+  if _SituacaoLote <> '' then
+  begin
+    if xmlSelectNodeValue(_SituacaoLote, '//*[local-name()="Situacao"]', _SituacaoLote) then
+      Params.Add('SituacaoLote=' + _SituacaoLote)
+    else
+      Params.Add('SituacaoLote='+_SituacaoLote);
+  end
+  else
+  begin
+    _XmlLote := XmlDeepNodeSearch(_Xml, 'ConsultarLoteRpsResult', '//*[local-name()="ConsultarLoteRpsResult"]');
+    _Xml := _XmlLote;
+    _Xml := StringReplace(_Xml,'ConsultarLoteRpsResult','ConsultarLoteRpsResposta',[rfReplaceAll,rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'</tcCompNfse><tcCompNfse>','</CompNfse><CompNfse>',[rfReplaceAll,rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'<tcCompNfse>','',[rfReplaceAll,rfIgnoreCase]);
+    _Xml := StringReplace(_Xml,'</tcCompNfse>','',[rfReplaceAll,rfIgnoreCase]);
+
+    _FaultString := XmlSelect(Input,'//*[local-name()="faultstring"]');
+    if _FaultString <> '' then
+      Params.Add('faultstring='+_FaultString)
+    else
+    begin
+      Datasets.LoadFromXMLContent(_Xml);
+      Params.Add('XmlLote='+_XmlLote);
+      Progress('XML carregado com sucesso');
+    end;
+  end;
+end.

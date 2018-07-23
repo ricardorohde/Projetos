@@ -1,0 +1,20 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  _Xml := '';
+  _Xml := XmlDeepNodeSearch(Input, 'CancelarResult', '//*[local-name()="CancelarResult"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlRetorno='+input);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

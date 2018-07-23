@@ -1,0 +1,5 @@
+<ws:recepcionarLoteRps>
+%s
+<username xmlns="">%s</username>
+<password xmlns="">%s</password>
+</ws:recepcionarLoteRps>

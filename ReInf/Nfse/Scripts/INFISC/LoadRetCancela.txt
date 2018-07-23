@@ -1,0 +1,29 @@
+{ 
+  Variáveis externas disponíveis: 
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _Xml : string;
+
+{$I ..\Comuns\Utils.txt}
+
+begin
+  { Não há no schema XML a definição do XML de retorno do cancelamento, então usaremos 
+    somente XPath para ler os dados do XML }
+
+  _Xml := UnEscapeXml(Input);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+  _Xml := XmlSelect(_Xml, '//*[local-name()="resAnulaNFSe" or local-name()="resCancelaNFSe"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso'); 
+  end;
+end.

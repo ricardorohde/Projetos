@@ -1,0 +1,56 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=notas
+XSDFile=NfseSaturno.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[notas]
+NumeroNFSe=nota/numero
+CodVerificacao=
+DataAutorizacao=
+NumeroRps=
+SerieRps=nota/serie
+Tipo=nota/tipo
+DataEmissaoNFSe=nota/data
+Cnpj=
+InscMunicipal=
+DataCancelamento=
+CodigoCancelamento=
+MotivoCodigo=nota/codigo
+MotivoMensagem=nota/mensagem
+MotivoCorrecao=
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno da Consulta de NFSe
+;*****************************************************************************************************************************************
+[RETORNO_CONSULTARNFSE]
+XSDElementName=notas
+XSDFile=NfseSaturno.xsd
+XSDStartNode=	
+IgnoredXPaths=
+
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno da Consulta NFSe
+;*****************************************************************************************************************************************
+[ConsultarNfseResposta]
+NumeroNFSe=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/Numero
+CodVerificacao=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/CodigoVerificacao
+DataAutorizacao=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/DataEmissao
+NumeroRps=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Numero
+SerieRps=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Serie
+Tipo=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Tipo
+DataEmissaoNFSe=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/DataEmissaoRps
+Cnpj=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/Cnpj
+InscMunicipal=ConsultarNfseResposta/ListaNfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/InscricaoMunicipal
+DataCancelamento=ConsultarNfseResposta/ListaNfse/CompNfse/NfseCancelamento/Confirmacao/DataHoraCancelamento
+CodigoCancelamento=ConsultarNfseResposta/ListaNfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/CodigoCancelamento
+MotivoCodigo=ConsultarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=ConsultarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=ConsultarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Correcao

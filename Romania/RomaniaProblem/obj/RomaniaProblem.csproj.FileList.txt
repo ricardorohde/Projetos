@@ -1,0 +1,8 @@
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\RomaniaProblem.Properties.Resources.resources
+obj\Debug\RomaniaProblem.csproj.GenerateResource.Cache
+bin\Debug\RomaniaProblem.exe
+bin\Debug\RomaniaProblem.pdb
+obj\Debug\RomaniaProblem.exe
+obj\Debug\RomaniaProblem.pdb
+obj\Debug\RomaniaProblem.MainForm.resources

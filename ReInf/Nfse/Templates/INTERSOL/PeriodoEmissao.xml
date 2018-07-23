@@ -1,0 +1,4 @@
+<p:PeriodoEmissao>
+<p:DataInicial>%s</p:DataInicial>
+<p:DataFinal>%s</p:DataFinal>
+</p:PeriodoEmissao>

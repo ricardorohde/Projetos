@@ -1,0 +1,64 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+var
+  _DSSucesso, _DSFalha: TSpdXSDClientDataSet;
+  _ListFields: TStringList;
+
+function GetStatus : String;
+begin
+  if (GetMotivo(Params.Values['Xml']) <> '') then
+  begin
+    if GetValueTag('status', Params.Values['Xml']) = 'FALSE' then
+      Result := 'ERRO';
+  end
+  else
+    Result := 'SUCESSO';
+end;
+
+// Função para Capturar a Ordem dos Campos do Params
+function CreateFieldsResponse: TStringList;
+var
+  _i: Integer;
+begin
+  Result := TStringList.Create;
+  Result.Text := StringReplace(Params.Values['ListaCampos'], ',', #13#10, [rfReplaceAll]);
+  // Checar se os campos da ListaCampos são suportados
+  for _i := 0 to Result.Count - 1 do
+  begin
+    if not AnsiMatchText(Trim(Result[_i]), ['Status', 'Motivo', 'DataCancelamento']) then
+      RaiseException('Campo "' + Result[_i] + '" não suportado')
+    else
+      Result[_i] := Trim(Result[_i]);
+  end;
+end;
+
+begin
+  Progress('Adicionando valores aos campos.');
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaultstring(_ListFields, Input)
+  else
+  begin  
+    _ListFields := CreateFieldsResponse;
+    
+    if _ListFields <> nil then
+    begin
+      try
+        AddValueListFields('Motivo', GetMotivo(Params.Values['Xml']), _ListFields);
+        AddValueListFields('Status', GetStatus, _ListFields);
+        AddValueListFields('DataCancelamento', '', _ListFields);
+        Output := FormatLineResult(_ListFields);
+      finally
+        _ListFields.Free;
+        Progress('Valores adicionados com sucesso.');
+      end;
+    end;
+  end;
+end.

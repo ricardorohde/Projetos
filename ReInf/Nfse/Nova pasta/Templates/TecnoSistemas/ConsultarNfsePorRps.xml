@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <tem:mConsultaNFSePorRPS>
+         <tem:remessa><![CDATA[<ConsultarNfseRpsEnvio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.abrasf.org.br/nfse.xsd"><IdentificacaoRps><Numero>%s</Numero><Serie>%s</Serie><Tipo>%s</Tipo></IdentificacaoRps><Prestador><CpfCnpj>%S</CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador></ConsultarNfseRpsEnvio>]]></tem:remessa>
+         <tem:cabecalho><![CDATA[<cabecalho xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.abrasf.org.br/nfse.xsd"><versaoDados>20.01</versaoDados></cabecalho>]]></tem:cabecalho>
+      </tem:mConsultaNFSePorRPS>
+   </soapenv:Body>
+</soapenv:Envelope>

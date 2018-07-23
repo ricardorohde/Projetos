@@ -1,0 +1,91 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+var
+  _ListFields : TStringList;
+  _Motivo, _Xml, _Status: String;
+  _i: Integer;
+
+  function GetMotivo(const aXml: string) : string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService-' + Trim(Input)
+    else
+      XmlSelectNodeValue(aXml, '//*[local-name()="resAnulaNFSe" or local-name()="resCancelaNFSe"]'+
+        '//*[local-name()="mot"]', Result);
+  end;
+
+  function GetDataCancelamento(const aXML: string) : string;
+  begin
+    // está sendo utilizado a data de recebimento da confirmarção do cancelamento
+    XmlSelectNodeValue(aXml, '//*[local-name()="resAnulaNFSe" or local-name()="resCancelaNFSe"]'+
+      '//*[local-name()="dhRecbto"]', Result);
+  end;
+
+  function GetStatus(const aMotivo, aXml: string) : string;
+  var
+    _Sit: string;
+  begin
+    XmlSelectNodeValue(aXml, '//*[local-name()="resAnulaNFSe" or local-name()="resCancelaNFSe"]'+
+      '//*[local-name()="sit"]', _Sit);
+    if (aMotivo <> '') or (Params.Values['faultstring'] <> '') or (_Sit <> '100') then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  _Xml := Params.Values['XmlNFSe'];
+  _Motivo := GetMotivo(_Xml);
+
+  Progress('Adicionando valores aos campos.');
+
+  _ListFields := TStringList.Create;
+  try
+    // Capturar a Ordem dos Campos do Params
+    _ListFields.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to _ListFields.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(_ListFields[_i]), ['Status', 'Motivo', 'DataCancelamento']) then
+        RaiseException('Campo "' + _ListFields[_i] + '" não suportado')
+      else
+        _ListFields[_i] := Trim(_ListFields[_i]);
+    end;
+
+    AddValueListFields('Motivo', _Motivo);
+    _Status := GetStatus(_Motivo, _Xml);
+    AddValueListFields('Status', _Status);
+    if _Status = 'SUCESSO' then
+      AddValueListFields('DataCancelamento', GetDataCancelamento(_Xml))
+    else
+      AddValueListFields('DataCancelamento', '');
+    Output := FormatLineResult;
+  finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

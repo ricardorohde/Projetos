@@ -1,0 +1,51 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml,_XmlListaNFSe : string;
+
+  {$I ..\Comuns\Utils.txt}
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'RetornoConsultaLote.xsd';
+  Datasets.XsdElementName := 'RetornoConsultaLote';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := UnEscapeXml(Input);
+  _Xml := StringReplace(_Xml, ';',  '',  [rfReplaceAll,rfIgnoreCase]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<Descricao></Erro>', '</Descricao></Erro>', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<?xml version="1.0" ?>', '', [rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="RetornoConsultaLote"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="RetornoConsultaLote"]');
+
+  if (Pos('<faultstring',input) > 0) then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('Xml='+_Xml);
+    _XmlListaNFSe := XmlSelect(_Xml,'//*[namespace-uri()="" and local-name()="ListaNFSe"]');
+    Params.Add('XmlNFSe='+_XmlListaNFSe);
+    Progress('XML carregado com sucesso');
+  end;
+end.

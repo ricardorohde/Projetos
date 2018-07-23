@@ -1,0 +1,13 @@
+    <ConsultarLoteRps xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">
+      <ConsultarLoteRpsEnvio xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">
+        <Prestador xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">
+          <Cnpj>%s</Cnpj>
+		  <InscricaoMunicipal>%s</InscricaoMunicipal>
+		</Prestador>
+        <Protocolo xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">%s</Protocolo>		
+	  </ConsultarLoteRpsEnvio>
+      <pParam xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">
+        <P1 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P1>
+		<P2 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P2>
+	  </pParam>
+    </ConsultarLoteRps>	  

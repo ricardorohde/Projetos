@@ -1,0 +1,63 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+  {$I ..\Comuns\Comuns.txt}
+  {$I ..\CONSIST\Utils.txt}
+  {$I ..\CONSIST\RemoverEnvelopeXml.txt}
+
+Var
+  _Xml: string;
+begin
+  if Pos('faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.XsdFile := PathXsd + 'eISS.xsd';
+
+    if Pos('<ns:EmiteNFeResponse',input) > 0 then
+      Datasets.ConfigSection := 'RETORNO_ENVIOSINCRONO'
+    else
+      Datasets.ConfigSection := 'RETORNO_VALIDARNFSE';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    _Xml := RemoveCaracteresInvalidos(Input);
+    _Xml := RemoverEnvelopeXml(_Xml);
+
+    if Pos('<ns:EmiteNFeResponse',input) > 0 then
+    begin
+      if Pos('<EnvioLoteSincrono>', _Xml) > 0 then
+      begin
+        _Xml := XmlDeepNodeSearch(_Xml,'EmiteNFeResponse','//*[local-name()="EmiteNFeResponse"]');
+        Params.Add('XmlNfse=' + _Xml);
+      end
+      else
+        Params.Add('XmlNfse=' + _Xml);
+    end
+    else
+    begin
+      if Pos('<EnvioLoteSincrono>', _Xml) > 0 then
+      begin
+        _Xml := XmlDeepNodeSearch(_Xml,'ValidaNFeResponse','//*[local-name()="ValidaNFeResponse"]');
+        Params.Add('XmlValidaNfse=' + _Xml);
+      end
+      else
+        Params.Add('XmlValidaNfse=' + _Xml);
+    end;
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

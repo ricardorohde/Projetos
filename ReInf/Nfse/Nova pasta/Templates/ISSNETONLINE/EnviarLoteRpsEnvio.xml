@@ -1,0 +1,8 @@
+<EnviarLoteRpsEnvio xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_enviar_lote_rps_envio.xsd" 
+	xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd">
+<LoteRps>
+<tc:NumeroLote>%s</tc:NumeroLote>
+<tc:CpfCnpj><tc:Cnpj>%s</tc:Cnpj></tc:CpfCnpj>
+<tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+<tc:QuantidadeRps>%s</tc:QuantidadeRps>%s</LoteRps>%s
+</EnviarLoteRpsEnvio>

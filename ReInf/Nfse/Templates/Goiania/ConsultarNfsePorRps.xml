@@ -1,0 +1,15 @@
+<ws:ConsultarNfseRps>
+<ws:ArquivoXML><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<ConsultarNfseRpsEnvio xmlns="http://nfse.goiania.go.gov.br/xsd/nfse_gyn_v02.xsd">
+<IdentificacaoRps>
+<Numero>%s</Numero>
+<Serie>%s</Serie>
+<Tipo>%s</Tipo>
+</IdentificacaoRps>
+<Prestador>
+%s
+%s
+</Prestador>
+</ConsultarNfseRpsEnvio>
+]]></ws:ArquivoXML>
+</ws:ConsultarNfseRps>

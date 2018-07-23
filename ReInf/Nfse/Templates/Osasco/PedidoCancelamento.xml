@@ -1,0 +1,7 @@
+<tem:Cancelar>
+   <tem:request>
+      <rgm:ChaveAutenticacao>%s</rgm:ChaveAutenticacao>
+      <rgm:Homologacao>%s</rgm:Homologacao>
+      <rgm:NumeroNota>%s</rgm:NumeroNota>
+   </tem:request>
+</tem:Cancelar>

@@ -1,0 +1,81 @@
+;***************************************************************************************************
+;        ARQUIVO DE MAPEAMENTO PARA O PADRÃO GeisWeb
+;***************************************************************************************************
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (Proxy)
+;***************************************************************************************************
+[ENVIAR]
+XSDElementName=EnviaLoteRPS
+XSDFile=envio_lote_rps.xsd
+XSDStartNode=
+IgnoredXPaths=""
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos comandos para os respectivos datasets (para uso nos arquivos TX2)
+;***************************************************************************************************
+[comandos]
+EnviaLoteRPS.Insert=INCLUIR
+EnviaLoteRPS.Post=SALVAR
+ItensLote.Insert=INCLUIRITENSLOTE
+ItensLote.Post=SALVARITENSLOTE
+
+;***************************************************************************************************
+;Nomes dos Campos: Envio de Lote de RPS (Proxy)
+;***************************************************************************************************
+[EnviaLoteRPS]
+Usuario=EnviaLoteRPS/Usuario
+Senha=EnviaLoteRPS/Senha
+NumeroLote=EnviaLoteRPS/NumeroLote
+NumeroRps=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/NumeroRps
+Serie=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Serie
+Tipo=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tipo
+TipoLcmto=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/TipoLcmto
+CodServ=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/CodServ
+DtEmissao=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/DtEmissao
+Aliquota=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Aliquota
+Valor=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Valor
+BaseCalc=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/BaseCalc
+CnpjCpfTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/CnpjCpfTomador
+TipoTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/TipoTomador
+RazaoTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/RazaoTomador
+EnderecoTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/EnderecoTomador
+BairroTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/BairroTomador
+CidadeTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/CidadeTomador
+EstadoTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/EstadoTomador
+CEPTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/CEPTomador
+TelefoneTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/TelefoneTomador
+EmailTomador=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Tomador/EmailTomador
+Municipio=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Municipio
+DtLanc=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/DtLanc
+Descricao=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/Descricao
+OutrosImp=EnviaLoteRPS/Rps/ConjuntoLotes/ItensLote/OutrosImp
+
+;***************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;***************************************************************************************************
+[PrintXml_DadosNFSe]
+FILE=MappingImpressaoNFSe.txt
+
+;***************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;***************************************************************************************************
+[PrintXml_DadosRPS]
+FILE=MappingImpressaoRPS.txt
+
+;***************************************************************************************************
+;Campos de Configuração da Impressão Nova
+;***************************************************************************************************
+[PrintXml_Config]
+ModoImpressao=String[4]
+DiretorioTemplates=String[255]
+Titulo=String[80]
+BrasaoMunicipio=String[255]
+LogotipoEmitente=String[255]
+ArquivoMunicipios=String[255]
+DebugMode=String[5]
+NomeCidade=String[80]
+NomePadrao=String[80]

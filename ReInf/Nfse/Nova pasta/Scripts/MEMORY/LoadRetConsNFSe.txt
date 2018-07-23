@@ -1,0 +1,25 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+{$I Utils.txt}
+
+Var
+  _Xml, _SituacaoLote, _Situacao: string;
+begin
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    Progress('Carregando XML de Consulta de NFSe');
+    _Xml := UnEscapeXml(Input);
+    _Xml := XmlSelect(_Xml, '//*[local-name()="RespostaConsultaNFSE"]');
+    Params.Add('Xml=' + _Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

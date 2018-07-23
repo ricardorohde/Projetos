@@ -1,0 +1,48 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+  {$I ..\Comuns\Utils.txt}
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'servico_cancelar_nfse_resposta.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := Input;
+
+  if (Pos('&amp;', _Xml) = 0) and (Pos('ListaMensagemRetorno', _Xml) = 0) then
+    _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+
+  _Xml := StringReplace(_Xml, '•','',[rfReplaceAll]);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_resposta.xsd" and local-name()="ConsultarNfseResposta"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_resposta.xsd" and local-name()="ConsultarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_resposta.xsd" and local-name()="ConsultarNfseResposta"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

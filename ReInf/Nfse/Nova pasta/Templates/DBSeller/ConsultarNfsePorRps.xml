@@ -1,0 +1,16 @@
+<ConsultarNfsePorRps>
+<xml><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<ConsultarNfsePorRps>
+	<ConsultarNfseRpsEnvio>
+		<IdentificacaoRps>
+			<Numero>%s</Numero>
+			<Serie>%s</Serie>
+			<Tipo>%s</Tipo>
+		</IdentificacaoRps>
+		<Prestador>
+			<Cnpj>%s</Cnpj>
+			<InscricaoMunicipal>%s</InscricaoMunicipal>
+		</Prestador>
+	</ConsultarNfseRpsEnvio>
+</ConsultarNfsePorRps>]]></xml>
+</ConsultarNfsePorRps>

@@ -1,0 +1,26 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\JoinvilleSC\Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else if Params.Values['XmlVazio'] <> '' then
+    Output :=  GetListFieldsNFSeInexistente(_ListFields)
+  else
+  begin
+    if Pos('<CompNfse/>', Params.Values['XmlNFSe']) > 0 then
+      Params.Values['XmlNFSe'] := StringReplace(Params.Values['XmlNFSe'], '<CompNfse/>', '', [rfReplaceAll]);
+    GetPonteirosDataSets('ConsultarNfseRpsResposta', 'MensagemRetorno', _DSSucesso, _DSFalha);
+    Output :=  GetListFieldsNota( _DSSucesso, _DSFalha, _ListFields,'','XmlNFSe');
+  end;
+end.

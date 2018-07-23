@@ -1,0 +1,9 @@
+{$I ..\Comuns\PopularTecnoNFSeDS.txt}
+
+procedure PrepararTecnoNFSeDatasets;
+begin
+  TecnoNFSeDS.ConfigSection := 'EnviarTecnoNFSe';
+  TecnoNFSeDS.MappingFileName := _PastaTecnoNFSe + 'MappingTecnoNFSe.txt';
+  TecnoNFSeDS.CreateXSDDataset;
+  PopularTecnoNFSeDS;
+end;

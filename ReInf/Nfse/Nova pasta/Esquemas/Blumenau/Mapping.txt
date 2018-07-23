@@ -1,0 +1,109 @@
+;*****************************************************************************************************************************************
+;        ARQUIVO DE MAPEAMENTO PARA SÃO PAULO - SP
+;*****************************************************************************************************************************************
+
+;*****************************************************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (antigo)
+;*****************************************************************************************************************************************
+[XMLENVIO]
+XSDElementName=PedidoEnvioLoteRPS
+XSDFile=PedidoEnvioLoteRPS_v01.xsd
+XSDStartNode=PedidoEnvioLoteRPS
+IgnoredXPaths=PedidoEnvioLoteRPS/Signature
+RootAttributes=
+
+;*****************************************************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (Proxy)
+;*****************************************************************************************************************************************
+[ENVIAR]
+XSDElementName=PedidoEnvioLoteRPS
+XSDFile=PedidoEnvioLoteRPS_v01.xsd
+XSDStartNode=PedidoEnvioLoteRPS
+IgnoredXPaths=PedidoEnvioLoteRPS/Signature
+RootAttributes=
+
+;*****************************************************************************************************************************************
+;Nomes dos comandos para os respectivos datasets (para uso nos arquivos TX2)
+;*****************************************************************************************************************************************
+[comandos]
+PedidoEnvioLoteRPS.Insert=INCLUIR
+PedidoEnvioLoteRPS.Post=SALVAR
+RPS.Insert=INCLUIRRPS
+RPS.Post=SALVARRPS
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Envio de Lote de RPS (Atual)
+;*****************************************************************************************************************************************
+[PedidoEnvioLoteRPS]
+;Dados do Lote
+CPFRemetente=PedidoEnvioLoteRPS/Cabecalho/CPFCNPJRemetente/CPF
+CNPJRemetente=PedidoEnvioLoteRPS/Cabecalho/CPFCNPJRemetente/CNPJ
+transacao=PedidoEnvioLoteRPS/Cabecalho/transacao
+dtInicio=PedidoEnvioLoteRPS/Cabecalho/dtInicio
+dtFim=PedidoEnvioLoteRPS/Cabecalho/dtFim
+QtdRPS=PedidoEnvioLoteRPS/Cabecalho/QtdRPS
+ValorTotalServicos=PedidoEnvioLoteRPS/Cabecalho/ValorTotalServicos
+ValorTotalDeducoes=PedidoEnvioLoteRPS/Cabecalho/ValorTotalDeducoes
+Versao=PedidoEnvioLoteRPS/Cabecalho/@Versao
+
+;Dados dos RPS
+Assinatura=PedidoEnvioLoteRPS/RPS/Assinatura
+InscricaoPrestador=PedidoEnvioLoteRPS/RPS/ChaveRPS/InscricaoPrestador
+SerieRPS=PedidoEnvioLoteRPS/RPS/ChaveRPS/SerieRPS
+NumeroRPS=PedidoEnvioLoteRPS/RPS/ChaveRPS/NumeroRPS
+TipoRPS=PedidoEnvioLoteRPS/RPS/TipoRPS
+DataEmissao=PedidoEnvioLoteRPS/RPS/DataEmissao
+StatusRPS=PedidoEnvioLoteRPS/RPS/StatusRPS
+TributacaoRPS=PedidoEnvioLoteRPS/RPS/TributacaoRPS
+ValorServicos=PedidoEnvioLoteRPS/RPS/ValorServicos
+ValorDeducoes=PedidoEnvioLoteRPS/RPS/ValorDeducoes
+ValorPIS=PedidoEnvioLoteRPS/RPS/ValorPIS
+ValorCOFINS=PedidoEnvioLoteRPS/RPS/ValorCOFINS
+ValorINSS=PedidoEnvioLoteRPS/RPS/ValorINSS
+ValorIR=PedidoEnvioLoteRPS/RPS/ValorIR
+ValorCSLL=PedidoEnvioLoteRPS/RPS/ValorCSLL
+CodigoServico=PedidoEnvioLoteRPS/RPS/CodigoServico
+AliquotaServicos=PedidoEnvioLoteRPS/RPS/AliquotaServicos
+ISSRetido=PedidoEnvioLoteRPS/RPS/ISSRetido
+CPFTomador=PedidoEnvioLoteRPS/RPS/CPFCNPJTomador/CPF
+CNPJTomador=PedidoEnvioLoteRPS/RPS/CPFCNPJTomador/CNPJ
+InscricaoMunicipalTomador=PedidoEnvioLoteRPS/RPS/InscricaoMunicipalTomador
+InscricaoEstadualTomador=PedidoEnvioLoteRPS/RPS/InscricaoEstadualTomador
+RazaoSocialTomador=PedidoEnvioLoteRPS/RPS/RazaoSocialTomador
+TipoLogradouroTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/TipoLogradouro
+LogradouroTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/Logradouro
+NumeroEnderecoTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/NumeroEndereco
+ComplementoEnderecoTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/ComplementoEndereco
+BairroTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/Bairro
+CidadeTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/Cidade
+UFTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/UF
+CEPTomador=PedidoEnvioLoteRPS/RPS/EnderecoTomador/CEP
+EmailTomador=PedidoEnvioLoteRPS/RPS/EmailTomador
+Discriminacao=PedidoEnvioLoteRPS/RPS/Discriminacao
+
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosNFSe]
+FILE=MappingImpressao.txt
+
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+FILE=MappingImpressao.txt
+
+;*****************************************************************************************************************************************
+;Campos de Configuração da Impressão Nova
+;*****************************************************************************************************************************************
+[PrintXml_Config]
+ModoImpressao=String[4]
+DiretorioTemplates=String[255]
+Titulo=String[80]
+BrasaoMunicipio=String[255]
+LogotipoEmitente=String[255]
+ArquivoMunicipios=String[255]
+SecretariaResponsavel=String[255]
+SubtituloNFSe=String[255]
+SubtituloRPS=String[255]
+DebugMode=String[5]

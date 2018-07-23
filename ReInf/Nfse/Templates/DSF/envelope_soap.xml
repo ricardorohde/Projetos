@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsn="%s">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <wsn:%s soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+       <mensagemXml xsi:type="xsd:string">%s</mensagemXml>
+    </wsn:%s>
+  </soapenv:Body>
+</soapenv:Envelope>

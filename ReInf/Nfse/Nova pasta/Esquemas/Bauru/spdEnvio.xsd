@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DescricaoRps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ccm"/>
+        <xs:element ref="cnpj"/>
+        <xs:element ref="senha"/>
+        <xs:element ref="crc"/>
+        <xs:element ref="crc_estado"/>
+        <xs:element ref="aliquota_simples"/>
+        <xs:element ref="id_sis_legado"/>
+        <xs:element ref="servico"/>
+        <xs:element ref="situacao"/>
+        <xs:element ref="valor"/>
+        <xs:element ref="base"/>
+        <xs:element ref="descricaoNF"/>
+        <xs:element ref="tomador_tipo"/>
+        <xs:element ref="tomador_cnpj"/>
+        <xs:element ref="tomador_email"/>
+        <xs:element ref="tomador_ie"/>
+        <xs:element ref="tomador_im"/>
+        <xs:element ref="tomador_razao"/>
+        <xs:element ref="tomador_fantasia"/>
+        <xs:element ref="tomador_endereco"/>
+        <xs:element ref="tomador_numero"/>
+        <xs:element ref="tomador_complemento"/>
+        <xs:element ref="tomador_bairro"/>
+        <xs:element ref="tomador_CEP"/>
+        <xs:element ref="tomador_cod_cidade"/>
+        <xs:element ref="tomador_fone"/>
+        <xs:element ref="tomador_ramal"/>
+        <xs:element ref="tomador_fax"/>
+        <xs:element ref="rps_num"/>
+        <xs:element ref="rps_serie"/>
+        <xs:element ref="rps_dia"/>
+        <xs:element ref="rps_mes"/>
+        <xs:element ref="rps_ano"/>
+        <xs:element ref="outro_municipio"/>
+        <xs:element ref="cod_outro_municipio"/>
+        <xs:element ref="retencao_iss"/>
+        <xs:element ref="pis"/>
+        <xs:element ref="cofins"/>
+        <xs:element ref="inss"/>
+        <xs:element ref="irrf"/>
+        <xs:element ref="csll"/>
+        <xs:element ref="tipo_obra"/>
+		<xs:element ref="tributos"/>
+		<xs:element ref="id_atividade"/>
+        <xs:element ref="dia_emissao"/>
+        <xs:element ref="mes_emissao"/>
+        <xs:element ref="ano_emissao"/>       
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ccm" type="xs:string"/>
+  <xs:element name="cnpj" type="xs:string"/>
+  <xs:element name="senha" type="xs:string"/>
+  <xs:element name="crc" type="xs:string"/>
+  <xs:element name="crc_estado" type="xs:string"/>
+  <xs:element name="aliquota_simples" type="xs:string"/>
+  <xs:element name="id_sis_legado" type="xs:string"/>
+  <xs:element name="servico" type="xs:string"/>
+  <xs:element name="situacao" type="xs:string"/>
+  <xs:element name="valor" type="xs:string"/>
+  <xs:element name="base" type="xs:string"/>
+  <xs:element name="descricaoNF" type="xs:string"/>
+  <xs:element name="tomador_tipo" type="xs:string"/>
+  <xs:element name="tomador_cnpj" type="xs:string"/>
+  <xs:element name="tomador_email" type="xs:string"/>
+  <xs:element name="tomador_ie" type="xs:string"/>
+  <xs:element name="tomador_im" type="xs:string"/>
+  <xs:element name="tomador_razao" type="xs:string"/>
+  <xs:element name="tomador_fantasia" type="xs:string"/>
+  <xs:element name="tomador_endereco" type="xs:string"/>
+  <xs:element name="tomador_numero" type="xs:string"/>
+  <xs:element name="tomador_complemento" type="xs:string"/>
+  <xs:element name="tomador_bairro" type="xs:string"/>
+  <xs:element name="tomador_CEP" type="xs:string"/>
+  <xs:element name="tomador_cod_cidade" type="xs:string"/>
+  <xs:element name="tomador_fone" type="xs:string"/>
+  <xs:element name="tomador_ramal" type="xs:string"/>
+  <xs:element name="tomador_fax" type="xs:string"/>
+  <xs:element name="rps_num" type="xs:string"/>
+  <xs:element name="rps_serie" type="xs:string"/>
+  <xs:element name="rps_dia" type="xs:string"/>
+  <xs:element name="rps_mes" type="xs:string"/>
+  <xs:element name="rps_ano" type="xs:string"/>
+  <xs:element name="outro_municipio" type="xs:string"/>
+  <xs:element name="cod_outro_municipio" type="xs:string"/>
+  <xs:element name="retencao_iss" type="xs:string"/>
+  <xs:element name="pis" type="xs:string"/>
+  <xs:element name="cofins" type="xs:string"/>
+  <xs:element name="inss" type="xs:string"/>
+  <xs:element name="irrf" type="xs:string"/>
+  <xs:element name="csll" type="xs:string"/>
+  <xs:element name="tipo_obra" type="xs:string"/>
+  <xs:element name="tributos" type="xs:string"/>
+  <xs:element name="id_atividade" type="xs:string"/>
+  <xs:element name="dia_emissao" type="xs:string"/>
+  <xs:element name="mes_emissao" type="xs:string"/>
+  <xs:element name="ano_emissao" type="xs:string"/> 
+  
+</xs:schema>

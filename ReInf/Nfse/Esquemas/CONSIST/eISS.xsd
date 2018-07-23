@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax22="http://eISS/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://eISS">
+            <xs:import schemaLocation="retornos.xsd" namespace="http://eISS/xsd"/>
+            <xs:element name="ProcessaRPS">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="dataInicio" type="xs:int"/>
+                        <xs:element name="dataFim" type="xs:int"/>
+                        <xs:element name="versao" type="xs:int"/>
+                        <xs:element minOccurs="1" name="aRPSInfo" type="ax22:eISSWService_RPSInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ProcessaRPSResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoProcessaRPS"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CancelaNFe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="numNota" type="xs:int"/>
+                        <xs:element minOccurs="0" name="motivo" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="CancelaNFeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoCancelaNFe"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaNFeCancelada">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="numNota" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaNFeCanceladaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoConsultaNFeCancelada"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaNFe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="numNota" type="xs:int"/>
+                        <xs:element name="numRPS" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaNFeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoConsultaNFe"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaEmpresa">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="InsMunicipalEmpresa" type="xs:int"/>
+                        <xs:element name="cnpjcpfEmpresa" type="xs:long"/>
+                        <xs:element minOccurs="0" name="empresaFora" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ConsultaEmpresaResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoConsultaEmpresa"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ProcessaRPSSerie">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="dataInicio" type="xs:int"/>
+                        <xs:element name="dataFim" type="xs:int"/>
+                        <xs:element name="versao" type="xs:int"/>
+                        <xs:element minOccurs="1" name="aRPSInfo" type="ax22:eISSWService_RPSInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ProcessaRPSSerieResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoProcessaRPSSerie"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaRPS">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="dataInicio" type="xs:int"/>
+                        <xs:element name="dataFim" type="xs:int"/>
+                        <xs:element name="versao" type="xs:int"/>
+                        <xs:element minOccurs="1" name="aRPSInfo" nillable="true" type="ax22:eISSWService_RPSInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaRPSResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoValidaRPS"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaRPSSerie">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element name="dataInicio" type="xs:int"/>
+                        <xs:element name="dataFim" type="xs:int"/>
+                        <xs:element name="versao" type="xs:int"/>
+                        <xs:element minOccurs="1" name="aRPSInfo" nillable="true" type="ax22:eISSWService_RPSInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaRPSSerieResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoValidaRPSSerie"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EmiteNFe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="1" name="aNFeInfo" type="ax22:eISSWService_NFeInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="EmiteNFeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoEmiteNFe"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaNFe">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="InsMunicipal" type="xs:int"/>
+                        <xs:element minOccurs="0" name="senha" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="1" name="aNFeInfo" type="ax22:eISSWService_NFeInfo"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="ValidaNFeResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="ax22:eISSWService_RetornoValidaNFe"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>

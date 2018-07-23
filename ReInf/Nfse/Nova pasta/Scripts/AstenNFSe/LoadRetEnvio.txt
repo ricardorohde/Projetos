@@ -1,0 +1,73 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\AstenNFSe\Utils.txt}
+
+  
+  function SubstituirNFSe(const _Xml: String) : Boolean;
+  Var
+    _Value: string;
+  begin
+    if (xmlSelectNodeValue(_Xml, '//*[local-name()="SubstituirNfseResposta"]', _Value)) then
+      Result := true;
+  end;
+
+Var
+  _Xml: string;
+
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.XsdFile := PathXsd + 'nfse v2 02.xsd';
+
+    Datasets.ConfigSection := 'RETORNO_ENVIOSINCRONO';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    _Xml := UnEscapeXml(Input);
+    _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="utf-8"?>', '', [rfReplaceAll]);
+
+    if SubstituirNFSe(_Xml) then
+    begin
+      if pos('ListaMensagemRetorno', _xml) > 0 then
+      begin
+        _Xml := XmlSelect(_Xml, '//*[local-name()="SubstituirNfseResposta"]');
+        _xml := StringReplace(_Xml, 'SubstituirNfseResposta', 'EnviarLoteRpsSincronoResposta', [rfReplaceAll]);
+      end
+      else
+      begin
+        _Xml := XmlSelect(_Xml, '//*[local-name()="NfseSubstituidora"]/*[local-name()="CompNfse"]');
+        _Xml := '<EnviarLoteRpsSincronoResposta><ListaNfse>' + _Xml + '</ListaNfse></EnviarLoteRpsSincronoResposta>';
+      end;
+
+      Params.Add('EnvioSincrono=true');
+      Params.Add('XmlNfse=' + _Xml);
+    end
+    else
+    begin
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName,
+        '//*[local-name()="EnviarLoteRpsSincronoResposta"]');
+
+      Params.Add('EnvioSincrono=true');
+      Params.Add('XmlNfse=' + _Xml);
+    end;
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

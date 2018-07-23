@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.nfse">
+<soapenv:Header/>
+<soapenv:Body>%s
+</soapenv:Body>
+</soapenv:Envelope>

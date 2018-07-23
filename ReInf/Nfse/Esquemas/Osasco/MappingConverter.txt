@@ -1,0 +1,38 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=EnviarLoteRpsResposta
+XSDFile=spdXsdOsasco.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[EnviarLoteRpsResposta]
+NumeroProtocolo=EnviarLoteRpsResposta/Protocolo
+MotivoCodigo=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Correcao
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=CancelarNfseResposta
+XSDFile=spdXsdOsasco.xsd
+XSDStartNode=
+IgnoredXPaths=CancelarNfseResposta/Cancelamento/Confirmacao/InfConfirmacaoCancelamento/ListaMensagemRetorno/MensagemRetorno;CancelarNfseResposta/Cancelamento/Confirmacao/Pedido/Signature;CancelarNfseResposta/Cancelamento/Signature
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Retorno de Cancelamento
+;***************************************************************************************************
+[CancelarNfseResposta]
+DataCancelamento=CancelarNfseResposta/Cancelamento/Confirmacao/DataHoraCancelamento
+MotivoCodigo=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Correcao

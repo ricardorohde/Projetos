@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\WEBISS20\Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else if Params.Values['XmlVazio'] <> '' then
+    Output :=  GetListFieldsNFSeInexistente(_ListFields)
+  else
+  begin
+    GetPonteirosDataSets('CompNfse', 'MensagemRetorno', _DSSucesso, _DSFalha);
+    Output :=  GetListFieldsNota( _DSSucesso, _DSFalha, _ListFields,'','XmlNFSe');
+  end;
+end.

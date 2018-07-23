@@ -1,0 +1,36 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml, _XmlNfse : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+
+  Datasets.CreateXSDDataset;
+
+  _XmlNfse := XmlDeepNodeSearch(input, 'ConsultarNfsePorRpsResult', '//*[local-name()="ConsultarNfsePorRpsResult"]');
+
+  _Xml := _XmlNfse;
+
+  _Xml := StringReplace(_Xml, 'ConsultarNfsePorRpsResult','ConsultarNfseRpsResposta',[rfReplaceAll, rfIgnoreCase]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlNFSe='+_XmlNfse);
+    Progress('XML carregado com Sucesso.');
+  end;
+end.

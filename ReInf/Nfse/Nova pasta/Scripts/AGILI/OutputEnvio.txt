@@ -1,0 +1,28 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+  function RealizarDelimitacaoLoteRps(const aOutput: string): string;
+  var
+    _DelimitadorRPS : string;
+  begin
+    Result := aOutput;
+    _DelimitadorRPS := Params.Values['DelimitadorRPS'];
+    if _DelimitadorRPS <> '' then
+    begin
+      Result := StringReplace(Result, '<GerarNfseEnvio xmlns="http://www.agili.com.br/nfse_v_1.00.xsd">', _DelimitadorRPS + '<GerarNfseEnvio xmlns="http://www.agili.com.br/nfse_v_1.00.xsd">', [rfReplaceAll]);
+      Result := StringReplace(Result, '</GerarNfseEnvio>', '</GerarNfseEnvio>' + _DelimitadorRPS, [rfReplaceAll]);
+    end;
+  end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Trim(Datasets.AsXML);
+  Output := RealizarDelimitacaoLoteRps(Output);
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_AGILI);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

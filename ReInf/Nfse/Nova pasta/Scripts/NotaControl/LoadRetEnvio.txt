@@ -1,0 +1,20 @@
+{
+  Variáveis externas disponíveis: 
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin  
+  Progress('Carregando XML de Retorno de Envio');
+  _Xml := XmlDeepNodeSearch(Input, 'nfd', '//*[local-name()="nfd"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XML='+_XML);
+    Progress('XML carregado com sucesso');
+  end;
+end.

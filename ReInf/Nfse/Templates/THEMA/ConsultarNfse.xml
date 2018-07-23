@@ -1,0 +1,7 @@
+<consultarNfse xmlns="http://server.nfse.thema.inf.br">
+<xml><![CDATA[<ConsultarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+<Prestador>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>%s%s%s%s</ConsultarNfseEnvio>]]></xml>
+</consultarNfse>

@@ -1,0 +1,29 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Datasets.CreateXSDDataset;
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := XmlDeepNodeSearch(Input, 'RecepcionarLoteRpsResult', '//*[local-name()="RecepcionarLoteRpsResult"]');
+    //result := StringReplace(result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    _Xml := StringReplace(_Xml,'RecepcionarLoteRpsResult','EnviarLoteRpsResposta',[rfReplaceAll,rfIgnoreCase]);
+    Datasets.LoadFromXMLContent(_Xml);
+  end;
+end.

@@ -1,0 +1,10 @@
+<ConsultarNfseRpsEnvio xmlns="http://nfewshomologacao.joinville.sc.gov.br">
+	<IdentificacaoRps>
+		<Numero>%s</Numero>
+		<Serie>%s</Serie>
+		<Tipo>%s</Tipo>
+	</IdentificacaoRps>
+	<Prestador>
+		<CpfCnpj>%s</CpfCnpj>
+	</Prestador>
+</ConsultarNfseRpsEnvio>

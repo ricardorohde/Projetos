@@ -1,0 +1,5 @@
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfse="http://nfeleopoldina.portalfacil.com.br/homologacao/webservice/nfse.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<S:Body>
+%s
+</S:Body>
+</S:Envelope>

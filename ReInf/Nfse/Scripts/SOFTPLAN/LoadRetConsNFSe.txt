@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+
+Var
+  _Xml: string;
+begin
+  if Pos('faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Params.Add('XmlNFSe='+Input);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

@@ -1,0 +1,74 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+
+{$I ..\Abrasf2.2\RemoverEnvelopeSincronoXml.txt}
+
+  function EnvioSincrono : Boolean;
+  Var
+    _Value: string;
+  begin
+    if (xmlSelectNodeValue(Input, '//*[local-name()="GerarNfseResponse"]', _Value)) or
+      (Pos('ws:GerarNfseResponse',input) > 0) or (Pos('EnvioLoteSincrono', Input) > 0) then
+      Result := true;
+  end;
+
+  function GetConfigSection : string;
+  begin
+    if EnvioSincrono then
+      Result := 'RETORNO_ENVIOSINCRONO'
+    else
+      Result := 'RETORNO_ENVIAR';
+  end;
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+
+    Datasets.XsdFile := PathXsd + 'nfse v2 02.xsd';
+    Datasets.ConfigSection := GetConfigSection;
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    if EnvioSincrono then
+    begin
+      _Xml := StringReplace(Input, '&amp;lt;', '<', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&lt;', '<', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&gt;', '>', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&quot;', '"', [rfReplaceAll]);
+      _Xml := RemoverEnvelopeSincronoXml(_Xml);
+      // Corrigindo problema com quebra de linha no final do xml de retorno do envio síncrono.
+      _Xml := StringReplace(_Xml, '&lt;/nfse:GerarNfseResposta&gt;<!--CRLF-->',
+        '&lt;/nfse:GerarNfseResposta&gt;', []);
+
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName,
+        '//*[local-name()="GerarNfseResposta"]');
+
+      Params.Add('EnvioSincrono=true');
+      Params.Add('XmlNfse=' + _Xml);
+    end
+    else
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+        '//*[local-name()="EnviarLoteRpsResposta"]');
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

@@ -1,0 +1,11 @@
+ <abr:ACONSULTARLOTERPS.Execute><abr:Entrada>
+    &lt;ConsultarLoteRpsEnvio xmlns=&quot;http://www.abrasf.org.br/nfse.xsd&quot;&gt;
+	  &lt;Prestador&gt;
+		&lt;CpfCnpj&gt;
+			&lt;Cnpj&gt;%s&lt;/Cnpj&gt;
+		&lt;/CpfCnpj&gt;
+		&lt;InscricaoMunicipal&gt;%s&lt;/InscricaoMunicipal&gt;
+	  &lt;/Prestador&gt;
+	  &lt;Protocolo&gt;%s&lt;/Protocolo&gt;
+    &lt;/ConsultarLoteRpsEnvio&gt;
+   </abr:Entrada></abr:ACONSULTARLOTERPS.Execute>

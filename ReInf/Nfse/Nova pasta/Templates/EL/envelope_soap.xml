@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:el="http://des36.el.com.br:8080/el-issonline/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      %s
+   </soapenv:Body>
+</soapenv:Envelope>

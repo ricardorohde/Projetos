@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfe="http://nfe.sjp.pr.gov.br">
+<soapenv:Header/>
+<soapenv:Body>
+%s
+</soapenv:Body>
+</soapenv:Envelope>

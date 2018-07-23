@@ -1,0 +1,85 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha, _NFSE,_DSFalhaLote,_DSAlerta, _DSFalhaDefault : TSpdXSDClientDataSet;
+  _ListFields, _ListDsNamesFalha : TStringList;
+
+  function EnvioSincrono : Boolean;
+  begin
+    Result := Params.Values['EnvioSincrono'] = 'true';
+  end;
+
+  function GetNumeroProtocolo : string;
+  begin
+    if (GetMotivo(_DSFalha) = '') then
+      Result := _DSSucesso.FieldByName('Protocolo').AsString
+    else
+      Result := '';
+  end;
+
+  function GetStatusEnvio : string;
+  begin
+    if (GetMotivo(_DSFalha) <> '') then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Adicionando valores aos campos.');
+    if EnvioSincrono then
+    begin
+      _ListDsNamesFalha := TStringList.create;
+      try
+        _ListDsNamesFalha.add('EnviarLoteRpsSincronoResposta/ListaMensagemRetorno/MensagemRetorno');
+        _ListDsNamesFalha.add('EnviarLoteRpsSincronoResposta/ListaMensagemRetornoLote/MensagemRetorno');
+        _ListDsNamesFalha.add('EnviarLoteRpsSincronoResposta/ListaNfse/ListaMensagemAlertaRetorno/MensagemRetorno');
+
+        GetPonteirosDataSetsXpath('CompNfse',_ListDsNamesFalha,_NFSE,_DSFalha,_DSFalhaLote,_DSAlerta);
+
+        //Verifica se o conteúdo não é um Alerta ou Lista de erros.
+        if _DSAlerta.FieldByName('codigo').AsString <> '' then
+          _DSFalhaDefault := _DSAlerta
+        else if _DSFalhaLote.FieldByName('codigo').AsString <> '' then
+          _DSFalhaDefault := _DSFalhaLote
+        else
+        begin
+          _DSFalhaDefault := _DSFalha;
+        end;
+
+        Output :=  GetListFieldsNota( _NFSE, _DSFalhaDefault, _ListFields, '', 'XmlNfse');
+
+      Finally
+        _ListDsNamesFalha.Free;
+      end;
+    end
+    else
+    begin
+      GetPonteirosDataSets('EnviarLoteRpsResposta', 'MensagemRetorno', _DSSucesso, _DSFalha);
+      _ListFields := CreateFieldsResponseEnvioAssincrono;
+      if _ListFields <> nil then
+      Try
+        Progress('Adicionando valores aos campos.');
+        AddValueListFields('Motivo', GetMotivo(_DSFalha), _ListFields);
+        AddValueListFields('Status', GetStatusEnvio, _ListFields);
+        AddValueListFields('NumeroProtocolo', GetNumeroProtocolo, _ListFields);
+        Output := FormatLineResult(_ListFields);
+      Finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

@@ -1,0 +1,11 @@
+  function RemoverEnvelopeXml(const aXml: string): string;
+  var
+    _EnvelopeInicio, _EnvelopeFim, _EnvelopeLog: string;
+  begin
+    _EnvelopeInicio := '<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"><soapenv:Body>';
+    _EnvelopeLog := '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Body>';
+    _EnvelopeFim := '</soapenv:Body></soapenv:Envelope>';
+    Result := StringReplace(aXml, _EnvelopeInicio, '', []);
+    Result := StringReplace(Result, _EnvelopeLog, '', []);
+    Result := StringReplace(Result, _EnvelopeFim, '', []);
+  end;

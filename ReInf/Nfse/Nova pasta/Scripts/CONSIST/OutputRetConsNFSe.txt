@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\Comuns.TXT}
+{$I ..\CONSIST\Utils.txt}
+
+Var
+  _DSSucessoFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+    GetPonteiroDataSetSucessoFalha('ConsultaNFeResponse', _DSSucessoFalha);
+    Output :=  GetListFieldsConsultaNota( _DSSucessoFalha, _ListFields, '', 'XmlNfse');
+  end;
+end.

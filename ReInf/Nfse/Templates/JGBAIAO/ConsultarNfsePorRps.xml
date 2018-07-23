@@ -1,0 +1,2 @@
+<nfse:ConsultarNfsePorRpsRequest><nfseCabecMsg><![CDATA[<login><usuario>%s</usuario><senha>%s</senha></login>]]></nfseCabecMsg><nfseDadosMsg><![CDATA[<ConsultarNfseRpsEnvio xmlns="http://www.abrasf.org.br/nfse.xsd"><IdentificacaoRps><Numero>%s</Numero><Serie>%s</Serie><Tipo>%s</Tipo></IdentificacaoRps><Prestador><CpfCnpj>%s</CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador></ConsultarNfseRpsEnvio>]]></nfseDadosMsg></nfse:ConsultarNfsePorRpsRequest>
+

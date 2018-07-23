@@ -1,0 +1,13 @@
+<ws:consultarNfseServicoPrestado>
+<nfse:ConsultarNfseServicoPrestadoEnvio>
+%s
+%s
+%s
+%s
+%s
+%s
+<nfse:Pagina>%s</nfse:Pagina>
+</nfse:ConsultarNfseServicoPrestadoEnvio>
+<username>%s</username>
+<password>%s</password>
+</ws:consultarNfseServicoPrestado>

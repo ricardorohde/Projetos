@@ -1,0 +1,38 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  if Pos('&amp;', Input) = 0 then
+    _Xml := StringReplace(Input, '&',  '&amp;',  [rfReplaceAll])
+  else
+    _Xml := Input;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/nfse.xsd" and local-name()="ConsultarNfseResposta"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+_Xml)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://www.abrasf.org.br/nfse.xsd" and local-name()="CompNfse"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+
+end.

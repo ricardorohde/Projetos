@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sim="http://www.simplestec.com.br/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sim:ImportarWebRPSXml>
+         <sim:cnpj>%s</sim:cnpj>
+         <sim:senha>%s</sim:senha>
+         <sim:conteudoDoArquivo>
+            <sim:string>%s</sim:string>
+         </sim:conteudoDoArquivo>
+      </sim:ImportarWebRPSXml>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,93 @@
+  function UnEscapeXml(const aXML: string): string;
+  begin
+    // "Desescapar" o XML
+    Result:= aXML;
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;',   '&',  [rfReplaceAll]);
+    Result:= StringReplace(Result, ';',  '\delimiter',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt\delimiter', '&gt;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt\delimiter', '&lt;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp\delimiter', '&amp;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot\delimiter', '&quot;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos\delimiter', '&apos;',  [rfReplaceAll]);
+    // Eliminar os Enters
+    Result := StringReplace(Result, #10, '', [rfReplaceAll]); // CR
+    Result := StringReplace(Result, #13, '', [rfReplaceAll]); // LF
+  end;
+
+  Function GetValueTag(aTag, aTxt: String): String;
+  Var
+    _PINI, _PFIN: integer;
+  begin
+    _PINI := Pos('<' + aTag + '>', aTxt) + (Length(aTag) + 2);
+    _PFIN := Pos('</' + aTag + '>', aTxt);
+    Result := Copy(aTxt, _PINI, _PFIN - _PINI);
+  end;
+
+  function VerificaVazioOuZero(const aValor : string): boolean;
+  begin
+    if (aValor = '0.00') or (aValor = '0,00') or (aValor = '0') then
+      Result := True
+    else
+      Result := False;
+  end;
+
+  //Depois da correção de trocar o & por &amp;, é necessário voltar os caracteres próprios do XML.
+  function CorrigeXml(const aXML: string): string;
+  begin
+    Result := aXML;
+    Result:= StringReplace(Result, '&amp;apos;', '&apos;', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;quot;', '&quot;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;#39', '&#39',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;', '&lt;',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;gt;', '&gt;',  [rfReplaceAll]);
+    //WebIss retorna a quebra de linha da forma abaixo.
+    Result:= StringReplace(Result, '&amp;#xD;', '&#xD;',  [rfReplaceAll]);
+  end;
+
+  function RemoverZerosEsquerda(const Value: string): string;
+  var
+    i: Integer;
+  begin
+    for i := 1 to Length(Value) do
+      if Value[i]<>'0' then
+      begin
+        Result := Copy(Value, i, MaxInt);
+        exit;
+      end;
+    Result := '';
+  end;
+
+  function AdicionarZerosEsquerda(aString: string; aTamanhoDoCampo: integer): string;
+  var
+    i, vTam: integer;
+    vAux: string;
+  begin
+    vAux := aString;
+    vTam := length( aString );
+    aString := '';
+    for i := 1 to aTamanhoDoCampo - vTam do
+      aString := '0' + aString;
+    vAux := aString + vAux;
+    result := vAux;
+  end;
+
+  function FormataCurrency(const aCampo: string): string;
+  var _Valor: Currency;
+  begin
+    _Valor := 0;
+
+    try
+      _Valor := AnyCurrencyToCurrency(aCampo);
+    except
+      RaiseException('Valor inválido para o campo: ' + aCampo);
+    end;
+
+    if ((_Valor <> 0) and (_Valor <> 0.00)) then
+      Result := CurrencyToXsdCurrency(_Valor);
+  end;
+

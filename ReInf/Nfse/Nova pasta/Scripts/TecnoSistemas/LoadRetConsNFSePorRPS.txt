@@ -1,0 +1,31 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'ConsultarNfseRpsResposta.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Consulta de NFse por RPS');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := StringReplace(Input, '<?xml version="1.0" encoding="utf-8"?>', '', [rfReplaceAll]);
+    _Xml := XmlSelect(_Xml, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+
+end.

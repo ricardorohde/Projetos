@@ -1,0 +1,53 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _Sucesso, _Datahora, _aux: string;
+  _DSFalha: TSpdXSDClientDataSet;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+  //erro que acontece quando o webservice tem quebra de esquema
+    if Pos('<ii:Fault', Input) > 0 then
+    begin
+      _DSFalha := Datasets.GetDataSetByName('MensagemRetorno');
+      _DSFalha.Insert;
+      XmlSelectNodeValue(Input, '//*[local-name()="Code"]', _aux);
+      _DSFalha.FieldByName('MotivoCodigo').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Reason"]', _aux);
+      _DSFalha.FieldByName('MotivoMensagem').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Detail"]', _aux);
+      _DSFalha.FieldByName('MotivoCorrecao').AsString := _aux;
+      _DSFalha.Post;
+      Params.Add('Sucesso=0');
+    end
+    else
+    begin
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="CancelarNfseResposta"]');
+      Datasets.LoadFromXMLContent(_Xml);
+      { Retorno do cancelamento não segue totalmente o schema XML (ao invés de uma tag "DataHoraCancelamento", retorna uma tag "Datahora".
+        Sendo assim, esse campo será obtido via XPath. }
+      XmlSelectNodeValue(_Xml, '//*[local-name()="InfConfirmacaoCancelamento"]/*[local-name()="Datahora" or local-name()="DataHora"]', _Datahora);
+      Params.Add('Datahora=' + _Datahora);
+      XmlSelectNodeValue(_Xml, '//*[local-name()="InfConfirmacaoCancelamento"]/*[local-name()="Sucesso"]', _Sucesso);
+      Params.Add('Sucesso=' + _Sucesso);
+      Progress('XML carregado com sucesso.');
+    end;
+  end;
+end.

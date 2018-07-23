@@ -1,0 +1,10 @@
+C:\edson\Projetos\conectarbase\conectarbase\bin\Debug\conectarbase.exe.config
+C:\edson\Projetos\conectarbase\conectarbase\bin\Debug\conectarbase.exe
+C:\edson\Projetos\conectarbase\conectarbase\bin\Debug\conectarbase.pdb
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\conectarbase.Form1.resources
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\conectarbase.Properties.Resources.resources
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\conectarbase.exe
+C:\edson\Projetos\conectarbase\conectarbase\obj\x86\Debug\conectarbase.pdb

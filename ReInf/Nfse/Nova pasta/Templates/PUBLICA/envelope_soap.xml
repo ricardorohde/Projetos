@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://service.nfse.integracao.ws.publica/">
+<soapenv:Header/>
+<soapenv:Body>
+%s
+</soapenv:Body>
+</soapenv:Envelope>

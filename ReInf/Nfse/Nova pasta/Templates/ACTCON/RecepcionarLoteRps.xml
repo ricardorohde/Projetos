@@ -1,0 +1,1 @@
+<nfse:RecepcionarLoteRpsSincronoRequest><nfseCabecMsg><![CDATA[<cabecalho versao="1.00" xmlns="%s"><versaoDados>2.00</versaoDados></cabecalho>]]></nfseCabecMsg><nfseDadosMsg><![CDATA[%s]]></nfseDadosMsg></nfse:RecepcionarLoteRpsSincronoRequest>

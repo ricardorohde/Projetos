@@ -1,0 +1,6 @@
+<el:CancelarNfseMotivoEnvio>
+	<identificacaoPrestador>%s</identificacaoPrestador>
+	<senha>%s</senha>
+	<numeroNfse>%s</numeroNfse>
+	<motivoCancelamento>%s</motivoCancelamento>
+</el:CancelarNfseMotivoEnvio>

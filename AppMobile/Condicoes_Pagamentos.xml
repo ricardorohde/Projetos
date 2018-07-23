@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<DocumentElement>
+  <Condicoes_Pagamentos>
+    <codigo>1</codigo>
+    <descricao>Cond1</descricao>
+  </Condicoes_Pagamentos>
+  <Condicoes_Pagamentos>
+    <codigo>2</codigo>
+    <descricao>Cond2</descricao>
+  </Condicoes_Pagamentos>
+</DocumentElement>

@@ -1,0 +1,21 @@
+  const
+    MSG_ENVIOLOTE = 'Envio em lote não suportado para este município.';
+
+  procedure VerificaLoteTx2Municipio(const aTx2: TstringList; aComandoInclusaoRPS: String);
+  var
+    i, y: integer;
+  begin
+    for i := 0 to aTx2.Count-1 do
+    begin
+      if SameText(Trim(aTx2[i]), aComandoInclusaoRPS) then
+        Inc(y);
+      if y > 1 then
+        RaiseException(MSG_ENVIOLOTE);
+    end;
+  end;
+
+  procedure VerificaLoteTecnoNFSe(const aDsTecnoAtual: TSpdXSDClientDataSet);
+  begin
+    if aDsTecnoAtual.RecordCount > 1 then
+      RaiseException(MSG_ENVIOLOTE);
+  end;

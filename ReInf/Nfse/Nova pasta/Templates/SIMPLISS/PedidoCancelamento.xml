@@ -1,0 +1,11 @@
+	<Pedido xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">               
+	   <InfPedidoCancelamento xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd" id="%s">                  
+		  <IdentificacaoNfse>                     
+			 <Numero>%s</Numero>                     
+			 <Cnpj>%s</Cnpj>                     
+			 <InscricaoMunicipal>%s</InscricaoMunicipal>
+			 <CodigoMunicipio>%s</CodigoMunicipio>
+		  </IdentificacaoNfse>                  
+		  <CodigoCancelamento>%s</CodigoCancelamento>
+	   </InfPedidoCancelamento>          
+	</Pedido>

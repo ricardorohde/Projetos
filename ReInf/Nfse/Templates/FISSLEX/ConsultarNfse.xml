@@ -1,0 +1,8 @@
+<fiss:WS_ConsultaNfse.Execute>
+  <fiss:Consultarnfseenvio>
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>%s%s%s%s         
+  </fiss:Consultarnfseenvio>
+</fiss:WS_ConsultaNfse.Execute>

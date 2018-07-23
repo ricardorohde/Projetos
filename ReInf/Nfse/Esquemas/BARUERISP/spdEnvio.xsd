@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Xml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Cabecalho"/>
+        <xs:element ref="Registro"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cabecalho">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TipoRegistro1"/>
+        <xs:element ref="inscricaoContribuinte"/>
+        <xs:element ref="Versao"/>
+        <xs:element ref="IdRemessaContruibuinte"/>
+        <xs:element ref="FimLinha1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoRegistro1"/>
+  <xs:element name="inscricaoContribuinte"/>
+  <xs:element name="Versao"/>
+  <xs:element name="IdRemessaContruibuinte"/>
+  <xs:element name="FimLinha1"/>
+  <xs:element name="Registro">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="rps"/>
+        <xs:element maxOccurs="unbounded" ref="Rodape"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="rps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TipoRegistro2"/>
+        <xs:element ref="TipoRPS"/>
+        <xs:element ref="SerieRps"/>
+        <xs:element ref="SerieNFe"/>
+        <xs:element ref="NumeroRPS"/>
+        <xs:element ref="DataRps"/>
+        <xs:element ref="HoraRps"/>
+        <xs:element ref="SituacaoRps"/>
+        <xs:element ref="CodigoMotivoCancelamento"/>
+        <xs:element ref="NumNFeCanceladaSubstituida"/>
+        <xs:element ref="SerieNFeCanceladaSubstituida"/>
+        <xs:element ref="DtEmisNFeCanceladaSubstituida"/>
+        <xs:element ref="DescricaoCancelamento"/>
+        <xs:element ref="CodigoServicoPrestador"/>
+        <xs:element ref="LocalPrestacaoServico"/>
+        <xs:element ref="ServicoPrestadoViasPublicas"/>
+        <xs:element ref="EnderecoServicoPrestado"/>
+        <xs:element ref="NumeroEnderecoServicoPresado"/>
+        <xs:element ref="ComplemEnderecoServicoPrestado"/>
+        <xs:element ref="BairroServicoPrestado"/>
+        <xs:element ref="CidadeServicoPrestado"/>
+        <xs:element ref="UfCidadeServicoPrestado"/>
+        <xs:element ref="CepLogradouroServicoPrestado"/>
+        <xs:element ref="QuantidadeServico"/>
+        <xs:element ref="ValorServico"/>
+        <xs:element ref="Reservado"/>
+        <xs:element ref="ValorTotalRetencoes"/>
+        <xs:element ref="TomadorEstrangeiro"/>
+        <xs:element ref="PaisNacionaTomadorEstrangeiro"/>
+        <xs:element ref="ServicoPrestadoExportacao"/>
+        <xs:element ref="IndicadorCPFCNPJTomador"/>
+        <xs:element ref="CPFCNPJTomador"/>
+        <xs:element ref="RazaoSocialTomador"/>
+        <xs:element ref="EnderecoLogradouroTomador"/>
+        <xs:element ref="NumeroLogradouroTomador"/>
+        <xs:element ref="ComplemLogradouroTomador"/>
+        <xs:element ref="BairroLogradouroTomador"/>
+        <xs:element ref="CidadeLogradouroTomador"/>
+        <xs:element ref="UfLogradouroTomador"/>
+        <xs:element ref="CepLogradouroTomador"/>
+        <xs:element ref="EmailTomador"/>
+        <xs:element ref="Fatura"/>
+        <xs:element ref="ValorFatura"/>
+        <xs:element ref="FormaPagamento"/>
+        <xs:element ref="DiscriminacaoServico"/>
+        <xs:element ref="FimLinha2"/>
+        <xs:element ref="TipoRegistro3"/>
+        <xs:element ref="ValorIRRF"/>
+        <xs:element ref="ValorPisPasep"/>
+        <xs:element ref="ValorCofins"/>
+        <xs:element ref="ValorCSLL"/>
+        <xs:element ref="ValorVN"/>
+        <xs:element ref="Valor"/>
+        <xs:element ref="FimLinha3"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoRegistro2"/>
+  <xs:element name="TipoRPS"/>
+  <xs:element name="SerieRps"/>
+  <xs:element name="SerieNFe"/>
+  <xs:element name="NumeroRPS"/>
+  <xs:element name="DataRps"/>
+  <xs:element name="HoraRps"/>
+  <xs:element name="SituacaoRps"/>
+  <xs:element name="CodigoMotivoCancelamento"/>
+  <xs:element name="NumNFeCanceladaSubstituida"/>
+  <xs:element name="SerieNFeCanceladaSubstituida"/>
+  <xs:element name="DtEmisNFeCanceladaSubstituida"/>
+  <xs:element name="DescricaoCancelamento"/>
+  <xs:element name="CodigoServicoPrestador"/>
+  <xs:element name="LocalPrestacaoServico"/>
+  <xs:element name="ServicoPrestadoViasPublicas"/>
+  <xs:element name="EnderecoServicoPrestado"/>
+  <xs:element name="NumeroEnderecoServicoPresado"/>
+  <xs:element name="ComplemEnderecoServicoPrestado"/>
+  <xs:element name="BairroServicoPrestado"/>
+  <xs:element name="CidadeServicoPrestado"/>
+  <xs:element name="UfCidadeServicoPrestado"/>
+  <xs:element name="CepLogradouroServicoPrestado"/>
+  <xs:element name="QuantidadeServico"/>
+  <xs:element name="ValorServico"/>
+  <xs:element name="Reservado"/>
+  <xs:element name="ValorTotalRetencoes"/>
+  <xs:element name="TomadorEstrangeiro"/>
+  <xs:element name="PaisNacionaTomadorEstrangeiro"/>
+  <xs:element name="ServicoPrestadoExportacao"/>
+  <xs:element name="IndicadorCPFCNPJTomador"/>
+  <xs:element name="CPFCNPJTomador"/>
+  <xs:element name="RazaoSocialTomador"/>
+  <xs:element name="EnderecoLogradouroTomador"/>
+  <xs:element name="NumeroLogradouroTomador"/>
+  <xs:element name="ComplemLogradouroTomador"/>
+  <xs:element name="BairroLogradouroTomador"/>
+  <xs:element name="CidadeLogradouroTomador"/>
+  <xs:element name="UfLogradouroTomador"/>
+  <xs:element name="CepLogradouroTomador"/>
+  <xs:element name="EmailTomador"/>
+  <xs:element name="Fatura"/>
+  <xs:element name="ValorFatura"/>
+  <xs:element name="FormaPagamento"/>
+  <xs:element name="DiscriminacaoServico"/>
+  <xs:element name="FimLinha2"/>
+  <xs:element name="TipoRegistro3"/>
+  <xs:element name="ValorIRRF"/>
+  <xs:element name="ValorPisPasep"/>
+  <xs:element name="ValorCofins"/>
+  <xs:element name="ValorCSLL"/>
+  <xs:element name="ValorVN"/>
+  <xs:element name="Valor"/>
+  <xs:element name="FimLinha3"/>
+  <xs:element name="Rodape">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TipoRegistro9"/>
+        <xs:element ref="NumeroTotalLinhasArquivo"/>
+        <xs:element ref="ValorTotalServicosArquivo"/>
+        <xs:element ref="ValorTotalValoresRegistro"/>
+        <xs:element ref="FimLinha9"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoRegistro9"/>
+  <xs:element name="NumeroTotalLinhasArquivo"/>
+  <xs:element name="ValorTotalServicosArquivo"/>
+  <xs:element name="ValorTotalValoresRegistro"/>
+  <xs:element name="FimLinha9"/>
+</xs:schema>

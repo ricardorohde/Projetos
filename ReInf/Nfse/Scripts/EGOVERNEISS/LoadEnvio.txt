@@ -1,0 +1,181 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2, _CamposMunicipio: TStringList;
+  _inicio, _QtdeRps: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _Vlr: Double;
+  _linha, _NomeCampo, _ValorCampo, _PastaTecnoNFSe : string;
+  _DsTecnoAtual, _DsCidadeAtual: TSpdXSDClientDataSet;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'NotaFiscal';
+  DSCIDADE_NOTA = 'NotaFiscal';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  // Função para contar número de SubStrings em uma String
+  function ContaPalavras(aStr, aSubstr: string): integer;
+  var
+    _sl : TStringList;
+    _cont, i: integer;
+  begin
+    Result := 0;
+    _sl := TStringList.Create;
+    try
+      _sl.CommaText := aStr;
+      for i := 0 to _sl.Count-1 do
+        if SameText(_sl[i], aSubstr) then
+          Inc(_cont);
+    finally
+      _sl.Free;
+    end;
+    Result := _cont;
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    // Não é possível enviar mais de um RPS no Lote
+    if ContaPalavras(_Tx2.Text, 'INCLUIRRPS') > 1 then
+      RaiseException('Não é possível o Envio de Lote para Osasco por limitações de seu WebService');
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        SetarCampoCurrencyValor('ValorServicos', 'Valor', True);
+        SetarCampoCurrencyValor('ValorDeducoes', 'ValorDeducao', True);
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ValorCampo := FormatarCodigoItemListaServicoSemZeroEsquerda(_ValorCampo, True);
+        SetarCampoValor('Atividade', _ValorCampo);
+
+        SetarCampoValor('InformacoesAdicionais', CampoTecno('DiscriminacaoServico'));
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        case Length(_ValorCampo) of
+          11: SetarCampoValor('CpfTomador', _ValorCampo);
+          14: SetarCampoValor('CnpjTomador', _ValorCampo);
+        end;
+
+        SetarCampo('RazaoSocialTomador');
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador'))); // TODO: ver nº digitos
+        SetarCampoValor('LogradouroTomador',CampoTecno('EnderecoTomador'));
+        SetarCampo('NumeroTomador');
+        SetarCampo('ComplementoTomador');
+        SetarCampo('BairroTomador');
+        SetarCampo('PaisTomador');
+        SetarCampo('TipoLogradouroTomador');
+        SetarCampo('EmailTomador');
+
+        if (CampoTecno('CodigoCidadeTomador') <> '') then
+        begin
+          _ValorCampo := BuscarInfoCidade('CodIBGE', CampoTecno('CodigoCidadeTomador'), 'NomeMunicIBGE');
+          SetarCampoValor('CidadeTomador', _ValorCampo);
+
+          if CampoTecno('UfTomador') <> '' then
+            SetarCampo('UfTomador')
+          else
+          begin
+            _ValorCampo := BuscarInfoCidade('CodIBGE', CampoTecno('CodigoCidadeTomador'), 'UF');
+            SetarCampoValor('UfTomador', _ValorCampo);
+          end;
+        end;
+        SetarCampo('CepTomador');
+
+        if CampoTecno('TelefoneTomador') <> '' then
+          SetarDDD('TelefoneTomador', 'TelefoneTomador', 'DDDTomador', 'DDDTomador');
+        if CampoCidade('DDDTomador') = '' then
+           SetarCampo('DDDTomador');
+
+        if (CampoTecno('PaisTomador') <> '1058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') and (CampoTecno('PaisTomador') <> '') then
+          SetarCampoValor('TomadorEstrangeiro', 'true')
+        else
+          SetarCampoValor('TomadorEstrangeiro', 'false');
+
+        //TODO: SubstituicaoTributaria
+        if CampoTecno('EmailTomador') <> '' then
+          SetarCampoValor('NotificarTomadorPorEmail', 'true')
+        else
+          SetarCampoValor('NotificarTomadorPorEmail', 'false') ;
+
+        _DsCidadeAtual.Post;
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipio;
+      _DsCidadeAtual.Edit;
+      if CampoCidade('SubstituicaoTributaria') = '' then
+        SetarCampoValor('SubstituicaoTributaria', 'false');
+
+      if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        SetarCampoValor('Aliquota', StringReplace(CampoTecno('AliquotaISS'), ',', '.', []))
+      else
+        SetarCampoValor('Aliquota', '0.00');
+
+      _DsCidadeAtual.Post;
+
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

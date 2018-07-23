@@ -1,0 +1,5 @@
+<web:ConsultaNota soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<ConsultaNota>
+		<Usuario>%s</Usuario>
+		<Senha>%s</Senha>%s</ConsultaNota>
+</web:ConsultaNota>

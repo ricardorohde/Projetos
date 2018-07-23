@@ -1,0 +1,21 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _Xml : string;
+begin
+  Progress('Carregando XML de Retorno do Cancelamento');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    _Xml := XmlSelect(Input, '//*[local-name()="nfdEntradaCancelarResponse"]');
+    Params.Add('XML=' + _Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

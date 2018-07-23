@@ -1,0 +1,14 @@
+  // Formatar Datas do formato XsdDateTime para datas comuns. Ex: 2012-07-16T15:28:18.003 --> 2012-07-16
+  procedure FormatXsdDateTime(const aDataXSD: string; var aDataComum: string);
+  var
+    _p: Integer;
+  begin
+    _p := Pos('T', aDataXSD);
+    if _p > 0 then
+    begin
+      aDataComum := Copy(aDataXSD, 1, _p-1);
+    end
+    else
+      aDataComum := aDataXSD;
+  end;
+

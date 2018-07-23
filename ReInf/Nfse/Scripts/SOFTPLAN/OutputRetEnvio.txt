@@ -1,0 +1,84 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Status, _Motivo, _Xml: string;
+
+{$I ..\SOFTPLAN\Utils.TXT}
+
+  function GetMotivo(const aXML:string) : string;
+  Var
+    _Aux, _FaultString, _str: string;
+  begin
+    if (aXML <> '') then
+    begin
+      if pos('</', aXML) = 0 then
+        Result := aXml
+      else
+      begin
+        xmlSelectNodeValue(aXML, '//*[local-name() = "message"]', _str);
+        Result := _str
+      end;
+    end
+    else
+      Result := '';
+  end;
+
+begin
+  Output := '';
+  Progress('Adicionando valores aos campos');
+  _Xml := Params.Values['XML'];
+  _Status := GetStatusEnvio(_Xml);
+
+  if _Status = 'ERRO' then
+  begin
+    _Motivo := GetMotivo(_Xml);
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo', _Motivo);
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    _ListFields := CreateFieldsResponse;
+    if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+    begin
+      try
+        AddValueListFields('Motivo', '');
+        AddValueListFields('Status', 'SUCESSO');
+        AddValueListFields('Cnpj', GetValueXml(_Xml, 'cnpjPrestador'));
+        AddValueListFields('InscMunicipal', GetValueXml(_Xml, 'inscricaoMunicipalPrestador'));
+        AddValueListFields('SerieRps', GetValueXml(_Xml, 'numeroSerie'));
+        AddValueListFields('NumeroRps', '');
+        AddValueListFields('NumeroNFSe', GetValueXml(_Xml, 'numeroSerie'));
+        AddValueListFields('DataEmissaoNFSe', GetValueXml(_Xml, 'dataEmissao'));
+        AddValueListFields('DataAutorizacao', GetValueXml(_Xml, 'dataProcessamento'));
+        AddValueListFields('CodVerificacao', GetValueXml(_Xml, 'codigoVerificacao'));
+        AddValueListFields('Situacao', 'AUTORIZADA');
+        AddValueListFields('DataCancelamento', GetValueXml(_Xml, ''));
+        AddValueListFields('ChaveCancelamento', GetValueXml(_Xml, 'numeroSerie'));
+        AddValueListFields('Xml', GetXmlNFSe(_Xml));
+        AddValueListFields('Tipo', '');
+        AddValueListFields('Data de Autorização', '');
+
+        if (Params.Values['DelimitadorDaLinha'] = '') then
+          Output := Output + FormatLineResult + #13#10
+        else
+          Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+      Finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

@@ -1,0 +1,36 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+    '//*[namespace-uri()="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd" and local-name()="EnviarLoteRpsResposta"]');
+
+  if  _Xml = '' then
+  begin
+    Datasets.ConfigSection := 'RETORNO_ENVIAR_INDISPONIVEL';
+    Datasets.CreateXSDDataset;
+    _Xml := XmlDeepNodeSearch(Input, 'RecepcionarLoteRpsResponse',
+      '//*[local-name()="RecepcionarLoteRpsResponse"]');
+  end;
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

@@ -1,0 +1,41 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params: TStringList;
+}
+
+CONST
+  _XMLERROINTERNONAPREFEITURA = '<CancelarNfseResposta xmlns="http://www.agili.com.br/nfse_v_1.00.xsd"><UnidadeGestora>04104816000116</UnidadeGestora><ListaMensagemRetorno><MensagemRetorno><Codigo>E289</Codigo><Mensagem>Ocorreu um problema interno no sistema da prefeitura ao fazer o requerimento de cancelamento da nota</Mensagem><Correcao>Para garantir que o requerimente de cancelamento foi feito com sucesso, tente realizar a operação novamente</Correcao><Versao>1.00</Versao></MensagemRetorno></ListaMensagemRetorno></CancelarNfseResposta>';
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  
+  if Pos('<faultstring',Input) > 0 then
+    Params.Add('faultstring='+Input)
+  else
+  begin
+    if (pos('N?o existem par?metros suficientes', Input) > 0) or (pos('Não existem parâmetros suficientes', Input) > 0) then
+    begin
+      _Xml := _XMLERROINTERNONAPREFEITURA;
+      Datasets.LoadFromXMLContent(_Xml);
+      Params.Add('Xml='+_Xml);
+    end
+    else
+    begin
+      Datasets.LoadFromXMLContent(Input);
+      Params.Add('Xml='+Input);
+    end;
+    Progress('XML carregado com sucesso.');
+  end;
+end.

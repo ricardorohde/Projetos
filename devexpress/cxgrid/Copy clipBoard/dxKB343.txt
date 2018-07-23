@@ -1,0 +1,29 @@
+Assume a situation where a value of one of two adjacent grid columns depends on another column's value.  The first column's value must be changed when a user has edited a value of the second column.
+
+During editing the DataController object caches edited values and save them to the Values list only after posting.  The DataController provides two methods to work with edited values: GetEditValue and SetEditValue.  You need to use just these methods to work with editing data; the GetValue and SetValue methods are not appropriate for this task.
+
+The grid's in-place editor provides a number of events, which you can use to handle value changes in the editor.  They are OnChange, OnEditValueChanged, and OnValidate.  We used the OnEditValueChanged event in our sample project and obtained the current edit value via the editor's EditValue property.
+
+// Delphi code
+uses cxVariants, cxDataUtils;
+
+procedure TForm1.cxGrid1DBTableView1AmountPaidPropertiesEditValueChanged(
+  Sender: TObject);
+var
+  Edit: TcxCustomEdit;
+  Value: Double;
+  View: TcxGridDBTableView;
+  FreightColumn: TcxGridColumn;
+begin
+  Edit := Sender as TcxCustomEdit;
+  if VarIsNumericEx(Edit.EditValue) then
+  begin
+    Value := Edit.EditValue;
+
+    View := cxGrid1.FocusedView as TcxGridDBTableView;
+    FreightColumn := View.GetColumnByFieldName('Freight');
+    View.DataController.SetEditValue(FreightColumn.Index, Value / 5, evsValue);
+  end;
+end;
+
+The SetEditValue method has the benefit that the grid automatically restores a previous value, if a user has decided to abandon changes and pressed Esc.

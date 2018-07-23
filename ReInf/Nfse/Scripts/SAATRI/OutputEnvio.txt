@@ -1,0 +1,49 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := (UpperCase(Params.Values['EnvioSincrono'])) = 'TRUE';
+  end;
+
+  function RealizarDelimitacaoLoteRpsSaatri(const aXML: string): string;
+  var
+    _DelimitadorRPS, _XmlRps, _XmlAcima: string;
+  begin
+    Result := aXML;
+    _DelimitadorRPS := Params.Values['DelimitadorRPS'];
+    if _DelimitadorRPS <> '' then
+    begin
+      if not EnvioSincrono then
+      begin
+        _XmlRps := XmlSelect(aXML, '//*[local-name()="Rps"]');
+        _XmlAcima := XmlSelect(aXML, '//*[local-name()="ListaRps"]');
+        if (_XmlRps <> '') and (_XmlAcima <> '') then
+        begin
+          // Colocar delimitador abaixo do <ListaRps>
+          Result := StringReplace(Result, '<ListaRps>', '<ListaRps>' + _DelimitadorRps, []);
+          // Colocar delimitador acima do </ListaRps>
+          Result := StringReplace(Result, '</ListaRps>', _DelimitadorRps + '</ListaRps>', []);
+          // Colocar delimitador entre os </Rps><Rps>
+          Result := StringReplace(Result, '</Rps><Rps>', '</Rps>' + _DelimitadorRps + '<Rps>', [rfReplaceAll]);
+        end
+        else
+          RaiseException('Erro durante a delimitação do lote de RPS: não foi encontrado Rps no lote');
+     end
+     else
+       Result := Params.Values['DelimitadorRPS'] + Result + Params.Values['DelimitadorRPS'];
+   end;
+ end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+  Output := RealizarDelimitacaoLoteRpsSaatri(Output);
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_SAATRI);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

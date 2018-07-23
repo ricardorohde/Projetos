@@ -1,0 +1,7 @@
+<NotaConsulta>
+  <Nota Id="%s">
+    <InscricaoMunicipalPrestador>%s</InscricaoMunicipalPrestador>
+    <NumeroNota>%s</NumeroNota>
+    <CodigoVerificacao>%s</CodigoVerificacao>
+  </Nota>
+</NotaConsulta>

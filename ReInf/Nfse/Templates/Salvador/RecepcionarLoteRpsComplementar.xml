@@ -1,0 +1,4 @@
+<EnviarLoteRPSComplementar xmlns="http://tempuri.org/">
+    <loteXML><![CDATA[%s]]></loteXML>
+    <pxmlDadosComplementares><![CDATA[%s]]></pxmlDadosComplementares>    
+</EnviarLoteRPSComplementar>

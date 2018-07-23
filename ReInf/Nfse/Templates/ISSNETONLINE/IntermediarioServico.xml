@@ -1,0 +1,7 @@
+<IntermediarioServico>
+<tc:RazaoSocial>%s</tc:RazaoSocial>
+<tc:CpfCnpj>
+<tc:Cnpj>%s</tc:Cnpj>
+</tc:CpfCnpj>
+<tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+</IntermediarioServico>

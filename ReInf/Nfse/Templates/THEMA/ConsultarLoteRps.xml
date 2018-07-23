@@ -1,0 +1,9 @@
+<consultarLoteRps xmlns="http://server.nfse.thema.inf.br">
+<xml><![CDATA[<ConsultarLoteRpsEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+<Prestador>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+<Protocolo>%s</Protocolo>
+</ConsultarLoteRpsEnvio>]]></xml>
+</consultarLoteRps>

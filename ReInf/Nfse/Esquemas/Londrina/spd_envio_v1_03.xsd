@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="DescricaoRps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ccm"/>
+        <xs:element ref="cnpj"/>
+        <xs:element ref="cpf"/>
+        <xs:element ref="senha"/>
+        <xs:element ref="servico"/>
+        <xs:element ref="codigo_obra"/>
+        <xs:element ref="obra_art"/>
+        <xs:element ref="aliquota"/>
+        <xs:element ref="incentivo_fiscal"/>
+        <xs:element ref="cod_municipio_prestacao_servico"/>
+        <xs:element ref="cod_pais_prestacao_servico"/>
+        <xs:element ref="cod_municipio_incidencia"/>
+        <xs:element ref="situacao"/>
+        <xs:element ref="valor"/>
+        <xs:element ref="base"/>
+        <xs:element ref="ir"/>
+        <xs:element ref="pis"/>
+        <xs:element ref="cofins"/>
+        <xs:element ref="csll"/>
+        <xs:element ref="inss"/>
+        <xs:element ref="retencao_iss"/>
+        <xs:element ref="descricaoNF"/>
+        <xs:element ref="tomador_tipo"/>
+        <xs:element ref="tomador_cnpj"/>
+        <xs:element ref="tomador_email"/>
+        <xs:element ref="tomador_ie"/>
+        <xs:element ref="tomador_im"/>
+        <xs:element ref="tomador_razao"/>
+        <xs:element ref="tomador_endereco"/>
+        <xs:element ref="tomador_numero"/>
+        <xs:element ref="tomador_complemento"/>
+        <xs:element ref="tomador_bairro"/>
+        <xs:element ref="tomador_CEP"/>
+        <xs:element ref="tomador_cod_cidade"/>
+        <xs:element ref="tomador_fone"/>
+        <xs:element ref="tomador_ramal"/>
+        <xs:element ref="tomador_fax"/>
+        <xs:element ref="rps_num"/>
+        <xs:element ref="rps_serie"/>
+	<xs:element ref="rps_tipo"/>
+        <xs:element ref="rps_dia"/>
+        <xs:element ref="rps_mes"/>
+        <xs:element ref="rps_ano"/>
+	<xs:element ref="nfse_substituida"/>
+	<xs:element ref="rps_substituido"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  
+  <xs:element name="ccm" type="xs:integer"/>
+  <xs:element name="cnpj" type="xs:integer"/>
+  <xs:element name="cpf" type="xs:integer"/>
+  <xs:element name="senha" type="xs:string"/>
+  <xs:element name="aliquota" type="xs:integer"/>
+  <xs:element name="incentivo_fiscal" type="xs:integer"/>  
+  <xs:element name="cod_municipio_prestacao_servico" type="xs:string"/>  
+  <xs:element name="cod_pais_prestacao_servico" type="xs:integer"/>  
+  <xs:element name="cod_municipio_incidencia" type="xs:string"/> 
+  <xs:element name="servico" type="xs:integer"/>
+  <xs:element name="situacao" type="xs:string"/> 
+  <xs:element name="codigo_obra" type="xs:integer"/>
+  <xs:element name="obra_art" type="xs:integer"/> 
+  <xs:element name="valor" type="xs:string"/>
+  <xs:element name="base" type="xs:string"/>   
+  <xs:element name="retencao_iss" type="xs:string"/>  
+  <xs:element name="ir" type="xs:string"/>  
+  <xs:element name="pis" type="xs:string"/>
+  <xs:element name="cofins" type="xs:string"/>
+  <xs:element name="csll" type="xs:string"/>
+  <xs:element name="inss" type="xs:string"/>  
+  <xs:element name="descricaoNF" type="xs:string"/>
+  <xs:element name="tomador_tipo" type="xs:integer"/>
+  <xs:element name="tomador_cnpj" type="xs:string"/>
+  <xs:element name="tomador_email" type="xs:string"/>  
+  <xs:element name="tomador_im" type="xs:integer"/>
+  <xs:element name="tomador_ie" type="xs:string"/>
+  <xs:element name="tomador_razao" type="xs:string"/>  
+  <xs:element name="tomador_endereco" type="xs:string"/>
+  <xs:element name="tomador_numero" type="xs:string"/>
+  <xs:element name="tomador_complemento" type="xs:string"/>
+  <xs:element name="tomador_bairro" type="xs:string"/>  
+  <xs:element name="tomador_CEP" type="xs:string"/>
+  <xs:element name="tomador_cod_cidade" type="xs:string"/>
+  <xs:element name="tomador_fone" type="xs:string"/>
+  <xs:element name="tomador_ramal" type="xs:string"/>
+  <xs:element name="tomador_fax" type="xs:string"/>  
+  <xs:element name="rps_num" type="xs:integer"/>
+  <xs:element name="rps_serie" type="xs:string"/>
+  <xs:element name="rps_tipo" type="xs:string"/>
+  <xs:element name="rps_dia" type="xs:integer"/>
+  <xs:element name="rps_mes" type="xs:integer"/>
+  <xs:element name="rps_ano" type="xs:integer"/>  
+  <xs:element name="nfse_substituida" type="xs:integer"/>
+  <xs:element name="rps_substituido" type="xs:integer"/>
+</xs:schema>

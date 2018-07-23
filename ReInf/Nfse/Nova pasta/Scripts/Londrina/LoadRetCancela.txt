@@ -1,0 +1,34 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+
+  Datasets.XsdFile := PathXsd + 'spd_envio_v1_03.xsd';
+  Datasets.XsdElementName := 'CancelarNotaResponse';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  _Xml := XmlSelect(Input, '//*[local-name()="CancelarNotaResponse"]');
+
+  // correções da acentuação do XML que é retornado erradamente do WS
+  _Xml := StringReplace(_Xml, 'n?o', 'não', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, 'j?', 'já', [rfReplaceAll]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

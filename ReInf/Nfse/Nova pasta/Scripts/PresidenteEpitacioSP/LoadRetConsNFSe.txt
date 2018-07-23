@@ -1,0 +1,25 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando XML de Retorno da Consulta de NFSe');
+  if (Pos('<faultstring',input) > 0) then
+  begin
+    Input := StringReplace(Input, '<!--CRLF-->', '', [rfReplaceAll]);
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    _Xml := XmlSelect(Input, '//*[local-name()="ConsultaNfeResponse"]');
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

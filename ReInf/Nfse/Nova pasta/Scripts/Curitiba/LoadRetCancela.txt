@@ -1,0 +1,31 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml: string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+  _Xml := XmlDeepNodeSearch(Input, 'CancelarNfseResult', '//*[namespace-uri()="http://www.e-governeapps2.com.br/" and local-name()="CancelarNfseResult"]');
+
+  _Xml := StringReplace(_Xml, 'CancelarNfseResult','CancelarNfseResposta',[rfReplaceAll, rfIgnoreCase]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

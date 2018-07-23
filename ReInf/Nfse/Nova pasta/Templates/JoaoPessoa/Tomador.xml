@@ -1,0 +1,4 @@
+<Tomador>
+<CpfCnpj xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</CpfCnpj>
+<InscricaoMunicipal xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</InscricaoMunicipal>
+</Tomador>

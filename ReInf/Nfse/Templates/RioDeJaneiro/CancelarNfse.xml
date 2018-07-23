@@ -1,0 +1,6 @@
+<CancelarNfseRequest xmlns="http://notacarioca.rio.gov.br/">
+<inputXML>
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<CancelarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</CancelarNfseEnvio>]]>
+</inputXML>
+</CancelarNfseRequest>

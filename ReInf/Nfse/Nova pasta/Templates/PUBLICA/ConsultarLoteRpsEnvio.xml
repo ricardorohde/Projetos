@@ -1,0 +1,7 @@
+<ConsultarLoteRpsEnvio xmlns="http://www.publica.inf.br">
+<Prestador id="P1">
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+<Protocolo>%s</Protocolo>
+</ConsultarLoteRpsEnvio>

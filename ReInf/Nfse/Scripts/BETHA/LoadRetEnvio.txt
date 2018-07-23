@@ -1,0 +1,27 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'servico_enviar_lote_rps_resposta_v01.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Retorno de Envio');
+  _Xml := XmlSelect(Input, '//*[namespace-uri()="http://www.betha.com.br/e-nota-contribuinte-ws" and local-name()="EnviarLoteRpsEnvioResponse"]');
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XML='+_XML);
+    Progress('XML carregado com sucesso');
+  end;
+end.

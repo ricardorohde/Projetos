@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+    <xs:element name="tcConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsCodCadBic"/>
+                <xs:element ref="tsVrsArq"/>
+                <xs:element ref="tsChvAcs"/>
+                <xs:element ref="tcInfConsultaRPS"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumRPS"/>
+                <xs:element ref="tsCodVer"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tsNumRPS" type="xs:integer"/>
+    <xs:element name="tcLoteCancelamento">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsCodCadBic"/>
+                <xs:element ref="tsVrsArq"/>
+                <xs:element ref="tsChvAcs"/>
+                <xs:element ref="tcNotCan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcNotCan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tcInfNotCan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfNotCan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumNot"/>
+                <xs:element ref="tsCodVer"/>
+                <xs:element ref="tsDesMotCan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tsDesMotCan" type="xs:string"/>
+    <xs:element name="tcLoteRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsCodCadBic"/>
+                <xs:element ref="tsVrsArq"/>
+                <xs:element ref="tsChvAcs"/>
+                <xs:element ref="tcRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tcInfRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumRps"/>
+                <xs:element ref="tsCodVer"/>
+                <xs:element ref="tsVrsImp"/>
+                <xs:element ref="tsNumDocTmd"/>
+                <xs:element ref="tsInsEstTmd"/>
+                <xs:element ref="tsInsMunTmd"/>
+                <xs:element ref="tsNomTmd"/>
+                <xs:element ref="tsDesEndTmd"/>
+                <xs:element ref="tsNomBaiTmd"/>
+                <xs:element ref="tsNomCidTmd"/>
+                <xs:element ref="tsCodEstTmd"/>
+                <xs:element ref="tsTlfTmd"/>
+                <xs:element ref="tsCEPTmd"/>
+                <xs:element ref="tsEmlTmd"/>
+                <xs:element ref="tsCodAti"/>
+                <xs:element ref="tsPerAlq"/>
+                <xs:element ref="tsRegRec"/>
+                <xs:element ref="tsFrmRec"/>
+                <xs:element ref="tsDatEmsRps"/>
+                <xs:element ref="tsVlrDed"/>
+                <xs:element ref="tsVlrDsc"/>
+                <xs:element ref="tsVlrPIS"/>
+                <xs:element ref="tsVlrCOFINS"/>
+                <xs:element ref="tsVlrINSS"/>
+                <xs:element ref="tsVlrIR"/>
+                <xs:element ref="tsVlrCSLL"/>
+                <xs:element ref="tsVlrOtrRtn"/>
+                <xs:element ref="tsVlrRep"/>
+                <xs:element ref="tsEstServ"/>
+                <xs:element ref="tsMunSvc"/>
+                <xs:element ref="tsDesOtrRtn"/>
+                <xs:element ref="tsObs"/>
+                <xs:element ref="tcItensRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tsVrsImp" type="xs:integer"/>
+    <xs:element name="tsNumDocTmd" type="xs:integer"/>
+    <xs:element name="tsInsEstTmd" type="xs:NCName"/>
+    <xs:element name="tsInsMunTmd" type="xs:string"/>
+    <xs:element name="tsNomTmd" type="xs:string"/>
+    <xs:element name="tsDesEndTmd" type="xs:string"/>
+    <xs:element name="tsNomBaiTmd" type="xs:NCName"/>
+    <xs:element name="tsNomCidTmd" type="xs:NCName"/>
+    <xs:element name="tsCodEstTmd" type="xs:NCName"/>
+    <xs:element name="tsTlfTmd" type="xs:integer"/>
+    <xs:element name="tsCEPTmd" type="xs:integer"/>
+    <xs:element name="tsEmlTmd" type="xs:string"/>
+    <xs:element name="tsCodAti" type="xs:integer"/>
+    <xs:element name="tsPerAlq" type="xs:string"/>
+    <xs:element name="tsFrmRec" type="xs:integer"/>
+    <xs:element name="tsRegRec" type="xs:integer"/>
+    <xs:element name="tsDatEmsRps" type="xs:integer"/>
+    <xs:element name="tsVlrDed" type="xs:integer"/>
+    <xs:element name="tsVlrDsc" type="xs:integer"/>
+    <xs:element name="tsVlrPIS" type="xs:integer"/>
+    <xs:element name="tsVlrCOFINS" type="xs:string"/>
+    <xs:element name="tsVlrCSLL" type="xs:string"/>
+    <xs:element name="tsVlrINSS" type="xs:integer"/>
+    <xs:element name="tsVlrIR" type="xs:string"/>
+    <xs:element name="tsVlrOtrRtn" type="xs:string"/>
+    <xs:element name="tsVlrRep" type="xs:decimal"/>
+    <xs:element name="tsDesOtrRtn" type="xs:string"/>
+    <xs:element name="tsEstServ" type="xs:NCName"/>
+    <xs:element name="tsMunSvc" type="xs:NCName"/>
+    <xs:element name="tsObs" type="xs:string"/>
+    <xs:element name="tcItensRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tcItemRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcItemRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsSeqItem"/>
+                <xs:element ref="tsDesSvc"/>
+                <xs:element ref="tsVlrUnt"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tsSeqItem" type="xs:integer"/>
+    <xs:element name="tsDesSvc" type="xs:string"/>
+    <xs:element name="tsVlrUnt" type="xs:string"/>
+    <xs:element name="tcRetornoConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tcValidaConsultaRPS"/>
+                <xs:element ref="tcRetConsultaRPS"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcValidaConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsFlgEtt"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRetConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tcInfRetConsultaRPS"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfRetConsultaRPS">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumRps"/>
+                <xs:element ref="tsNumNot"/>
+                <xs:element ref="tsCodVer"/>
+                <xs:element ref="tsFlgRet"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRetornoLoteCancelamento">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tcValidaLoteCancelamento"/>
+                <xs:element ref="tcRetNotCan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcValidaLoteCancelamento">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsFlgEtt"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRetNotCan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tcInfRetNotCan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfRetNotCan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumNot"/>
+                <xs:element ref="tsCodVer"/>
+                <xs:element ref="tsFlgRet"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRetornoLoteRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tcValidaLoteRps"/>
+                <xs:element ref="tcRetRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcValidaLoteRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsFlgEtt"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcRetRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="tcInfRetRps"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tcInfRetRps">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="tsNumRps"/>
+                <xs:element ref="tsNumNot"/>
+                <xs:element ref="tsCodVer"/>
+                <xs:element ref="tsFlgRet"/>
+                <xs:element ref="tsDesOco"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="tsCodCadBic" type="xs:integer"/>
+    <xs:element name="tsVrsArq" type="xs:integer"/>
+    <xs:element name="tsChvAcs" type="xs:NMTOKEN"/>
+    <xs:element name="tsNumNot" type="xs:integer"/>
+    <xs:element name="tsCodVer" type="xs:NMTOKEN"/>
+    <xs:element name="tsFlgEtt" type="xs:NCName"/>
+    <xs:element name="tsDesOco" type="xs:string"/>
+    <xs:element name="tsFlgRet" type="xs:NCName"/>
+    <xs:element name="tsNumRps" type="xs:integer"/>
+</xs:schema>

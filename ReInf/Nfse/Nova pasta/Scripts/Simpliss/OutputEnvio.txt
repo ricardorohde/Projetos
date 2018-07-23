@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+function EnvioSincrono: Boolean;
+begin
+  Result := (UpperCase(Params.Values['EnvioSincrono'])) = 'TRUE';
+end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+
+  if not EnvioSincrono then
+    Output := RealizarDelimitacaoLoteRps(Output, 'Rps', 'ListaRps')
+  else
+    Output := Params.Values['DelimitadorRPS'] + Output + Params.Values['DelimitadorRPS'];
+
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_SIMPLISS);
+  Output := StringReplace(Output,
+    ' xmlns="http://www.simpliss.com.br/Nfse/arquivos/nfse_1.xsd"',
+    ' xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse"', []);
+
+  Output := StringReplace(Output,
+    ' id="L1"',
+    ' xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd" id="L1"', [rfReplaceAll]);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

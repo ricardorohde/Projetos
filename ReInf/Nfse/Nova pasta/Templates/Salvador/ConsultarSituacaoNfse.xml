@@ -1,0 +1,19 @@
+<ConsultarSituacaoNfse xmlns="http://tempuri.org/">
+<consultaXml>
+    <![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<ConsultarSituacaoNfseEnvio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="https://nfse.sefaz.salvador.ba.gov.br/OnLine/XSD/ServicosComplementares.xsd ServicosComplementares.xsd"
+ xmlns="https://nfse.sefaz.salvador.ba.gov.br/OnLine/XSD/ServicosComplementares.xsd">
+    <idNfse>
+        <Numero xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</Numero>
+        <Cnpj xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</Cnpj>
+        <InscricaoMunicipal xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</InscricaoMunicipal>
+        <CodigoMunicipio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</CodigoMunicipio>
+    </idNfse>
+</ConsultarSituacaoNfseEnvio>
+      ]]>
+</consultaXml>
+</ConsultarSituacaoNfse>
+
+

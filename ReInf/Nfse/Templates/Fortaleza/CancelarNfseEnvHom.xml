@@ -1,0 +1,3 @@
+<ginfes:CancelarNfse xmlns:ginfes="http://producao.issfortaleza.com.br">
+<CancelarNfseEnvio><![CDATA[%s]]></CancelarNfseEnvio>
+</ginfes:CancelarNfse>

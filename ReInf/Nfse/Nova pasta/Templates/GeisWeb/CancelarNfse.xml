@@ -1,0 +1,7 @@
+<web:CancelaNota soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<CancelaNota>
+		<Usuario>%s</Usuario>
+		<Senha>%s</Senha>
+		<Numero>%s</Numero>
+	</CancelaNota>
+</web:CancelaNota>

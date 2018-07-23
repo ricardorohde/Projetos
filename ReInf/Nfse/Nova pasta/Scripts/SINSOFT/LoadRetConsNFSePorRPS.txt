@@ -1,0 +1,54 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+{$I Utils.txt}
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    if Pos('CompNfse', Input) > 0 then
+    begin
+      _Xml := StringReplace(Input, '&lt;CompNfse', '&lt;ConsultarNfseRpsResposta&gt;&lt;CompNfse', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&lt;/CompNfse&gt;', '&lt;/CompNfse&gt;&lt;/ConsultarNfseRpsResposta&gt;', [rfReplaceAll]);
+    end
+    else
+    begin
+      _Xml := StringReplace(Input, 'ns2:GerarNfseResposta', 'ConsultarNfseRpsResposta', [rfReplaceAll]);
+    end;
+
+    if Pos('<!--CRLF-->', _Xml) > 0 then
+    begin
+      _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+      _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+    end
+    else
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

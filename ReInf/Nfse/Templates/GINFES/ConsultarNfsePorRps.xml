@@ -1,0 +1,11 @@
+<ConsultarNfseRpsEnvio xmlns="http://www.ginfes.com.br/servico_consultar_nfse_rps_envio_v03.xsd">
+<IdentificacaoRps>
+<Numero xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</Numero>
+<Serie xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</Serie>
+<Tipo xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</Tipo>
+</IdentificacaoRps>
+<Prestador>
+<Cnpj xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</Cnpj>
+<InscricaoMunicipal xmlns="http://www.ginfes.com.br/tipos_v03.xsd">%s</InscricaoMunicipal>
+</Prestador>
+</ConsultarNfseRpsEnvio>

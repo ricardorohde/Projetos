@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="NFe" xmlns:ns1="NFe">
+  <xs:element name="Sdt_processarpsin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:SDTRPS"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SDTRPS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:Ano"/>
+        <xs:element ref="ns1:Mes"/>
+        <xs:element ref="ns1:CPFCNPJ"/>
+        <xs:element ref="ns1:DTIni"/>
+        <xs:element ref="ns1:DTFin"/>
+        <xs:element ref="ns1:TipoTrib"/>
+        <xs:element ref="ns1:AlqIssSN_IP"/>
+        <xs:element ref="ns1:Versao"/>
+        <xs:element ref="ns1:Reg20"/>
+        <xs:element ref="ns1:Reg90"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ano" type="xs:string"/>
+  <xs:element name="Mes" type="xs:string"/>
+  <xs:element name="CPFCNPJ" type="xs:string"/>
+  <xs:element name="DTIni" type="xs:string"/>
+  <xs:element name="DTFin" type="xs:string"/>
+  <xs:element name="TipoTrib" type="xs:string"/>
+  <xs:element name="AlqIssSN_IP" type="xs:string"/>
+  <xs:element name="Versao" type="xs:string"/>
+  <xs:element name="Reg20">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:Reg20Item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reg20Item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:TipoNFS"/>
+        <xs:element ref="ns1:NumRps"/>
+        <xs:element ref="ns1:SerRps"/>
+        <xs:element ref="ns1:DtEmi"/>
+        <xs:element ref="ns1:RetFonte"/>
+        <xs:element ref="ns1:CodSrv"/>
+        <xs:element ref="ns1:DiscrSrv"/>
+        <xs:element ref="ns1:VlNFS"/>
+        <xs:element ref="ns1:VlDed"/>
+        <xs:element ref="ns1:DiscrDed"/>
+        <xs:element ref="ns1:VlBasCalc"/>
+        <xs:element ref="ns1:AlqIss"/>
+        <xs:element ref="ns1:VlIss"/>
+        <xs:element ref="ns1:VlIssRet"/>
+        <xs:element ref="ns1:CpfCnpTom"/>
+        <xs:element ref="ns1:RazSocTom"/>
+        <xs:element ref="ns1:TipoLogtom"/>
+        <xs:element ref="ns1:LogTom"/>
+        <xs:element ref="ns1:NumEndTom"/>
+        <xs:element ref="ns1:ComplEndTom"/>
+        <xs:element ref="ns1:BairroTom"/>
+        <xs:element ref="ns1:MunTom"/>
+        <xs:element ref="ns1:SiglaUFTom"/>
+        <xs:element ref="ns1:CepTom"/>
+        <xs:element ref="ns1:Telefone"/>
+        <xs:element ref="ns1:InscricaoMunicipal"/>
+        <xs:element ref="ns1:TipoLogLocPre"/>
+        <xs:element ref="ns1:LogLocPre"/>
+        <xs:element ref="ns1:NumEndLocPre"/>
+        <xs:element ref="ns1:ComplEndLocPre"/>
+        <xs:element ref="ns1:BairroLocPre"/>
+        <xs:element ref="ns1:MunLocPre"/>
+        <xs:element ref="ns1:SiglaUFLocpre"/>
+        <xs:element ref="ns1:CepLocPre"/>
+        <xs:element ref="ns1:Email1"/>
+        <xs:element ref="ns1:Reg30"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoNFS" type="xs:string"/>
+  <xs:element name="NumRps" type="xs:string"/>
+  <xs:element name="SerRps" type="xs:string"/>
+  <xs:element name="DtEmi" type="xs:string"/>
+  <xs:element name="RetFonte" type="xs:string"/>
+  <xs:element name="CodSrv" type="xs:string"/>
+  <xs:element name="DiscrSrv" type="xs:string"/>
+  <xs:element name="VlNFS" type="xs:string"/>
+  <xs:element name="VlDed" type="xs:string"/>
+  <xs:element name="DiscrDed" type="xs:string"/>
+  <xs:element name="VlBasCalc" type="xs:string"/>
+  <xs:element name="AlqIss" type="xs:string"/>
+  <xs:element name="VlIss" type="xs:string"/>
+  <xs:element name="VlIssRet" type="xs:string"/>
+  <xs:element name="CpfCnpTom" type="xs:string"/>
+  <xs:element name="RazSocTom" type="xs:string"/>
+  <xs:element name="TipoLogtom" type="xs:string"/>
+  <xs:element name="LogTom" type="xs:string"/>
+  <xs:element name="NumEndTom" type="xs:string"/>
+  <xs:element name="ComplEndTom" type="xs:string"/>
+  <xs:element name="BairroTom" type="xs:string"/>
+  <xs:element name="MunTom" type="xs:string"/>
+  <xs:element name="SiglaUFTom" type="xs:string"/>
+  <xs:element name="CepTom" type="xs:string"/>
+  <xs:element name="Telefone" type="xs:string"/>
+  <xs:element name="InscricaoMunicipal" type="xs:string"/>
+  <xs:element name="TipoLogLocPre">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="LogLocPre" type="xs:string"/>
+  <xs:element name="NumEndLocPre" type="xs:string"/>
+  <xs:element name="ComplEndLocPre" type="xs:string"/>
+  <xs:element name="BairroLocPre" type="xs:string"/>
+  <xs:element name="MunLocPre" type="xs:string"/>
+  <xs:element name="SiglaUFLocpre" type="xs:string"/>
+  <xs:element name="CepLocPre" type="xs:string"/>
+  <xs:element name="Email1" type="xs:string"/>
+  <xs:element name="Reg30">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ns1:Reg30Item"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Reg30Item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:TributoSigla"/>
+        <xs:element ref="ns1:TributoAliquota"/>
+        <xs:element ref="ns1:TributoValor"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TributoSigla" type="xs:NCName"/>
+  <xs:element name="TributoAliquota" type="xs:decimal"/>
+  <xs:element name="TributoValor" type="xs:decimal"/>
+  <xs:element name="Reg90">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:QtdRegNormal"/>
+        <xs:element ref="ns1:ValorNFS"/>
+        <xs:element ref="ns1:ValorISS"/>
+        <xs:element ref="ns1:ValorDed"/>
+        <xs:element ref="ns1:ValorIssRetTom"/>
+        <xs:element ref="ns1:ValorTributos"/>
+        <xs:element ref="ns1:QtdReg30"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="QtdRegNormal" type="xs:string"/>
+  <xs:element name="ValorNFS" type="xs:string"/>
+  <xs:element name="ValorISS" type="xs:string"/>
+  <xs:element name="ValorDed" type="xs:string"/>
+  <xs:element name="ValorIssRetTom" type="xs:string"/>
+  <xs:element name="ValorTributos" type="xs:string"/>
+  <xs:element name="QtdReg30" type="xs:string"/>
+</xs:schema>

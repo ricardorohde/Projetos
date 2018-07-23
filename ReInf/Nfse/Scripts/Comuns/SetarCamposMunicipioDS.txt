@@ -1,0 +1,53 @@
+
+procedure PosicionaRegistroRPS_DS(aRegistro : Integer);
+var
+ i : integer;
+begin
+
+  _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+  _DsCidadeAtual.First;
+  for i := 1 to aRegistro do
+    _DsCidadeAtual.Next;
+
+end;
+
+procedure SetarCamposMunicipioDS(const aNomesDataSets: array of string);
+var
+  _i, j, _registro : Integer;
+  _CampoPers, _NomeCampo, _ValorCampo, _aux : string;
+  _SetouCampo: boolean;
+begin
+
+  for _i := 0 to _CamposMunicipio.count -1 do
+  begin
+    _NomeCampo := _CamposMunicipio.Names[_i];
+    _ValorCampo := _CamposMunicipio.Values[_NomeCampo];
+
+    if _ValorCampo <> '' then
+    begin
+      _aux := Copy(_NomeCampo, 0, Pos('@', _NomeCampo)-1);
+      _registro := StrToInt(_aux);
+      PosicionaRegistroRPS_DS(_registro);
+
+      _CampoPers := StringReplace(_NomeCampo, '@','',[rfReplaceAll]);
+      _CampoPers := StringReplace(_CampoPers, _aux,'',[rfReplaceAll]);
+
+      _SetouCampo := false;
+      for j := 0 to (length(aNomesDataSets) -1) do
+      begin
+        _DsCidadeAtual := Datasets.GetDataSetByName(aNomesDataSets[j]);
+        _DsCidadeAtual.Edit;
+        if _DsCidadeAtual.FindField(_CampoPers) <> nil then
+        begin
+          SetarCampoValor(_CampoPers, _ValorCampo)
+          _SetouCampo := true;
+          break;
+        end;
+        _DsCidadeAtual.Post;
+      end;
+      if not(_SetouCampo) then
+        RaiseException('Dataset "' + _DsCidadeAtual.Name + '": Campo não encontrado: "' +
+          _CampoPers + '".');
+    end;
+  end;
+end;

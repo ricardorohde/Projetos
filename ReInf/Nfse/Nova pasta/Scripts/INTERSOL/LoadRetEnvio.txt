@@ -1,0 +1,36 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I .\Utils.txt}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'enviar_lote_rps_resposta_v1.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := DesescaparXml(Input);
+  _Xml := XmlSelect(_Xml, '//*[local-name()="RecepcionarLoteRpsResposta"]');
+  //Retorno não segue o schema, sendo necessário alguns ajustes.
+  _Xml := StringReplace(_Xml, 'RecepcionarLoteRpsResposta', 'EnviarLoteRpsResposta', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<MensagemRetorno>', '<ListaMensagemRetorno><MensagemRetorno>', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '</MensagemRetorno>', '</MensagemRetorno></ListaMensagemRetorno>', [RfReplaceAll]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com Sucesso.');
+  end;
+end.

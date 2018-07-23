@@ -1,0 +1,27 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Result : string;
+
+begin
+  Progress('Carregando XML de Retorno de Envio');
+  if Pos('faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, '<!--CRLF-->', '', [rfReplaceAll]);
+    Params.Add('faultstring=' + Input);
+  end
+  else
+  begin
+    if xmlSelectNodeValue(Input, '//*[local-name()="WsinserirnotaReturn"]', _Result) then
+    begin
+      Params.Add('Resultado=' + _Result);
+      Params.Add('XML='+ Input);
+      Progress('Retorno carregado com sucesso');
+    end;
+  end;
+end.

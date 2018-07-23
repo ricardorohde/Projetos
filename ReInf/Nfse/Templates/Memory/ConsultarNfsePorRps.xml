@@ -1,0 +1,1 @@
+<urn:tm_lote_rps_service.consultarRPS soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><numeroRPS xsi:type="xsd:string">%s</numeroRPS><codMunicipio xsi:type="xsd:string">%s</codMunicipio><cnpjPrestador xsi:type="xsd:string">%s</cnpjPrestador><hashValidador xsi:type="xsd:string">%s</hashValidador></urn:tm_lote_rps_service.consultarRPS>

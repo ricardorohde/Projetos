@@ -1,0 +1,43 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\Utils.txt}
+
+
+Var
+  _Xml,_Data, _Hora,_Sucesso,_DataHora ,_Codigo,_Mensagem,_Correcao: string;
+begin
+  Progress('Carregando XML de Cancelamento.');
+
+  _Codigo:= GetValueTag('codigo', input);
+  if (Pos('Sucesso', _Codigo) > 0) or (Pos('00117', _Codigo) > 0) then
+    _Sucesso := 'true'
+  else
+    _Sucesso := 'false';
+
+  _Data := GetValueTag('data_nfse', input);
+  _Hora := GetValueTag('hora_nfse', input);
+
+  if (_Data <> '') and (_Hora <> '')  then
+  begin
+    _DataHora :=_Data + _Hora;
+    _DataHora := DateTimeToXsdDateTime(AnyDateTimeToDateTime(_DataHora))
+  end
+  else
+    _DataHora := '';
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('Codigo='+_Codigo);
+    Params.Add('DataHora='+_DataHora);
+    Params.Add('Sucesso='+_Sucesso);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

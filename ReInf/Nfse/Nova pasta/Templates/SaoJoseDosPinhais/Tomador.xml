@@ -1,0 +1,4 @@
+<Tomador>
+<CpfCnpj xmlns="http://nfe.sjp.pr.gov.br/tipos_v03.xsd">%s</CpfCnpj>
+<InscricaoMunicipal xmlns="http://nfe.sjp.pr.gov.br/tipos_v03.xsd">%s</InscricaoMunicipal>
+</Tomador>

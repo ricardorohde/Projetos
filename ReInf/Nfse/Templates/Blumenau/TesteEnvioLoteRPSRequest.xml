@@ -1,0 +1,6 @@
+<TesteEnvioLoteRPSRequest xmlns="http://nfse.blumenau.sc.gov.br">
+<VersaoSchema>1</VersaoSchema>
+<MensagemXML>
+<![CDATA[%s]]>  
+</MensagemXML>
+</TesteEnvioLoteRPSRequest>

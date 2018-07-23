@@ -1,0 +1,130 @@
+  function UnEscapeXml(const aXML: string): string;
+  begin
+    // "Desescapar" o XML
+    Result:= aXML;
+    Result:= StringReplace(Result, '&amp;', '&', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&#xD;', #13,  [rfReplaceAll]);
+    Result:= StringReplace(Result, ';', '\delimiter',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&', '&amp;', [rfReplaceAll]);
+    Result:= StringReplace(Result, '<?xml version="1.0" encoding="ISO-8859-1"?>', '', [rfReplaceAll]);
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'\delimiter',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+  end;
+
+  function UnindentXml(const aXml: string): string;
+  var
+    _sl: TStringList;
+    i: integer;
+  begin
+    _sl := TStringList.Create;
+    _sl.Text := aXml;
+    for i:= 0 to _sl.Count-1 do
+      _sl[i] := Trim(_sl[i]);
+    Result := StringReplace(_sl.Text, #13#10, '', [rfReplaceAll]);
+    _sl.Free;
+  end;
+
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+  
+  // Captura a mensagem do retorno faulstring
+  function GetFaultString(aInput: string): string;
+  var
+    _Value : string;
+  begin
+    if xmlSelectNodeValue(aInput, '//*[local-name()="faultstring"]', _Value) then
+      Result := _Value
+    else
+      Result := aInput;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetSituacao(aStatus: string): string;
+  begin
+    if SameText(aStatus, 'cancelada') then
+      Result := 'CANCELADA'
+    else
+      Result := 'AUTORIZADA';
+  end;
+  
+  procedure AddValueListFields(const aParamName, aValue : string; var aListFields: TStringList);
+  begin
+    if aListFields.IndexOf(aParamName) > -1 then
+      aListFields[aListFields.IndexOf(aParamName)] := aValue;
+  end;
+  
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult(var aListFields : TStringList) : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to aListFields.Count - 1 do
+      Result := Result + aListFields[i] + Params.Values['DelimitadorDoCampo'];
+  end;
+
+  function GetValueTag(aTag, aTxt: String): String;
+  Var
+    _PINI, _PFIN: integer;
+  begin
+    _PINI := Pos('<' + aTag + '>', aTxt) + (Length(aTag) + 2);
+    _PFIN := Pos('</' + aTag + '>', aTxt);
+    Result := Copy(aTxt, _PINI, _PFIN - _PINI);
+  end;
+
+  function GetMotivo(const aXML: string): string;
+  var
+    i, _count: integer;
+    _Val, COMANDO_ERRO: string;
+
+  begin
+    COMANDO_ERRO := '//*[local-name()="erros"]/*[local-name()="erro"]';
+
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService - ' + Params.Values['faultstring']
+    else if (Result = '') then
+    begin
+      _count := XmlSelectCountNode(aXML, COMANDO_ERRO);
+      for i := 1 to _count do
+      begin
+        if XmlSelectNodeValue(aXML, COMANDO_ERRO + '['+ IntToStr(i) +']', _Val) then
+        begin
+          if Result = '' then
+            Result := _Val
+          else
+            Result := Result + ': ' + _Val;
+        end;
+      end;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetListFieldsFaultstring(var aListFields : TStringList; const aInput: string): String;
+  var
+    _Motivo: string;
+  begin
+    aListFields := CreateFieldsResponseFalha;
+    try
+      _Motivo := 'Falha na comunicação com WebService-' + GetFaultString(aInput);
+      AddValueListFields('Status', 'ERRO', aListFields);
+      AddValueListFields('Motivo',_Motivo, aListFields);
+      Result := FormatLineResult(aListFields) + Params.Values['DelimitadorDaLinha'];
+    Finally
+      aListFields.Free;
+    end;
+  end;

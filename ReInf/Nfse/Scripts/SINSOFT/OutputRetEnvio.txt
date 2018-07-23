@@ -1,0 +1,45 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha, _NFSE,_DSAlerta, _DSFalhaDefault : TSpdXSDClientDataSet;
+  _ListFields, _ListDsNamesFalha : TStringList;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Adicionando valores aos campos.');
+
+    _ListDsNamesFalha := TStringList.create;
+    try
+      _ListDsNamesFalha.add('GerarNfseResposta/ListaMensagemRetorno/MensagemRetorno');
+      _ListDsNamesFalha.add('GerarNfseResposta/ListaNfse/ListaMensagemAlertaRetorno/MensagemRetorno');
+
+      GetPonteirosDataSetsXpath('GerarNfseResposta',_ListDsNamesFalha,_NFSE,_DSFalha,_DSAlerta);
+
+      //Verifica se o conteúdo não é um Alerta ou Lista de erros.
+      if _DSAlerta.FieldByName('codigo').AsString <> '' then
+        _DSFalhaDefault := _DSAlerta
+      else
+      begin
+        _DSFalhaDefault := _DSFalha;
+      end;
+
+      Output := GetListFieldsNota( _NFSE, _DSFalhaDefault, _ListFields, '', 'XmlNfse');
+
+    Finally
+      _ListDsNamesFalha.Free;
+    end;
+  end;
+
+  Progress('Valores adicionados com sucesso.');
+end.

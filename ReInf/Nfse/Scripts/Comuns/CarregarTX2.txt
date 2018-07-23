@@ -1,0 +1,19 @@
+procedure CarregarTX2;
+begin
+  if FileExists(Input) then
+    _Tx2.LoadFromFile(Input)
+  else
+    _Tx2.Text := Input;
+
+  if not SameText(_Tx2[0], 'formato=tx2') then
+    RaiseException('Formato inválido de arquivo/conteúdo TX2');
+
+  _inicio := 0;
+  _PadraoTecnoNFSe := False;
+  while not EhComando( _Tx2[_inicio] ) do
+  begin
+    inc(_inicio);
+    if SameText(_Tx2[_inicio], 'padrao=TecnoNFSe') then
+      _PadraoTecnoNFSe := True;
+  end;
+end;

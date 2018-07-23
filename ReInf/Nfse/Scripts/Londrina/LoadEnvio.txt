@@ -1,0 +1,335 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha, _NomeCampo, _ValorCampo, _PastaTecnoNFSe, _Situacao: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _DsServicoAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'DescricaoRps';
+  DSCIDADE_NOTA = 'DescricaoRps';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  // Função para contar número de SubStrings em uma String
+  function ContaPalavras(aStr, aSubstr: string): integer;
+  var
+    _sl : TStringList;
+    _cont, i: integer;
+  begin
+    Result := 0;
+    _sl := TStringList.Create;
+    try
+      _sl.CommaText := aStr;
+      for i := 0 to _sl.Count-1 do
+        if SameText(_sl[i], aSubstr) then
+          Inc(_cont);
+    finally
+      _sl.Free;
+    end;
+    Result := _cont;
+  end;
+
+  { aData = Data a ser quebrada }
+  { aValor: 0 = dia, 1 = mês, 2 = ano }
+  function FormataData(aData : string; aPosicao: Integer): string;
+  var
+    _sl: TStringList;
+    _Aux: string;
+  begin
+    if aData <> '' then
+    begin
+      if (Pos(' ', aData) > 0) or (Pos('T', aData) > 0) then // formato: dd-mm-aaaaThh:mm:ss ou
+                                                                      // dd-mm-aaaa hh:mm:ss
+      begin
+        _Aux := aData;
+        Delete(_Aux, 11, 9);
+      end else
+        _Aux := aData;
+
+      if Pos('-', _Aux) > 0 then // formato: aaaa-mm-dd
+      begin
+        _Aux := StringReplace(_Aux, '-', ' ',[rfReplaceAll]);
+        try
+          _sl := TStringList.Create;
+          _sl.CommaText := _Aux;
+
+          if (aPosicao = 0) then
+            Result := _sl[2]
+          else if (aPosicao = 1) then
+            Result := _sl[1]
+          else if (aPosicao = 2) then
+            Result := _sl[0];
+        finally
+          _sl.Free;
+        end;
+      end
+      else if Pos('/', _Aux) > 0 then // formato: dd/mm/aaaa
+      begin
+        _Aux := StringReplace(_Aux, '/', ' ',[rfReplaceAll]);
+        try
+          _sl := TStringList.Create;
+          _sl.CommaText := _Aux;
+          Result := _sl[aPosicao];
+        finally
+          _sl.Free;
+        end;
+      end
+      else
+        RaiseException('Valor inválido para campo DataEmissao. Formatos aceitos:'+
+                       'dd/mm/aaaa hh:mm:ss, dd/mm/aaaa, aaaa-mm-dd.')
+    end;
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    // Não é possível enviar mais de um RPS no Lote
+    if ContaPalavras(_Tx2.Text, 'INCLUIRRPS') > 1 then
+      RaiseException('Não é possível o envio de lote para Londrina por limitações de seu'+
+                                                                             'WebService');
+
+    if _PadraoTecnoNFSe then
+    begin
+
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+
+      // número do lote utilizado em todas as notas
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _DsTecnoAtual.First;
+
+      _DsCidadeAtual.Append;
+
+      SetarCampoValor('rps_num', CampoTecno('NumeroRps'));
+      SetarCampoValor('rps_serie', CampoTecno('SerieRps'));
+      if CampoTecno('TipoRps') <> '' then
+        SetarCampoValor('rps_tipo', '1');
+
+      SetarCampoValor('rps_dia', FormataData(CampoTecno('DataEmissao'), 0));
+      SetarCampoValor('rps_mes', FormataData(CampoTecno('DataEmissao'), 1));
+      SetarCampoValor('rps_ano', FormataData(CampoTecno('DataEmissao'), 2));
+
+      {
+        Situações :
+        - tp = Tributada no prestador;
+        - tt = Tributada no tomador;
+        - tf = Tributado Fixo;
+        - is = Isenta/Imune;
+        - nt = Outro município;
+        - si = Exportação;
+        - ca = Cancelada;
+      }
+      if (CampoTecno('CodigoPais') <> '') and (CampoTecno('CodigoPais') <> '01058') then
+          SetarCampoValor('situacao', 'si')
+
+      else if (CampoTecno('NaturezaTributacao') <> '') and (CampoTecno('NaturezaTributacao') =  '2') then
+          SetarCampoValor('situacao', 'tf')
+
+      else if CampoTecno('TipoTributacao') <> '' then
+      begin
+        _ValorCampo := CampoTecno('TipoTributacao');
+        case _ValorCampo of
+          '1', '2': SetarCampoValor('situacao', 'is');
+          '3', '4', '7': if CampoTecno('MunicipioIncidencia') = '4113700' then
+                           RaiseException('Para este tipo de tributaçao o campo '+
+                                           'MunicipioIncidencia não pode ser Londrina(4113700)')
+                         else
+                           SetarCampoValor('situacao', 'nt');
+
+          '5': if CampoTecno('MunicipioIncidencia') <> '4113700' then
+                 RaiseException('Para este tipo de tributaçao o campo MunicipioIncidencia '+
+                                'tem de ser Londrina(4113700)')
+               else
+               begin
+                 SetarCampoValor('situacao', 'tt');
+               end;
+
+          '6': if CampoTecno('MunicipioIncidencia') <> '4113700' then
+                 RaiseException('Para este tipo de tributaçao o campo MunicipioIncidencia '+
+                                'tem de ser Londrina(4113700)')
+               else
+                 SetarCampoValor('situacao', 'tp');
+        end;
+      end
+      else
+        RaiseException('O campo situacao nao pode ser gerado vazio, informe o campo'+
+                       ' NaturezaOperacao, ou o campo TipoTributacao');
+
+      if (CampoTecno('OptanteSimplesNacional') = '1') or
+         (CampoTecno('NaturezaTributacao') = '1') then
+        SetarCampoValor('incentivo_fiscal', '1');
+
+      // Valores
+    SetarCampoValor('valor', StringReplace(CampoTecno('ValorServicos'), '.', ',', []));
+    SetarCampoValor('base', StringReplace(CampoTecno('BaseCalculo'), '.', ',', []));
+    SetarCampoValor('ir', StringReplace(CampoTecno('ValorIr'), '.', ',', []));
+    SetarCampoValor('pis', StringReplace(CampoTecno('ValorPis'), '.', ',', []));
+    SetarCampoValor('cofins', StringReplace(CampoTecno('ValorCofins'), '.', ',', []));
+    SetarCampoValor('csll', StringReplace(CampoTecno('ValorCsll'), '.', ',', []));
+    SetarCampoValor('inss', StringReplace(CampoTecno('ValorInss'), '.', ',', []));
+    SetarCampoValor('retencao_iss', StringReplace(CampoTecno('ValorIssRetido'), '.', ',', []));
+    SetarCampoValor('descricaoNF', CampoTecno('DiscriminacaoServico'));
+    SetarCampoValor('servico', FormatarCodigoItemListaServico(CampoTecno('CodigoItemListaServico'), False));
+
+    if CampoTecno('AliquotaISS') <> '' then
+    begin
+      if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+      begin
+          _ValorCampo := StringReplace(CampoTecno('AliquotaISS'), ',', '.', [rfReplaceAll]);
+          _Vlr := StrToFloat(_ValorCampo);
+          _ValorCampo := FormataFloat( _Vlr, 5, 4);
+          _ValorCampo := StringReplace(_ValorCampo, '.', ',', [rfReplaceAll]);
+          if _ValorCampo = '0' then
+            _ValorCampo := _ValorCampo + ',00';
+          SetarCampoValor('aliquota', _ValorCampo);
+      end
+      else
+        RaiseException('Valor invalido para o campo AliquotaIss')
+    end
+    else
+      RaiseException('Campo AliquotaISS é obrigatório. Para serviços isentos, imunes ou '+
+                     'com tributação fixa: informar 0,00');
+
+      SetarCampoValor('cod_municipio_prestacao_servico', CampoTecno('CodigoCidadePrestacao'));
+      if (LowerCase(CampoTecno('DescricaoCidadePrestacao')) = 'londrina') then
+        SetarCampoValor('cod_municipio_prestacao_servico', '4113700');
+
+      if (CampoTecno('CodigoCidadePrestacao')    = '') and
+         (CampoTecno('DescricaoCidadePrestacao') = '') then
+        RaiseException('Campo CodigoCidadePrestacao ou DescricaoCidadePrestacao é de'+
+        'preenchimento obrigatório.');
+
+      if (CampoTecno('MunicipioIncidencia') <> '') then
+        SetarCampoValor('cod_municipio_incidencia', CampoTecno('MunicipioIncidencia'))
+      else
+        RaiseException('Campo MunicipioIncidencia é de preenchimento obrigatório.');
+
+      SetarCampoValor('ccm', RemoveMascara(CampoTecno('InscricaoMunicipalPrestador')));
+      SetarCampoValor('cnpj', RemoveMascara(CampoTecno('CpfCnpjPrestador')));
+
+      // Tomador
+      // Se o tomador for de fora do país, todos seus campos são gerados vazios
+      //if (LowerCase(CampoTecno('PaisTomador')) = 'brasil') then
+      //begin
+      SetarCampoValor('tomador_cnpj', RemoveMascara(CampoTecno('CpfCnpjTomador')));
+      SetarCampoValor('tomador_razao', CampoTecno('RazaoSocialTomador'));
+      SetarCampoValor('tomador_ie', CampoTecno('InscricaoEstadualTomador'));
+      SetarCampoValor('tomador_endereco', CampoTecno('EnderecoTomador'));
+      SetarCampoValor('tomador_numero', CampoTecno('NumeroTomador'));
+      SetarCampoValor('tomador_complemento', CampoTecno('ComplementoTomador'));
+      SetarCampoValor('tomador_bairro', CampoTecno('BairroTomador'));
+      SetarCampoValor('tomador_cod_cidade', CampoTecno('CodigoCidadeTomador'));
+      SetarCampoValor('tomador_CEP', CampoTecno('CepTomador'));
+      SetarCampoValor('tomador_fone', CampoTecno('TelefoneTomador'));
+      SetarCampoValor('tomador_email', CampoTecno('EmailTomador'));
+      //end;
+      SetarCampoValor('tomador_im', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+
+      SetarCampoValor('cod_pais_prestacao_servico', CampoTecno('CodigoPais'));
+
+      // Tipo do Tomador
+      if (CampoTecno('PaisTomador') <> '1058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') and (CampoTecno('PaisTomador') <> '') then
+        // tributado fora do país
+        SetarCampoValor('tomador_tipo', '5')
+
+      else if (CampoTecno('CpfCnpjTomador') = '') and (CampoTecno('RazaoSocialTomador') = '') and
+              (CampoTecno('CodigoCidadeTomador') = '') and (CampoTecno('EnderecoTomador') = '') and
+              (CampoTecno('NumeroTomador') = '') and
+              (CampoTecno('BairroTomador') = '') then
+         // campos obrigatórios do tomador são vazios
+        SetarCampoValor('tomador_tipo', '1')
+
+      else if Length(RemoveMascara(CampoTecno('CpfCnpjTomador'))) = 11 then
+        // informado CPF
+        SetarCampoValor('tomador_tipo', '2')
+
+      else if (Length(RemoveMascara(CampoTecno('CpfCnpjTomador'))) = 14) and
+              (CampoTecno('CodigoCidadeTomador') = '4113700') then
+        // CNPJ e Código IBGE de Londrina
+        SetarCampoValor('tomador_tipo', '3')
+
+      else if (Length(RemoveMascara(CampoTecno('CpfCnpjTomador'))) = 14) and
+              (CampoTecno('CodigoCidadeTomador') <> '4113700') then
+        // CNPJ e Código IBGE diferente de Londrina
+        SetarCampoValor('tomador_tipo', '4');
+
+      if (CampoTecno('CodigoItemListaServico') = '702') or
+         (CampoTecno('CodigoItemListaServico') = '705') then
+      begin
+        if CampoTecno('CodigoObra') = '' then
+          RaiseException('Campo CodigoObra é obrigatório para este serviço.');
+        if CampoTecno('Art') = '' then
+          RaiseException('Campo Art é obrigatório para este serviço.');
+      end;
+
+      SetarCampoValor('codigo_obra', CampoTecno('CodigoObra'));
+      SetarCampoValor('obra_art', CampoTecno('Art'));
+      SetarCampoValor('nfse_substituida', CampoTecno('NumeroNfseSubstituida'));
+      SetarCampoValor('rps_substituido', CampoTecno('NumeroRpsSubstituido'));
+
+      _DsCidadeAtual.Post;
+      _DsTecnoAtual.Next;
+
+      SetarCamposMunicipio;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+
+  end;
+end.

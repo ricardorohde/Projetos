@@ -1,0 +1,40 @@
+
+procedure PosicionaRegistroRPS(aRegistro : Integer);
+var
+ i : integer;
+begin
+
+  _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+  _DsCidadeAtual.First;
+  for i := 1 to aRegistro do
+    _DsCidadeAtual.Next;
+
+end;
+
+procedure SetarCamposMunicipio;
+var
+  _i, _registro : Integer;
+  _CampoPers, _NomeCampo, _ValorCampo, _aux : string;
+begin
+
+  for _i := 0 to _CamposMunicipio.count -1 do
+  begin
+    _NomeCampo := _CamposMunicipio.Names[_i];
+    _ValorCampo := _CamposMunicipio.Values[_NomeCampo];
+
+    if _ValorCampo <> '' then
+    begin
+      _aux := Copy(_NomeCampo, 0, Pos('@', _NomeCampo)-1);
+      _registro := StrToInt(_aux);
+      PosicionaRegistroRPS(_registro);
+
+      _CampoPers :=   StringReplace(_NomeCampo, '@','',[rfReplaceAll]);
+      _CampoPers :=   StringReplace(_CampoPers, _aux,'',[rfReplaceAll]);
+
+      _DsCidadeAtual.Edit;
+      SetarCampoValor(_CampoPers, _ValorCampo);
+      _DsCidadeAtual.Post;
+    end;
+  end;
+
+end;

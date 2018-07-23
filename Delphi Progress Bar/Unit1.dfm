@@ -1,0 +1,182 @@
+object Form1: TForm1
+  Left = 449
+  Top = 247
+  Width = 748
+  Height = 476
+  Caption = 'Carrega (.Txt) - Layout'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  DesignSize = (
+    732
+    438)
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pb1: TProgressBar
+    Left = 0
+    Top = 421
+    Width = 732
+    Height = 17
+    Align = alBottom
+    TabOrder = 0
+  end
+  object btnDirParaEsqAll: TButton
+    Left = 336
+    Top = 184
+    Width = 75
+    Height = 25
+    Caption = '>>'
+    TabOrder = 2
+    OnClick = btnDirParaEsqAllClick
+  end
+  object lst1: TListBox
+    Left = 0
+    Top = 0
+    Width = 265
+    Height = 421
+    Align = alLeft
+    ItemHeight = 13
+    MultiSelect = True
+    TabOrder = 3
+  end
+  object btnAdicionar: TButton
+    Left = 336
+    Top = 56
+    Width = 73
+    Height = 25
+    Caption = 'Adicionar '
+    TabOrder = 4
+    OnClick = btnAdicionarClick
+  end
+  object edt1: TEdit
+    Left = 280
+    Top = 16
+    Width = 161
+    Height = 21
+    TabOrder = 1
+  end
+  object lst2: TListBox
+    Left = 488
+    Top = 0
+    Width = 265
+    Height = 421
+    Anchors = [akTop, akRight, akBottom]
+    ItemHeight = 13
+    TabOrder = 5
+  end
+  object btnApagar: TButton
+    Left = 336
+    Top = 120
+    Width = 75
+    Height = 25
+    Caption = 'Apagar Tudo'
+    TabOrder = 6
+    OnClick = btnApagarClick
+  end
+  object btnCarregar: TButton
+    Left = 336
+    Top = 88
+    Width = 75
+    Height = 25
+    Caption = 'Carregar'
+    TabOrder = 7
+    OnClick = btnCarregarClick
+  end
+  object btnPesquisar: TBitBtn
+    Left = 448
+    Top = 12
+    Width = 25
+    Height = 25
+    TabOrder = 8
+    OnClick = btnPesquisarClick
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000000000000000000001111110E00000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000000000000000000038383838323232C12E2E2EF91111110A000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000030303072333333FD535353FF4141419900000000000000000000
+      0000000000000000000000000000000000000000000000000000000000000000
+      000029292972363636FF757575FF686868E31818181200000000000000000000
+      0000000000000000000000000000000000000000000000000000000000002020
+      2032333333FB898989FF848484F33B3B3B340000000000000000000000000000
+      000000000000111111023838383C3D3D3D7C4343438544444462343434122525
+      25B58F8F8FFF8C8C8CE747474738000000000000000000000000000000000000
+      00002B2B2B124242429B89898995E4E4E47AF2F2F27CBCBCBC896C6C6CB55D5D
+      5DF77575759B2121211600000000000000000000000000000000000000001818
+      180436363697A7A7A73CF9F9F93AFEFEFE48FFFFFF4CFEFEFE42EEEEEE3A6A6A
+      6A8F404040480000000000000000000000000000000000000000000000003030
+      305831313140EFEFEF12FFFFFF20FFFFFF2AFFFFFF2EFFFFFF26FEFEFE1AC1C1
+      C11A444444A11111110200000000000000000000000000000000000000003939
+      397E0000000AFEFEFE04FFFFFF0AFFFFFF18FFFFFF1CFFFFFF10FFFFFF065C5C
+      5C02494949783131312600000000000000000000000000000000000000003F3F
+      3F7E5A5A5A0CFFFFFF40FFFFFF5AFFFFFF5EFFFFFF60FFFFFF5EFFFFFF4EFCFC
+      FC203A3A3A5A3939393C00000000000000000000000000000000000000004343
+      437EAFAFAF24FEFEFE6EFFFFFF6EFFFFFF6EFFFFFF6EFFFFFF6EFFFFFF6EFBFB
+      FB52404040762A2A2A2000000000000000000000000000000000000000004343
+      434C5A5A5A54FDFDFD7CFFFFFF7CFFFFFF7CFFFFFF7CFFFFFF7CFEFEFE7CE4E4
+      E454424242950000000000000000000000000000000000000000000000001111
+      11024646468BB8B8B866FCFCFC8BFEFEFE89FFFFFF89FEFEFE89F4F4F47E5555
+      558D454545360000000000000000000000000000000000000000000000000000
+      0000202020084646468176767695B9B9B97ECDCDCD7A9C9C9C8B5050509D4646
+      463E000000000000000000000000000000000000000000000000000000000000
+      000000000000000000002E2E2E204E4E4E604B4B4B6C45454544191919060000
+      0000000000000000000000000000000000000000000000000000}
+  end
+  object btnDirParaEsqSimples: TButton
+    Left = 336
+    Top = 152
+    Width = 75
+    Height = 25
+    Caption = '>'
+    TabOrder = 9
+    OnClick = btnDirParaEsqSimplesClick
+  end
+  object btnEsqParaDirSimples: TButton
+    Left = 336
+    Top = 216
+    Width = 75
+    Height = 25
+    Caption = '<'
+    TabOrder = 10
+    OnClick = btnEsqParaDirSimplesClick
+  end
+  object btnEsqParaDirAll: TButton
+    Left = 336
+    Top = 248
+    Width = 75
+    Height = 25
+    Caption = '<<'
+    TabOrder = 11
+    OnClick = btnEsqParaDirAllClick
+  end
+  object btnEditar: TButton
+    Left = 336
+    Top = 393
+    Width = 75
+    Height = 25
+    Caption = 'Editar'
+    Enabled = False
+    TabOrder = 12
+  end
+  object btnEditarNovo: TButton
+    Left = 336
+    Top = 280
+    Width = 75
+    Height = 25
+    Caption = 'Editar'
+    TabOrder = 13
+    OnClick = btnEditarNovoClick
+  end
+  object dlgOpen: TOpenDialog
+    InitialDir = 'C:\'
+    Left = 476
+    Top = 10
+  end
+end

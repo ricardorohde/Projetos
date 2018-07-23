@@ -1,0 +1,44 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    _Xml := Input;
+
+    if Pos('"http://schemas.xmlsoap.org/soap/envelope/"', _Xml) > 0 then
+    begin
+      _Xml := XmlDeepNodeSearch(_Xml, 'Body', '//*[local-name()="Body"]');
+      _Xml := StringReplace(_Xml, '<!--CRLF-->', '&lt;!--CRLF--&gt;', [rfReplaceAll]);
+    end;
+
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName,
+      '//*[local-name()="ConsultarNfseServicoPrestadoResposta"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

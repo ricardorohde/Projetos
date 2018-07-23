@@ -1,0 +1,4 @@
+<el:ConsultarLoteRpsEnvio>
+ <identificacaoPrestador>%s</identificacaoPrestador>
+ <numeroProtocolo>%s</numeroProtocolo>
+</el:ConsultarLoteRpsEnvio>

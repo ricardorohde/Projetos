@@ -1,0 +1,18 @@
+<ConsultarNFSePorRPS xmlns="http://www.issnetonline.com.br/webservice/nfd">
+  <xml>
+    <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+    <ConsultarNfseRpsEnvio xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_consultar_nfse_rps_envio.xsd" xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd">
+      <IdentificacaoRps>
+        <tc:Numero>%s</tc:Numero>
+        <tc:Serie>%s</tc:Serie>
+        <tc:Tipo>%s</tc:Tipo>
+      </IdentificacaoRps>
+      <Prestador>
+        <tc:CpfCnpj>
+          <tc:Cnpj>%s</tc:Cnpj>
+        </tc:CpfCnpj>
+        <tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+      </Prestador>
+    </ConsultarNfseRpsEnvio>]]>
+  </xml>
+</ConsultarNFSePorRPS>

@@ -1,0 +1,82 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+{$I ..\Comuns\Utils.txt}
+
+Var
+  _Xml, _SituacaoLote, _Lista, _XmlSituacao : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if xmlSelectNodeValue(Input,'//*[namespace-uri()="" and local-name()="Header"]//*[local-name()="SituacaoLote"]',_SituacaoLote) then
+    Params.Add('SituacaoLote='+_SituacaoLote)
+  else if xmlSelectNodeValue(Input,'//*[local-name()="WS_ConsultarSituacaoLoteRps.ExecuteResponse"]/*[local-name()="Consultarsituacaoloterpsresposta"]/*[local-name()="Situacao"]',_SituacaoLote) then
+    Params.Add('SituacaoLote='+_SituacaoLote)
+  else
+    Params.Add('SituacaoLote=');
+
+  _XmlSituacao := XmlDeepNodeSearch(Input, 'Consultarsituacaoloterpsresposta', '//*[namespace-uri()="FISS-LEX" and local-name()="Consultarsituacaoloterpsresposta"]');
+  _XmlSituacao := StringReplace(_XmlSituacao, #10, '', [rfReplaceAll]); // CR
+  _XmlSituacao := StringReplace(_XmlSituacao, #13, '', [rfReplaceAll]); // LF
+  _XmlSituacao := StringReplace(_XmlSituacao, '    ', '',  [rfReplaceAll]);
+
+  if not xmlSelectNodeValue(Input,'//*[local-name()="CompNfse"]',_Lista) then
+  begin
+    _Xml := StringReplace(Input, '<Consultarloterpsresposta xmlns="FISS-LEX"><ListaNfse></ListaNfse></Consultarloterpsresposta>', '<Consultarloterpsresposta xmlns="FISS-LEX"><ListaNfse></ListaNfse>',[]);
+    //_Xml := StringReplace(_Xml, '<ConsultarLoteRpsResposta xmlns="FISS-LEX"><ListaNfse></ListaNfse></ConsultarLoteRpsResposta>', '<Consultarloterpsresposta xmlns="FISS-LEX"><ListaNfse></ListaNfse>',[]);
+    _Xml := StringReplace(_Xml, '<Consultarloterpsresposta xmlns="FISS-LEX">&lt;ListaNfse&gt;&lt;/ListaNfse&gt;</Consultarloterpsresposta>', '<Consultarloterpsresposta xmlns="FISS-LEX"><ListaNfse></ListaNfse>',[]);
+    _Xml := StringReplace(_Xml, '</Listamensagemretorno>', '</Listamensagemretorno></ConsultarLoteRpsResposta>',[]);
+  end;
+
+
+  if _Xml <> '' then
+    _Xml := StringReplace(_Xml,'Consultarloterpsresposta','ConsultarLoteRpsResposta',[rfReplaceAll])
+  else
+    _Xml := StringReplace(Input,'Consultarloterpsresposta','ConsultarLoteRpsResposta',[rfReplaceAll]);
+
+  if (Pos('</ListaNfse></ConsultarLoteRpsResposta>', _Xml) > 0) and (Pos('</Listamensagemretorno></ConsultarLoteRpsResposta>', _Xml) > 0) then
+    _Xml := StringReplace(_Xml,'</ListaNfse></ConsultarLoteRpsResposta>','</ListaNfse>',[rfReplaceAll]);
+
+
+  _Xml := StringReplace(_Xml, '&amp;',  '&',  [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="FISS-LEX" and local-name()="ConsultarLoteRpsResposta"]');
+
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="FISS-LEX" and local-name()="ConsultarLoteRpsResposta"]');
+
+    _Xml := StringReplace(_Xml,'tcMensagemRetorno', 'MensagemRetorno',[rfReplaceAll]);
+  if _XmlSituacao <> '' then
+    Params.Add('Situacao='+_XmlSituacao)
+  else if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := StringReplace(_Xml,'ConsultarLoteRpsResposta','Consultarloterpsresposta',[rfReplaceAll]);
+    Params.Add('XmlLote='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

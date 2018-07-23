@@ -1,0 +1,4 @@
+<nfse:PeriodoCompetencia>
+  <nfse:DataInicial>%s</nfse:DataInicial>
+  <nfse:DataFinal>%s</nfse:DataFinal>
+</nfse:PeriodoCompetencia>

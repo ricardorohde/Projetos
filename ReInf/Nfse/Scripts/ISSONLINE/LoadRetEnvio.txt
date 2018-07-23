@@ -1,0 +1,25 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\Comuns.txt}
+
+Var
+  _Xml : string;
+begin
+
+  Progress('Carregando XML de Retorno de Envio');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XML=' + ExtractEscapedContent(input));
+
+    Progress('XML carregado com sucesso');
+  end;
+end.

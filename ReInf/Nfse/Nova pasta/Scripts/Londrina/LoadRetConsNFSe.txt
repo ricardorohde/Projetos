@@ -1,0 +1,28 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'servico_consultar_nfse_resposta_v1_03.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseServicoPrestadoResponse';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Carregando XML de Retorno de Envio de lote');
+  if (Pos('<faultstring',input) > 0) or (Pos('Fatal error',input) > 0) then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := XmlSelect(Input, '//*[local-name()="ConsultarNfseServicoPrestadoResponse"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

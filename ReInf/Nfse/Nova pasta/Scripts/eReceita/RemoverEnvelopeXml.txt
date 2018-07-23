@@ -1,0 +1,12 @@
+  function RemoverEnvelopeXml(const aXml, aOperacao: string): string;
+  var
+    _EnvelopeInicio, _EnvelopeFim: string;
+  begin
+    _EnvelopeInicio := Format1('<?xml version="1.0" encoding="ISO-8859-1"?>'+
+      '<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" '+
+      'xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/">'+
+      '<SOAP-ENV:Body><%s xmlns="http://www.ereceita.net.br/soap/NfseWebService"><outputXML>', aOperacao);
+    _EnvelopeFim := Format1('</outputXML></%s></SOAP-ENV:Body></SOAP-ENV:Envelope>', aOperacao);
+    Result := StringReplace(aXml, _EnvelopeInicio, '', []);
+    Result := StringReplace(Result, _EnvelopeFim, '', []);
+  end;

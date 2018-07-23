@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+  Datasets.XsdFile := PathXsd + 'spdRetornoEnvio.xsd';
+  Datasets.XsdElementName := 'retorno';
+  Datasets.ConfigSection :='RETORNO_ENVIAR';
+
+  Progress('Criando XSDDataset.');
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Datasets.CreateXSDDataset;
+  _Xml := stringReplace(Input, '<?xml version=''1.0'' encoding=''iso-8859-1''?>', '', [rfReplaceAll]);
+  _Xml := stringReplace(_Xml, '<!--CRLF-->', '', [rfReplaceAll]);
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="retorno"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('Xml='+_Xml);
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com Sucesso.');
+  end;
+end.

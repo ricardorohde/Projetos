@@ -1,0 +1,8 @@
+<ns1:RecepcionarLoteRpsV3 xmlns:ns1="http://producao.issfortaleza.com.br">
+<Cabecalho>
+<![CDATA[
+<ns2:cabecalho versao="3" xmlns:ns2="http://www.ginfes.com.br/cabecalho_v03.xsd"><versaoDados>3</versaoDados></ns2:cabecalho>
+]]>
+</Cabecalho>
+<EnviarLoteRpsEnvio><![CDATA[%s]]></EnviarLoteRpsEnvio>
+</ns1:RecepcionarLoteRpsV3>

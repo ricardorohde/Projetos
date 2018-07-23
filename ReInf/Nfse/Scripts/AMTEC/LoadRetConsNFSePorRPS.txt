@@ -1,0 +1,49 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+  Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse_gyn_v02.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    if _Xml = '' then
+    begin
+      // Replace para adequar o Retorno ao esquema.
+      _Xml := StringReplace(Input, 'GerarNfseResposta','ConsultarNfseRpsResposta',[rfReplaceAll]);
+      Datasets.LoadFromXMLContent(_Xml);
+    end
+    else
+    begin
+      // Replace para adequar o Retorno ao esquema.
+      _Xml := StringReplace(_Xml, '<DeclaracaoPrestacaoServico>','<DeclaracaoPrestacaoServico><InfDeclaracaoPrestacaoServico><Rps>',[rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '</Competencia>','</Competencia></Rps>',[rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '</DeclaracaoPrestacaoServico>','</InfDeclaracaoPrestacaoServico></DeclaracaoPrestacaoServico>',[rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '<IdentificacaoPrestador>','',[rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '</IdentificacaoPrestador>','',[rfReplaceAll]);
+      Datasets.LoadFromXMLContent(_Xml);
+    end;
+
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

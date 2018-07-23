@@ -1,0 +1,11 @@
+K 10
+svn:ignore
+V 13
+*.drc
+*.~dpk
+
+K 14
+tsvn:autoprops
+V 20
+*.* = svn:needs-lock
+END

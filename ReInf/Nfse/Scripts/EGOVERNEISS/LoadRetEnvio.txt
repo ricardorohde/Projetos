@@ -1,0 +1,28 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'spdXsdOsasco.xsd';
+  Datasets.XsdElementName := 'NotaFiscal';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  _Xml := '';
+  _Xml := XmlDeepNodeSearch(Input, 'EmitirResult', '//*[local-name()="EmitirResult"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Params.Add('XmlRetorno='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

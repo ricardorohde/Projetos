@@ -1,0 +1,107 @@
+{ Formata um código de item da Lista de Serviços (LC 116). O código pode ter
+    3 ou 4 dígitos, com ou sem ponto, e será formatada para 4 dígitos, tendo
+    ponto caso o parâmetro ComPonto seja true. }
+function FormatarCodigoItemListaServico(const aCodigo: string; ComPonto: Boolean): string;
+begin
+  Result := aCodigo;
+  case Length(Result) of
+    3, 4:
+    begin
+      Result := StringReplace(Result, '.', '', []);
+      Result := PadC(Result, 4, '0', True);  // 103  --> 0103
+
+      if ComPonto then
+        Result := LeftStr(Result, 2) + '.' + RightStr(Result, 2);
+    end;
+    5:
+    begin
+      Result := StringReplace(Result, '.', '', []);
+
+      if ComPonto then
+        Result := LeftStr(Result, 2) + '.' + RightStr(Result, 2);
+    end;
+  end;
+end;
+
+{ Essa função foi criada para o ticket #9783, especifico para a cidade de canoas
+  Modificado para o ticket #10431, a cidade de Varzea da Palma sempre usa ponto no Codigo}
+function FormatarCodigoItemListaServicoSemZeroEsquerda(const aCodigo: string; ComPonto: Boolean): string;
+var
+  _verifica: integer;
+begin
+  Result := aCodigo;
+  Result := StringReplace(Result, '.', '', []);
+  case Length(Result) of
+    4:
+    begin
+      _verifica := pos('0',Result);
+
+      if (_verifica = 1) then
+        Result := LeftStr(Result, 0) + RightStr(Result, 3);
+         //Para Canoas aceita somente 3 digitos. Ex: 103.
+      if ComPonto then
+      begin
+        if (Length(Result) = 4) then
+          Result := LeftStr(Result, 2) + '.' + RightStr(Result, 2);
+        if (Length(Result) = 3) then
+          Result := LeftStr(Result, 1) + '.' + RightStr(Result, 2);
+      end;
+    end;
+    3:
+    begin
+      if ComPonto then
+        Result := LeftStr(Result, 1) + '.' + RightStr(Result, 2);
+    end;
+  end;
+end;
+
+
+{ Essa função foi criada para o padrão GovDigital, onde o 0 após a virgula deverá ser removido}
+function FormatarCodigoItemListaServicoSemZeroAposPonto(const aCodigo: string): string;
+var
+  _verifica: integer;
+begin
+  Result := aCodigo;
+  Result := StringReplace(Result, '.', '', []);
+  _verifica := pos('0',Result);
+
+  case Length(Result) of
+    4:
+    begin
+      if _verifica = 1 then
+      begin
+        Delete(Result, 1, 1);
+        if Pos('0',RightStr(Result, 2)) = 1 then
+          Result := LeftStr(Result, 1) + '.' + Copy(Result, Length(Result), Length(Result))
+        else
+          Result := LeftStr(Result, 1) + '.' + RightStr(Result, 2);
+      end
+      else if Pos('0',RightStr(Result, 2)) = 1 then
+        Result := LeftStr(Result, 2) + '.' + Copy(Result, Length(Result), Length(Result))
+      else
+        Result := LeftStr(Result, 2) + '.' + RightStr(Result, 2);
+    end;
+    3:
+    begin
+      if _verifica = 1 then
+      begin
+        Delete(Result, 1, 1);
+        Result := LeftStr(Result, 1) + '.' + RightStr(Result, 1)
+      end
+      else if Pos('0',RightStr(Result, 2)) = 1 then
+        Result := LeftStr(Result, 1) + '.' + Copy(Result, Length(Result), Length(Result))
+      else
+        Result := LeftStr(Result, 1) + '.' + RightStr(Result, 2);
+    end;
+    2:
+    begin
+      if _verifica = 1 then
+      begin
+        Delete(Result, 1, 1);
+        Result := Result;
+      end
+      else
+        Result := Result;
+    end;
+  end;
+end;

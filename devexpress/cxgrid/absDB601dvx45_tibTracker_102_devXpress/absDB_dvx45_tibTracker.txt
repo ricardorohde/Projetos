@@ -1,0 +1,31 @@
+
+project Name: absDB_dvx45_tibTracker:
+2k9aug15sat2347cr:-)
+[1] creation of this readME file,
+[2] enabled tcxView Navigator ... ok,
+[3] "duration" time formatting ...
+[2415] added "dbEdit1", how to set various time formats in Delphi without
+        coding ...
+[2510] tested code HrToStr(rHr:real)
+        and need further enhancement to take care of timeStop > 2400 with
+        the use of 01:00 to represent 1AM the next day. Hence need to add '24'.
+[2420] reset absDB using dateTime instead of Time...
+
+2k9aug16tue_cr:-)
+[1225] experimented and found setting in
+  cxGrid_DBTableView_timeStop.Properties can have several choices of
+  layout like
+  timeEdit-> user can change time values with spinners,
+  dateEdit-> user can change date via a calendar.
+  combobox-> user can change both date_time string style...
+    but prone to typo and entry error. its better to use calendar & spinners !
+[1240] on_Event present the user with a dialog to use dateEdit or timeEdit, then
+  code it. timeStart.onDblClick ... not very intuitive.
+[1300] use a cxButton for that purpose ...
+
+[1630]
+  [1] using a stand-alone date component: but how to pass the date value to a
+  field in the grid ? or even
+  [2] cxButton after click : how to set a string into the grid's text field ?
+
+

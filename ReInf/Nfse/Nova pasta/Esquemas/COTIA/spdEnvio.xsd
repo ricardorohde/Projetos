@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="nfe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="notaFiscal"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="notaFiscal">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dadosPrestador"/>
+        <xs:element ref="dadosServico"/>
+        <xs:element ref="dadosTomador"/>
+        <xs:element ref="detalheServico"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dadosPrestador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="dataEmissao"/>
+        <xs:element ref="im"/>
+        <xs:element ref="numeroRps"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dataEmissao" type="xs:string"/>
+  <xs:element name="im" type="xs:integer"/>
+  <xs:element name="numeroRps" type="xs:integer"/>
+  <xs:element name="dadosServico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bairro"/>
+        <xs:element ref="cep"/>
+        <xs:element ref="cidade"/>
+        <xs:element ref="complemento"/>
+        <xs:element ref="logradouro"/>
+        <xs:element ref="numero"/>
+        <xs:element ref="pais"/>
+        <xs:element ref="uf"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dadosTomador">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bairro"/>
+        <xs:element ref="cep"/>
+        <xs:element ref="cidade"/>
+        <xs:element ref="complemento"/>
+        <xs:element ref="documento"/>
+        <xs:element ref="email"/>
+        <xs:element ref="ie"/>
+        <xs:element ref="logradouro"/>
+        <xs:element ref="nomeTomador"/>
+        <xs:element ref="numero"/>
+        <xs:element ref="pais"/>
+        <xs:element ref="tipoDoc"/>
+        <xs:element ref="uf"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="documento" type="xs:integer"/>
+  <xs:element name="email" type="xs:string"/>
+  <xs:element name="ie" type="xs:NCName"/>
+  <xs:element name="nomeTomador" type="xs:NCName"/>
+  <xs:element name="tipoDoc" type="xs:NCName"/>
+  <xs:element name="detalheServico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="cofins"/>
+        <xs:element ref="csll"/>
+        <xs:element ref="deducaoMaterial"/>
+        <xs:element ref="descontoIncondicional"/>
+        <xs:element ref="inss"/>
+        <xs:element ref="ir"/>
+        <xs:element ref="issRetido"/>
+        <xs:element ref="item"/>
+        <xs:element ref="obs"/>
+        <xs:element ref="pisPasep"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="cofins" type="xs:decimal"/>
+  <xs:element name="csll" type="xs:decimal"/>
+  <xs:element name="deducaoMaterial" type="xs:decimal"/>
+  <xs:element name="descontoIncondicional" type="xs:integer"/>
+  <xs:element name="inss" type="xs:decimal"/>
+  <xs:element name="ir" type="xs:decimal"/>
+  <xs:element name="issRetido" type="xs:decimal"/>
+  <xs:element name="item">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aliquota"/>
+        <xs:element ref="cnae"/>
+        <xs:element ref="codigo"/>
+        <xs:element ref="descricao"/>
+        <xs:element ref="valor"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aliquota" type="xs:decimal"/>
+  <xs:element name="cnae" type="xs:integer"/>
+  <xs:element name="codigo" type="xs:integer"/>
+  <xs:element name="descricao" type="xs:string"/>
+  <xs:element name="valor" type="xs:decimal"/>
+  <xs:element name="obs" type="xs:string"/>
+  <xs:element name="pisPasep" type="xs:decimal"/>
+  <xs:element name="bairro" type="xs:string"/>
+  <xs:element name="cep" type="xs:NMTOKEN"/>
+  <xs:element name="cidade" type="xs:string"/>
+  <xs:element name="complemento" type="xs:string"/>
+  <xs:element name="logradouro" type="xs:string"/>
+  <xs:element name="numero" type="xs:integer"/>
+  <xs:element name="pais" type="xs:NCName"/>
+  <xs:element name="uf" type="xs:NCName"/>
+</xs:schema>

@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _Datahora: string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if Pos('<faultstring', input) > 0 then
+    Params.Add('faultstring=' + input)
+  else
+  begin
+    _Xml := XmlDeepNodeSearch(input, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd" and local-name()="CancelarNfseResposta"]');
+    Datasets.LoadFromXMLContent(_Xml);
+    { Retorno do cancelamento não segue totalmente o schema XML (ao invés de uma tag "DataHoraCancelamento", retorna uma tag "Datahora".
+      Sendo assim, esse campo será obtido via XPath. }
+    XmlSelectNodeValue(_Xml, '//*[local-name()="Confirmacao"]/*[local-name()="Datahora" or local-name()="DataHora"]', _Datahora);
+    Params.Add('Datahora=' + _Datahora);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

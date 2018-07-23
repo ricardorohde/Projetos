@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="tbnfd">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="nfdok" type="tc_nfdok" minOccurs="0" maxOccurs="unbounded"/>       
+        
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="tc_nfdok" mixed="true">
+    <xs:sequence>
+      <xs:element name="NewDataSet" type="tc_NewDataSet"/>
+    </xs:sequence>
+    <xs:attribute name="numeronfd" use="required" type="xs:integer"/>
+  </xs:complexType>
+
+  <xs:complexType name="tc_NewDataSet">
+    <xs:sequence>
+      <xs:element ref="NOTA_FISCAL"/>
+      <xs:element name="ITENS" type="tc_ITENS" maxOccurs="unbounded"/>
+      <xs:element name="FATURA" type="tc_FATURA" maxOccurs="unbounded"/>
+      <xs:element ref="SignerData"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="NOTA_FISCAL">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Cae"/>
+        <xs:element ref="DataEmissao"/>
+        <xs:element ref="NaturezaOperacao"/>
+        <xs:element ref="NumeroNota"/>
+        <xs:element ref="NumeroRps"/>
+        <xs:element ref="SituacaoNf"/>
+        <xs:element ref="ChaveValidacao"/>
+        <xs:element ref="ClienteNomeRazaoSocial"/>        
+        <xs:element ref="ClienteNomeFantasia"/>
+        <xs:element ref="ClienteEndereco"/>
+        <xs:element ref="ClienteBairro"/>
+        <xs:element ref="ClienteNumeroLogradouro"/>
+        <xs:element ref="ClienteCidade"/>
+        <xs:element ref="ClienteUF"/>
+        <xs:element ref="ClientePais"/>
+        <xs:element ref="ClienteFone"/>
+        <xs:element ref="ClienteFax"/>
+        <xs:element ref="ClienteInscricaoMunicipal"/>
+        <xs:element ref="ClienteCEP"/>
+        <xs:element ref="ClienteEmail"/>
+        <xs:element ref="ClienteCNPJCPF"/>
+        <xs:element ref="ClienteInscricaoEstadual"/>
+        <xs:element ref="BaseCalculo"/>
+        <xs:element ref="ISSQNCliente"/>
+        <xs:element ref="ISSQNSemRetencao"/>
+        <xs:element ref="ISSQNTotal"/>
+        <xs:element ref="ValorTotalNota"/>
+        <xs:element ref="FreteCNPJ"/>
+        <xs:element ref="FreteRazaoSocial"/>
+        <xs:element ref="FreteEndereco"/>
+        <xs:element ref="FreteEmitente"/>
+        <xs:element ref="FreteDestinatario"/>
+        <xs:element ref="FreteQuantidade"/>
+        <xs:element ref="FreteEspecie"/>
+        <xs:element ref="FretePesoLiquido"/>
+        <xs:element ref="FretePesoBruto"/>
+        <xs:element ref="Serie"/>
+        <xs:element ref="SerieSimplificada"/>
+        <xs:element ref="CodigoSerie"/>
+        <xs:element ref="TimbreContribuinteLogo"/>
+        <xs:element ref="TimbreContribuinteLinha1"/>
+        <xs:element ref="TimbreContribuinteLinha2"/>
+        <xs:element ref="TimbreContribuinteLinha3"/>
+        <xs:element ref="TimbreContribuinteLinha4"/>
+        <xs:element ref="TimbrePrefeituraLogo"/>
+        <xs:element ref="TimbrePrefeituraLinha1"/>
+        <xs:element ref="TimbrePrefeituraLinha2"/>
+        <xs:element ref="TimbrePrefeituraLinha3"/>
+        <xs:element ref="Pis"/>
+        <xs:element ref="Cofins"/>
+        <xs:element ref="Csll"/>
+        <xs:element ref="Irrf"/>
+        <xs:element ref="Outros"/>
+        <xs:element ref="DescDeducoesConstrucao"/>
+        <xs:element ref="TotalDeducoesConstrucao"/>
+		<xs:element ref="VlrOutros"/>
+        <xs:element ref="TributadoNoMunicipio"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:element name="Cae" type="xs:integer"/>
+  <xs:element name="DataEmissao" type="xs:NMTOKEN"/>
+  <xs:element name="NaturezaOperacao" type="xs:string"/>
+  <xs:element name="NumeroNota" type="xs:integer"/>
+  <xs:element name="NumeroRps" type="xs:integer"/>
+  <xs:element name="SituacaoNf" type="xs:string"/>
+  <xs:element name="ChaveValidacao" type="xs:string"/>
+  <xs:element name="ClienteNomeRazaoSocial" type="xs:string"/>
+  <xs:element name="ClienteNomeFantasia" type="xs:string"/>
+  <xs:element name="ClienteEndereco" type="xs:string"/>
+  <xs:element name="ClienteBairro" type="xs:string"/>
+  <xs:element name="ClienteNumeroLogradouro" type="xs:integer"/>
+  <xs:element name="ClienteCidade" type="xs:NCName"/>
+  <xs:element name="ClienteUF" type="xs:NCName"/>
+  <xs:element name="ClientePais" type="xs:NCName"/>
+  <xs:element name="ClienteFone" type="xs:integer"/>
+  <xs:element name="ClienteFax" type="xs:integer"/>
+  <xs:element name="ClienteInscricaoMunicipal" type="xs:string"/>
+  <xs:element name="ClienteCEP" type="xs:integer"/>
+  <xs:element name="ClienteEmail" type="xs:string"/>
+  <xs:element name="ClienteCNPJCPF" type="xs:integer"/>
+  <xs:element name="ClienteInscricaoEstadual" type="xs:string"/>
+  <xs:element name="BaseCalculo" type="xs:decimal"/>
+  <xs:element name="ISSQNCliente" type="xs:integer"/>
+  <xs:element name="ISSQNSemRetencao" type="xs:decimal"/>
+  <xs:element name="ISSQNTotal" type="xs:decimal"/>
+  <xs:element name="ValorTotalNota" type="xs:decimal"/>
+  <xs:element name="FreteCNPJ" type="xs:integer"/>
+  <xs:element name="FreteRazaoSocial" type="xs:string"/>
+  <xs:element name="FreteEndereco" type="xs:string"/>
+  <xs:element name="FreteEmitente" type="xs:boolean"/>
+  <xs:element name="FreteDestinatario" type="xs:boolean"/>
+  <xs:element name="FreteQuantidade" type="xs:integer"/>
+  <xs:element name="FreteEspecie" type="xs:integer"/>
+  <xs:element name="FretePesoLiquido" type="xs:integer"/>
+  <xs:element name="FretePesoBruto" type="xs:decimal"/>
+  <xs:element name="Serie" type="xs:string"/>
+  <xs:element name="SerieSimplificada" type="xs:boolean"/>
+  <xs:element name="CodigoSerie" type="xs:integer"/>
+  <xs:element name="TimbreContribuinteLogo" type="xs:string"/>
+  <xs:element name="TimbreContribuinteLinha1" type="xs:string"/>
+  <xs:element name="TimbreContribuinteLinha2" type="xs:string"/>
+  <xs:element name="TimbreContribuinteLinha3" type="xs:string"/>
+  <xs:element name="TimbreContribuinteLinha4" type="xs:string"/>
+  <xs:element name="TimbrePrefeituraLogo" type="xs:base64Binary"/>
+  <xs:element name="TimbrePrefeituraLinha1" type="xs:string"/>
+  <xs:element name="TimbrePrefeituraLinha2" type="xs:string"/>
+  <xs:element name="TimbrePrefeituraLinha3" type="xs:string"/>
+  <xs:element name="Pis" type="xs:decimal"/>
+  <xs:element name="Cofins" type="xs:decimal"/>
+  <xs:element name="Csll" type="xs:decimal"/>
+  <xs:element name="Irrf" type="xs:decimal"/>
+  <xs:element name="Outros" type="xs:decimal"/>
+  <xs:element name="DescDeducoesConstrucao" type="xs:string"/>
+  <xs:element name="TotalDeducoesConstrucao" type="xs:decimal"/>
+  <xs:element name="VlrOutros" type="xs:decimal"/>
+  <xs:element name="TributadoNoMunicipio" type="xs:boolean"/>
+
+  <xs:complexType name="tc_ITENS">
+    <xs:sequence>
+      <xs:element ref="Tributado"/>
+      <xs:element ref="Quantidade"/>
+      <xs:element ref="CodigoAtividade"/>
+      <xs:element ref="Atividade"/>
+      <xs:element ref="Servico"/>
+      <xs:element ref="ValorUnitario"/>
+      <xs:element ref="Desconto"/>
+      <xs:element ref="ValorTotal"/>
+      <xs:element ref="ValorImposto"/>
+      <xs:element ref="ImpostoRetido"/>
+      <xs:element ref="Aliquota"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Tributado" type="xs:boolean"/>
+  <xs:element name="Quantidade" type="xs:integer"/>
+  <xs:element name="CodigoAtividade" type="xs:integer"/>
+  <xs:element name="Atividade" type="xs:integer"/>
+  <xs:element name="Servico" type="xs:string"/>
+  <xs:element name="ValorUnitario" type="xs:decimal"/>
+  <xs:element name="Desconto" type="xs:decimal"/>
+  <xs:element name="ValorTotal" type="xs:decimal"/>
+  <xs:element name="ValorImposto" type="xs:decimal"/>
+  <xs:element name="ImpostoRetido" type="xs:boolean"/>
+  <xs:element name="Aliquota" type="xs:integer"/>
+
+  <xs:complexType name="tc_FATURA">
+    <xs:sequence>
+      <xs:element ref="Numero"/>
+      <xs:element ref="Vencimento"/>
+      <xs:element ref="Valor"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="Numero" type="xs:integer"/>
+  <xs:element name="Vencimento" type="xs:NMTOKEN"/>
+  <xs:element name="Valor" type="xs:decimal"/>
+  <xs:element name="SignerData">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Assinatura"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Assinatura" type="xs:base64Binary"/>  
+
+  <xs:element name="Obs" type="xs:string"/>
+  <xs:element name="status" type="xs:NCName"/>
+</xs:schema>

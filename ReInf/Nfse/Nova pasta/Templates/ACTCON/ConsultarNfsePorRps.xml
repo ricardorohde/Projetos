@@ -1,0 +1,12 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfse="%s">
+	<soapenv:Body>
+		<nfse:ConsultarNfsePorRpsRequest>
+			<nfseCabecMsg>
+				<![CDATA[<cabecalho versao="1.00" xmlns="http://%s.portalfacil.com.br/%s/schema/nfse_v201.xsd"><versaoDados>2.00</versaoDados></cabecalho>]]>
+			</nfseCabecMsg>
+			<nfseDadosMsg>
+				<![CDATA[<?xml version="1.0" encoding="UTF-8"?><ConsultarNfseRpsEnvio xmlns="%s"><IdentificacaoRps><Numero>%s</Numero><Serie>%s</Serie><Tipo>%s</Tipo></IdentificacaoRps><Prestador><CpfCnpj>%s</CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador></ConsultarNfseRpsEnvio>]]>
+			</nfseDadosMsg>
+		</nfse:ConsultarNfsePorRpsRequest>
+	</soapenv:Body>
+</soapenv:Envelope>

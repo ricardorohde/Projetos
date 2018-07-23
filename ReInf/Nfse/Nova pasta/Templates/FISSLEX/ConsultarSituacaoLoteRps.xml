@@ -1,0 +1,9 @@
+<fiss:WS_ConsultarSituacaoLoteRps.Execute>
+  <fiss:Consultarsituacaoloterpsenvio>           
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+    <Protocolo>%s</Protocolo>
+  </fiss:Consultarsituacaoloterpsenvio>
+</fiss:WS_ConsultarSituacaoLoteRps.Execute>

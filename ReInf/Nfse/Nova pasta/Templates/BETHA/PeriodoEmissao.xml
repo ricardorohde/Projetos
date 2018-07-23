@@ -1,0 +1,4 @@
+<PeriodoEmissao xmlns="">
+<DataInicial>%s</DataInicial>
+<DataFinal>%s</DataFinal>
+</PeriodoEmissao>

@@ -1,0 +1,4 @@
+<ws:consultarNfseRps xmlns:ws="http://ws.integration.iss.bsit.com.br/">
+<ConsultarNfseRpsEnvio>&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;&lt;p:ConsultarNfseRpsEnvio xmlns:ds=&quot;http://www.w3.org/2000/09/xmldsig#&quot;  xmlns:p=&quot;http://www.abrasf.org.br/nfse.xsd&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;  xsi:schemaLocation=&quot;http://www.abrasf.org.br/nfse.xsd nfse-v2.xsd &quot;&gt;&lt;p:credenciais&gt;&lt;p:usuario&gt;%s&lt;/p:usuario&gt;&lt;p:senha&gt;%s&lt;/p:senha&gt;&lt;p:chavePrivada&gt;%s&lt;/p:chavePrivada&gt;&lt;/p:credenciais&gt;&lt;p:IdentificacaoRps&gt;&lt;p:Numero&gt;%s&lt;/p:Numero&gt;&lt;p:Tipo&gt;%s&lt;/p:Tipo&gt;&lt;/p:IdentificacaoRps&gt;&lt;p:Prestador&gt;&lt;p:CpfCnpj&gt;%s&lt;/p:CpfCnpj&gt;&lt;p:InscricaoMunicipal&gt;%s&lt;/p:InscricaoMunicipal&gt;&lt;/p:Prestador&gt;&lt;/p:ConsultarNfseRpsEnvio&gt; </ConsultarNfseRpsEnvio>
+</ws:consultarNfseRps>
+

@@ -1,0 +1,6 @@
+<RecepcionarLoteRps xmlns="https://iss.pontagrossa.pr.gov.br">
+<cabecalho><![CDATA[%s]]></cabecalho>
+<xml><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+%s
+]]></xml>
+</RecepcionarLoteRps>

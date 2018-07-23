@@ -1,0 +1,718 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha: string;
+  _NomeCampo: string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+  _QtdeRps: Integer;
+  _CidadeConfigurada: string;
+  _IndexCidadeConfig: Integer;
+  _CodigoCidadeConfig: string;
+  i : Integer;
+  CODIGOS_CIDADES : array[0..10] of string;
+  NOMES_CIDADES : array[0..10] of string;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'EnviarLoteRpsEnvio';
+  DSCIDADE_NOTA = 'Rps';
+
+
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\Comuns.txt}
+
+
+ function IssRetido: boolean;
+  begin
+    Result := AnsiIndexText(CampoTecno('IssRetido'), ['1', 'sim', 'true', 'Sim']) <> -1;
+  end;
+
+begin
+  CODIGOS_CIDADES[0] := '4318705';
+  CODIGOS_CIDADES[1] := '4312401';
+  CODIGOS_CIDADES[2] := '4311403';
+  CODIGOS_CIDADES[3] := '4322608';
+  CODIGOS_CIDADES[4] := '4307708';
+  CODIGOS_CIDADES[5] := '4316808';
+  CODIGOS_CIDADES[6] := '4314100';
+  CODIGOS_CIDADES[7] := '4303103';
+  CODIGOS_CIDADES[8] := '4321204';
+  CODIGOS_CIDADES[9] := '4317608';
+  CODIGOS_CIDADES[10] := '3303906';
+  NOMES_CIDADES[0] := 'SAOLEOPOLDO';
+  NOMES_CIDADES[1] := 'MONTENEGRO';
+  NOMES_CIDADES[2] := 'LAJEADORS';
+  NOMES_CIDADES[3] := 'VENANCIOAIRESRS';
+  NOMES_CIDADES[4] := 'ESTEIORS';
+  NOMES_CIDADES[5] := 'SANTACRUZDOSULRS';
+  NOMES_CIDADES[6] := 'PASSOFUNDORS';
+  NOMES_CIDADES[7] := 'CACHOEIRINHARS';
+  NOMES_CIDADES[8] := 'TAQUARARS';
+  NOMES_CIDADES[9] := 'SANTOANTONIODAPATRULHARS';
+  NOMES_CIDADES[10] := 'GASPARSC';
+
+
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        if CampoTecno('IdRps') <> '' then
+          SetarCampo('IdRps')
+        else
+        begin
+          _ValorCampo := 'RPS_' + CampoTecno('NumeroRps') + '_' + CampoTecno('SerieRps') + '_' + CampoTecno('TipoRps');
+          SetarCampoValor('IdRps', _ValorCampo);
+        end;
+
+        SetarCampo('NumeroRps');
+        SetarCampo('SerieRps');
+        SetarCampo('TipoRps');
+
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), XSDDATETIMEFORMAT);
+        SetarCampoValor('DataEmissao', _ValorCampo);
+
+        SetarCampo('OptanteSimplesNacional');
+        SetarCampo('IncentivadorCultural');
+
+        SetarCampoValor('Status', CampoTecno('SituacaoNota'));
+
+        _CidadeConfigurada := Params.Values['Cidade'];
+
+        for i := 0 to 9 do
+        begin
+          if SameText(_CidadeConfigurada, NOMES_CIDADES[i]) then
+            _IndexCidadeConfig := i;
+        end;
+
+        if _IndexCidadeConfig >= 0 then
+          _CodigoCidadeConfig := CODIGOS_CIDADES[_IndexCidadeConfig];
+
+        case _IndexCidadeConfig of
+          0:
+          begin
+
+            // [5.0] Prestação dentro ou fora do municipio para São Leopoldo
+            case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+            6:
+            begin
+              if CampoTecno('ISSRetido') = '2' then
+                SetarCampoValor('NaturezaOperacao', '52') // 5.2 - Imposto devido em São Leopoldo, sem obrigação de retenção na fonte. - Pessoa Física
+              else
+                SetarCampoValor('NaturezaOperacao', '51'); // 5.1 - Imposto devido em São Leopoldo, com obrigação de retenção na fonte. - Pessoa Jurídica
+            end;
+            7:
+              if (_CodigoCidadeConfig <> CampoTecno('CodigoCidadePrestacao')) then
+                SetarCampoValor('NaturezaOperacao', '63'); // 6.3 - Imposto devido fora de São Leopoldo
+            end;
+
+
+            if (CampoTecno('OptanteSimplesNacional') = '1') or (CampoTecno('RegimeEspecialTributacao') = '5') then
+              SetarCampoValor('NaturezaOperacao', '59'); // 5.9 - Imposto recolhido pelo regime único de arrecadação - Simples Nacional e MEI
+            if (CampoTecno('NaturezaTributacao') = '2') or (AnsiMatchText(CampoTecno('TipoTributacao'), ['1', '2', '4'])) then
+              SetarCampoValor('NaturezaOperacao', '58'); // 5.8 - Não tributável, prestador com ISS Fixo, Imunidade, Isenção ou Não Incidência.
+
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') and (not AnsiMatchText(CampoCidade('NaturezaOperacao'), ['52', '58'])) then
+                SetarCampoValor('NaturezaOperacao', '78'); // 7.8 - Não tributável, prestação no exterior.
+            end;
+          end;
+
+          1:
+          begin
+            if CampoTecno('CodigoCidadeTomador') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '51') // 5.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58'); // 5.8 - Não tributável.
+
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de <cidade>, com obrigação de retenção na fonte.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de <cidade>, sem obrigação de retenção na fonte.
+            end;
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '78'); // 7.8 - Não tributável.
+                if (CampoTecno('OptanteSimplesNacional') = '1') and (SameText(_CidadeConfigurada, 'SaoLeopoldo')) then
+                  SetarCampoValor('NaturezaOperacao', '79'); // 7.9 - Imposto recolhido pelo regime único de arrecadação.
+              end;
+            end;
+          end;
+
+          2:
+          begin
+            if CampoTecno('CodigoCidadePrestacao') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '51') // 5.1 - Imposto Devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58') // 5.8 - Não Tributável.
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '57'); // 5.7 - ISSQN Fixo.
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação.
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '67') // 6.7 - ISSQN Fixo.
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de <cidade> com obrigação de retenção na fonte.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de <cidade>, sem obrigação de retenção na fonte.
+            end;
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '78') // 7.8 - Não tributável.
+                else if CampoTecno('OptanteSimplesNacional') = '1' then
+                  SetarCampoValor('NaturezaOperacao', '79'); // 7.9 - Imposto recolhido pelo regime único de arrecadação.
+              end;
+            end;
+          end;
+
+          3, 4, 5:
+          begin
+            if CampoTecno('CodigoCidadeTomador') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '51') // 5.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58'); // 5.8 - Não tributável.
+
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de <cidade>, com obrigação de retenção na fonte.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de <cidade>, sem obrigação de retenção na fonte.
+            end;
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '78') // 7.8 - Não tributável.
+                else if CampoTecno('OptanteSimplesNacional') = '1' then
+                  SetarCampoValor('NaturezaOperacao', '79'); // 7.9 - Imposto recolhido pelo regime único de arrecadação.
+              end;
+            end;
+          end;
+
+          6:
+          begin
+            if CampoTecno('CodigoCidadeTomador') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                begin
+                  if CampoTecno('OptanteSimplesNacional') = '1' then
+                    SetarCampoValor('NaturezaOperacao', '54') //5.4 Imposto devido a <cidade>, com obrigação de retenção na fonte, tributado de acordo com o regime único de arrecadação.
+                  else
+                    SetarCampoValor('NaturezaOperacao', '51'); // 5.1 Imposto Devido em <cidade>, com obrigação de retenção na fonte.
+                end
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); //5.2 Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '1' then
+                SetarCampoValor('NaturezaOperacao', '55') // 5.5 Isento.
+              else if CampoTecno('TipoTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '56') // 5.6 Imune.
+              else if CampoTecno('NaturezaTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '57') // 5.7 Exigibilidade suspensa por decisão judicial.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '53') // 5.3 Imposto recolhido pelo Regime único de Arrecadação (Simples Nacional).
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '58'); // 5.8 Imposto recolhido com valor fixo.
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '1' then
+                SetarCampoValor('NaturezaOperacao', '65') // 6.5 Isento.
+              else if CampoTecno('TipoTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '66') // 6.6 Imune.
+              else if CampoTecno('NaturezaTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '67') // 6.7 Exigibilidade suspensa por decisão judicial.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 Imposto recolhido pelo Regime único de Arrecadação (Simples Nacional).
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 Imposto recolhido com valor fixo.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 Imposto devido fora de <cidade>.
+            end;
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+                  SetarCampoValor('NaturezaOperacao', '71'); // 7.1 Imposto devido a <cidade>.
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '72'); // 7.2 Não tributável.
+              end;
+            end;
+          end;
+
+          7:
+          begin
+            if CampoTecno('CodigoCidadeTomador') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '53') // 5.3 - Imposto devido em <cidade> com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58'); // 5.8 - Não Tributável.
+
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if not IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação.
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de <cidade>, com obrigação de retenção na fonte.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de <cidade>, sem obrigação de retenção na fonte.
+            end;
+            // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '78') // 7.8 - Não tributável.
+                else if CampoTecno('OptanteSimplesNacional') = '1' then
+                  SetarCampoValor('NaturezaOperacao', '79'); // 7.9 - Imposto recolhido pelo regime único de arrecadação.
+              end;
+            end;
+          end;
+
+          8:
+          begin
+            if CampoTecno('CodigoCidadeTomador') = _CodigoCidadeConfig then
+            begin
+              if (CampoTecno('OptanteSimplesNacional') = '1') and (IssRetido) then
+                SetarCampoValor('NaturezaOperacao', '57') // 5.7 - Imposto recolhido pelo regime único de arrecadação Simples Nacional com obrigação de retenção.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58') // 5.8 - Não tributável.
+              else if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '51') // 5.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end;
+
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if (CampoTecno('OptanteSimplesNacional') = '1') and (IssRetido) then
+                SetarCampoValor('NaturezaOperacao', '67') // 6.7 - Imposto recolhido pelo regime único de arrecadação Simples Nacional com obrigação de retenção.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+                SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional.
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if IssRetido then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 - Imposto devido em <cidade>, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em <cidade>, sem obrigação de retenção na fonte.
+              end
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de <cidade>, com obrigação de retenção na fonte.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de <cidade>, sem obrigação de retenção na fonte.
+            end;
+              // [7.0] Prestação de serviços para o exterior.
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+              begin
+                if CampoTecno('TipoTributacao') = '4' then
+                  SetarCampoValor('NaturezaOperacao', '78'); // 7.8 - Não tributável.
+              end;
+            end;
+          end;
+
+          9, 10:
+          begin
+            if CampoTecno('CodigoCidadePrestacao') = _CodigoCidadeConfig then
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if CampoTecno('ISSRetido') = '1' then
+                  SetarCampoValor('NaturezaOperacao', '51') // 5.1 - Imposto Devido em Santo Antônio da Patrulha, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '52'); // 5.2 - Imposto devido em Santo Antônio da Patrulha, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+              begin
+                if CampoTecno('ISSRetido') = '2' then
+                  SetarCampoValor('NaturezaOperacao', '59') // 5.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional, sem retenção na fonte;
+                else
+                  SetarCampoValor('NaturezaOperacao', '56'); // 5.6 - Imposto recolhido pelo regime único de arrecadação Simples Nacional, com retenção na fonte;
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '58') // 5.8 - Não Tributável.
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '57'); // 5.7 - ISSQN Fixo.
+            end
+            else
+            // [6.0] Prestação de serviços para outros municípos da federação.
+            begin
+              if CampoTecno('MunicipioIncidencia') = _CodigoCidadeConfig then
+              begin
+                if CampoTecno('ISSRetido') = '1' then
+                  SetarCampoValor('NaturezaOperacao', '61') // 6.1 - Imposto devido em  Santo Antônio da Patrulha, com obrigação de retenção na fonte.
+                else
+                  SetarCampoValor('NaturezaOperacao', '62'); // 6.2 - Imposto devido em Santo Antônio da Patrulha, sem obrigação de retenção na fonte.
+              end
+              else if CampoTecno('TipoTributacao') = '4' then
+                SetarCampoValor('NaturezaOperacao', '68') // 6.8 - Não tributável.
+              else if CampoTecno('OptanteSimplesNacional') = '1' then
+              begin
+                if CampoTecno('ISSRetido') = '2' then
+                  SetarCampoValor('NaturezaOperacao', '69') // 6.9 - Imposto recolhido pelo regime único de arrecadação Simples Nacional, sem retenção na fonte;
+                else
+                  SetarCampoValor('NaturezaOperacao', '66'); // 6.6 - Imposto recolhido pelo regime único de arrecadação Simples Nacional, com retenção na fonte;
+              end
+              else if CampoTecno('NaturezaTributacao') = '2' then
+                SetarCampoValor('NaturezaOperacao', '67') // 6.7 - ISSQN Fixo.
+              else if IssRetido then
+                SetarCampoValor('NaturezaOperacao', '63') // 6.3 - Imposto devido fora de Santo Antônio da Patrulha, com obrigação de retenção na fonte.
+              else
+                SetarCampoValor('NaturezaOperacao', '64'); // 6.4 - Imposto devido fora de Santo Antônio da Patrulha, sem obrigação de retenção na fonte.
+            end;
+
+            if CampoTecno('PaisTomador') <> '' then
+            begin
+              if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '01058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') then
+                SetarCampoValor('NaturezaOperacao', '78') // 7.8 - Não tributável, prestação no exterior.
+            else if (CampoTecno('PaisTomador') <> '1058') and (CampoTecno('PaisTomador') <> '010158') and  (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') 
+              and (CampoTecno('OptanteSimplesNacional') = '1') then
+                SetarCampoValor('NaturezaOperacao', '79') // 7.9 Imposto recolhido pelo regime único de arrecadação.
+            end;
+          end;
+        end;
+
+
+        if (AnsiMatchText(CampoTecno('RegimeEspecialTributacao'), ['1', '2', '3', '4', '5', '6'])) then
+          SetarCampo('RegimeEspecialTributacao');
+
+        SetarCampo('NumeroRpsSubstituido');
+        SetarCampo('SerieRpsSubstituido');
+        SetarCampo('TipoRpsSubstituido');
+
+        SetarCampoCurrency('ValorServicos', True);
+        SetarCampoCurrency('ValorDeducoes', False);
+        SetarCampoCurrency('ValorPis', False);
+        SetarCampoCurrency('ValorCofins', False);
+        SetarCampoCurrency('ValorInss', False);
+        SetarCampoCurrency('ValorIr', False);
+        SetarCampoCurrency('ValorCsll', False);
+
+        case AnsiIndexText(CampoTecno('IssRetido'), ['', '1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          0: // Vazio: deduzir do TipoTributacao
+          begin
+            if CampoTecno('TipoTributacao') = '5' then
+              SetarCampoValor('IssRetido', '1')
+            else
+              SetarCampoValor('IssRetido', '2');
+          end;
+          1, 2, 3: SetarCampoValor('IssRetido', '1');
+          4, 5, 6, 7: SetarCampoValor('IssRetido', '2');
+        else
+          RaiseException('Valor inválido para o campo IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;
+
+        SetarCampoCurrency('ValorIss', False);
+
+        if CampoTecno('ValorIssRetido') <> '' then
+          SetarCampoCurrency('ValorIssRetido', False)
+        else
+        begin
+          // Deduzível (se IssRetido=Sim, utiliza ValorIss)
+          if AnsiMatchText(CampoTecno('IssRetido'), [ '1', 'sim', 'true']) then
+            SetarCampoValor('ValorIssRetido', CampoCidade('ValorIss'));
+        end;
+
+        SetarCampoCurrency('OutrasRetencoes', False);
+        SetarCampoCurrency('BaseCalculo', False);
+        SetarCampoCurrency('ValorLiquidoNfse', False);
+        SetarCampoCurrency('DescontoIncondicionado', False);
+        SetarCampoCurrency('DescontoCondicionado', False);
+
+        // Transformável: para Thema, 5% = 0.05
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _Vlr := StrToFloat(StringReplace(CampoTecno('AliquotaISS'),',','.',[rfReplaceAll])) / 100;  // 5 --> 0,05
+          _ValorCampo := FormataFloat(_Vlr, 5, 4);
+          SetarCampoValor('Aliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ValorCampo := FormatarCodigoItemListaServico(_ValorCampo, False);  // São Leopoldo: sem ponto no ItemListaServico.
+        SetarCampoValor('ItemListaServico', _ValorCampo);
+
+        SetarCampo('CodigoCnae');
+        SetarCampo('CodigoTributacaoMunicipio');
+
+        SetarCampoValor('Discriminacao', CampoTecno('DiscriminacaoServico'));
+
+        _ValorCampo := ConverterCodigoMunicipio(CampoTecno('CodigoCidadePrestacao'), True);
+        SetarCampoValor('CodigoMunicipio', _ValorCampo);
+
+        SetarCampoValor('CnpjPrestador', RemoveMascara(CampoTecno('CpfCnpjPrestador')));
+        SetarCampoValor('InscricaoMunicipalPrestador', RemoveMascara(CampoTecno('InscricaoMunicipalPrestador')));// TODO: ver nº digitos
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        case Length(_ValorCampo) of
+          11: SetarCampoValor('CpfTomador', _ValorCampo);
+          14: SetarCampoValor('CnpjTomador', _ValorCampo);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjTomador');
+        end;
+        SetarCampo('RazaoSocialTomador');
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));// TODO: ver nº digitos
+        SetarCampo('EnderecoTomador');
+        SetarCampo('NumeroTomador');
+        SetarCampo('ComplementoTomador');
+        SetarCampo('BairroTomador');
+
+        _ValorCampo := ConverterCodigoMunicipio(CampoTecno('CodigoCidadeTomador'), True);
+        SetarCampoValor('CodigoMunicipioTomador', _ValorCampo);
+
+        if CampoTecno('UfTomador') <> '' then
+          SetarCampo('UfTomador')
+        else
+        begin
+          _ValorCampo := BuscarInfoCidade('CodIBGE', CampoCidade('CodigoMunicipioTomador'), 'UF');
+          SetarCampoValor('UfTomador', _ValorCampo);
+        end;
+
+        SetarCampo('CepTomador');
+        VerificaDDD('TelefoneTomador', 'TelefoneTomador', 'DDDTomador');
+        SetarCampo('EmailTomador');
+
+        SetarCampo('RazaoSocialIntermediario');
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjIntermediario'));
+        case Length(_ValorCampo) of
+          0 : { Campo vazio, ignorar };
+          11: SetarCampoValor('CpfIntermediario', _ValorCampo);
+          14: SetarCampoValor('CnpjIntermediario', _ValorCampo);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjIntermediario');
+        end;
+        SetarCampoValor('InscricaoMunicipalIntermediario', RemoveMascara(CampoTecno('InscricaoMunicipalIntermediario')));// TODO: ver nº digitos
+
+        SetarCampo('CodigoObra');
+        SetarCampo('Art');
+
+        _DsCidadeAtual.Post;
+
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipio;
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      // IdLote é deduzível do NumeroLote
+      if CampoTecno('IdLote') <> '' then
+        SetarCampo('IdLote')
+      else
+      begin
+        _ValorCampo := 'LOTE_' + CampoTecno('NumeroLote');
+        SetarCampoValor('IdLote', _ValorCampo);
+      end;
+
+      SetarCampo('NumeroLote');
+      if CampoTecno('CpfCnpjRemetente') <> '' then
+        SetarCampoValor('Cnpj', RemoveMascara(CampoTecno('CpfCnpjRemetente')))
+      else
+        SetarCampoValor('Cnpj', RemoveMascara(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CpfCnpjPrestador').AsString));
+
+      _ValorCampo := CampoTecno('InscricaoMunicipalRemetente');
+      if _ValorCampo = '' then
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('InscricaoMunicipalPrestador').AsString;
+      SetarCampoValor('InscricaoMunicipal', RemoveMascara(_ValorCampo));
+
+      if CampoTecno('QuantidadeRps') <> '' then
+        SetarCampo('QuantidadeRps')
+      else
+        SetarCampoValor('QuantidadeRps', IntToStr(_QtdeRps));
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

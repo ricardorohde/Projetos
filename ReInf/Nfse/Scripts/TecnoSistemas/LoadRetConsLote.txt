@@ -1,0 +1,49 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _SituacaoLote, _Situacao : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'ConsultarLoteRpsResposta.xsd';
+  Datasets.XsdElementName := 'ConsultarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTALOTERPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  _Situacao := XmlDeepNodeSearch(Input,'ConsultarSituacaoLoteRpsResposta','//*[local-name()="ConsultarSituacaoLoteRpsResposta"]');
+
+  if _Situacao <> '' then
+  begin
+    if xmlSelectNodeValue(_Situacao,'//*[local-name()="Situacao"]',_SituacaoLote) then
+      Params.Add('SituacaoLote='+_SituacaoLote)
+    else
+      Params.Add('Situacao='+_Situacao);
+  end
+  else
+  begin
+    Progress('Carregando XML de Consulta de Lote');
+    if (Pos('xmlns:env="', Input) = 0) and (Pos('envelope/"', Input) = 0) then
+    begin
+      _Xml := StringReplace(Input, 'xmlns:env=', 'xmlns:env="', []);
+      _Xml := StringReplace(_Xml, 'envelope/', 'envelope/"', []);
+      _Xml := StringReplace(_Xml, '&', '&amp;', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&amp;amp;amp;', '&amp;', [RfReplaceAll]);
+    end
+    else
+    begin
+      _Xml := StringReplace(_Xml, '&', '&amp;', [RfReplaceAll]);
+    end;
+    if Pos('<faultstring',input) > 0 then
+      Params.Add('faultstring='+input)
+    else
+    begin
+      Params.Add('XmlLote='+_Xml);
+      Progress('XML carregado com sucesso');
+    end;
+  end;
+end.

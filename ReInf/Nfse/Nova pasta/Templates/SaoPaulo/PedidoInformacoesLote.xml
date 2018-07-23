@@ -1,0 +1,10 @@
+<p1:PedidoInformacoesLote xmlns:p1="http://www.prefeitura.sp.gov.br/nfe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cabecalho Versao="1">
+    <CPFCNPJRemetente>
+      <CNPJ>%s</CNPJ>
+    </CPFCNPJRemetente>
+    %s
+    <InscricaoPrestador>%s</InscricaoPrestador>
+  </Cabecalho>
+  %s
+</p1:PedidoInformacoesLote>

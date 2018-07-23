@@ -1,0 +1,9 @@
+procedure SaveToFile(const aConteudo, aArquivo: string);
+var
+  _sl : TStringList;
+begin
+  _sl := TStringList.Create;
+  _sl.Text := aConteudo;
+  _sl.SaveToFile(aArquivo);
+  _sl.Free;
+end;

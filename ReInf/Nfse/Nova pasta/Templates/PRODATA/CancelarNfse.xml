@@ -1,0 +1,4 @@
+<ser:CancelarNfseRequest>
+<nfseCabecMsg></nfseCabecMsg>
+<nfseDadosMsg><![CDATA[%s]]></nfseDadosMsg>
+</ser:CancelarNfseRequest>

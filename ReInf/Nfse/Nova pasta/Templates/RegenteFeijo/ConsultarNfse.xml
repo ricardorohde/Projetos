@@ -1,0 +1,1 @@
+<tem:ConsultarNfsePorFaixa><tem:xmlEnvio><![CDATA[<ConsultarNfseFaixaEnvio xmlns:nfse="http://www.abrasf.org.br/nfse.xsd"><Prestador><CpfCnpj>%s</CpfCnpj></Prestador><Faixa><NumeroNfseInicial>%s</NumeroNfseInicial><NumeroNfseFinal>%s</NumeroNfseFinal></Faixa><Pagina>1</Pagina></ConsultarNfseFaixaEnvio>]]></tem:xmlEnvio></tem:ConsultarNfsePorFaixa>

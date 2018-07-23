@@ -1,0 +1,4 @@
+<nfse:ConsultarNfse>
+<header><![CDATA[<p:cabecalho versao="1" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:p="http://ws.speedgov.com.br/cabecalho_v1.xsd" xmlns:p1="http://ws.speedgov.com.br/tipos_v1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ws.speedgov.com.br/cabecalho_v1.xsd cabecalho_v1.xsd"><versaoDados>1</versaoDados></p:cabecalho>]]></header>
+<parameters><![CDATA[<p:ConsultarNfseEnvio xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:p="http://ws.speedgov.com.br/consultar_nfse_envio_v1.xsd" xmlns:p1="http://ws.speedgov.com.br/tipos_v1.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ws.speedgov.com.br/consultar_nfse_envio_v1.xsd consultar_nfse_envio_v1.xsd "><p:Prestador><p1:Cnpj>%s</p1:Cnpj><p1:InscricaoMunicipal>%s</p1:InscricaoMunicipal></p:Prestador>%s%s%s%s</p:ConsultarNfseEnvio>]]></parameters>
+</nfse:ConsultarNfse>

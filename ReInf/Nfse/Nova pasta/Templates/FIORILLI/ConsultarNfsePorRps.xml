@@ -1,0 +1,17 @@
+<ws:consultarNfsePorRps>
+  <nfse:ConsultarNfseRpsEnvio>
+    <nfse:IdentificacaoRps>
+      <nfse:Numero>%s</nfse:Numero>
+      <nfse:Serie>%s</nfse:Serie>
+      <nfse:Tipo>%s</nfse:Tipo>
+    </nfse:IdentificacaoRps>
+    <nfse:Prestador>
+      <nfse:CpfCnpj>
+        <nfse:Cnpj>%s</nfse:Cnpj>
+      </nfse:CpfCnpj>
+      <nfse:InscricaoMunicipal>%s</nfse:InscricaoMunicipal>
+    </nfse:Prestador>
+  </nfse:ConsultarNfseRpsEnvio>
+  <username xmlns="">%s</username>
+  <password xmlns="">%s</password>
+</ws:consultarNfsePorRps>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Xml">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Identificacao"/>
+        <xs:element maxOccurs="unbounded" ref="Rps"/>
+        <xs:element maxOccurs="unbounded" ref="Validacao"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Identificacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Formato"/>
+        <xs:element ref="Versao"/>
+        <xs:element ref="InscricaoMunicipal"/>
+        <xs:element ref="DataInicio"/>
+        <xs:element ref="DataFim"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Versao" type="xs:integer"/>
+  <xs:element name="InscricaoMunicipal" type="xs:integer"/>
+  <xs:element name="DataInicio" type="xs:integer"/>
+  <xs:element name="DataFim" type="xs:integer"/>
+  <xs:element name="Rps">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Formato"/>
+        <xs:element ref="TipoRps"/>
+        <xs:element ref="SerieRps"/>
+        <xs:element ref="NumeroRps"/>
+        <xs:element ref="DataEmissao"/>
+        <xs:element ref="SituacaoRps"/>
+        <xs:element ref="CodigoAtividade"/>
+        <xs:element ref="Aliquota"/>
+        <xs:element ref="IndicadorTomador"/>
+        <xs:element ref="CpfCnpjTomador"/>
+        <xs:element ref="InscricaoMunicipalTomador"/>
+        <xs:element ref="InscricaoEstadualTomador"/>
+        <xs:element ref="RazaoSocialTomador"/>
+        <xs:element ref="TipoEnderecoTomador"/>
+        <xs:element ref="EnderecoTomador"/>
+        <xs:element ref="NumeroTomador"/>
+        <xs:element ref="ComplementoTomador"/>
+        <xs:element ref="BairroTomador"/>
+        <xs:element ref="DescricaoCidadeTomador"/>
+        <xs:element ref="UfTomador"/>
+        <xs:element ref="CepTomador"/>
+        <xs:element ref="EmailTomador"/>
+        <xs:element ref="ValorServicos"/>
+        <xs:element ref="IssRetido"/>
+        <xs:element ref="ValorIssRetido"/>
+        <xs:element ref="ValorDeducoes"/>
+        <xs:element ref="ValorCofins"/>
+        <xs:element ref="ValorCsll"/>
+        <xs:element ref="ValorInss"/>
+        <xs:element ref="ValorIRPJ"/>
+        <xs:element ref="ValorPis"/>
+        <xs:element ref="DiscriminacaoServico"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TipoRps" type="xs:integer"/>
+  <xs:element name="SerieRps" type="xs:integer"/>
+  <xs:element name="NumeroRps" type="xs:integer"/>
+  <xs:element name="DataEmissao" type="xs:integer"/>
+  <xs:element name="SituacaoRps" type="xs:integer"/>
+  <xs:element name="CodigoAtividade" type="xs:integer"/>
+  <xs:element name="Aliquota" type="xs:integer"/>
+  <xs:element name="IndicadorTomador" type="xs:integer"/>
+  <xs:element name="CpfCnpjTomador" type="xs:integer"/>
+  <xs:element name="InscricaoMunicipalTomador" type="xs:integer"/>
+  <xs:element name="InscricaoEstadualTomador" type="xs:integer"/>
+  <xs:element name="RazaoSocialTomador" type="xs:integer"/>
+  <xs:element name="TipoEnderecoTomador" type="xs:integer"/>
+  <xs:element name="EnderecoTomador" type="xs:integer"/>
+  <xs:element name="NumeroTomador" type="xs:integer"/>
+  <xs:element name="ComplementoTomador" type="xs:integer"/>
+  <xs:element name="BairroTomador" type="xs:integer"/>
+  <xs:element name="DescricaoCidadeTomador" type="xs:integer"/>
+  <xs:element name="UfTomador" type="xs:integer"/>
+  <xs:element name="CepTomador" type="xs:integer"/>
+  <xs:element name="EmailTomador" type="xs:integer"/>
+  <xs:element name="ValorServicos" type="xs:integer"/>
+  <xs:element name="IssRetido" type="xs:integer"/>
+  <xs:element name="ValorIssRetido" type="xs:integer"/>
+  <xs:element name="ValorDeducoes" type="xs:integer"/>
+  <xs:element name="ValorCofins" type="xs:integer"/>
+  <xs:element name="ValorCsll" type="xs:integer"/>
+  <xs:element name="ValorInss" type="xs:integer"/>
+  <xs:element name="ValorIRPJ" type="xs:integer"/>
+  <xs:element name="ValorPis" type="xs:NCName"/>
+  <xs:element name="DiscriminacaoServico" type="xs:integer"/>
+  <xs:element name="Validacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Formato"/>
+        <xs:element ref="Quantidadelinhas"/>
+        <xs:element ref="ValorTotalServicos"/>
+        <xs:element ref="ValorTotalISSRetido"/>
+        <xs:element ref="ValorTotalDeducoes"/>
+        <xs:element ref="ValorTotalCOFINS"/>
+        <xs:element ref="ValorTotalCSLL"/>
+        <xs:element ref="ValorTotalINSS"/>
+        <xs:element ref="ValorTotalIRPJ"/>
+        <xs:element ref="ValorTotalPIS"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Quantidadelinhas" type="xs:integer"/>
+  <xs:element name="ValorTotalServicos" type="xs:integer"/>
+  <xs:element name="ValorTotalISSRetido" type="xs:integer"/>
+  <xs:element name="ValorTotalDeducoes" type="xs:integer"/>
+  <xs:element name="ValorTotalCOFINS" type="xs:integer"/>
+  <xs:element name="ValorTotalCSLL" type="xs:integer"/>
+  <xs:element name="ValorTotalINSS" type="xs:integer"/>
+  <xs:element name="ValorTotalIRPJ" type="xs:integer"/>
+  <xs:element name="ValorTotalPIS" type="xs:integer"/>
+  <xs:element name="Formato" type="xs:NMTOKEN"/>
+</xs:schema>

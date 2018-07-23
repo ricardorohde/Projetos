@@ -1,0 +1,224 @@
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosNFSe]
+;Dados da NFSe
+Numero=/Nfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Numero
+Serie=/Nfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Serie
+Tipo=/Nfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Tipo
+DataEmissao=/Nfse/CompNfse/Nfse/InfNfse/DataEmissao
+DataEmissaoRps=/Nfse/CompNfse/Nfse/InfNfse/DataEmissaoRps
+NumeroNfse=/Nfse/CompNfse/Nfse/InfNfse/Numero
+CodigoVerificacao=/Nfse/CompNfse/Nfse/InfNfse/CodigoVerificacao
+NaturezaOperacao=/Nfse/CompNfse/Nfse/InfNfse/NaturezaOperacao
+RegimeEspecialTributacao=/Nfse/CompNfse/Nfse/InfNfse/RegimeEspecialTributacao
+OptanteSimplesNacional=/Nfse/CompNfse/Nfse/InfNfse/OptanteSimplesNacional
+IncentivadorCultural=/Nfse/CompNfse/Nfse/InfNfse/IncentivadorCultural
+Status=/Rps/InfRps/Status
+NumeroRpsSubstituido=/Rps/InfRps/RpsSubstituido/Numero
+SerieRpsSubstituido=/Rps/InfRps/RpsSubstituido/Serie
+TipoRpsSubstituido=/Rps/InfRps/RpsSubstituido/Tipo
+Competencia=/Nfse/CompNfse/Nfse/InfNfse/Competencia
+NfseSubstituida=/Nfse/CompNfse/Nfse/InfNfse/NfseSubstituida
+
+;Dados do Serviço
+ValorServicos=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorServicos
+ValorDeducoes=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorDeducoes
+ValorPis=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorPis
+ValorCofins=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorCofins
+ValorInss=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorInss
+ValorIr=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIr
+ValorCsll=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorCsll
+IssRetido=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/IssRetido
+ValorIss=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIss
+ValorIssRetido=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorIssRetido
+OutrasRetencoes=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/OutrasRetencoes
+BaseCalculo=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/BaseCalculo
+Aliquota=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/Aliquota
+ValorLiquidoNfse=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/ValorLiquidoNfse
+DescontoIncondicionado=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/Nfse/CompNfse/Nfse/InfNfse/Servico/Valores/DescontoCondicionado
+ItemListaServico=/Nfse/CompNfse/Nfse/InfNfse/Servico/ItemListaServico
+CodigoCnae=/Nfse/CompNfse/Nfse/InfNfse/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/Nfse/CompNfse/Nfse/InfNfse/Servico/CodigoTributacaoMunicipio
+Discriminacao=/Nfse/CompNfse/Nfse/InfNfse/Servico/Discriminacao
+CodigoMunicipio=/Nfse/CompNfse/Nfse/InfNfse/Servico/CodigoMunicipio
+ValorCredito=/Nfse/CompNfse/Nfse/InfNfse/ValorCredito
+
+;Dados do Prestador
+CnpjPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/Cnpj
+InscricaoPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/InscricaoMunicipal
+NomeFantasiaPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/NomeFantasia
+RazaoSocialPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/RazaoSocial
+EnderecoPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Endereco
+CodigoMunicipioPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/CodigoMunicipio
+UfPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Uf
+NumeroEnderecoPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Numero
+ComplementoEnderecoPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Complemento
+BairroPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Bairro
+CepPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Endereco/Cep
+TelefonePrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Contato/Telefone
+EmailPrestador=/Nfse/CompNfse/Nfse/InfNfse/PrestadorServico/Contato/Email
+
+;Dados do Tomador
+CpfTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/RazaoSocial
+EnderecoTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Endereco
+NumeroEnderecoTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Numero
+ComplementoEnderecoTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Complemento
+BairroTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Bairro
+CodigoMunicipioTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/CodigoMunicipio
+UFTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Uf
+CepTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Endereco/Cep
+TelefoneTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Contato/Telefone
+EmailTomador=/Nfse/CompNfse/Nfse/InfNfse/TomadorServico/Contato/Email
+
+;Dados do Intermediário
+RazaoSocialIntermediario=/Nfse/CompNfse/Nfse/InfNfse/IntermediarioServico/RazaoSocial
+CpfIntermediario=/Nfse/CompNfse/Nfse/InfNfse/IntermediarioServico/CpfCnpj/Cpf
+CnpjIntermediario=/Nfse/CompNfse/Nfse/InfNfse/IntermediarioServico/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/Nfse/CompNfse/Nfse/InfNfse/IntermediarioServico/InscricaoMunicipal
+
+;Dados do Órgão Gerador
+CodigoMunicipioOrgaoGerador=/Nfse/CompNfse/Nfse/InfNfse/OrgaoGerador/CodigoMunicipio
+UFOrgaoGerador=/Nfse/CompNfse/Nfse/InfNfse/OrgaoGerador/Uf
+
+;Dados da Obra
+CodigoObra=/Nfse/CompNfse/Nfse/InfNfse/ContrucaoCivil/CodigoObra
+Art=/Nfse/CompNfse/Nfse/InfNfse/ContrucaoCivil/Art
+
+;Outras informações
+OutrasInformacoes=/Nfse/CompNfse/Nfse/InfNfse/OutrasInformacoes
+
+;Informações do Cancelamento da RPS
+IdPedidoCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/@id
+NumeroCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/IdentificacaoNfse/Numero
+CpnjCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/IdentificacaoNfse/Cnpj
+InscricaoMunicipalCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/IdentificacaoNfse/InscricaoMunicipal
+CodigoMunicipioCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/IdentificacaoNfse/CodigoMunicipio
+CodigoCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/CodigoCancelamento
+DataHoraCancelamento=/Nfse/CompNfse/NfseCancelamento/Confirmacao/DataHoraCancelamento
+
+;Informações da Substituição de RPS
+IdSubstituicaoNfse=/Nfse/CompNfse/NfseSubstituicao/SubstituicaoNfse/@id
+NfseSubstituidora=/Nfse/CompNfse/NfseSubstituicao/SubstituicaoNfse/NfseSubstituidora
+
+;Info dos Dados Complementares - Atividade Portuária
+ProprietarioRepresentante=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/NomeRazaoSocialProprietarioRepresentante
+CpfPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/CpfCnpj/Cpf
+CnpjPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/CpfCnpj/Cnpj
+EnderecoPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Endereco
+NumeroPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Numero
+ComplementoPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Complemento
+BairroPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Bairro
+CodigoMunicipioPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/CodigoMunicipio
+UfPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Uf
+CepPortuaria=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/Endereco/Cep
+stProprietario=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/stProprietario
+NomeEmbarcacao=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/NomeEmbarcacao
+BandeiraEmbarcacao=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/BandeiraEmbarcacao
+NomePorto=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/NomePorto
+DataEntrada=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/DataEntrada
+DataSaida=/RpsComplementar/InfRPSComplementar/AtividadePortuaria/DataSaida
+
+;Info dos Dados Complementares - Construção Civil
+NomeObra=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/NomeObra
+EnderecoConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Endereco
+NumeroConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Numero
+ComplementoConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Complemento
+BairroConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Bairro
+CodigoMunicipioConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/CodigoMunicipio
+UfConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Uf
+CepConstrucao=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/Endereco/Cep
+DeducaoMaterial=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/DeducaoMaterial
+DeducaoSubempreitada=/RpsComplementar/InfRPSComplementar/ConstrucaoCivil/DeducaoSubempreitada
+idCompl=/RpsComplementar/InfRPSComplementar/@id
+
+;Campos Customizados
+OutrasInformacoesAdicionais=String[120]
+
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+;Dados do RPS
+Id=/Rps/InfRps/@id
+Numero=/Rps/InfRps/IdentificacaoRps/Numero
+Serie=/Rps/InfRps/IdentificacaoRps/Serie
+Tipo=/Rps/InfRps/IdentificacaoRps/Tipo
+DataEmissao=/Rps/InfRps/DataEmissao
+NaturezaOperacao=/Rps/InfRps/NaturezaOperacao
+RegimeEspecialTributacao=/Rps/InfRps/RegimeEspecialTributacao
+OptanteSimplesNacional=/Rps/InfRps/OptanteSimplesNacional
+IncentivadorCultural=/Rps/InfRps/IncentivadorCultural
+Status=/Rps/InfRps/Status
+NumeroRpsSubstituido=/Rps/InfRps/RpsSubstituido/Numero
+SerieRpsSubstituido=/Rps/InfRps/RpsSubstituido/Serie
+TipoRpsSubstituido=/Rps/InfRps/RpsSubstituido/Tipo
+
+;Dados do Serviço
+ValorServicos=/Rps/InfRps/Servico/Valores/ValorServicos
+ValorDeducoes=/Rps/InfRps/Servico/Valores/ValorDeducoes
+ValorPis=/Rps/InfRps/Servico/Valores/ValorPis
+ValorCofins=/Rps/InfRps/Servico/Valores/ValorCofins
+ValorInss=/Rps/InfRps/Servico/Valores/ValorInss
+ValorIr=/Rps/InfRps/Servico/Valores/ValorIr
+ValorCsll=/Rps/InfRps/Servico/Valores/ValorCsll
+IssRetido=/Rps/InfRps/Servico/Valores/IssRetido
+ValorIss=/Rps/InfRps/Servico/Valores/ValorIss
+ValorIssRetido=/Rps/InfRps/Servico/Valores/ValorIssRetido
+OutrasRetencoes=/Rps/InfRps/Servico/Valores/OutrasRetencoes
+BaseCalculo=/Rps/InfRps/Servico/Valores/BaseCalculo
+Aliquota=/Rps/InfRps/Servico/Valores/Aliquota
+ValorLiquidoNfse=/Rps/InfRps/Servico/Valores/ValorLiquidoNfse
+DescontoIncondicionado=/Rps/InfRps/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/Rps/InfRps/Servico/Valores/DescontoCondicionado
+ItemListaServico=/Rps/InfRps/Servico/ItemListaServico
+CodigoCnae=/Rps/InfRps/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/Rps/InfRps/Servico/CodigoTributacaoMunicipio
+Discriminacao=/Rps/InfRps/Servico/Discriminacao
+CodigoMunicipio=/Rps/InfRps/Servico/CodigoMunicipio
+
+;Dados do Prestador
+CnpjPrestador=/Rps/InfRps/Prestador/Cnpj
+InscricaoPrestador=/Rps/InfRps/Prestador/InscricaoMunicipal
+
+;Dados do Tomador
+CpfTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/Rps/InfRps/Tomador/RazaoSocial
+EnderecoTomador=/Rps/InfRps/Tomador/Endereco/Endereco
+NumeroEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Numero
+ComplementoEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Complemento
+BairroTomador=/Rps/InfRps/Tomador/Endereco/Bairro
+CodigoMunicipioTomador=/Rps/InfRps/Tomador/Endereco/CodigoMunicipio
+UFTomador=/Rps/InfRps/Tomador/Endereco/Uf
+CepTomador=/Rps/InfRps/Tomador/Endereco/Cep
+TelefoneTomador=/Rps/InfRps/Tomador/Contato/Telefone
+EmailTomador=/Rps/InfRps/Tomador/Contato/Email
+
+;Dados do Intermediário
+RazaoSocialIntermediario=/Rps/InfRps/IntermediarioServico/RazaoSocial
+CpfIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cpf
+CnpjIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/Rps/InfRps/IntermediarioServico/InscricaoMunicipal
+
+;Dados da Obra
+CodigoObra=/Rps/InfRps/ContrucaoCivil/CodigoObra
+Art=/Rps/InfRps/ContrucaoCivil/Art
+
+;Campos Customizados
+NomeFantasiaPrestador=String[80]
+RazaoSocialPrestador=String[80]
+EnderecoPrestador=String[80]
+CodigoMunicipioPrestador=String[10]
+UfPrestador=String[2]
+NumeroEnderecoPrestador=String[7]
+ComplementoEnderecoPrestador=String[20]
+BairroPrestador=String[40]
+CepPrestador=String[8]
+TelefonePrestador=String[20]
+EmailPrestador=String[80]

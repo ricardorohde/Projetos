@@ -1,0 +1,10 @@
+<CancelarNota xmlns="urn">
+  <DadosCancelaNota>
+    <ccm>%s</ccm>
+    <cnpj>%s</cnpj>
+    <senha>%s</senha>
+    <nota>%s</nota>
+    <motivo>%s</motivo>
+    <email>%s</email>
+  </DadosCancelaNota>
+</CancelarNota>

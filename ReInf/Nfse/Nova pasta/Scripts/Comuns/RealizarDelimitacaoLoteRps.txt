@@ -1,0 +1,26 @@
+  function RealizarDelimitacaoLoteRps(const aXML, aTagRps, aTagNodeAcimaRps: string): string;
+  var
+    _DelimitadorRPS, _XmlRps, _XmlAcima, _TagRps, _TagFechaAcima: string;
+  begin
+    Result := aXML;
+    _DelimitadorRPS := Params.Values['DelimitadorRPS'];
+
+    if _DelimitadorRPS = '' then
+      _DelimitadorRPS := Params.Values['Delimitador'];
+
+    if _DelimitadorRPS <> '' then
+    begin
+      Progress('Realizando a delimitação do lote de RPS');
+      _XmlRps := XmlSelect(aXML, '//*[local-name()="' + aTagRps + '"]');
+      _XmlAcima := XmlSelect(aXML, '//*[local-name()="' + aTagNodeAcimaRps + '"]');
+      if (_XmlRps <> '') and (_XmlAcima <> '') then
+      begin
+        _TagRps := '<' + aTagRps;
+        Result := StringReplace(Result, _TagRps, _DelimitadorRps + _TagRps, [rfReplaceAll]);
+        _TagFechaAcima := '</' + aTagNodeAcimaRps;
+        Result := StringReplace(Result, _TagFechaAcima, _DelimitadorRps + _TagFechaAcima, []);
+      end
+      else
+        RaiseException('Erro durante a delimitação do lote de RPS: não foi encontrado Rps no lote');
+    end;
+  end;

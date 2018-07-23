@@ -1,0 +1,50 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'servico_consultar_nfse_resposta.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  // Todo "&" vira "&amp;" e todo "&amp;" continua sendo "&amp;":
+  _Xml := StringReplace(Input, '&amp;','&',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  if Pos('ListaNfse /', _Xml) > 0 then
+    Params.Add('XmlVazio='+_Xml)
+  else if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '&#xD;<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/nfse" and local-name()="ConsultarNfseResposta"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="http://www.abrasf.org.br/nfse" and local-name()="ConsultarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    if Params.Values['XmlVazio'] = '' then
+    begin
+      Datasets.LoadFromXMLContent(_Xml);
+      Params.Add('XmlNFSe='+_Xml);
+      Progress('XML carregado com Sucesso');
+    end;
+  end;
+end.

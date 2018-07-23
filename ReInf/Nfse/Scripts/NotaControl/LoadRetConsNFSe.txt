@@ -1,0 +1,29 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _Aux : string;
+begin
+  if Pos('<faultstring',Input) > 0 then
+  begin
+    _Xml := StringReplace(Input, '&gt;', '>', [rfReplaceAll]);
+    Params.Add('Faultstring='+ _Xml);
+  end
+  else
+  begin
+    _Xml := StringReplace(Input, '&', '&amp;', [rfReplaceAll]);
+    _Aux := XmlSelect(_Xml, '//*[local-name()="urlNfd"]');
+    If _Aux <> '' then
+    begin
+      _Xml := XmlSelect(_Xml, '//*[local-name()="util"]');
+      Params.Add('XmlNFSe=' + _Xml);
+    end
+    else
+      Params.Add('XmlErro='+Input);
+  end;
+end.

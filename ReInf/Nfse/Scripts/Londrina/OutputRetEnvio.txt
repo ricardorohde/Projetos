@@ -1,0 +1,235 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+
+  // Busca no XML de retorno se a nota foi aceita ou não
+  // 0 = Erro
+  // 1 = Sucesso
+  function GetResultado : String;
+  var
+    _XML, _Resultado: string;
+  begin
+    _XML := Params.Values['XML'];
+    if _XML = '' then
+      Result := '0'
+    else
+    begin
+      if xmlSelectNodeValue(_XML, '//*[local-name()="GerarNotaResponse"]//*[local-name()="RetornoNota"]//*[local-name()="Resultado"]', _Resultado) then
+        Result := _Resultado
+      else
+        Result := '0';
+    end;
+  end;
+
+  // Obtém o código do Erro
+  function GetCodigoErro(const aXML: string; const _i: integer) : string;
+  var
+   _Cod, _Comando : String;
+  begin
+    _Comando := '/*[local-name()="GerarNotaResponse"]/*[local-name()="Mensagens"]/*[local-name()="item"][%s]/*[local-name()="id"]';
+    _Comando := Format1(_Comando, IntToStr(_i));
+    if xmlSelectNodeValue(aXml, _Comando, _Cod) then
+      Result := _Cod
+    else
+      Result := '';
+  end;
+
+  // Obtém a mensagem do Erro
+  function GetMensagemErro(const aXML: string; const _i: integer) : string;
+  var
+    _Mensagem, _Comando : String;
+  begin
+    _Comando := '/*[local-name()="GerarNotaResponse"]/*[local-name()="Mensagens"]/*[local-name()="item"][%s]/*[local-name()="DescricaoErro"]';
+    _Comando := Format1(_Comando, IntToStr(_i));
+    if xmlSelectNodeValue(aXml, _Comando, _Mensagem) then
+      Result := _Mensagem + ' '
+    else
+      Result := '';
+  end;
+
+  // Executa um loop de todos os erros e Busca seu Código e Mensagem
+  function GetErros(const aXML: string) : string;
+  var
+    _NumItens, _i: Integer;
+    _Saida, _Comando : String;
+  begin
+    _Saida := '';
+    _Comando := '/*[local-name()="GerarNotaResponse"]/*[local-name()="Mensagens"]/*[local-name()="item"]';
+    _NumItens := XmlSelectCountNode(aXML, _Comando);
+
+    for _i := 1 to _NumItens do
+      _Saida := _Saida + GetCodigoErro(aXML, _i) + ' - ' + GetMensagemErro(aXML, _i);
+
+    Result := _Saida;
+  end;
+
+  // Motivo da Falha
+  function GetMotivo : string;
+  var
+    _Mot: string;
+  begin
+    if GetResultado = '1' then
+      Result := ''
+    else
+    begin
+      if Params.Values['faultstring'] <> '' then
+      begin
+        Result := 'Falha na comunicação com WebService-' + Input;
+      end else
+      begin
+        Result := GetErros(Params.Values['XML']);
+      end;
+    end;
+  end;
+
+  function GetNumeroProtocolo : string;
+  var
+    _Protocolo: String;
+  begin
+    // Neste Padrão, o Protocolo é o número da nota gerada
+    if xmlSelectNodeValue(Params.Values['XML'], '//*[local-name()="GerarNotaResponse"]//*[local-name()="RetornoNota"]//*[local-name()="Nota"]', _Protocolo) then
+      Result := _Protocolo
+    else
+      Result := '';
+  end;
+
+  function GetStatus : string;
+  begin
+    if (GetResultado = '0') or (GetNumeroProtocolo = '0') then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  function GetSituacaoNFSE : string;
+  begin
+    if (GetResultado = '0') or (GetNumeroProtocolo = '0') then
+      Result := 'ERRO'
+    else
+      Result := 'AUTORIZADA';
+  end;
+
+  function GetXmlNFSe : string;
+  begin
+    Result := XmlSelect(Params.Values['XML'], '//*[local-name()="GerarNotaResponse"]');
+    Result := StringReplace(Result, '&amp;', '&', [rfReplaceAll]);
+  end;
+
+  function GetCodVerificacao : string;
+  var
+    _Cod : String;
+  begin
+    if xmlSelectNodeValue(Params.Values['XML'], '//*[local-name()="GerarNotaResponse"]' +
+      '//*[local-name()="RetornoNota"]//*[local-name()="autenticidade"]', _Cod) then
+      Result := _Cod
+    else
+      Result := '';
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de Resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  _ListFields := CreateFieldsResponse;
+
+  if (GetStatus = 'EMPROCESSAMENTO') then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'EMPROCESSAMENTO');
+      AddValueListFields('Motivo', '');
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end else
+  if (GetMotivo <> '') and (GetMotivo <> '- ()') or (GetStatus = 'ERRO') then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo', GetMotivo);
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end else
+  if _ListFields <> nil then
+    Try
+      Progress('Adicionando valores aos campos.');
+
+      AddValueListFields('Motivo', GetMotivo);
+      AddValueListFields('Status', GetStatus);
+
+      AddValueListFields('Cnpj', '');
+      AddValueListFields('InscMunicipal', '');
+      AddValueListFields('SerieRps', '');
+      AddValueListFields('NumeroRps', '');
+      AddValueListFields('NumeroNFSe', GetNumeroProtocolo);
+      AddValueListFields('DataEmissaoNFSe', '');
+      AddValueListFields('DataAutorizacao', '');
+      AddValueListFields('CodVerificacao', GetCodVerificacao);
+      AddValueListFields('Situacao', GetSituacaoNFSe);
+      AddValueListFields('DataCancelamento', '');
+      AddValueListFields('ChaveCancelamento', GetNumeroProtocolo);
+      AddValueListFields('Xml', GetXmlNFSe);
+      AddValueListFields('Tipo', '');
+
+      Output := FormatLineResult;
+
+    Finally
+      _ListFields.Free;
+    end;
+
+  Progress('Valores adicionados com sucesso.');
+end.

@@ -1,0 +1,34 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _Fault : string;
+begin
+  Progress('Carregando XML de Retorno de Envio');
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  _Xml := StringReplace(Input, '&lt;','<',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&gt;','>',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<Mensagem>','',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '</Mensagem>','',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, ';','',[rfReplaceAll]);
+
+  _Xml := XmlSelect(_Xml, '//*[local-name()="ImportarWebRPSXmlResponse"]');
+
+  if Pos('<faultstring',input) > 0 then
+  begin
+    XmlSelectNodeValue(Input,'//*[local-name()="faultstring"]', _Fault);
+    Params.Add('faultstring='+_Fault);
+  end
+  else
+  begin
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

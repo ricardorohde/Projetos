@@ -1,0 +1,56 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml : string;
+
+{$I ..\GovBR\RealizarCargaManualDeCampos.txt}
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  // Todo "&" vira "&amp;" e todo "&amp;" continua sendo "&amp;":
+  _Xml := StringReplace(Input, '&amp;','&',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&','&amp;',[rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+  _Xml := StringReplace(_Xml,'<?xml version="1.0" encoding="utf-8"?>','',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml,'&#xD;','',[rfReplaceAll]);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '&#xD;<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '&lt;', '<', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '&gt;', '>', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml,'<?xml version="1.0" encoding="utf-8"?>','',[rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseResposta"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseResposta"]');
+
+  if Pos('<faultstring',Input) > 0 then
+    Params.Add('faultstring='+Input)
+  else if (Pos('<ListaNfse></ListaNfse>',Input) > 0) or (Pos('&lt;ListaNfse&gt;&lt;/ListaNfse&gt;',Input) > 0) then
+    Params.Add('NFSeInexistente='+Input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+
+    RealizarCargaManualDeCampos('CompNfse');
+
+    _Xml := XmlSelect(_Xml, '//*[local-name()="CompNfse"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

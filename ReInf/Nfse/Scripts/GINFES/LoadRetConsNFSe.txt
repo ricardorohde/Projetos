@@ -1,0 +1,49 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml: string;
+const
+  PATH = '//*[namespace-uri()="http://www.ginfes.com.br/servico_consultar_nfse_resposta_v03.xsd" and local-name()="ConsultarNfseResposta"]';
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'servico_consultar_nfse_resposta_v03.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if not SameText(Params.values['Cidade'], 'Fortaleza') then
+    _Xml := StringReplace(Input, '/MensagemRetorno', '/p1:MensagemRetorno', [RfReplaceAll])
+  else
+    _Xml := Input;
+
+  if Pos('<!--CRLF-->', Input) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := Trim(_Xml);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, PATH);
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, PATH);
+
+  if Pos('<faultstring',Input) > 0 then
+    Params.Add('faultstring='+Input)
+  else if (Pos('return xsi:nil=' + '''1''', Input) > 0) or (Pos('return xsi:nil=' + '"1"', Input) > 0) then
+    Params.Add('erro='+ 'Xml vazio')
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com Sucesso');
+  end;
+end.

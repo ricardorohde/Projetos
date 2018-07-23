@@ -1,0 +1,10 @@
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\bin\Debug\RemoverFuncionariosDuplicados.exe.config
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\RemoverFuncionariosDuplicados.Form1.resources
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\RemoverFuncionariosDuplicados.Properties.Resources.resources
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\bin\Debug\RemoverFuncionariosDuplicados.exe
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\bin\Debug\RemoverFuncionariosDuplicados.pdb
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\RemoverFuncionariosDuplicados.exe
+c:\users\raphaelmelo\documents\visual studio 2010\Projects\RemoverFuncionariosDuplicados\RemoverFuncionariosDuplicados\obj\x86\Debug\RemoverFuncionariosDuplicados.pdb

@@ -1,0 +1,5 @@
+<ser:ConsultarNfseServicoPrestadoRequest>
+<nfseCabecMsg></nfseCabecMsg>
+<nfseDadosMsg><![CDATA[<ConsultarNfseServicoPrestadoEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">%s%s%s%s%s%s<Pagina>%s</Pagina>
+</ConsultarNfseServicoPrestadoEnvio>]]></nfseDadosMsg>
+</ser:ConsultarNfseServicoPrestadoRequest>

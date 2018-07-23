@@ -1,0 +1,27 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+  function RealizarDelimitacaoLoteRps(const aXML: string): string;
+  var
+    _DelimitadorRPS: String;
+  begin
+    _DelimitadorRPS := Params.Values['DelimitadorRPS'];
+    if _DelimitadorRPS <> '' then
+      Result := _DelimitadorRPS + Trim(aXML) + _DelimitadorRPS
+    else
+      Result := aXML;
+  end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+  Output := RealizarDelimitacaoLoteRps(Output);
+  //A collection de Giap Herdada de Obaratec, por isso o caracter de quebra de linha é o mesmo.
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_OBARATEC);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

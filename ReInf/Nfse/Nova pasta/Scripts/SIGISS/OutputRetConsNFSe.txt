@@ -1,0 +1,148 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Status, _Motivo, _Xml: string;
+
+{$I ..\SIGISS\Utils.TXT}
+
+  function RetornouDadosNota(const aXML:string): Boolean;
+  Var
+    _Value : string;
+  begin
+    Result := (xmlSelectNodeValue(aXml, '//DadosNota', _Value)) and
+              (_Value <> '');
+  end;
+
+  function GetMotivo(const aXML:string) : string;
+  Var
+    i, _QtdErros: Integer;
+    _Aux, _FaultString: string;
+  begin
+    Result := '';
+    _FaultString := Params.Values['faultstring'];
+    if _FaultString <> '' then
+    begin
+      if xmlSelectNodeValue(Params.Values['faultstring'], '//*[local-name()="faultstring"]', _Aux) then
+        Result := 'Falha na comunicação com WebService-' + _Aux
+      else
+        Result := 'Falha na comunicação com WebService-' + _FaultString;
+    end
+    else
+    begin
+      { Quando a nota não exite no servidor, o retorno é "Sem erros."
+        Qando a nota exite o servidor retorna os dados da nota, e "Sem erros."}
+      if not RetornouDadosNota(aXML) then
+      begin
+        _QtdErros := XmlSelectCountNode(aXML, '//*[local-name()="item"]');
+        for i := 0 to _QtdErros -1 do
+        begin
+          _Aux := XmlSelectItemIndexNode(aXML, '//*[local-name()="DescricaoErro"]', i);
+          xmlSelectNodeValue(_Aux, '//*[local-name()="DescricaoErro"]', _Aux);
+
+          if Result = '' then
+            Result := Format2('%s: %s.', GetValueXml(aXML, '//id'), _Aux)
+          else
+            Result := Format3('%s %s: %s', Result, GetValueXml(aXML, '//id'), _Aux);
+        end;
+        if Pos('Sem erros.', Result) > 0 then
+          Result := Result + ' Nota não encontrada.';
+      end
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+    Result := StringReplace(result, Chr(9),' ',[rfReplaceAll]);
+  end;
+
+  function GetSituacaoNota(const aXml: string): string;
+  Var
+    _Situacao: string;
+  begin
+    _Situacao := LowerCase(GetValueXml(aXml, '//StatusNFe'));
+    if _Situacao = 'ativa' then
+      Result := 'AUTORIZADA'
+    else if _Situacao = 'cancelada' then
+      Result := 'CANCELADA'
+    else
+      Result := '';
+  end;
+
+begin
+  Output := '';
+  Progress('Adicionando valores aos campos');
+
+  _Xml := Params.Values['XML'];
+  _Status := GetStatus(_Xml);
+  _Motivo := GetMotivo(_Xml);
+
+  if _Status = 'ERRO' then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo', _Motivo);
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    _ListFields := CreateFieldsResponse;
+    if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+    begin
+      try
+        if RetornouDadosNota(_Xml) then
+        begin
+          //function GetValueXml(const aXML, aComando: string): string;
+          AddValueListFields('Motivo', _Motivo);
+          AddValueListFields('Status', _Status);
+          AddValueListFields('Cnpj', '');
+          AddValueListFields('InscMunicipal', '');
+          AddValueListFields('SerieRps', GetValueXml(_Xml, '//serie_rps'));
+          AddValueListFields('NumeroRps', GetValueXml(_Xml, '//num_rps'));
+          AddValueListFields('NumeroNFSe', GetValueXml(_Xml, '//nota'));
+          AddValueListFields('DataEmissaoNFSe', GetValueXml(_Xml, '//emissao_rps'));
+          AddValueListFields('DataAutorizacao', GetValueXml(_Xml, '//dt_conversao'));
+          AddValueListFields('CodVerificacao', GetValueXml(_Xml, '//autenticidade'));
+          AddValueListFields('Situacao', GetSituacaoNota(_Xml));
+          AddValueListFields('DataCancelamento', '');
+          AddValueListFields('ChaveCancelamento', GetValueXml(_Xml, '//nota'));
+          AddValueListFields('Xml', GetXmlNFSe(_Xml));
+          AddValueListFields('Tipo', '');
+        end
+        else
+        begin
+          AddValueListFields('Motivo', _Motivo);
+          AddValueListFields('Status', _Status);
+          AddValueListFields('Cnpj', '');
+          AddValueListFields('InscMunicipal', '');
+          AddValueListFields('SerieRps', '');
+          AddValueListFields('NumeroRps', '');
+          AddValueListFields('NumeroNFSe', '');
+          AddValueListFields('DataEmissaoNFSe', '');
+          AddValueListFields('DataAutorizacao', '');
+          AddValueListFields('CodVerificacao', '');
+          AddValueListFields('Situacao', '');
+          AddValueListFields('DataCancelamento', '');
+          AddValueListFields('ChaveCancelamento', '');
+          AddValueListFields('Xml', '');
+          AddValueListFields('Tipo', '');
+        end;
+
+        if (Params.Values['DelimitadorDaLinha'] = '') then
+          Output := Output + FormatLineResult + #13#10
+        else
+          Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+      Finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

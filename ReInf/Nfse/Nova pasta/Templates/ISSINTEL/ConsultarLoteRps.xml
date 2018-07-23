@@ -1,0 +1,9 @@
+<ConsultarLoteRps xmlns="http://www.e-governeapps2.com.br/">
+  <ConsultarLoteRpsEnvio xmlns="http://isscuritiba.curitiba.pr.gov.br/iss/nfse.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://isscuritiba.curitiba.pr.gov.br/iss/nfse.xsd">
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+    <Protocolo>%s</Protocolo>
+  </ConsultarLoteRpsEnvio>
+</ConsultarLoteRps>

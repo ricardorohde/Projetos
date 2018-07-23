@@ -1,0 +1,1 @@
+<nfse:SubstituirNfseRequest><nfseCabecMsg><![CDATA[<login><usuario>%s</usuario><senha>%s</senha></login>]]></nfseCabecMsg><nfseDadosMsg><![CDATA[%s]]></nfseDadosMsg></nfse:SubstituirNfseRequest>

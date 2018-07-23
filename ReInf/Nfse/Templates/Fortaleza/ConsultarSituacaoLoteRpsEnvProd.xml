@@ -1,0 +1,10 @@
+<ginfes:ConsultarSituacaoLoteRpsV3 xmlns:ginfes="http://producao.issfortaleza.com.br">
+<Cabecalho>
+<![CDATA[
+<cabec:cabecalho versao="3" xmlns:cabec="http://www.ginfes.com.br/cabecalho_v03.xsd">
+<versaoDados>3</versaoDados>
+</cabec:cabecalho>
+]]>
+</Cabecalho>
+<ConsultarSituacaoLoteRpsEnvio><![CDATA[%s]]></ConsultarSituacaoLoteRpsEnvio>
+</ginfes:ConsultarSituacaoLoteRpsV3>

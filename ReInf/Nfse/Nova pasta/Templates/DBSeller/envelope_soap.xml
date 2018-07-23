@@ -1,0 +1,3 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" ##NAMESPACE##><soapenv:Header/><soapenv:Body>
+%s
+</soapenv:Body></soapenv:Envelope>

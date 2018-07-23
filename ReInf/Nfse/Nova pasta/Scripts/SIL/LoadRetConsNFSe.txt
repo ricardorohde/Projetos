@@ -1,0 +1,50 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml : string;
+begin
+  _Xml:= Input;
+
+  // Às vezes alguns campos vêm com tags HTML escapadas, remover (Bug #2313).
+  _Xml := StringReplace(_Xml, '&lt;b&gt;', '', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&lt;/b&gt;', '', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&lt;br&gt;', '', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&lt;/br&gt;', '', [rfReplaceAll]);
+
+  if Pos('&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;', _Xml) > 0 then
+  begin
+    // XML bruto: desescapar para evitar problemas
+    _Xml:= StringReplace(_Xml, '&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;', '',  [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&apos;', '''', [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&quot;', '"',  [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&gt;', '>', [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&lt;', '<', [rfReplaceAll]);
+  end
+  else
+  begin
+    // "<", ">" e ';' não são suportados no momento por problemas no converter
+    _Xml:= StringReplace(_Xml, '&lt;', '', [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&gt;', '', [rfReplaceAll]);
+    _Xml:= StringReplace(_Xml, '&lt\delimiter', '', [rfReplaceAll]);  // eDoc
+    _Xml:= StringReplace(_Xml, '&gt\delimiter', '', [rfReplaceAll]);  // eDoc
+    _Xml:= StringReplace(_Xml, ';', '', [rfReplaceAll]);
+  end;
+
+  _Xml := StringReplace(_Xml, '&amp;','&',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&',  '&amp;',  [rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  _Xml := XmlSelect(_Xml, '//*[local-name()="util"]');
+
+  If _Xml <> '' then
+    Params.Add('XmlNFSe='+_Xml)
+  else
+    Params.Add('XmlErro='+Input);
+end.

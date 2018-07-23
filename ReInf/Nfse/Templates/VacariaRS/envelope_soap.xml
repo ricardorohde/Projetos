@@ -1,0 +1,1 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/"><soapenv:Header><tem:cabecalho versao="203"><tem:versaoDados>2.03</tem:versaoDados></tem:cabecalho></soapenv:Header><soapenv:Body>%s</soapenv:Body></soapenv:Envelope>

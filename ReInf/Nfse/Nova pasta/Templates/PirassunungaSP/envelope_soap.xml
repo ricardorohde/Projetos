@@ -1,0 +1,1 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfe="http://nfe.giap.com.br/"><soapenv:Header/><soapenv:Body><nfe:run><token>%s</token><xml><![CDATA[%s]]></xml><operacao>%s</operacao></nfe:run></soapenv:Body></soapenv:Envelope>

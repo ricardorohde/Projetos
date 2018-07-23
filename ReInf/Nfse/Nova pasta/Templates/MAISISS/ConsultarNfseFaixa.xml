@@ -1,0 +1,8 @@
+<ConsultarNfseFaixaEnvio xmlns="http://shad.elotech.com.br/schemas/iss/nfse_v1_2.xsd">
+%s
+<Faixa>
+<NumeroNfseInicial>%s</NumeroNfseInicial>
+<NumeroNfseFinal>%s</NumeroNfseFinal>
+</Faixa>
+<Pagina>%s</Pagina>
+</ConsultarNfseFaixaEnvio>

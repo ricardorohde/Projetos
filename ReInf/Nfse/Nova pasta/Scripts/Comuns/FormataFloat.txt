@@ -1,0 +1,17 @@
+  function FormataFloat(aValor : Double; aInteiro : Integer; aFracao: Integer): string;
+  var
+   _aux, _Inteiro, _Fracao : String;
+   _posic : Integer;
+  begin
+    _Inteiro := IntToStr(aInteiro);
+    _Fracao := IntToStr(aFracao);
+
+    _aux := '%' + _Inteiro + '.' + _Fracao + 'g';
+
+    Result := FormatX(_aux, [aValor]);
+    Result := Trim(Result);
+    Result := StringReplace(Result, ',', '.', [rfReplaceAll]);
+
+    _posic := AnsiPos('.',Result);
+    Result := leftstr(result, _posic + aFracao);
+  end;

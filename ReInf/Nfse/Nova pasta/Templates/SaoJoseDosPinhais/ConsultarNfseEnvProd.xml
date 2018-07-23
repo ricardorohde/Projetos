@@ -1,0 +1,8 @@
+<nfe:ConsultarNfseV3>
+<arg0><![CDATA[
+<cabec:cabecalho versao="3" xmlns:cabec="http://nfe.sjp.pr.gov.br/cabecalho_v03.xsd">
+<versaoDados>3</versaoDados>
+</cabec:cabecalho>
+]]></arg0>
+<arg1><![CDATA[%s]]></arg1>
+</nfe:ConsultarNfseV3>

@@ -1,0 +1,71 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _XmlNfse, _FaultString, _DataHoraCanc, _aux : string;
+  _NFSE, _DSFalha: TSpdXSDClientDataSet;
+
+
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _XmlNfse := XmlDeepNodeSearch(Input, 'ConsultarNfseResposta', '//*[local-name()="ConsultarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    //erro que acontece quando o webservice tem quebra de esquema
+    if Pos('<ii:Fault', Input) > 0 then
+    begin
+      _DSFalha := Datasets.GetDataSetByName('MensagemRetorno');
+      _DSFalha.Insert;
+      XmlSelectNodeValue(Input, '//*[local-name()="Code"]', _aux);
+      _DSFalha.FieldByName('MotivoCodigo').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Reason"]', _aux);
+      _DSFalha.FieldByName('MotivoMensagem').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Detail"]', _aux);
+      _DSFalha.FieldByName('MotivoCorrecao').AsString := _aux;
+      _DSFalha.Post;
+      Params.Add('Sucesso=0');
+    end
+    else
+    begin
+      // Corrigindo o XML para ser possível carregar no XsdDataset
+      _Xml := StringReplace(_XmlNfse, #9, '', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '>'+#13#10, '>', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '><!--CRLF-->', '>', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '</ii:Nfse><ii:Nfse>', '</ii:Nfse></ii:CompNfse><ii:CompNfse><ii:Nfse>', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '</ii:NfseCancelamento><ii:Nfse>', '</ii:NfseCancelamento></ii:CompNfse><ii:CompNfse><ii:Nfse>', [rfReplaceAll]);
+
+      Datasets.LoadFromXMLContent(_Xml);
+      Params.Add('XmlNFSe='+_Xml);
+      _NFSE := Datasets.GetDataSetByName('ConsultarNfseResposta');
+      _NFSE.First;
+
+      if XmlSelectNodeValue(_Xml, '//*[local-name()="CompNfse"][1]//*[local-name()="DataHora"]', _DataHoraCanc) then
+      begin
+        _NFSE.Edit;
+        _NFSE.FieldByName('DataCancelamento').AsString := _DataHoraCanc;
+        _NFSE.Post;
+      end;
+
+      Progress('XML carregado com Sucesso');
+    end;
+  end;
+end.

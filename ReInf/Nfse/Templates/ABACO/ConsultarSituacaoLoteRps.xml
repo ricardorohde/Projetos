@@ -1,0 +1,7 @@
+<ConsultarSituacaoLoteRpsEnvio xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Prestador>
+        <Cnpj>%s</Cnpj>
+        <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+    <Protocolo>%s</Protocolo>
+</ConsultarSituacaoLoteRpsEnvio>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-16"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <soap:Body>
+    <EnviarLoteRpsEnvio xmlns="http://des36.el.com.br:8080/el-issonline/">
+      <identificacaoPrestador xmlns="">%s</identificacaoPrestador>
+      <hashIdentificador xmlns="">%s</hashIdentificador>
+      <arquivo xmlns="">%s</arquivo>
+    </EnviarLoteRpsEnvio>
+  </soap:Body>
+</soap:Envelope>

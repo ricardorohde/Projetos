@@ -1,0 +1,40 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações do XSDDataset');
+
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := StringReplace(Input, '&', '&amp;', [rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [rfReplaceAll]);
+
+  _Xml := XmlDeepNodeSearch(_Xml, 'ConsultarNfseResult', '//*[local-name()="ConsultarNfseResult"]');
+
+  _Xml := StringReplace(_Xml, 'ConsultarNfseResult','ConsultarNfseResposta',[rfReplaceAll, rfIgnoreCase]);
+  _Xml := StringReplace(_Xml,'</tcCompNfse><tcCompNfse>','</CompNfse><CompNfse>',[rfReplaceAll,rfIgnoreCase]);
+  _Xml := StringReplace(_Xml,'<tcCompNfse>','',[rfReplaceAll,rfIgnoreCase]);
+  _Xml := StringReplace(_Xml,'</tcCompNfse>','',[rfReplaceAll,rfIgnoreCase]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com Sucesso');
+  end;
+end.

@@ -1,0 +1,188 @@
+;**************************************************************************************************
+;        ARQUIVO DE MAPEAMENTO PARA O PADRÃO IPM
+;**************************************************************************************************
+
+;**************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (Proxy)
+;**************************************************************************************************
+[ENVIAR]
+XSDElementName=nfse
+XSDFile=spdEnvio.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;**************************************************************************************************
+;Nomes dos comandos para os respectivos datasets (para uso nos arquivos TX2)
+;**************************************************************************************************
+[comandos]
+nfse.Insert=INCLUIR
+nfse.Post=SALVAR
+lista.Insert=INCLUIRLISTA
+lista.Post=SALVARLISTA
+linha.Insert=INCLUIRLINHA
+linha.Post=SALVARLINHA
+
+;**************************************************************************************************
+;Nomes dos Campos: Envio de Lote de RPS (Proxy)
+;**************************************************************************************************
+[nfse]
+;Dados da NFSe a ser cancelada.
+numero=nfse/nf/numero
+situacao=nfse/nf/situacao
+data_fato_gerador=nfse/nf/data_fato_gerador
+
+;Dados da NFSe.
+valor_total=nfse/nf/valor_total
+valor_desconto=nfse/nf/valor_desconto
+valor_ir=nfse/nf/valor_ir
+valor_inss=nfse/nf/valor_inss
+valor_contribuicao_social=nfse/nf/valor_contribuicao_social
+valor_rps=nfse/nf/valor_rps
+valor_pis=nfse/nf/valor_pis
+valor_cofins=nfse/nf/valor_cofins
+observacao=nfse/nf/observacao
+
+;Dados do prestador.
+cpfcnpj_prestador=nfse/prestador/cpfcnpj
+cidade_prestador=nfse/prestador/cidade
+
+;Endereco informado
+endereco_informado=nfse/tomador/endereco_informado
+
+;Tipo do tomador
+tipo_tomador=nfse/tomador/tipo
+
+;Dados tomador estrangeiro
+identificador_tom_estrangeiro=nfse/tomador/identificador
+estado_tomador_estrangeiro=nfse/tomador/estado
+pais_tomador_estrangeiro=nfse/tomador/pais
+
+;Dados tomador.
+cpfcnpj_tomador=nfse/tomador/cpfcnpj
+ie_tomador=nfse/tomador/ie
+nome_razao_social_tomador=nfse/tomador/nome_razao_social
+sobrenome_nome_fantasia_tomador=nfse/tomador/sobrenome_nome_fantasia
+logradouro_tomador=nfse/tomador/logradouro
+email_tomador=nfse/tomador/email
+numero_residencia_tomador=nfse/tomador/numero_residencia
+complemento_tomador=nfse/tomador/complemento
+ponto_referencia_tomador=nfse/tomador/ponto_referencia
+bairro_tomador=nfse/tomador/bairro
+cidade_tomador=nfse/tomador/cidade
+cep_tomador=nfse/tomador/cep
+ddd_fone_comercial_tomador=nfse/tomador/ddd_fone_comercial
+fone_comercial_tomador=nfse/tomador/fone_comercial
+ddd_fone_residencial_tomador=nfse/tomador/ddd_fone_residencial
+fone_residencial_tomador=nfse/tomador/fone_residencial
+ddd_fax_tomador=nfse/tomador/ddd_fax
+fone_fax_tomador=nfse/tomador/fone_fax
+
+;Dados produtos.
+descricao_produtos=nfse/produtos/descricao
+valor_produtos=nfse/produtos/valor
+
+;Dados dos serviços.
+tributa_municipio_prestador=nfse/itens/lista/tributa_municipio_prestador
+codigo_local_prestacao_servico=nfse/itens/lista/codigo_local_prestacao_servico
+unidade_codigo=nfse/itens/lista/unidade_codigo
+unidade_quantidade=nfse/itens/lista/unidade_quantidade
+unidade_valor_unitario=nfse/itens/lista/unidade_valor_unitario
+codigo_item_lista_servico=nfse/itens/lista/codigo_item_lista_servico
+descritivo=nfse/itens/lista/descritivo
+aliquota_item_lista_servico=nfse/itens/lista/aliquota_item_lista_servico
+situacao_tributaria=nfse/itens/lista/situacao_tributaria
+valor_tributavel=nfse/itens/lista/valor_tributavel
+valor_deducao=nfse/itens/lista/valor_deducao
+valor_issrf=nfse/itens/lista/valor_issrf
+
+;Dados de itens genericos.
+titulo_genericos=nfse/genericos/linha/titulo
+descricao_genericos=nfse/genericos/linha/descricao
+
+;**************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;**************************************************************************************************
+[PrintXml_DadosNFSe]
+FILE=MappingImpressao.txt
+
+;**************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;**************************************************************************************************
+[PrintXml_DadosRPS]
+FILE=MappingImpressao.txt
+
+;**************************************************************************************************
+;Campos de Configuração da Impressão Nova                                                          
+;**************************************************************************************************
+[PrintXml_Config]
+ModoImpressao=String[4]
+DiretorioTemplates=String[255]
+Titulo=String[80]
+BrasaoMunicipio=String[255]
+LogotipoEmitente=String[255]
+ArquivoMunicipios=String[255]
+SecretariaResponsavel=String[255]
+SubtituloNFSe=String[255]
+SubtituloRPS=String[255]
+DebugMode=String[5]
+NomeCidade=String[80]
+NomePadrao=String[20]
+
+;**************************************************************************************************
+;Obrigatoriedade para as tags do XML
+;**************************************************************************************************
+[OBRIGATORIEDADE]
+numero=true
+situacao=true
+valor_total=true
+valor_desconto=true
+valor_ir=true
+valor_inss=true
+valor_contribuicao_social=true
+valor_rps=true
+valor_pis=true
+valor_cofins=true
+observacao=true
+cpfcnpj_prestador=true
+cidade_prestador=true
+tipo_tomador=true
+identificador_tom_estrangeiro=true
+estado_tomador_estrangeiro=true
+pais_tomador_estrangeiro=true
+cpfcnpj_tomador=true
+ie_tomador=true
+nome_razao_social_tomador=true
+sobrenome_nome_fantasia_tomador=true
+logradouro_tomador=true
+email_tomador=true
+numero_residencia_tomador=true
+complemento_tomador=true
+ponto_referencia_tomador=true
+bairro_tomador=true
+cidade_tomador=true
+cep_tomador=true
+ddd_fone_comercial_tomador=true
+fone_comercial_tomador=true
+ddd_fone_residencial_tomador=true
+fone_residencial_tomador=true
+ddd_fax_tomador=true
+fone_fax_tomador=true
+descricao_produtos=true
+valor_produtos=true
+tributa_municipio_prestador=true
+codigo_local_prestacao_servico=true
+unidade_codigo=true
+unidade_quantidade=true
+unidade_valor_unitario=true
+codigo_item_lista_servico=true
+descritivo=true
+aliquota_item_lista_servico=true
+situacao_tributaria=true
+valor_tributavel=true
+valor_deducao=true
+valor_issrf=true
+titulo_genericos=true
+descricao_genericos=true

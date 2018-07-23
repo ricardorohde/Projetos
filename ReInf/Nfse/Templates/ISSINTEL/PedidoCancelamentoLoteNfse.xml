@@ -1,0 +1,20 @@
+<CancelarLoteNfseEnvio>
+<LoteCancelamento>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<PedidosCancelamento>
+<PedidoCancelamento>
+<InfPedidoCancelamento Id="%s">
+<IdentificacaoNfse>
+<Numero>%s</Numero>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<CodigoMunicipio>%s</CodigoMunicipio>
+</IdentificacaoNfse>
+<CodigoCancelamento>%s</CodigoCancelamento>
+</InfPedidoCancelamento>
+</PedidoCancelamento>
+</PedidosCancelamento>
+</LoteCancelamento>
+%s
+</CancelarLoteNfseEnvio>

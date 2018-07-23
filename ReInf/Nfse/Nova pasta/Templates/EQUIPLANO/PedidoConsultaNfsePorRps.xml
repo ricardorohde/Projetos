@@ -1,0 +1,12 @@
+<es:esConsultarNfsePorRpsEnvio xmlns:es="http://www.equiplano.com.br/esnfs">
+<rps>
+<nrRps>%s</nrRps>
+<nrEmissorRps>%s</nrEmissorRps>
+</rps>
+<prestador>
+<nrInscricaoMunicipal>%s</nrInscricaoMunicipal>
+<cnpj>%s</cnpj>
+<idEntidade>%s</idEntidade>
+</prestador>
+%s
+</es:esConsultarNfsePorRpsEnvio>

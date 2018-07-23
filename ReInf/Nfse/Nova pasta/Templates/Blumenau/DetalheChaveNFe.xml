@@ -1,0 +1,7 @@
+<Detalhe>
+  <ChaveNFe>
+    <InscricaoPrestador>%s</InscricaoPrestador>
+    <NumeroNFe>%s</NumeroNFe>
+  </ChaveNFe>
+  %s
+</Detalhe>

@@ -1,0 +1,83 @@
+;***************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (Proxy)
+;***************************************************************************************************
+[RETORNO_ENVIOSINCRONO]
+XSDElementName=EmiteNFeResponse
+XSDFile=eISS.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Envio Sincrono de RPS (Proxy)
+;***************************************************************************************************
+[EmiteNFeResponse]
+NumeroNfse=EmiteNFeResponse/return/numNota
+CodigoVerificacao=EmiteNFeResponse/return/hashCode
+;MensagemRetorno
+Codigo=EmiteNFeResponse/return/retorno
+Mensagem=EmiteNFeResponse/return/mensagem
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=CancelaNFeResponse
+XSDFile=eISS.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Cancelamento
+;***************************************************************************************************
+[CancelaNFeResponse]
+Codigo=CancelaNFeResponse/return/retorno
+Mensagem=CancelaNFeResponse/return/mensagem
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Consulta de NFSe
+;***************************************************************************************************
+[RETORNO_CONSULTARNFSE]
+XSDElementName=ConsultaNFeResponse
+XSDFile=eISS.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: ConsultaNFeResponse
+;***************************************************************************************************
+[ConsultaNFeResponse]
+NumeroNfse=ConsultaNFeResponse/return/numNota
+CodigoVerificacao=ConsultaNFeResponse/return/hashCode
+DataEmissaoNfse=ConsultaNFeResponse/return/dataEmissao
+NumeroRps=ConsultaNFeResponse/return/numRPS
+Mensagem=ConsultaNFeResponse/return/mensagem
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Validação de NFSe
+;***************************************************************************************************
+[RETORNO_VALIDARNFSE]
+XSDElementName=ValidaNFeResponse
+XSDFile=eISS.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: ValidaNFeResponse
+;***************************************************************************************************
+[ValidaNFeResponse]
+Codigo=ValidaNFeResponse/return/retorno
+[ocorrencia]
+Mensagem=ValidaNFeResponse/return/ocorrencia
+

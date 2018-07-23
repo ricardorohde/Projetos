@@ -1,0 +1,47 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+Var
+  _Xml, _Fault, _Erro : string;
+begin
+  Progress('Carregando XML de Retorno de Envio');
+
+  _Xml := UnEscapeXml(Input);
+  _Xml := StringReplace(_Xml, '<!--CRLF-->', '', [rfReplaceAll]);
+  _Xml := UnindentXml(_Xml);
+
+  if Pos('<NumeroVerificacao',_Xml) > 0 then
+    _Xml := XmlSelect(_Xml, '//*[local-name()="return"]')
+  else
+  begin
+    if Pos('<Header Answer',_Xml) > 0 then
+    begin
+      _Xml := StringReplace(_Xml, '<Header Answer="', '<Erro>', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '"/></nfse>', '</Erro></nfse>', [rfReplaceAll]);
+      if XmlSelectNodeValue(_Xml, '//*[local-name()="Erro"]', _Erro) then
+       Params.Add('Erro='+_Erro);
+    end
+    else
+    begin
+      if XmlSelectNodeValue(_Xml, '//*[local-name()="return"]', _Erro) then
+       Params.Add('Erro='+_Erro);
+    end;
+  end;
+
+  if Pos('<faultstring',_Xml) > 0 then
+  begin
+    XmlSelectNodeValue(_Xml,'//*[local-name()="faultstring"]', _Fault);
+    Params.Add('faultstring='+_Fault);
+  end
+  else
+  begin
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

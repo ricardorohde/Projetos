@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I Utils.txt}
+var
+  _Xml: string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+
+  _Xml := UnEscapeXml(Input);
+  _Xml := XmlSelect(_Xml, '//*[local-name()="RespostaLoteRps"]');
+
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

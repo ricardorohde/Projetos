@@ -1,0 +1,10 @@
+<ConsultarNfseEnvio xmlns="http://nfe.sjp.pr.gov.br/servico_consultar_nfse_envio_v03.xsd">
+<Prestador>
+<Cnpj xmlns="http://nfe.sjp.pr.gov.br/tipos_v03.xsd">%s</Cnpj>
+<InscricaoMunicipal xmlns="http://nfe.sjp.pr.gov.br/tipos_v03.xsd">%s</InscricaoMunicipal>
+</Prestador>
+%s
+%s
+%s
+%s
+</ConsultarNfseEnvio>

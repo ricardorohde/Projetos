@@ -1,0 +1,15 @@
+ <abr:AHCONSULTARNFSEPORRPS.Execute><abr:Entrada>
+     &lt;ConsultarNfseRpsEnvio xmlns=&quot;http://www.abrasf.org.br/nfse.xsd&quot;&gt;
+	&lt;IdentificacaoRps&gt;
+		&lt;Numero&gt;%s&lt;/Numero&gt;
+		&lt;Serie&gt;%s&lt;/Serie&gt;
+		&lt;Tipo&gt;%s&lt;/Tipo&gt;
+	&lt;/IdentificacaoRps&gt;
+	&lt;Prestador&gt;
+		&lt;CpfCnpj&gt;
+			&lt;Cnpj&gt;%s&lt;/Cnpj&gt;
+		&lt;/CpfCnpj&gt;
+		&lt;InscricaoMunicipal&gt;%s&lt;/InscricaoMunicipal&gt;
+	&lt;/Prestador&gt;
+&lt;/ConsultarNfseRpsEnvio&gt;
+   </abr:Entrada></abr:AHCONSULTARNFSEPORRPS.Execute>

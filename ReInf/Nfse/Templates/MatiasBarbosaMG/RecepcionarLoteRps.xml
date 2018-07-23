@@ -1,0 +1,3 @@
+<tns:RecepcionarLoteRPS xmlns:tns="urn:NFSE">
+<inputXML xsi:type="xsd:string"><![CDATA[%s]]></inputXML>
+</tns:RecepcionarLoteRPS>

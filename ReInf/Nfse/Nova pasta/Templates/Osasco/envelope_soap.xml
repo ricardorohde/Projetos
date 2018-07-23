@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tem="http://tempuri.org/" xmlns:rgm="http://schemas.datacontract.org/2004/07/Eissnfe.Negocio.WebServices.Mensagem" xmlns:rgm1="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Prestador" xmlns:rgm2="http://schemas.datacontract.org/2004/07/Eissnfe.Dominio.DataTransferObject.Contribuinte">
+	<soapenv:Header/>
+	<soapenv:Body>
+           	%s
+	</soapenv:Body>
+</soapenv:Envelope>

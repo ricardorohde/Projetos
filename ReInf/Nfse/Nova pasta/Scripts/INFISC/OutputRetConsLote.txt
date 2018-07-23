@@ -1,0 +1,388 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\FormatarXsdDateTime.txt}
+
+Var
+  _ListFields : TStringList;
+  i : integer;
+  _Xml, _Erro, _Motivo, _NumNFSe, _Status, _situacao, _Cnpj : string;
+
+  function GetSituacaoCodigoErro: String;
+  var
+    _Codigo: String;
+  begin
+    if xmlSelectNodeValue(Params.Values['Situacao'],'//*[local-name()="Codigo"]',_Codigo) then
+      Result := _Codigo
+    else
+      Result := '';
+  end;
+
+  function GetSituacaoMensagemErro: String;
+  var
+    _Mensagem: String;
+  begin
+    if xmlSelectNodeValue(Params.Values['Situacao'],'//*[local-name()="Mensagem"]',_Mensagem) then
+      Result := _Mensagem
+    else
+      Result := '';
+  end;
+
+  function GetSituacaoCorrecaoErro: String;
+  var
+    _Correcao: String;
+  begin
+    if xmlSelectNodeValue(Params.Values['Situacao'],'//*[local-name()="Correcao"]',_Correcao) then
+      Result := _Correcao
+    else
+      Result := '';
+  end;
+
+  function GetMotivo: string;
+  var
+    _XML, _Motivo: string;
+  begin
+    _XML := Params.Values['XmlLote'];
+
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService-' +
+        Params.Values['faultstring']
+    else
+      XmlSelectNodeValue(_XML, '//*[local-name()="confirmaLote"]//*[local-name()="mot"]', Result);
+  end;
+
+  function GetMotivos: string;
+  var
+    i, NumMotivos: integer;
+    _XML, _Motivo, _ComandoMotivo: string;
+  begin
+    _XML := Params.Values['XmlLote'];
+    _ComandoMotivo := '//*[local-name()="NFSe"]//*[local-name()="motivos"]//*[local-name()="mot"]';
+    NumMotivos := XmlSelectCountNode(_XML, _ComandoMotivo);
+    _Motivo := '';
+
+    for i := 0 to NumMotivos - 1 do
+    begin
+      _Motivo := _Motivo + XmlSelectItemIndexNode(_XML, _ComandoMotivo, i);
+    end;
+
+    _Motivo := StringReplace(_Motivo, '<mot>', '', [rfReplaceAll]);
+    _Motivo := StringReplace(_Motivo, '</mot>', ' ', [rfReplaceAll]);
+
+    Result := _Motivo;
+  end;
+
+  //Função para capturar o número de NFSe's contidas no lote.
+  function GetNumNotas(const aXML: string) : integer;
+  begin
+    Result := XmlSelectCountNode(aXML,'//*[local-name()="resultadoLote"]/*[local-name()="NFSe"]');
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(aValue, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'|',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+    Result := StringReplace(Result, '&amp;', '&',[rfReplaceAll]);
+    Result := StringReplace(Result, '&amp', '&',[rfReplaceAll]);
+    Result := StringReplace(Result, ';', '\delimiter',[rfReplaceAll]);
+  end;
+
+  function GetXml(const aIndex: integer) : string;
+  var
+    _Xml : String;
+  begin
+    _Xml := XmlSelectItemIndexNode(Params.Values['XmlLote'],'//*[local-name()="resultadoLote"]/*[local-name()="NFSe"]',aIndex);
+    Result := ExtractXMLIndent(_Xml);
+
+    if Result = '' then
+      XmlSelectNodeValue(Params.Values['XmlLote'],'//*[local-name()="confirmaLote"]/*[local-name()="mot"]', Result);
+
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetNumeroNFSe(const aXML: string) : string;
+  begin
+    XmlSelectNodeValue(aXML,'//*[local-name()="chvAcessoNFSe"]', Result);
+  end;
+
+{ ESTRUTURA DA CHAVE DE ACESSO:
+
+  Tam.|Tipo| Descrição
+  2   | N  | Código IBGE para UF do prestador
+  14  | N  | CNPJ do prestador
+  2   | N  | Modelo da nota (valor 98 por padrão)
+  3   | C  | Série da nota (em maiúsculas, com zeros à direita)
+  9   | N  | Número da nota (com zeros à esquerda)
+  9   | N  | Código numérico aleatório
+
+Ex de chave:
+438861974700017398S00000000979907409779
+}
+
+  function GetSerieRps(const aChaveAcessoNFSe: string) : string;
+  begin
+    if Length(aChaveAcessoNFSe) = 39 then
+    begin
+      Result := Copy(aChaveAcessoNFSe, 1+2+14+2, 3);
+      // Eliminar os zeros à direita
+      while RightStr(Result, 1) = '0' do
+        Result := LeftStr(Result, Length(Result)-1);
+    end
+    else
+      Result := '';
+  end;
+
+  function GetNumeroRps(const aChaveAcessoNFSe: string) : string;
+  begin
+    if Length(aChaveAcessoNFSe) = 39 then
+    begin
+      Result := Copy(aChaveAcessoNFSe, 1+2+14+2+3, 9);
+      Result := IntToStr(StrToIntDef(Result, 0));
+    end
+    else
+      Result := '';
+  end;
+
+  function GetTodosMotivos: string;
+  var
+    i, j, NumMotivos: integer;
+    _Xml, _Motivo, _Motivos, _ComandoMotivo: string;
+  begin
+    _ComandoMotivo := '//*[local-name()="NFSe"]//*[local-name()="motivos"]//*[local-name()="mot"]';
+    _Motivos := '';
+
+    for i := 0 to GetNumNotas(Params.Values['XmlLote']) -1 do
+    begin
+      _Xml := GetXml(i);
+      NumMotivos := XmlSelectCountNode(_Xml, _ComandoMotivo);
+
+      if (Pos('<sit>100</sit>', _Xml)) > 0 then
+        _Motivo := 'Chave: ' + GetNumeroNFSe(_Xml) + '. '
+      else
+        _Motivo := '';
+
+      for j := 0 to NumMotivos - 1 do
+      begin
+        _Motivo := _Motivo + XmlSelectItemIndexNode(_Xml, _ComandoMotivo, j) + ' _ ';
+      end;
+
+      _Motivos := _Motivos + _Motivo + ' -- ';
+    end;
+
+    _Motivos := StringReplace(_Motivos, '<mot>', '', [rfReplaceAll]);
+    _Motivos := StringReplace(_Motivos, '</mot>', ' ', [rfReplaceAll]);
+
+    Result := _Motivos;
+  end;
+
+  function GetCnpj: string;
+  var
+    _Cnpj, _Xml : String;
+  begin
+    _Xml := Params.Values['XmlLote'] ;
+    if xmlSelectNodeValue(_Xml,'//*[local-name()="resultadoLote"]/*[local-name()="CNPJ"]',_Cnpj) then
+      Result := _Cnpj
+    else
+      Result := '';
+  end;
+
+  function GetStatus(const aXML: String) : string;
+  begin
+    if (Params.Values['faultstring'] <> '') or (Pos('<sit>200</sit>', aXML) > 0) or (Pos('<sit>300</sit>', aXML) > 0) then
+      Result := 'ERRO'
+    else if (GetNumNotas(Params.Values['XmlLote']) = 0) then
+      Result := 'EMPROCESSAMENTO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  function GetStatusNfse(const aXML: String) : string;
+  begin
+    if (Pos('<sit>200</sit>', aXML) > 0) or (Pos('<sit>300</sit>', aXML) > 0) then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  function GetSituacaoNFSE(aXml: string): string;
+  var
+    _Situacao : string;
+  begin
+    xmlSelectNodeValue(aXml,'//*[local-name()="NFSe"]//*[local-name()="sit"]', _Situacao);
+
+    if (_Situacao = '200') or (_Situacao = '300') then
+      Result := 'ERRO'
+    else
+      Result := 'AUTORIZADA';
+  end;
+
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i : integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+  function XmlSemDados(const aXml: String): String;
+  var
+    _Valor: String;
+  begin
+     if xmlSelectNodeValue(aXml,'//*[local-name()="resultadoLote"]',_Valor) then
+     begin
+       if (_Valor = 'false') or (_Valor = '') then
+         Result := 'false'
+       else
+         Result := 'true';
+     end;
+  end;
+
+begin
+  Progress('Carregado valores.');
+
+  Output := '';
+  _XML := Params.Values['XMLLote'];
+
+  Progress('Adicionando valores aos campos');
+
+  _Motivo := GetMotivo;
+  _Status := GetStatus(_XML);
+  _Cnpj := GetCnpj;
+
+  // lote com alguma nota rejeitada
+  if ((Pos('<sit>200</sit>', _XML) > 0) or (Pos('<sit>300</sit>', _XML) > 0))
+    and (GetNumNotas(Params.Values['XmlLote']) > 0) then
+  begin
+    _Status := 'ERRO';
+    _Motivo := GetTodosMotivos;
+  end;
+
+  if (_Status = 'EMPROCESSAMENTO') then
+  begin
+    try
+      _ListFields := CreateFieldsResponseProcessamento;
+      AddValueListFields('Status', _Status);
+
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    finally
+      _ListFields.Free;
+    end;
+  end
+  else if (_Motivo <> '') or (XmlSemDados(_XML) = 'false') then
+  begin
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo',_Motivo);
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    for i := 0 to GetNumNotas(Params.Values['XmlLote']) -1 do
+    begin
+      _ListFields := CreateFieldsResponse;
+      _Xml := GetXml(i);
+      _NumNFSe := GetNumeroNFSe(_Xml);
+      _situacao := GetSituacaoNFSe(_Xml);
+
+      if (Pos('<sit>200</sit>', _XML) > 0) or (Pos('<sit>300</sit>', _XML) > 0) then
+        _Motivo := GetMotivos
+      else
+        _Motivo := '';
+
+      if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+        Try
+          AddValueListFields('Status', GetStatusNfse(_Xml));
+          AddValueListFields('Motivo', _Motivo);
+
+          AddValueListFields('InscMunicipal', '');
+          AddValueListFields('SerieRps', GetSerieRps(_NumNFSe));
+          AddValueListFields('NumeroRps', GetNumeroRps(_NumNFSe));
+          AddValueListFields('DataEmissaoNFSe', '');
+          AddValueListFields('DataAutorizacao', '');
+          AddValueListFields('CodVerificacao', '');
+          AddValueListFields('DataCancelamento', '');
+          AddValueListFields('Tipo', '');
+
+          if (_Motivo = '') then
+          begin
+             AddValueListFields('Cnpj', _Cnpj);
+             AddValueListFields('NumeroNFSe', _NumNFSe);
+             AddValueListFields('Situacao', _situacao);
+             AddValueListFields('ChaveCancelamento', _NumNFSe);
+             AddValueListFields('Xml', _Xml);
+            end
+          else
+          begin
+             AddValueListFields('Cnpj', '');
+             AddValueListFields('NumeroNFSe', '');
+             AddValueListFields('Situacao', '');
+             AddValueListFields('ChaveCancelamento', '');
+             AddValueListFields('Xml', '');
+          end;
+
+          if (Params.Values['DelimitadorDaLinha'] = '') then
+            Output := Output + FormatLineResult + #13#10
+          else
+            Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+
+        Finally
+          _ListFields.Free;
+        end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

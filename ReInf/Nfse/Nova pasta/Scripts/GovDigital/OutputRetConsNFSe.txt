@@ -1,0 +1,23 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I ..\GovDigital\Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else if Params.Values['XMLVAZIO'] <> '' then
+    Output := GetListFieldsXmlVazio(_ListFields, Input)
+  else
+  begin
+    GetPonteirosDataSets('CompNfse', 'MensagemRetorno', _DSSucesso, _DSFalha);
+    Output :=  GetListFieldsNota( _DSSucesso, _DSFalha, _ListFields,'','XmlNFSe');
+  end;
+end.

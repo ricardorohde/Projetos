@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><RecepcionarLoteRpsResponse xmlns="http://nfse.abrasf.org.br"><outputXML xmlns="">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;EnviarLoteRpsResposta xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.abrasf.org.br/nfse.xsd"&gt;
+  &lt;NumeroLote&gt;3968&lt;/NumeroLote&gt;
+  &lt;DataRecebimento&gt;2018-05-25T14:58:26.3483873-03:00&lt;/DataRecebimento&gt;
+  &lt;Protocolo&gt;1527271106363&lt;/Protocolo&gt;
+&lt;/EnviarLoteRpsResposta&gt;</outputXML></RecepcionarLoteRpsResponse></soap:Body></soap:Envelope>

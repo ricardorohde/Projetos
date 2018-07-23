@@ -1,0 +1,4 @@
+<esConsultarNfsePorRps xmlns="http://services.enfsws.es">
+<nrVersaoXml>1</nrVersaoXml>
+<xml><![CDATA[<?xml version="1.0" encoding="UTF-8"?>%s]]></xml>
+</esConsultarNfsePorRps>

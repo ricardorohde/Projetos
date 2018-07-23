@@ -1,0 +1,16 @@
+<ConsultarNfse xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">              
+   <ConsultarNfseEnvio xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">            
+      <Prestador xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">               
+         <Cnpj xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">%s</Cnpj>               
+         <InscricaoMunicipal xmlns="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd">%s</InscricaoMunicipal>
+      </Prestador>            
+      %s            
+      %s
+      %s            
+      %s
+   </ConsultarNfseEnvio>         
+   <pParam xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse">            
+      <P1 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P1>            
+      <P2 xmlns="http://www.sistema.com.br/Sistema.Ws.Nfse.Cn">%s</P2>
+   </pParam>
+</ConsultarNfse>   

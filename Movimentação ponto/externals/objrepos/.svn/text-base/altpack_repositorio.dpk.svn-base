@@ -1,0 +1,139 @@
+package altpack_repositorio;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$LIBSUFFIX '_61110'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  TeeImage87,
+  vcl,
+  dbrtl,
+  bdertl,
+  vcldb,
+  QR4RunD7,
+  vcljpg,
+  vclx,
+  xtrafil,
+  rxctl7,
+  VclSmp,
+  dac70,
+  unidac70,
+  VCLZipD7_3,
+  dbxcds,
+  dbexpress,
+  dsnap,
+  rxdb7,
+  WinSkinD7D,
+  WinSkinD7R,
+  vclactnband,
+  designide,
+  rbDB97,
+  rbRCL97,
+  rbBDE97,
+  rbIDE97,
+  dcldb,
+  vcldesigner,
+  designdgm,
+  dclstd,
+  dxmdsD7,
+  dxCoreD7,
+  cxGridD7,
+  cxPageControlVCLD7,
+  cxLibraryVCLD7,
+  dxThemeD7,
+  dxGDIPlusD7,
+  cxExtEditorsVCLD7,
+  cxDataD7,
+  ibxpress,
+  cxEditorsVCLD7,
+  cxExportVCLD7,
+  dxPScxGrid6LnkD7,
+  dxPScxCommonD7,
+  dxPSLnksD7,
+  dxPSCoreD7,
+  dxComnD7,
+  vclshlctrls,
+  dclcxLibraryVCLD7,
+  rbTDBC117,
+  TeeDB87,
+  TeeUI87,
+  Tee87,
+  rbTCUI117,
+  rbTC117,
+  dclRBC117,
+  XDevice7,
+  XFormat7,
+  IndyProtocols70,
+  IndyCore70,
+  IndySystem70,
+  rbRIDE97,
+  rbRAP97,
+  rbUSERDesign97,
+  rbUSER97,
+  dclDAD97,
+  rbDIDE97,
+  rbDAD97,
+  dclRBE97,
+  rbPDF97,
+  rbCIDE97,
+  rbCT97,
+  vclZipForged7,
+  AltLib_WMail,
+  AltLib_raAlterdata,
+  altlib_dbreg,
+  altlib_datasetsearch,
+  altlib_paineis,
+  altlib_codigos,
+  altlib_auditoreventos,
+  AltLib_Local,
+  altlib_setupmemdata,
+  altlibpack_components,
+  altlib_reportstandard,
+  altlib_databaseskin,
+  altlib_interface,
+  altlib_setuptable,
+  altlib_progresswindow,
+  altlib_database,
+  altlib_databaseini,
+  altlibpack_designide,
+  altlib_livechat,
+  altlib_dialogforms,
+  altlib_edits,
+  altlib_resources,
+  altlib_databasestart,
+  altlib_SecConn,
+  altlib_acessorestrito,
+  altlibpack_setupprintqrp;
+
+contains
+  AltWizard in 'ALTWIZARD.pas' {frmWizard},
+  AltWizard_dll in 'ALTWIZARD_DLL.pas' {frmWizard_dll},
+  QrPadrao in 'QRPADRAO.pas' {frmRelatorioPadrao},
+  telacad in 'TELACAD.pas' {frmCad},
+  TELACADTheme in 'TELACADTheme.pas' {frmCadTheme},
+  telaedit in 'TELAEDIT.pas' {frmEdita},
+  TELAEDITTheme in 'TELAEDITTheme.pas' {frmEditaTheme};
+
+end.

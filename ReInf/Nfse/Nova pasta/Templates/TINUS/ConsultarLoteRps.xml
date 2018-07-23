@@ -1,0 +1,9 @@
+<ConsultarLoteRps>
+  <Arg>
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+    <Protocolo>%s</Protocolo>
+  </Arg>
+</ConsultarLoteRps>

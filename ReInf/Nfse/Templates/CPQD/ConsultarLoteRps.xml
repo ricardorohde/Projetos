@@ -1,0 +1,1 @@
+<nfse:ConsultarLoteRpsRequest><nfseCabecMsg><![CDATA[<cabecalho versao="2.01" xmlns="http://www.abrasf.org.br/nfse.xsd"><versaoDados>2.01</versaoDados></cabecalho>]]></nfseCabecMsg><nfseDadosMsg><![CDATA[<ConsultarLoteRpsEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">%s<Protocolo>%s</Protocolo></ConsultarLoteRpsEnvio>]]></nfseDadosMsg></nfse:ConsultarLoteRpsRequest>

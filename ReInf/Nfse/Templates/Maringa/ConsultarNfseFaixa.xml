@@ -1,0 +1,5 @@
+<ws:ConsultarNfseFaixa soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<xml xsi:type="xsd:string">
+%s
+</xml>
+</ws:ConsultarNfseFaixa>	  

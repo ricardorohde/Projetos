@@ -1,0 +1,6 @@
+<end:ConsultarSituacaoLoteRps>
+<ConsultarSituacaoLoteRpsRequest>
+<nfseCabecMsg><![CDATA[<cabecalho xmlns="http://www.abrasf.org.br/nfse.xsd" versao="1.00"><versaoDados>1.00</versaoDados></cabecalho>]]></nfseCabecMsg>
+<nfseDadosMsg><![CDATA[<ConsultarSituacaoLoteRpsEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd"><Prestador><Cnpj>%s</Cnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador><Protocolo>%s</Protocolo></ConsultarSituacaoLoteRpsEnvio>]]></nfseDadosMsg>
+</ConsultarSituacaoLoteRpsRequest>
+</end:ConsultarSituacaoLoteRps>

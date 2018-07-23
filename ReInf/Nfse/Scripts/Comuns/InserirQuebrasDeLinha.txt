@@ -1,0 +1,141 @@
+const
+  // Quebra de linha para o servidor de Curitiba: CR/LF (#13#10)
+  STR_LINE_BREAK_CURITIBA = #13#10;
+  // Quebra de linha para o servidor Issnetonline: <br> (escapado)
+  STR_LINE_BREAK_ISSNETONLINE = '&lt;br&gt;';
+  // Quebra de linha para o servidor Abaco: #BR#
+  STR_LINE_BREAK_ABACO = '#BR#';
+  // Quebra de linha para o servidor de Belo Horizonte: | (pipe)
+  STR_LINE_BREAK_BELOHORIZONTE = '|';
+  // Quebra de linha para o servidor das cidades DSF: <br /> (escapado)
+  STR_LINE_BREAK_DSF = '&lt;br /&gt;';
+  // Quebra de linha para o servidor de São Paulo: | (pipe)
+  STR_LINE_BREAK_SAOPAULO = '|';
+  // Quebra de linha para o servidor GINFES: CR/LF (#13#10)
+  STR_LINE_BREAK_GINFES = #13#10;
+  // Quebra de linha para cidades Abrasf sem suporte a quebra de linha
+  STR_LINE_BREAK_ABRASF = ' ';
+  // Quebra de linha para o servidor GOVBR: CR/LF (#13#10)
+  STR_LINE_BREAK_GOVBR = #13#10;
+  // Quebra de linha para o servidor Simpliss: | (pipe)
+  STR_LINE_BREAK_SIMPLISS = '|';
+  // Quebra de linha para o servidor BETHA: CR/LF (#13#10)
+  STR_LINE_BREAK_BETHA = #13#10;
+  // Quebra de linha para o servidor do Rio de Janeiro: CR/LF (#13#10)
+  STR_LINE_BREAK_RIODEJANEIRO = #13#10;
+  // Quebra de linha para o servidor do Abrasf2.0: CR/LF (#13#10)
+  STR_LINE_BREAK_ABRASF20 = #13#10;
+  // Quebra de linha para o servidor THEMA: CR/LF (#13#10)
+  STR_LINE_BREAK_THEMA = #13#10;
+  // Quebra de linha para o servidor WEBISS: CR/LF (#13#10)
+  STR_LINE_BREAK_WEBISS = #13#10;
+  // Quebra de linha para o servidor PUBLICA: CR/LF (#13#10)
+  STR_LINE_BREAK_PUBLICA = #13#10;
+  // Quebra de linha para TIPLAN: CR/LF (#13#10)
+  STR_LINE_BREAK_TIPLAN = #13#10;
+  // Quebra de linha para Foz do Iguaçu: CR/LF (#13#10)
+  STR_LINE_BREAK_FOZDOIGUACU = #13#10;
+  // Quebra de linha para padrão SIL: CR/LF (#13#10)
+  STR_LINE_BREAK_SIL = #13#10;
+  // Quebra de linha para Goiânia: \s\n
+  STR_LINE_BREAK_GOIANIA = '\s\n';
+  // Quebra de linha para Duque de Caxias: CR/LF (#13#10)
+  STR_LINE_BREAK_DUQUEDECAXIAS = #13#10;
+  // Quebra de linha para Salvador: CR/LF (#13#10)
+  STR_LINE_BREAK_SALVADOR = #13#10;
+  // Quebra de linha para ISSONLINE: <br /> (escapado)
+  STR_LINE_BREAK_ISSONLINE= '<br>';
+  // Quebra de linha para o servidor AUAD:
+  STR_LINE_BREAK_AUAD = '&#xD;';
+  // Quebra de linha para o servidor de Osasco: CR/LF (#13#10)
+  STR_LINE_BREAK_OSASCO = #13#10;
+  // Quebra de linha para o servidor de Londrina: CR/LF (#13#10)
+  STR_LINE_BREAK_LONDRINA = '\r\n';
+  // Quebra de linha para o servidor IPM:
+  STR_LINE_BREAK_IPM = '&lt;br /&gt;';
+  // Quebra de linha para o servidor Equiplano: CR/LF (#13#10)
+  STR_LINE_BREAK_EQUIPLANO = #13#10;
+  // Quebra de linha para o servidor Fiorilli: \s\n
+  STR_LINE_BREAK_FIORILLI = '\s\n';
+  // Quebra de linha para o servidor de Natal: ¬
+  //STR_LINE_BREAK_NATAL = '&#xac;';  // Apresentou problemas
+  STR_LINE_BREAK_NATAL = STR_LINE_BREAK_ABRASF;
+  // Quebra de linha para o servidor SIGISS:  | (pipe)
+  STR_LINE_BREAK_SIGISS = '|';
+  // Quebra de linha para o servidor FGMAISS:  | (#13#10)
+  STR_LINE_BREAK_FGMAISS = #13#10;
+  // Quebra de linha para o servidor de Vitória - ES: <br /> (escapado)
+  STR_LINE_BREAK_VITORIA = '&lt;br /&gt;';
+  // Quebra de linha para o servidor de Frederico Westphalen - RS: CR/LF (#13#10)
+  STR_LINE_BREAK_SIM = #13#10;
+  // Quebra de linha para o servidor de Boa Vista - RR: <br /> (escapado)
+  STR_LINE_BREAK_SAATRI = '&#xD;&#xA;';
+  // Quebra de linha para o servidor de ISSIntel: (#13#10)
+  STR_LINE_BREAK_ISSIntel = #13#10;
+  // Quebra de linha para o servidor de SemfazOnline: (#13#10)
+  STR_LINE_BREAK_SEMFAZONLINE = #13#10;
+  // Quebra de linha para o servidor das cidades PRODATA: <br /> (escapado)
+  STR_LINE_BREAK_PRODATA = '&lt;br /&gt;';
+  // Quebra de linha para o servidor das cidades METROPOLIS:
+  STR_LINE_BREAK_METROPOLIS = '&#xd;';
+  // Quebra de linha para o servidor das cidades IssWeb:
+  STR_LINE_BREAK_ISSWEB = '&#xd;';
+  // Quebra de linha para o servidor das cidades TecSystem: <BR> (escapado)
+  STR_LINE_BREAK_TECSYSTEM = '&lt;BR&gt;';
+  // Quebra de linha para o servidor de GOVDIGITAL: (#$D#$A)
+  STR_LINE_BREAK_GOVDIGITAL = #$D#$A;
+  // Quebra de linha para o servidor das cidades Tinus: CR/LF (#13#10)
+  STR_LINE_BREAK_TINUS = #13#10;
+  // Quebra de linha para o servidor das cidades ISSDIGITAL
+  STR_LINE_BREAK_ISSDIGITAL = '|?|';
+  // Quebra de linha para o servidor das cidades Governa: CR/LF (#13#10)
+  STR_LINE_BREAK_GOVERNA = #13#10;
+  // Quebra de linha para o servidor das cidades Intersol: CR/LF (#13#10)
+  STR_LINE_BREAK_INTERSOL = #13#10;
+  // Quebra de linha para o servidor ACTCON:  | (pipe)
+  STR_LINE_BREAK_ACTCON = '|';
+  // Quebra de linha para o servidor EL: (#13#10)
+  STR_LINE_BREAK_EL = #13#10;
+  // Quebra de linha para o servidor AGILI:
+  STR_LINE_BREAK_AGILI = '&#xD;&#xA;';
+  // Quebra de linha para o servidor GovBR20:
+  STR_LINE_BREAK_GOVBR20 = '\s\n';
+  // Quebra de linha para o servidor Conam:
+  STR_LINE_BREAK_CONAM = '\\';
+  // Quebra de linha para o servidor SISTEMAS4R:
+  STR_LINE_BREAK_SISTEMAS4R = #13#10;
+  // Quebra de linha para o servidor WEBISS20:
+  STR_LINE_BREAK_WEBISS20 = '&lt;br /&gt;';
+  // Quebra de linha para o servidor BETHA20:
+  STR_LINE_BREAK_BETHA20 = '&lt;br /&gt;';
+  // Quebra de linha para o servidor NEA:
+  STR_LINE_BREAK_NEA = '&#xd;';
+  // Quebra de linha para o servidor ModPublica:
+  STR_LINE_BREAK_MODPUBLICA = '\s\n';
+  // Quebra de linha para o servidor DBSeller:
+  STR_LINE_BREAK_DBSeller = '&#xD;';
+  // Quebra de linha para o servidor CPQD:
+  STR_LINE_BREAK_CPQD = '\s\n';
+  // Quebra de linha para o servidor JGBaião: CR/LF (#13#10)
+  STR_LINE_BREAK_JGBAIAO = #13#10;
+  // Quebra de linha para o servidor OBARATEC:
+  STR_LINE_BREAK_OBARATEC = '&#xD;';
+  // Quebra de linha para o servidor SINSOFT:
+  STR_LINE_BREAK_SINSOFT = '&#xD;';
+  // Quebra de linha para o servidor MEMORY:
+  STR_LINE_BREAK_MEMORY = '&lt;br /&gt;';
+  // Quebra de linha para o servidor GeisWeb:
+  STR_LINE_BREAK_GEISWEB = '\n';
+  // Quebra de linha para o servidor SoftPlan:
+  STR_LINE_BREAK_SOFTPLAN = '';
+  //Quebra de linha para o servidor de Cotia:
+  STR_LINE_BREAK_COTIA = '&#xD;';
+  // Quebra de linha para o servidor AstenNFSe:
+  STR_LINE_BREAK_ASTENNFSE = '&lt;br /&gt;';
+  // Quebra de linha para o servidor Embras:
+  STR_LINE_BREAK_EMBRAS = '&lt;br /&gt;';
+
+  function InserirQuebrasDeLinha(const aXML, aLineBreak: string): string;
+  begin
+    Result := StringReplace(aXML, '|', aLineBreak, [rfReplaceAll, rfIgnoreCase]);
+  end;

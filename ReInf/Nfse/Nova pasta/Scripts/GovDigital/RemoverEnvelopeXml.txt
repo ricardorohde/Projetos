@@ -1,0 +1,10 @@
+  function RemoverEnvelopeXml(const aXml, aOperacao: string): string;
+  var
+    _EnvelopeInicio, _EnvelopeFim: string;
+  begin
+    _EnvelopeInicio := Format1('<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+                      '<soap:Body><ws:%s xmlns:ws="http://nfse.abrasf.org.br"><outputXML>', aOperacao);
+    _EnvelopeFim := Format1('</outputXML></ws:%s></soap:Body></soap:Envelope>', aOperacao);
+    Result := StringReplace(aXml, _EnvelopeInicio, '', []);
+    Result := StringReplace(Result, _EnvelopeFim, '', []);
+  end;

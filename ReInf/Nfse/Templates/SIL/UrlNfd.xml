@@ -1,0 +1,6 @@
+<web:urlNfd>
+<codigoMunicipio>%s</codigoMunicipio>
+<numeroNfd>%s</numeroNfd>
+<serieNfd>%s</serieNfd>        
+<inscricaoMunicipal>%s</inscricaoMunicipal>	
+</web:urlNfd>

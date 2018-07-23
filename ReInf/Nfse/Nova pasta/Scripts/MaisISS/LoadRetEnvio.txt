@@ -1,0 +1,58 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml : string;
+
+  function EnvioSincrono: Boolean;
+  Var
+    _Value: string;
+  begin
+    Result := XmlSelectNodeValue(Input, '//*[local-name()="EnviarLoteRpsSincronoResposta"]', _Value) or
+      (Pos('EnviarLoteRpsSincronoResposta', Input) > 0);
+  end;
+
+  function GetConfigSection: string;
+  begin
+    if EnvioSincrono then
+      Result := 'RETORNO_ENVIOSINCRONO'
+    else
+      Result := 'RETORNO_ENVIAR';
+  end;
+
+begin
+  if Pos('<faultstring', Input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring=' + Input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.XsdFile := PathXsd + 'nfse_v1_2.xsd';
+    Datasets.ConfigSection := GetConfigSection;
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    if EnvioSincrono then
+    begin
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+        '//*[local-name()="EnviarLoteRpsSincronoResposta"]');
+      Params.Add('EnvioSincrono=true');
+      Params.Add('XmlNFSe=' + _Xml);
+    end
+    else
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="EnviarLoteRpsResposta"]');
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+  <xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="signature.xsd"/>
+  <xs:element name="xmlProcessamentoNfpse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="bairroTomador"/>
+        <xs:element ref="baseCalculo"/>
+        <xs:element ref="baseCalculoSubstituicao"/>
+        <xs:element ref="cfps"/>
+        <xs:element ref="codigoMunicipioTomador"/>
+        <xs:element ref="codigoPostalTomador"/>
+        <xs:element ref="complementoEnderecoTomador"/>
+        <xs:element ref="dadosAdicionais"/>
+        <xs:element ref="dataEmissao"/>
+        <xs:element ref="emailTomador"/>
+        <xs:element ref="identificacaoTomador"/>
+        <xs:element ref="inscricaoMunicipalTomador"/>
+        <xs:element ref="itensServico"/>
+        <xs:element ref="logradouroTomador"/>
+        <xs:element ref="numeroAEDF"/>
+        <xs:element ref="numeroEnderecoTomador"/>
+        <xs:element ref="paisTomador"/>
+        <xs:element ref="razaoSocialTomador"/>
+        <xs:element ref="telefoneTomador"/>
+        <xs:element ref="ufTomador"/>
+        <xs:element ref="valorISSQN"/>
+        <xs:element ref="valorISSQNSubstituicao"/>
+        <xs:element ref="valorTotalServicos"/>
+        <xs:element ref="ds:Signature"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="bairroTomador" type="xs:NCName"/>
+  <xs:element name="baseCalculo" type="xs:integer"/>
+  <xs:element name="baseCalculoSubstituicao" type="xs:integer"/>
+  <xs:element name="cfps" type="xs:integer"/>
+  <xs:element name="codigoMunicipioTomador" type="xs:integer"/>
+  <xs:element name="codigoPostalTomador" type="xs:integer"/>
+  <xs:element name="complementoEnderecoTomador" type="xs:NCName"/>
+  <xs:element name="dadosAdicionais" type="xs:string"/>
+  <xs:element name="dataEmissao" type="xs:NMTOKEN"/>
+  <xs:element name="emailTomador" type="xs:string"/>
+  <xs:element name="identificacaoTomador" type="xs:integer"/>
+  <xs:element name="inscricaoMunicipalTomador" type="xs:integer"/>
+  <xs:element name="itensServico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="itemServico"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="itemServico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aliquota"/>
+        <xs:element ref="cst"/>
+        <xs:element ref="descricaoServico"/>
+        <xs:element ref="idCNAE"/>
+        <xs:element ref="quantidade"/>
+        <xs:element ref="valorTotal"/>
+        <xs:element ref="valorUnitario"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aliquota" type="xs:integer"/>
+  <xs:element name="cst" type="xs:integer"/>
+  <xs:element name="descricaoServico" type="xs:string"/>
+  <xs:element name="idCNAE" type="xs:integer"/>
+  <xs:element name="quantidade" type="xs:integer"/>
+  <xs:element name="valorTotal" type="xs:integer"/>
+  <xs:element name="valorUnitario" type="xs:integer"/>
+  <xs:element name="logradouroTomador" type="xs:string"/>
+  <xs:element name="numeroAEDF" type="xs:integer"/>
+  <xs:element name="numeroEnderecoTomador" type="xs:integer"/>
+  <xs:element name="paisTomador" type="xs:integer"/>
+  <xs:element name="razaoSocialTomador" type="xs:string"/>
+  <xs:element name="telefoneTomador" type="xs:integer"/>
+  <xs:element name="ufTomador" type="xs:NCName"/>
+  <xs:element name="valorISSQN" type="xs:integer"/>
+  <xs:element name="valorISSQNSubstituicao" type="xs:integer"/>
+  <xs:element name="valorTotalServicos" type="xs:integer"/>
+</xs:schema>

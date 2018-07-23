@@ -1,0 +1,50 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+function UnindentXml(const aXml: string): string;
+var
+  _sl: TStringList;
+  i: integer;
+begin
+  _sl := TStringList.Create;
+  _sl.Text := aXml;
+  for i:= 0 to _sl.Count-1 do
+    _sl[i] := Trim(_sl[i]);
+  Result := StringReplace(_sl.Text, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+  _sl.Free;
+end;
+
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse_gyn_v03.xsd';
+  Datasets.XsdElementName := 'GerarNovaNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIOSINCRONO';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := StringReplace(input, 'GerarNfseResposta','GerarNovaNfseResposta',[rfReplaceAll]);
+  _Xml := UnindentXml(_Xml);
+
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="GerarNovaNfseResposta"]');
+  Params.Add('EnvioSincrono=true');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

@@ -1,0 +1,21 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+  Output := RealizarDelimitacaoLoteRps(Output, 'Rps', 'ListaRps');
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_AUAD);
+  Output := StringReplace(Output,' xmlns="http://tempuri.org/servico_enviar_lote_rps_envio.xsd"',
+    ' xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#"', []);
+
+  Output := StringReplace(Output,
+    ' xmlns="http://tempuri.org/tipos_complexos.xsd"', '', [rfReplaceAll]);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

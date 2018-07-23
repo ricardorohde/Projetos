@@ -1,0 +1,10 @@
+<urn:ConsultarLoteRps soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<Value xsi:type="xsd:string">
+<ConsultarLoteRpsEnvio xmlns="http://iss.pontagrossa.pr.gov.br/Arquivos/nfse.xsd">
+<Prestador>
+%s
+</Prestador>
+<Protocolo>%s</Protocolo>
+</ConsultarLoteRpsEnvio>
+</Value>
+</urn:ConsultarLoteRps>

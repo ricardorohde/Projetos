@@ -1,0 +1,3 @@
+<urn:CancelarNfse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<Value xsi:type="xsd:string">%s</Value>
+</urn:CancelarNfse>

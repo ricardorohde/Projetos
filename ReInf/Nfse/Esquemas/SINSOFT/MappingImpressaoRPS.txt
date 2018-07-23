@@ -1,0 +1,90 @@
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+;Dados do Rps
+NumeroRps=/InfDeclaracaoPrestacaoServico/Rps/IdentificacaoRps/Numero
+SerieRps=/InfDeclaracaoPrestacaoServico/Rps/IdentificacaoRps/Serie
+TipoRps=/InfDeclaracaoPrestacaoServico/Rps/IdentificacaoRps/Tipo
+DataEmissao=/InfDeclaracaoPrestacaoServico/Rps/DataEmissao
+StatusRps=/InfDeclaracaoPrestacaoServico/Rps/Status
+NumeroRpsSubstituido=/InfDeclaracaoPrestacaoServico/Rps/RpsSubstituido/Numero
+SerieRpsSubstituido=/InfDeclaracaoPrestacaoServico/Rps/RpsSubstituido/Serie
+TipoRpsSubstituido=/InfDeclaracaoPrestacaoServico/Rps/RpsSubstituido/Tipo
+IdRps=/InfDeclaracaoPrestacaoServico/Rps/@Id
+RegimeEspecialTributacao=/InfDeclaracaoPrestacaoServico/RegimeEspecialTributacao
+OptanteSimplesNacional=/InfDeclaracaoPrestacaoServico/OptanteSimplesNacional
+IncentivoFiscal=/InfDeclaracaoPrestacaoServico/IncentivoFiscal
+
+;Dados Serviço
+Competencia=/InfDeclaracaoPrestacaoServico/Competencia
+ValorServicos=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorServicos
+ValorDeducoes=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorDeducoes
+ValorPis=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorPis
+ValorCofins=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorCofins
+ValorInss=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorInss
+ValorIr=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorIr
+ValorCsll=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorCsll
+OutrasRetencoes=/InfDeclaracaoPrestacaoServico/Servico/Valores/OutrasRetencoes
+ValorIss=/InfDeclaracaoPrestacaoServico/Servico/Valores/ValorIss
+Aliquota=/InfDeclaracaoPrestacaoServico/Servico/Valores/Aliquota
+DescontoIncondicionado=/InfDeclaracaoPrestacaoServico/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/InfDeclaracaoPrestacaoServico/Servico/Valores/DescontoCondicionado
+IssRetido=/InfDeclaracaoPrestacaoServico/Servico/IssRetido
+ResponsavelRetencao=/InfDeclaracaoPrestacaoServico/Servico/ResponsavelRetencao
+ItemListaServico=/InfDeclaracaoPrestacaoServico/Servico/ItemListaServico
+CodigoCnae=/InfDeclaracaoPrestacaoServico/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/InfDeclaracaoPrestacaoServico/Servico/CodigoTributacaoMunicipio
+Discriminacao=/InfDeclaracaoPrestacaoServico/Servico/Discriminacao
+CodigoMunicipioServico=/InfDeclaracaoPrestacaoServico/Servico/CodigoMunicipio
+CodigoPaisServico=/InfDeclaracaoPrestacaoServico/Servico/CodigoPais
+ExigibilidadeISS=/InfDeclaracaoPrestacaoServico/Servico/ExigibilidadeISS
+MunicipioIncidencia=/InfDeclaracaoPrestacaoServico/Servico/MunicipioIncidencia
+NumeroProcesso=/InfDeclaracaoPrestacaoServico/Servico/NumeroProcesso
+
+;Dados Prestador
+CpfPrestador=/InfDeclaracaoPrestacaoServico/Prestador/CpfCnpj/Cpf
+CnpjPrestador=/InfDeclaracaoPrestacaoServico/Prestador/CpfCnpj/Cnpj
+InscricaoMunicipalPrestador=/InfDeclaracaoPrestacaoServico/Prestador/InscricaoMunicipal
+
+;Dados Tomador
+CpfTomador=/InfDeclaracaoPrestacaoServico/Tomador/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/InfDeclaracaoPrestacaoServico/Tomador/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/InfDeclaracaoPrestacaoServico/Tomador/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/InfDeclaracaoPrestacaoServico/Tomador/RazaoSocial
+EnderecoTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Endereco
+NumeroTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Numero
+ComplementoTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Complemento
+BairroTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Bairro
+CodigoMunicipioTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/CodigoMunicipio
+UfTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Uf
+CodigoPaisTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/CodigoPais
+CepTomador=/InfDeclaracaoPrestacaoServico/Tomador/Endereco/Cep
+TelefoneTomador=/InfDeclaracaoPrestacaoServico/Tomador/Contato/Telefone
+EmailTomador=/InfDeclaracaoPrestacaoServico/Tomador/Contato/Email
+
+;Dados Intermediario
+CpfIntermediario=/InfDeclaracaoPrestacaoServico/Intermediario/IdentificacaoIntermediario/CpfCnpj/Cpf
+CnpjIntermediario=/InfDeclaracaoPrestacaoServico/Intermediario/IdentificacaoIntermediario/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/InfDeclaracaoPrestacaoServico/Intermediario/IdentificacaoIntermediario/InscricaoMunicipal
+RazaoSocialIntermediario=/InfDeclaracaoPrestacaoServico/Intermediario/RazaoSocial
+
+;Dados Obra
+CodigoObra=/InfDeclaracaoPrestacaoServico/ConstrucaoCivil/CodigoObra
+Art=/InfDeclaracaoPrestacaoServico/ConstrucaoCivil/Art
+
+;Campos Customizados
+NomeFantasiaPrestador=String[80]
+RazaoSocialPrestador=String[80]
+EnderecoPrestador=String[80]
+CodigoCidadePrestador=String[10]
+UfPrestador=String[2]
+NumeroPrestador=String[7]
+ComplementoPrestador=String[20]
+BairroPrestador=String[40]
+CepPrestador=String[20]
+TelefonePrestador=String[20]
+EmailPrestador=String[80]
+ValorIssRetido=String[20]
+ValorDescontos=String[20]
+InscricaoEstadualPrestador=String[20]

@@ -1,0 +1,387 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha: string;
+  _NomeCampo: string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _DsServicoAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+  _QtdeRps: Integer;
+  _Aux: Integer;
+  _ServItem, _ServSubItem: String;
+  _cdsPaises: TStringList;
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'enviarLoteRpsEnvio';
+  DSCIDADE_NOTA = 'rps';
+  DSCIDADE_SERV = 'servico';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\Comuns.txt}
+{$I ..\Comuns\Utils.txt}
+
+function ObterCodigoCidadeRemetente: string;
+var
+  _CidadeConfigurada: string;
+begin
+  _CidadeConfigurada := Params.Values['Cidade'];
+
+  case AnsiIndexText(_CidadeConfigurada, ['', 'DoisVizinhosPR', 'FRANCISCOBELTRAO', 'IbaitiPR', 'IbiporaPR', 'Toledo', 'LaranjeirasdoSulPR', 'IvaiPR', 'PRUDENTOPOLISPR', 'SANTOANTONIODOSUDOESTEPR', 'GuaratubaPR']) of
+    1:
+      Result := '68';
+    2:
+      Result := '35';
+    3:
+      Result := '3';
+    4:
+      Result := '332';
+    5:
+      Result := '136';
+    6:
+      Result := '53';
+    7:
+      Result := '20';
+    8:
+      Result := '28';
+    9:
+      Result := '58';
+    10:
+      Result := '9';
+  end;
+end;
+
+procedure SetarCampoValorServicoEQUIP(const aCampo, aValor: string);
+begin
+  Campo(_DsServicoAtual, aCampo).AsString := aValor;
+end;
+
+procedure SetarCampoCurrencyEQUIP(const aCampoEQUIPLANO, aCampoTecno: string; const SetarSeZero: boolean);
+var _Valor: Currency;
+begin
+  _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+  if ((_Valor <> 0) and (_Valor <> 0.00)) or SetarSeZero then
+    Campo(_DsCidadeAtual, aCampoEQUIPLANO).AsString :=
+      CurrencyToXsdCurrency(_Valor);
+end;
+
+procedure SetarCampoCurrencyServEQUIP(const aCampoEQUIPLANO, aCampoTecno: string; const SetarSeZero: boolean);
+var _Valor: Currency;
+begin
+  _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+  if ((_Valor <> 0) and (_Valor <> 0.00)) or SetarSeZero then
+    Campo(_DsServicoAtual, aCampoEQUIPLANO).AsString :=
+      CurrencyToXsdCurrency(_Valor);
+end;
+
+procedure SetarAliquotaEQUIP(const aCampoEQUIPLANO, aCampoTecno: string);
+begin
+  _ValorCampo := StringReplace(CampoTecno(aCampoTecno), ',', '.', []);
+  if _ValorCampo <> '' then
+  begin
+    try
+      SetarCampoValor(aCampoEQUIPLANO, _ValorCampo);
+    except
+      RaiseException('Valor inválido para o campo ' + aCampoTecno + '.')
+    end;
+  end;
+end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsPaises := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+      _cdsPaises.LoadFromFile(_PastaTecnoNFSe + 'Paises.txt');
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+      _DsServicoAtual := Datasets.GetDataSetByName(DSCIDADE_SERV);
+
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+      SetarCampoValor('nrRps',CampoTecno('NumeroRps'));
+
+      if CampoTecno('NumEmissorRps') = '' then
+        SetarCampoValor('nrEmissorRps', '1')
+      else
+        SetarCampoValor('nrEmissorRps', CampoTecno('NumEmissorRps'));
+
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'YYYY-MM-DD"T"hh:mm:ss');
+        SetarCampoValor('dtEmissaoRps', _ValorCampo);
+
+        SetarCampoValor('stRps', CampoTecno('SituacaoNota'));
+
+        case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+          1, 2 : SetarCampoValor('tpTributacao', '3');
+          3, 4, 5 : RaiseException('Valor inválido para o campo TipoTributacao. Para EQUIPLANO o TipoTributacao não pode ser "3 - Não Incidente", "4 - Não Tributável" ou "5 - Retida". Para isso pode se utilizar "6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+          6 : SetarCampoValor('tpTributacao', '1');
+          7 : SetarCampoValor('tpTributacao', '2');
+          -1: {Não faz nada e não gera erro};
+        else
+          RaiseException('Valor inválido para o campo TipoTributacao. Valores aceitos: 1, 2, 6, 7.');
+        end;
+
+        if CampoTecno('NaturezaTributacao') = '4' then
+          SetarCampoValor('tpTributacao', '4');
+
+        _DsServicoAtual.Append;
+
+        SetarCampoCurrencyServEQUIP('vlDeducao','ValorDeducoes', False);
+        if (CampoTecno('ValorDeducoes') <> '') and (not VerificaVazioOuZero(CampoTecno('ValorDeducoes'))) then
+        begin
+          _ValorCampo := CampoTecno('JustificativaDeducao');
+          if _ValorCampo <> '' then
+            SetarCampoValorServicoEQUIP('dsJustificativaDeducao',_ValorCampo)
+          else
+            RaiseException('Para cidades do padrão EQUIPLANO ao preencher o campo ValorDeducoes é necessário também preencher o campo JustificativaDeducao.');
+        end;
+
+        SetarCampoCurrencyEQUIP('vlPis','ValorPis', False);
+        SetarCampoCurrencyEQUIP('vlCofins','ValorCofins', False);
+        SetarCampoCurrencyEQUIP('vlInss','ValorInss', False);
+        SetarCampoCurrencyEQUIP('vlIrrf','ValorIR', False);
+        SetarCampoCurrencyEQUIP('vlCsll','ValorCsll', False);
+
+        case AnsiIndexText(CampoTecno('IssRetido'), ['', '1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          1, 2, 3: SetarCampoValor('isIssRetido', '1');
+          4, 5, 6, 7: SetarCampoValor('isIssRetido', '2');
+        else
+          RaiseException('Valor inválido para o campo IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;
+
+        _ValorCampo := CampoTecno('ValorIssRetido');
+        if _ValorCampo <> '' then
+          SetarCampoCurrencyEQUIP('vlIss','ValorIssRetido', True)
+         else
+          SetarCampoValor('vlIss', '0.00');
+
+        SetarCampoCurrencyServEQUIP('vlBaseCalculo','BaseCalculo', True);
+
+        _ValorCampo := CampoTecno('ValorIssServico');
+        if _ValorCampo <> '' then
+          SetarCampoCurrencyServEQUIP('vlIssServico','ValorIssServico', True)
+        else
+          SetarCampoCurrencyServEQUIP('vlIssServico','ValorIss', True);
+
+
+        SetarCampoCurrencyEQUIP('vlTotalRps','ValorServicos', True);
+        SetarCampoCurrencyEQUIP('vlLiquidoRps','ValorLiquidoNfse', True);
+
+        SetarCampoCurrencyServEQUIP('vlServico','ValorUnitarioServico', True);
+        if CampoTecno('ValorUnitarioServico') = '' then
+          SetarCampoCurrencyServEQUIP('vlServico','ValorServicos', True);
+
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _ValorCampo := StringReplace(CampoTecno('AliquotaISS'), ',', '.', []);
+          SetarCampoValorServicoEQUIP('vlAliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+        SetarAliquotaEQUIP('vlAliquotaPis', 'AliquotaPIS');
+        SetarAliquotaEQUIP('vlAliquotaCofins', 'AliquotaCOFINS');
+        SetarAliquotaEQUIP('vlAliquotaInss', 'AliquotaINSS');
+        SetarAliquotaEQUIP('vlAliquotaIrrf', 'AliquotaIR');
+        SetarAliquotaEQUIP('vlAliquotaCsll', 'AliquotaCSLL');
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ServSubItem := '';
+        case Length(_ValorCampo) of
+          0: RaiseException('Código do Item de Serviço encontra-se vazio. Favor preencher.');
+          1, 2:
+          begin
+            SetarCampoValorServicoEQUIP('nrServicoItem', _ValorCampo);
+            SetarCampoValorServicoEQUIP('nrServicoSubItem', CampoTecno('CodigoSubItemListaServico'));
+          end;
+          3:
+          begin
+            _Aux := Pos('.', _ValorCampo);
+            if _Aux > 0 then
+            begin
+              _ServItem := Copy(_ValorCampo, 1, _Aux - 1);
+              _ServSubItem := Copy(_ValorCampo, _Aux + 1, Length(_ValorCampo) - _Aux);
+            end
+            else
+            begin
+              _ServItem := Copy(_ValorCampo, 1, 1);
+              _ServSubItem := Copy(_ValorCampo, 2, 2);
+            end;
+            SetarCampoValorServicoEQUIP('nrServicoItem', _ServItem);
+            SetarCampoValorServicoEQUIP('nrServicoSubItem', _ServSubItem);
+          end;
+          4, 5:
+          begin
+            _Aux := Pos('.', _ValorCampo);
+            if _Aux > 0 then  // Ex: "1.02", "12.1", "12.01"
+            begin
+              _ServItem := Copy(_ValorCampo, 1, _Aux - 1);
+              _ServSubItem := Copy(_ValorCampo, _Aux + 1, Length(_ValorCampo) - _Aux);
+            end
+            else
+            begin  // Ex: "0102"
+              if Length(_ValorCampo) = 5 then
+                RaiseException('Valor inválido para o campo CodigoItemListaServico.');
+              _ServItem := Copy(_ValorCampo, 1, 2);
+              _ServSubItem := Copy(_ValorCampo, 3, 2);
+            end;
+            SetarCampoValorServicoEQUIP('nrServicoItem', _ServItem);
+            SetarCampoValorServicoEQUIP('nrServicoSubItem', _ServSubItem);
+          end;
+        else
+          RaiseException('Valor inválido para o campo CodigoItemListaServico.');
+        end;
+
+        SetarCampoValorServicoEQUIP('dsDiscriminacaoServico', CampoTecno('DiscriminacaoServico'));
+
+        SetarCampoValor('nmTomador', CampoTecno('RazaoSocialTomador'));
+        SetarCampoValor('nrInscricaoEstadual', CampoTecno('InscricaoEstadualTomador'));
+        SetarCampoValor('dsEndereco', CampoTecno('EnderecoTomador'));
+        SetarCampoValor('nrEndereco', CampoTecno('NumeroTomador'));
+        SetarCampoValor('dsComplemento', CampoTecno('ComplementoTomador'));
+        SetarCampoValor('nmBairro', CampoTecno('BairroTomador'));
+
+        _ValorCampo := CampoTecno('CodigoCidadeTomador');
+        if _ValorCampo <> '' then
+        begin
+          _ValorCampo := ConverterCodigoMunicipio(CampoTecno('CodigoCidadeTomador'), True);
+          SetarCampoValor('nrCidadeIbge', _ValorCampo);
+
+          if CampoTecno('UfTomador') <> '' then
+            SetarCampoValor('nmUf', CampoTecno('UfTomador'))
+          else
+          begin
+            _ValorCampo := BuscarInfoCidade('CodIBGE', CampoCidade('nrCidadeIbge'), 'UF');
+            SetarCampoValor('nmUf', _ValorCampo);
+          end;
+        end;
+
+        SetarCampoValor('nmCidadeEstrangeira', CampoTecno('CidadeEstrangeiraTomador'));
+        _ValorCampo := CampoTecno('PaisTomador');
+        _ValorCampo := _cdsPaises.Values[IntToStr(StrToInt(_ValorCampo))];
+        if _ValorCampo = '' then
+          _ValorCampo := 'BRASIL';
+        SetarCampoValor('nmPais', _ValorCampo);
+        SetarCampoValor('nrDocumento', RemoveMascara(CampoTecno('CpfCnpjTomador')));
+
+        _ValorCampo := CampoTecno('TipoDocumentoTomador');
+        if _ValorCampo <> '' then
+          SetarCampoValor('tpDocumento', _ValorCampo)
+        else
+        begin
+          case Length(RemoveMascara(CampoTecno('CpfCnpjTomador'))) of
+            11: SetarCampoValor('tpDocumento', '1');
+            14: SetarCampoValor('tpDocumento', '2');
+          else
+            SetarCampoValor('tpDocumento', '3');
+          end;
+        end;
+
+        if _ValorCampo = '3' then  // dsDocumentoEstrangeiro obrigatório se tpDocumento=3
+        begin
+          _ValorCampo := CampoTecno('DescricaoDocumentoTomador');
+          if _ValorCampo = '' then
+            RaiseException('Campo DescricaoDocumentoTomador encontra-se vazio.')
+          else
+            SetarCampoValor('dsDocumentoEstrangeiro', _ValorCampo);
+        end;
+
+        SetarCampoValor('nrCep', CampoTecno('CepTomador'));
+        VerificaDDD('TelefoneTomador', 'nrTelefone', 'DDDTomador');
+        SetarCampoValor('dsEmail', CampoTecno('EmailTomador'));
+
+        _DsServicoAtual.Post;
+
+        _DsCidadeAtual.Post;
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipio;
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      _ValorCampo := CampoTecno('Versao');
+      if _ValorCampo = '' then
+        _ValorCampo := '1';
+      SetarCampoValor('nrVersaoXml', _ValorCampo);
+
+      SetarCampoValor('nrCnpj', RemoveMascara(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CpfCnpjPrestador').AsString));
+      SetarCampoValor('nrInscricaoMunicipal', RemoveMascara(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('InscricaoMunicipalPrestador').AsString));
+      SetarCampoValor('isOptanteSimplesNacional', TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('OptanteSimplesNacional').AsString);
+
+      _ValorCampo := CampoTecno('CodigoCidadeRemetente');
+      _ValorCampo := ObterCodigoCidadeRemetente;
+      SetarCampoValor('idEntidade', _ValorCampo);
+
+      SetarCampoValor('nrLote', CampoTecno('NumeroLote'));
+
+      if CampoTecno('QuantidadeRps') <> '' then
+        SetarCampoValor('qtRps', CampoTecno('QuantidadeRps'))
+      else
+        SetarCampoValor('qtRps', IntToStr(_QtdeRps));
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    _cdsPaises.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

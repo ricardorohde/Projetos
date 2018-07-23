@@ -1,0 +1,10 @@
+<CancelarLoteRps xmlns="http://www.e-governeapps2.com.br/">
+<CancelarLoteRpsEnvio>
+<LoteRps Id="%s">
+<Protocolo>%s</Protocolo>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</LoteRps>
+%s
+</CancelarLoteRpsEnvio>
+</CancelarLoteRps>

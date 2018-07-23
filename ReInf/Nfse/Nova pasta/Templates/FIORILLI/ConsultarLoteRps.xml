@@ -1,0 +1,13 @@
+<ws:consultarLoteRps>
+  <nfse:ConsultarLoteRpsEnvio>
+    <nfse:Prestador>
+      <nfse:CpfCnpj>
+        <nfse:Cnpj>%s</nfse:Cnpj>
+      </nfse:CpfCnpj>
+      <nfse:InscricaoMunicipal>%s</nfse:InscricaoMunicipal>
+    </nfse:Prestador>
+    <nfse:Protocolo>%s</nfse:Protocolo>
+  </nfse:ConsultarLoteRpsEnvio>
+  <username>%s</username>
+  <password>%s</password>
+</ws:consultarLoteRps>

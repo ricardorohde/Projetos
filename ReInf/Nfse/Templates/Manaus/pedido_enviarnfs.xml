@@ -1,0 +1,13 @@
+<EnviarLoteRpsEnvio xmlns="http://isscuritiba.curitiba.pr.gov.br/iss/nfse.xsd"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://isscuritiba.curitiba.pr.gov.br/iss/nfse.xsd">
+<LoteRps Id="%s">
+<NumeroLote>%s</NumeroLote>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<QuantidadeRps>%s</QuantidadeRps>
+<ListaRps>%s
+</ListaRps>
+</LoteRps>
+%s
+</EnviarLoteRpsEnvio>

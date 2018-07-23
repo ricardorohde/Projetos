@@ -1,0 +1,172 @@
+{
+  Variáveis externas disponíveis:
+    MappingXsdFileName: string;
+    Input: string;
+}
+
+Var
+  _ListFields : TStringList;
+  _Status : String;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+  end;
+
+  function GetValueTag(aTag, aTxt: String): String;
+  Var
+    _PINI, _PFIN: integer;
+  begin
+    _PINI := Pos('<' + aTag + '>', aTxt) + (Length(aTag) + 2);
+    _PFIN := Pos('</' + aTag + '>', aTxt);
+    Result := Copy(aTxt, _PINI, _PFIN - _PINI);
+  end;
+
+  function GetMotivo(const aStatus, aXML: string) : string;
+  var
+    _Val: string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService - ' + Params.Values['faultstring']
+    else if (Result = '') then
+    begin
+      if aStatus = 'ERRO' then
+      begin
+        if XmlSelectNodeValue(aXml, '//*[local-name()="mensagem"]', _Val) then
+          Result := '-1 - ' + _Val;
+      end;
+    end;
+  end;
+
+  function GetStatus : string;
+  var
+    _situacao : String;
+  begin
+    if (GetValueTag('codigo', Params.Values['XML']) = '-1') or (Params.Values['faultstring'] <> '')  then
+      Result := 'ERRO'
+    else
+    begin
+      XmlSelectNodeValue(Params.Values['XML'], '//*[local-name()="situacao"]', _situacao);
+      if _situacao = 'AUTORIZADA' then
+      begin
+        Result := 'SUCESSO';
+        Params.Add('Situacao='+'AUTORIZADA');
+      end
+      else
+      begin
+        Result := 'SUCESSO';
+        Params.Add('Situacao='+'CANCELADA');
+      end;
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo', '', 'Cnpj', 'InscMunicipal', 'SerieRps',
+        'NumeroRps', 'NumeroNFSe', 'DataEmissaoNFSe', 'DataAutorizacao', 'CodVerificacao', 'Situacao',
+        'DataCancelamento', 'ChaveCancelamento', 'Xml', 'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  function getCnpjPrestador(const aXML: String) : String;
+  var
+    _Val : String;
+  begin
+    if XmlSelectNodeValue(aXml, '//*[local-name()="prestador"]/*[local-name()="cpfcnpj"]', _Val) then
+      Result := _Val;
+  end;
+
+  function getInscricaoMunicipalPrestador(const aXML: String) : String;
+  var
+    _Val : String;
+  begin
+    if XmlSelectNodeValue(aXml, '//*[local-name()="prestador"]/*[local-name()="inscricao"]', _Val) then
+      Result := _Val;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  _ListFields := CreateFieldsResponse;
+  _Status := GetStatus;
+  Progress('Adicionando valores aos campos.');
+  if _Status = 'SUCESSO' then
+  begin
+    _ListFields := CreateFieldsResponse;
+    if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+    begin
+      try
+        AddValueListFields('Motivo', GetMotivo(_Status, Params.Values['XML']));
+        AddValueListFields('Status', 'SUCESSO');
+        AddValueListFields('Cnpj', getCnpjPrestador(Params.Values['XML']));
+        AddValueListFields('InscMunicipal', getInscricaoMunicipalPrestador(Params.Values['XML']));
+        AddValueListFields('NumeroRps', '');
+        AddValueListFields('SerieRps', GetValueTag('serie', Params.ValueS['XML']));
+        AddValueListFields('NumeroNFSe', GetValueTag('numero', Params.Values['XML']));
+        AddValueListFields('DataEmissaoNFSe', GetValueTag('data', Params.Values['XML']));
+        AddValueListFields('DataAutorizacao', '');
+        AddValueListFields('CodVerificacao', '');
+        AddValueListFields('Situacao', Params.Values['Situacao']);
+        AddValueListFields('DataCancelamento', '');
+        AddValueListFields('ChaveCancelamento', '');
+        AddValueListFields('Tipo', GetValueTag('tipo', Params.Values['XML']));
+        AddValueListFields('Xml', Params.Values['XML']);
+        Output := FormatLineResult;
+      finally
+        _ListFields.Free;
+      end;
+    end;
+  end
+  else
+  begin
+    _ListFields := CreateFieldsResponseFalha;
+    if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+    begin
+      try
+        AddValueListFields('Motivo', GetMotivo(_Status, Params.Values['XML']));
+        AddValueListFields('Status', 'ERRO');
+        Output := FormatLineResult;
+      finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

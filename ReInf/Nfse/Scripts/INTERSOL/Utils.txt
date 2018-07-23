@@ -1,0 +1,12 @@
+  function DesescaparXml(const aXml: string): string;
+  begin
+    Result:= StringReplace(aXml, '&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;', '', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&apos;', '''', [rfReplaceAll]);
+    Result:= StringReplace(Result, '&quot;', '"',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;lt;br&amp;gt;',   '<br>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&gt;',   '>',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&lt;',   '<',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;amp;',   '&',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&amp;',   '&',  [rfReplaceAll]);
+    Result:= StringReplace(Result, '&',   '&amp;',  [rfReplaceAll]);
+  end;

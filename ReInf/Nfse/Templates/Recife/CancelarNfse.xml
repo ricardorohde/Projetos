@@ -1,0 +1,6 @@
+<nfse:CancelarNfseRequest>
+<nfse:inputXML>
+<![CDATA[
+<CancelarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</CancelarNfseEnvio>]]>
+</nfse:inputXML>
+</nfse:CancelarNfseRequest>

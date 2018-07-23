@@ -1,0 +1,25 @@
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" version="2.0"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:nfse="http://www.abrasf.org.br/nfse.xsd"
+	xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+   	extensionBindingPrefixes="xjc">
+	<globalBindings collectionType="java.util.ArrayList">
+
+		<xjc:javaType name="java.util.Date" xmlType="xsd:date"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.DateAdapter" />
+		<xjc:javaType name="java.util.Date" xmlType="xsd:dateTime"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.FullDateAdapter" />
+		<xjc:javaType name="java.lang.Long" xmlType="xsd:nonNegativeInteger"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.NonNegativeIntegerAdapter" />
+		<xjc:javaType name="java.lang.Long" xmlType="xsd:nonNegativeInteger"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.NonNegativeIntegerAdapter" />
+		<xjc:javaType name="br.com.siat.type.TipoSimNaoNfse" xmlType="nfse:tsSimNao"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.SimNaoAdapter" />
+		<xjc:javaType name="br.com.siat.type.TipoSimNaoNfse" xmlType="nfse:tsResponsavelRetencao"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.SimNaoAdapter" />
+		<xjc:javaType name="br.com.siat.type.TipoRps" xmlType="nfse:tsTipoRps"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.TipoRpsAdapter" />
+		<xjc:javaType name="br.com.siat.type.TipoRegimeTributacao" xmlType="nfse:tsRegimeEspecialTributacao"
+			adapter="br.com.semfaz.nfse.xml.typeAdapter.TipoRegimeTributacaoAdapter" />
+
+	</globalBindings>
+</bindings>

@@ -1,0 +1,2 @@
+<urn:CancelarNfse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+<inputXML xsi:type="xsd:string"><![CDATA[<?xml version="1.0"?>%s]]></inputXML></urn:CancelarNfse>

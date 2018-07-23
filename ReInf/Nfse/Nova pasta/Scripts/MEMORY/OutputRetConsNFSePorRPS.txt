@@ -1,0 +1,121 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Motivo,_Status, _Xml, _InscMun : String;
+  i,_count : integer;
+
+const
+  XPATH_SUCESSO = '//*[local-name()="notas"]/*[local-name()="nota"]';
+
+  {$I Utils.txt}
+
+  function GetStatus : String;
+  var _Erro : String;
+  begin
+    if xmlSelectNodeValue(Params.Values['Xml'],'//*[local-name()="erros"]/*[local-name()="erro"]',_Erro) then
+      result := 'ERRO'
+    else
+      result := 'SUCESSO';
+  end;
+
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    result := TStringList.Create;
+    result.Add('Status');
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+   _i : integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  function GetResult(const aListFieldsResult : TStringList) : string;
+  begin
+    if (Params.Values['DelimitadorDaLinha'] = '') then
+      Result := Output + FormatLineResult(aListFieldsResult) + #13#10
+    else
+      Result := Output + FormatLineResult(aListFieldsResult) + Params.Values['DelimitadorDaLinha'];
+  end;
+
+begin
+
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaultstring(_ListFields, Input)
+  else
+  begin
+    _Xml := Params.Values['Xml'];
+    _Status := GetStatus;
+    _Motivo := GetMotivo(_Xml);
+    if _Status = 'SUCESSO' then
+    begin
+      _ListFields := CreateFieldsResponse;
+      if _ListFields <> nil then
+      begin
+        try
+          _InscMun := GetValueTag('InscricaoMunicipal',XmlSelect(_Xml,'//*[local-name()="IdentificacaoPrestador"]'));
+
+          Progress('Adicionando valores aos campos.');
+          AddValueListFields('Status', 'SUCESSO', _ListFields);
+          AddValueListFields('Motivo', '', _ListFields);
+          AddValueListFields('Cnpj', GetValueTag('CNPJ', _Xml), _ListFields);
+          AddValueListFields('InscMunicipal', _InscMun, _ListFields);
+          AddValueListFields('SerieRps', '', _ListFields);
+          AddValueListFields('NumeroRps', GetValueTag('NumeroRps', _Xml), _ListFields);
+          AddValueListFields('NumeroNFSe', GetValueTag('Numero', _Xml), _ListFields);
+          AddValueListFields('DataEmissaoNFSe', GetValueTag('DataEmissao', _Xml), _ListFields);
+          AddValueListFields('DataAutorizacao', GetValueTag('DataEmissao', _Xml), _ListFields);
+          AddValueListFields('CodVerificacao', GetValueTag('CodigoVerificacao', _Xml), _ListFields);
+          AddValueListFields('Situacao', GetSituacao(GetValueTag('status', _Xml)), _ListFields);
+          AddValueListFields('DataCancelamento', '', _ListFields);
+          AddValueListFields('ChaveCancelamento', GetValueTag('numeroNFSE', _Xml), _ListFields);
+          AddValueListFields('Tipo', '', _ListFields);
+          AddValueListFields('Xml', XmlSelect(_Xml, '//*[local-name()="CompNfse"]'), _ListFields);
+          Output := GetResult(_ListFields);
+        finally
+          _ListFields.Free;
+        end;
+      end;
+    end
+    else
+    begin
+      if _Status = 'ERRO' then
+      begin
+        _ListFields := CreateFieldsResponseFalha;
+        if _ListFields <> nil then
+        begin
+          try
+            AddValueListFields('Status', 'ERRO', _ListFields);
+            AddValueListFields('Motivo', _Motivo, _ListFields);
+            Output := FormatLineResult(_ListFields);
+          finally
+            _ListFields.Free;
+          end;
+        end;
+      end;
+      Progress('Valores adicionados com sucesso.');
+    end;
+  end;
+end.

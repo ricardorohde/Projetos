@@ -1,0 +1,56 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Motivo, _Status, _Xml: String;
+
+{$I ..\FGMAISS\Utils.TXT}
+
+  function GetMotivo(const aXML:string) : string;
+  Var
+    _Aux, _FaultString: string;
+  begin
+    Result := '';
+    _FaultString := Params.Values['faultstring'];
+    if _FaultString <> '' then
+    begin
+      if xmlSelectNodeValue(aXML, '//*[local-name()="faultstring"]', _Aux) then
+        Result := 'Falha na comunicação com WebService-' + _Aux
+      else
+        Result := 'Falha na comunicação com WebService-' + _FaultString;
+    end
+    else
+    begin
+      if XmlSelectNodeValue(aXML, '//*[local-name() = "okk" and not (contains(text(), "http://"))]', _Aux) then
+        Result := _Aux;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+begin
+  _Xml := Params.Values['XML'];
+  _Motivo := GetMotivo(_XML);
+  _Status := GetStatus(_Xml);
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponseCancelamento;
+  if _ListFields <> nil then
+  Try
+    AddValueListFields('Motivo', _Motivo);
+    AddValueListFields('Status', _Status);
+    if _Status = 'SUCESSO' then
+      AddValueListFields('DataCancelamento', FormatDateTime('yyyy-mm-dd',now))
+    else
+      AddValueListFields('DataCancelamento', '');
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

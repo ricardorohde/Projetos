@@ -1,0 +1,41 @@
+  function GetCodigo(const aResult:string): string;
+  Var
+    _Pos : integer;
+  begin
+    while Pos('|', aResult) > 0 do
+    begin
+      _Pos := Pos('|', aResult);
+      Delete(aResult, 1, _Pos);
+    end;
+    Result := aResult;
+  end;
+
+  function GetStatus(const aResult:string): string;
+  var
+    _Codigo : string;
+  begin
+    _Codigo := GetCodigo(aResult);
+    if _Codigo = '1' then
+      Result := 'SUCESSO'
+    else
+      Result := 'ERRO';
+  end;
+
+  function GetNumeroNFSe(const aResult:string): string;
+  Var
+    _Pos : integer;
+  begin
+    _Pos := Pos('|', aResult);
+    Delete(aResult, 1, _Pos);
+    _Pos := Pos('|', aResult);
+    Result := Copy(aResult, 1, _Pos - 1);
+  end;
+
+  function GetNumeroControle(const aResult:string): string;
+  Var
+    _Pos : integer;
+  begin
+    _Pos := Pos('|', aResult);
+    Delete(aResult, _Pos, Length(aResult));
+    Result := aResult;
+  end;

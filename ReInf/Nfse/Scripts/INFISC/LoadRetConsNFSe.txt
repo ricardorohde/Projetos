@@ -1,0 +1,34 @@
+{ 
+  Variáveis externas disponíveis: 
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+
+{$I ..\Comuns\Utils.txt}
+
+begin
+  { Não há no schema XML a definição do XML de retorno da consulta, então usaremos 
+    somente XPath para ler os dados do XML }
+
+  Progress('Carregando XML de Consulta de NFSe');
+  if (Pos('<return>ERRO: HTTP transport error:', Input) > 0) or (Pos('<faultstring', Input) > 0) then
+  begin
+    // Por algum motivo estÃ¡ vindo com <!--CRLF--> somente na Consulta de NFSe, remover
+    Input := StringReplace(Input, '<!--CRLF-->', '', []);
+    Params.Add('faultstring=' + Trim(Input));
+  end
+  else
+  begin
+    _Xml := UnEscapeXml(Input);
+    _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+    _Xml := StringReplace(_Xml, '&', '&amp;', [rfReplaceAll]);
+
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

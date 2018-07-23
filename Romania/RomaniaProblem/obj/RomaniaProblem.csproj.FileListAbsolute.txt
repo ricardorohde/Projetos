@@ -1,0 +1,16 @@
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.exe
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.pdb
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.exe
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.pdb
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\ResolveAssemblyReference.cache
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.MainForm.resources
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.Properties.Resources.resources
+D:\eugenio\cursos\feso\ISI\material\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.csproj.GenerateResource.Cache
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.exe
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.pdb
+C:\Users\Public\Documents\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.exe
+C:\Users\Public\Documents\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.pdb
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.MainForm.resources
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.Properties.Resources.resources
+C:\Users\Public\Documents\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.csproj.GenerateResource.Cache

@@ -1,0 +1,140 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I ..\MAKERPLANET\Utils.TXT}
+Var
+  _ListFields : TStringList;
+  _Status, _Motivo, _Result, _Xml: string;
+
+  function GetMotivo(const aResult:string): string;
+  Var
+    _Cod, _FaultString, _Aux: string;
+  begin
+    Result := '';
+    _FaultString := Params.Values['faultstring'];
+    if _FaultString <> '' then
+    begin
+      if xmlSelectNodeValue(_FaultString, '//*[local-name()="faultstring"]', _Aux) then
+        Result := 'Falha na comunicação com WebService-' + _Aux
+      else
+        Result := 'Falha na comunicação com WebService-' + _FaultString;
+    end
+    else
+    begin
+      _Cod := GetCodigo(aResult);
+      case StrToIntDef(_Cod, -1) of
+        2: Result := 'Problemas no arquivo enviado, tamanho incompatível';
+        3: Result := 'Problemas no arquivo enviado, campo "vencto1" nulo ou vazio';
+        4: Result := 'Problemas no arquivo enviado, campo "item1" nulo ou vazio';
+        5: Result := 'Problemas no arquivo enviado, usuário e senha inválido';
+        6: Result := 'Problemas no arquivo enviado, campo Cnpj/Cpf emitente com problemas';
+        7: Result := 'Nota '+ GetNumeroNFSe(aResult)+' já incluída RPS';
+        8: Result := 'Problemas no campo rps, nulo ou vazio';
+        9: Result := 'Nota '+ GetNumeroNFSe(aResult)+ ' cancelada'
+      else
+        Result := 'Erro desconhecido';
+      end;
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+  // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    result := TStringList.Create;
+  result.Add('Status');
+    result.Add('Motivo');
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Progress('Obtendo os campos de resposta.');
+  _Xml := Params.Values['XML'];
+  _Result := Params.Values['Resultado'];
+  _Status := GetStatus(_Result);
+
+  if _Status = 'ERRO' then
+  begin
+    _Motivo := GetMotivo(_Result);
+    Try
+      _ListFields := CreateFieldsResponseFalha;
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo', _Motivo);
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    _ListFields := CreateFieldsResponse;
+    if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+    begin
+      try
+        AddValueListFields('Motivo', '');
+        AddValueListFields('Status', 'SUCESSO');
+        AddValueListFields('Cnpj', '');
+        AddValueListFields('InscMunicipal', '');
+        AddValueListFields('SerieRps', '');
+        AddValueListFields('NumeroRps', '');
+        AddValueListFields('NumeroNFSe', GetNumeroNFSe(_Result));
+        AddValueListFields('DataEmissaoNFSe', '');
+        AddValueListFields('DataAutorizacao', '');
+        AddValueListFields('CodVerificacao', '');
+        AddValueListFields('Situacao', 'AUTORIZADA');
+        AddValueListFields('DataCancelamento', '');
+        AddValueListFields('ChaveCancelamento', GetNumeroNFSe(_Result)+'_'+GetNumeroControle(_Result));
+        AddValueListFields('Xml', _Xml);
+        AddValueListFields('Tipo', '');
+        AddValueListFields('Data de Autorização', '');
+
+        if (Params.Values['DelimitadorDaLinha'] = '') then
+          Output := Output + FormatLineResult + #13#10
+        else
+          Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+      Finally
+        _ListFields.Free;
+      end;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

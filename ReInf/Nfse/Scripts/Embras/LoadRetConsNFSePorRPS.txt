@@ -1,0 +1,49 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+{$I ..\Embras\Utils.txt}
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    _Xml := UnEscapeXml(Input);
+    _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="utf-8"?>', '', [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+    if _Xml = '' then
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+    _Xml := CorrigirRetornoErroForaDoSchema(_Xml);
+
+    if (Pos('<ConsultarNfseRpsResposta xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.abrasf.org.br/nfse.xsd"/>', _Xml) > 0) then
+      Params.Add('XmlVazio='+_Xml)
+    else
+    begin
+      Params.Add('XmlNFSe='+_Xml);
+      Datasets.LoadFromXMLContent(_Xml);
+      Progress('XML carregado com sucesso.');
+    end;
+  end;
+end.

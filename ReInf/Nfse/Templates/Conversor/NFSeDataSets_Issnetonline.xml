@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PARTES>
+  <A>
+    <campos>
+      <campo nome="Handle" tipo="string" tamanho="10" requerido="s" tpnode="elemento" visible="n" autoinc="s"/>
+      <campo1 nome="id_A01" tipo="string" tamanho="255" requerido="s" tpnode="atributo" visible="s"/>
+      <campo2 nome="Numero_A02" display="Número do Rps" tipo="string" tamanho="15" requerido="s" tpnode="elemento" visible="s"/>
+      <campo3 nome="Serie_A03" display="Número de Série do Rps" tipo="string" tamanho="5" requerido="s" tpnode="elemento" visible="s"/>
+      <campo4 nome="Tipo_A04" display="Código de Tipo de Rps" tipo="string" tamanho="1" requerido="s" tpnode="elemento" visible="s"/>
+      <campo5 nome="DataEmissao_A05" display="Data de Emissão do Rps" tipo="string" tamanho="34" requerido="s" tpnode="elemento" visible="s"/>
+      <campo6 nome="NaturezaOperacao_A06" display="Código de natureza da operação" tipo="string" tamanho="2" requerido="s" tpnode="elemento" visible="s"/>
+      <campo7 nome="RegimeEspecialTributacao_A07" display="Código de identificação do regime especial de tributação" tipo="string" tamanho="2" requerido="n" tpnode="elemento" visible="s"/>
+      <campo8 nome="OptanteSimplesNacional_A08" display="Optante do Simples Nacional" tipo="string" tamanho="1" requerido="s" tpnode="elemento" visible="s"/>
+      <campo9 nome="IncentivadorCultural_A09" display="Incentivador Cultural" tipo="string" tamanho="1" requerido="s" tpnode="elemento" visible="s"/>
+      <campo10 nome="Status_A10" display="Status da Rps" tipo="string" tamanho="1" requerido="s" tpnode="elemento" visible="s"/>
+      <campo11 nome="Numero_A11" display="Número do Rps Substituído" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo12 nome="Serie_A12" display="Número de Série do Rps Substituído" tipo="string" tamanho="5" requerido="n" tpnode="elemento" visible="s"/>
+      <campo13 nome="Tipo_A13" display="Código de Tipo de Rps Substituído" tipo="string" tamanho="1" requerido="n" tpnode="elemento" visible="s"/>
+      <campo14 nome="ValorServicos_A14" display="Valor dos Serviços" tipo="string" tamanho="15" requerido="s" tpnode="elemento" visible="s"/>
+      <campo15 nome="ValorDeducoes_A15" display="Valor das Deduções" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo16 nome="ValorPis_A16" display="Valor do PIS" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo17 nome="ValorCofins_A17" display="Valor do Cofins" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo18 nome="ValorInss_A18" display="Valor do INSS" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo19 nome="ValorIr_A19" display="Valor do IR" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo20 nome="ValorCsll_A20" display="Valor do CSLL" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo21 nome="IssRetido_A21" display="Iss Retido" tipo="string" tamanho="1" requerido="s" tpnode="elemento" visible="s"/>
+      <campo22 nome="ValorIss_A22" display="Valor do ISS" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo23 nome="ValorIssRetido_A23" display="Valor do ISS Retido" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo24 nome="OutrasRetencoes_A24" display="Outras Retenções" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo25 nome="BaseCalculo_A25" display="Base de Cálculo" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo26 nome="Aliquota_A26" display="Alíquota" tipo="string" tamanho="5" requerido="n" tpnode="elemento" visible="s"/>
+      <campo27 nome="ValorLiquidoNfse_A27" display="Valor Líquido da NFS-e" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo28 nome="DescontoIncondicionado_A28" display="Desconto Incondicionado" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo29 nome="DescontoCondicionado_A29" display="Desconto Condicionado" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo30 nome="ItemListaServico_A30" display="Item da Lista de Serviço" tipo="string" tamanho="5" requerido="s" tpnode="elemento" visible="s"/>
+      <campo31 nome="CodigoCnae_A31" display="Código CNAE" tipo="string" tamanho="7" requerido="n" tpnode="elemento" visible="s"/>
+      <campo32 nome="CodigoTributacaoMunicipio_A32" display="Código de Tributação do Município" tipo="string" tamanho="20" requerido="n" tpnode="elemento" visible="s"/>
+      <campo33 nome="Discriminacao_A33" display="Discriminação" tipo="string" tamanho="2000" requerido="s" tpnode="elemento" visible="s"/>
+      <campo34 nome="MunicipioPrestacaoServico_A34" display="Código do Município" tipo="string" tamanho="7" requerido="s" tpnode="elemento" visible="s"/>
+      <campo35 nome="Cnpj_A35" display="CNPJ do Prestador" tipo="string" tamanho="14" requerido="s" tpnode="elemento" visible="s"/>
+      <campo36 nome="InscricaoMunicipal_A36" display="Inscrição Municipal do Prestador" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo37 nome="Cpf_A37" display="CPF do Tomador" tipo="string" tamanho="11" requerido="n" tpnode="elemento" visible="s"/>
+      <campo38 nome="Cnpj_A38" display="CNPJ do Tomador" tipo="string" tamanho="14" requerido="n" tpnode="elemento" visible="s"/>
+      <campo39 nome="InscricaoMunicipal_A39" display="Inscrição Municipal do Tomador" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo40 nome="RazaoSocial_A40" display="Razão Social do Tomador" tipo="string" tamanho="115" requerido="n" tpnode="elemento" visible="s"/>
+      <campo41 nome="Endereco_A41" display="Endereço do Tomador" tipo="string" tamanho="125" requerido="n" tpnode="elemento" visible="s"/>
+      <campo42 nome="Numero_A42" display="Número do Endereço do Tomador" tipo="string" tamanho="10" requerido="n" tpnode="elemento" visible="s"/>
+      <campo43 nome="Complemento_A43" display="Complemento do Endereço do Tomador" tipo="string" tamanho="60" requerido="n" tpnode="elemento" visible="s"/>
+      <campo44 nome="Bairro_A44" display="Bairro do Endereço do Tomador" tipo="string" tamanho="60" requerido="n" tpnode="elemento" visible="s"/>
+      <campo45 nome="Cidade_A45" display="Código do Município do Tomador" tipo="string" tamanho="7" requerido="n" tpnode="elemento" visible="s"/>
+      <campo46 nome="Estado_A46" display="UF do Município do Tomador" tipo="string" tamanho="2" requerido="n" tpnode="elemento" visible="s"/>
+      <campo47 nome="Cep_A47" display="CEP do Endereço do Tomador" tipo="string" tamanho="8" requerido="n" tpnode="elemento" visible="s"/>
+      <campo48 nome="Telefone_A48" display="Telefone do Tomador" tipo="string" tamanho="11" requerido="n" tpnode="elemento" visible="s"/>
+      <campo49 nome="Email_A49" display="Email do Tomador" tipo="string" tamanho="80" requerido="n" tpnode="elemento" visible="s"/>
+      <campo50 nome="RazaoSocial_A50" display="Razão Social do Intermediário do Serviço" tipo="string" tamanho="115" requerido="n" tpnode="elemento" visible="s"/>
+      <campo51 nome="Cpf_A51" display="CPF do Intermediário do Serviço" tipo="string" tamanho="11" requerido="n" tpnode="elemento" visible="s"/>
+      <campo52 nome="Cnpj_A52" display="CNPJ do Intermediário do Serviço" tipo="string" tamanho="14" requerido="n" tpnode="elemento" visible="s"/>
+      <campo53 nome="InscricaoMunicipal_A53" display="Inscrição Municipal do Intermediário do Serviço" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo54 nome="CodigoObra_A54" display="Código da Obra da Contrução Civil" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+      <campo55 nome="Art_A55" display="ART da Contrução Civil" tipo="string" tamanho="15" requerido="n" tpnode="elemento" visible="s"/>
+    </campos>
+    <master/>
+    <tagxml>InfRps</tagxml>
+  </A>
+</PARTES>

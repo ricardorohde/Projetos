@@ -1,0 +1,8 @@
+  <ConsultarLoteRpsEnvio>
+    <Prestador>
+      <Cnpj>%s</Cnpj>
+      <InscricaoMunicipal>%s</InscricaoMunicipal>
+    </Prestador>
+    <Protocolo>%s</Protocolo>
+  </ConsultarLoteRpsEnvio>
+

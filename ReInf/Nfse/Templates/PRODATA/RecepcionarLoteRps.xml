@@ -1,0 +1,4 @@
+<ser:RecepcionarLoteRpsRequest>
+<nfseCabecMsg></nfseCabecMsg>
+<nfseDadosMsg><![CDATA[%s]]></nfseDadosMsg>
+</ser:RecepcionarLoteRpsRequest>

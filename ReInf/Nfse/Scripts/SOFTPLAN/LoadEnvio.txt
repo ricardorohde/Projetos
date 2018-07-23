@@ -1,0 +1,314 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha: string;
+  _NomeCampo, _ValorCst : string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _DsServicoAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+  _QtdeRps: Integer;
+  DSCIDADE_LOTE : string;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSTECNO_SERVICO = 'Servico';
+  DSCIDADE_NOTA = 'xmlProcessamentoNfpse';
+  DSCIDADE_SERV = 'itemServico';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\ConverterCodigoMunicipio.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasetsItens.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\SetarCamposMunicipioDS.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  procedure SetarCampoValorServicoSOFTPLAN(const aCampo, aValor: string);
+  begin
+    Campo(_DsServicoAtual, aCampo).AsString := aValor;
+  end;
+  
+  procedure SetarCampoCurrencySoftplan(const aCampoTecno, aCampoSoftplan: string; aDataSet : TSpdXSDClientDataSet);
+  var
+    _ValorCur: Currency;
+    _ValorStr: string;
+  begin
+    if CampoTecno(aCampoTecno) <> '' then
+    begin
+      try
+        _ValorCur := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+        _ValorStr:= StringReplace(CurrencyToXsdCurrency(_ValorCur), ',', '.', [rfReplaceAll]); // Separador de decimal é o ponto
+      except
+        RaiseException('Não foi possível realizar a conversão do campo: ' + aCampoTecno);
+      end;
+
+      Campo(aDataSet, aCampoSoftplan).AsString := _ValorStr;
+    end;
+  end;
+
+  function SubstituicaoTributaria: Boolean;
+  var
+    _ValorCampo : String;
+  begin
+    _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador')) ;
+    if (Length(_ValorCampo) = 14) and (CampoTecno('ISSRetido') = '1') then
+      Result := True
+    else
+      Result := False;
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+
+      DSCIDADE_LOTE := 'xmlProcessamentoNfpse';
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasetsItens;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+      _DsServicoAtual := Datasets.GetDataSetByName(DSCIDADE_SERV);
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+      _DsTecnoAtual.First;
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        _ValorCampo := CampoTecno('DataEmissao');
+        if _ValorCampo <> '' then
+        begin
+          try
+          except
+            RaiseException('Valor inválido para o campo DataEmissao.');
+          end;
+          _ValorCampo := FormatAnyDateTime(_ValorCampo, 'yyyy-mm-dd');
+          SetarCampoValor('DataEmissao', _ValorCampo);
+        end;
+
+        SetarCampoCurrencySoftplan('ValorServicos', 'valorTotalServicos', _DsCidadeAtual);
+
+        SetarCampo('BairroTomador');
+        SetarCampoCurrencySoftplan('BaseCalculo', 'BaseCalculo', _DsCidadeAtual);
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ValorCampo := FormatarCodigoItemListaServico(_ValorCampo, False);  // SOFTPLAN: sem ponto no ItemListaServico
+        SetarCampoValor('cfps', _ValorCampo);
+
+        case CampoTecno('TipoTributacao') of
+          '1', '2': _ValorCst := '12';
+          '4': _ValorCst := '13';
+          '5':
+          begin
+            _ValorCst := '2';
+
+            if (CampoTecno('NaturezaTributacao') = '1') or (CampoTecno('OptanteSimplesNacional') = '1') then
+              _ValorCst := '3';
+
+            if (CampoTecno('NaturezaTributacao') = '6') and (CampoTecno('ISSRetido') = '1') then
+              _ValorCst := '9';
+          end;
+          '6':
+          begin
+            _ValorCst := '0';
+
+            if CampoTecno('NaturezaTributacao') = '1' then
+              _ValorCst := '1';
+
+            if SubstituicaoTributaria then
+              _ValorCst := '4';
+
+            if CampoTecno('OptanteSimplesNacional') = '1' then
+            begin
+              if Length(CampoTecno('CpfCnpjTomador')) = 14 then
+                _ValorCst := '6'
+              else
+                _ValorCst := '1';
+            end;
+
+            if (Length(RemoveMascara(CampoTecno('CpfCnpjIntermediario'))) = 14) and (CampoTecno('ISSRetido') = '1') then
+              _ValorCst := '5';
+          end;
+          '8':
+          begin
+            if SubstituicaoTributaria then
+            begin
+              if (CampoTecno('NaturezaTributacao') = '6') then
+                _ValorCst := '11'
+              else
+                _ValorCst := '7';
+            end;
+          end;
+        end;
+
+        if CampoTecno('NaturezaTributacao') = '6' then
+        begin
+          if SubstituicaoTributaria then
+            _ValorCst := '10'
+          else
+            _ValorCst := '8';
+        end
+        else if CampoTecno('NaturezaTributacao') = '2' then
+          _ValorCst := '14';
+
+        SetarCampoValor('CodigoMunicipioTomador', RemoveMascara(CampoTecno('CodigoCidadeTomador')));
+
+        if CampoTecno('UfTomador') <> '' then
+          SetarCampo('UfTomador')
+        else
+        begin
+          _ValorCampo := BuscarInfoCidade('CodIBGE', CampoTecno('CodigoMunicipioTomador'), 'UF');
+          SetarCampoValor('UfTomador', _ValorCampo);
+        end;
+
+        SetarCampoValor('codigoPostalTomador', RemoveMascara(CampoTecno('CepTomador')));
+        SetarCampoValor('complementoEnderecoTomador', RemoveMascara(CampoTecno('ComplementoTomador')));
+        SetarCampo('EmailTomador');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        case Length(_ValorCampo) of
+          11, 14: SetarCampoValor('identificacaoTomador', _ValorCampo);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjTomador');
+        end;
+
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+
+        SetarCampoValor('logradouroTomador', CampoTecno('EnderecoTomador'));
+
+        SetarCampoValor('numeroAEDF', copy(CampoTecno('InscricaoMunicipalPrestador'), 1, Length(CampoTecno('InscricaoMunicipalPrestador'))-1));
+
+        SetarCampoValor('numeroEnderecoTomador', CampoTecno('NumeroTomador'));
+
+        SetarCampo('PaisTomador');
+
+        SetarCampo('RazaoSocialTomador');
+
+        VerificaDDD('TelefoneTomador', 'TelefoneTomador', 'DDDTomador');
+
+        SetarCampoCurrencySoftplan('valorISS', 'valorISSQN', _DsCidadeAtual);
+
+        SetarCampoValor('valorISSQNSubstituicao', '0');
+        
+        _DsServicoAtual.Edit;
+        
+        SetarCampoValorServicoSOFTPLAN('cst', _ValorCst);
+        
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _Vlr := StrToFloat(StringReplace(CampoTecno('AliquotaISS'),',','.',[rfReplaceAll])) / 100;  // 5 --> 0,05
+          _ValorCampo := FormataFloat(_Vlr, 5, 4);
+          SetarCampoValorServicoSOFTPLAN('Aliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+        
+        SetarCampoValorServicoSOFTPLAN('descricaoServico', CampoTecno('DiscriminacaoServico'));
+        SetarCampoValorServicoSOFTPLAN('idCNAE', CampoTecno('CodigoCnae'));
+        
+        if CampoTecno('QuantidadeServicos') <> '' then
+          SetarCampoValorServicoSOFTPLAN('quantidade', CampoTecno('QuantidadeServicos'))
+        else
+          SetarCampoValorServicoSOFTPLAN('quantidade', '1');
+        
+        SetarCampoCurrencySoftplan('ValorUnitarioServico', 'valorUnitario', _DsServicoAtual);
+        
+        SetarCampoCurrencySoftplan('ValorServicos', 'valorTotal', _DsServicoAtual);
+        
+        
+        _DsServicoAtual.Post;
+
+        _DsCidadeAtual.Post;
+        
+
+        _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_SERVICO);
+        _DsTecnoAtual.First;
+        
+        while not _DsTecnoAtual.Eof do
+        begin
+          _DsServicoAtual.Append;
+
+          SetarCampoValorServicoSOFTPLAN('cst', _ValorCst);
+          if DivideCampoPorcentagem(CampoTecno('AliquotaServico')) then
+          begin
+            _Vlr := StrToFloat(StringReplace(CampoTecno('AliquotaServico'),',','.',[rfReplaceAll])) / 100;  // 5 --> 0,05
+            _ValorCampo := FormataFloat(_Vlr, 5, 4);            
+            SetarCampoValorServicoSOFTPLAN('Aliquota', _ValorCampo);
+          end
+          else
+            RaiseException('Valor inválido para o campo AliquotaServico.');
+
+
+          SetarCampoValorServicoSOFTPLAN('descricaoServico', CampoTecno('DiscriminacaoServico'));
+          SetarCampoValorServicoSOFTPLAN('idCNAE', CampoTecno('CodigoCnae'));
+
+          if CampoTecno('QuantidadeServicos') <> '' then
+            SetarCampoValorServicoSOFTPLAN('quantidade', CampoTecno('QuantidadeServicos'))
+          else
+            SetarCampoValorServicoSOFTPLAN('quantidade', '1');
+
+          SetarCampoCurrencySoftplan('ValorUnitarioServico', 'valorUnitario', _DsServicoAtual);
+
+          SetarCampoCurrencySoftplan('ValorServicos', 'valorTotal', _DsServicoAtual);
+
+          _DsServicoAtual.Post;
+          _DsTecnoAtual.Next;
+        end;
+        _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipioDS([DSCIDADE_NOTA, DSCIDADE_SERV]);
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

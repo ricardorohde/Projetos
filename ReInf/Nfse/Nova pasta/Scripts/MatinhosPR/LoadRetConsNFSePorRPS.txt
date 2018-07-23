@@ -1,0 +1,64 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+{$I ..\Comuns\Utils.txt}
+Var
+  _Xml : string;
+  _XmlSelecao : string;
+
+{$I ..\GovBR\RealizarCargaManualDeCampos.txt}
+
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  // Todo "&" vira "&amp;" e todo "&amp;" continua sendo "&amp;":
+  _Xml := StringReplace(Input, '&amp;','&',[rfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&','&amp;',[rfReplaceAll]);
+  _Xml := CorrigeXml(_Xml);
+
+  if Pos('<!--CRLF-->', _Xml) > 0 then
+  begin
+    _Xml := StringReplace(_Xml, '&#xD;<!--CRLF-->', #13#10, [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+    _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+  end
+  else
+    _XmlSelecao := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarNfseRpsResposta"]');
+
+  _Xml := StringReplace(_Xml, '&#xD;', '', [rfReplaceAll]);
+
+  if _XmlSelecao = '' then
+    _Xml := XmlSelect(_Xml, '//*[local-name()="ConsultarNfseRpsResposta"]')
+  else
+    _Xml := _XmlSelecao;
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    { GovBR: o XML da consulta tem uma peculiaridade: quando se faz uma consulta
+        de modo que deva se obter uma lista de erros, não vêm com o nó
+        ListaMensagemRetorno, somente com o nó MensagemRetorno.
+        Temos que "corrigir" o XML da consulta para poder carregar no XsdDs: }
+  //  _Xml := StringReplace(_Xml, '<MensagemRetorno>', '<ListaMensagemRetorno><MensagemRetorno>', []);
+  //  _Xml := StringReplace(_Xml, '</MensagemRetorno>', '</MensagemRetorno></ListaMensagemRetorno>', []);
+    Datasets.LoadFromXMLContent(_Xml);
+
+    RealizarCargaManualDeCampos('ConsultarNfseRpsResposta');
+
+    _Xml := XmlSelect(_Xml, '//*[local-name()="Nfse"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

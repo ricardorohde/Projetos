@@ -1,0 +1,271 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _NFSE, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+  _Motivo : String;
+
+  procedure GetPonteirosDataSets;
+  begin
+    //_NFSE := Datasets.GetDataSetByName('ConsultarLoteRpsResposta');
+    _NFSE := Datasets.GetDataSetByName('CompNfse');
+    _DSFalha := Datasets.GetDataSetByName('MensagemRetorno');
+    if (_NFSE = nil) then
+      RaiseException('DataSet CompNfse não foi carregado corretamente.');
+    if (_DSFalha = nil) then
+      RaiseException('DataSet MensagemRetorno não foi carregado corretamente.');
+  end;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(aValue, '&amp;', '@@@@@',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result,'@@@@@','&amp;',[rfReplaceAll]);
+  end;
+
+  // Obtém o código do Erro
+  function GetCodigo(const aXML: string; const _i: integer) : string;
+  var
+   _Cod, _Comando : String;
+  begin
+    _Comando := '//*[local-name()="ListaMensagemRetornoLote"]/*[local-name()="MensagemRetorno"][%s]/*[local-name()="Codigo"]';
+    _Comando := Format1(_Comando, IntToStr(_i));
+    if xmlSelectNodeValue(aXml, _Comando, _Cod) then
+      Result := _Cod
+    else
+      Result := '';
+  end;
+
+  // Obtém a mensagem do Erro
+  function GetMensagem(const aXML: string; const _i: integer) : string;
+  var
+      _Mensagem, _Comando : String;
+  begin
+    _Comando := '//*[local-name()="ListaMensagemRetornoLote"]/*[local-name()="MensagemRetorno"][%s]/*[local-name()="Mensagem"]';
+    _Comando := Format1(_Comando, IntToStr(_i));
+    if xmlSelectNodeValue(aXml, _Comando, _Mensagem) then
+      Result := _Mensagem
+    else
+      Result := '';
+  end;
+
+  // Executa um loop de todos os erros do LOTE e Busca seu Código e Mensagem
+  function GetMotivos : string;
+  var
+    _NumItens, _i: Integer;
+    _Saida, _Comando, _Xml : String;
+  begin
+    _Saida := '';
+    _Xml := Params.Values['XmlLote'];
+    _Comando := '//*[local-name()="ListaMensagemRetornoLote"]/*[local-name()="MensagemRetorno"]';
+    _NumItens := XmlSelectCountNode(_Xml, _Comando);
+
+    for _i := 1 to _NumItens do
+    begin
+      if (_Saida = '') then
+        _Saida := Format2('%s-%s ()', GetCodigo(_Xml, _i), GetMensagem(_Xml, _i))
+      else
+        _Saida := Format3('%s: %s-%s ()', _Saida, GetCodigo(_Xml, _i), GetMensagem(_Xml, _i));
+    end;
+
+    Result := _Saida;
+  end;
+
+  function GetMotivo : string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+    begin
+      Result := 'Falha na comunicação com WebService-' + Input;
+    end
+    else if (_DSFalha <> nil) then
+    begin
+      _DSFalha.First;
+
+      if Trim(_DSFalha.FieldByName('MotivoMensagem').AsString) <> '' then
+      begin
+        while Not _DSFalha.Eof do
+        begin
+          if (Result = '') then
+            Result := Format3('%s-%s (%s)', _DSFalha.FieldByName('MotivoCodigo').AsString,
+                                           Trim(_DSFalha.FieldByName('MotivoMensagem').AsString),
+                                           Trim(_DSFalha.FieldByName('MotivoCorrecao').AsString))
+          else
+            Result := Format4('%s: %s-%s (%s)', Result, _DSFalha.FieldByName('MotivoCodigo').AsString,
+                                              Trim(_DSFalha.FieldByName('MotivoMensagem').AsString),
+                                              Trim(_DSFalha.FieldByName('MotivoCorrecao').AsString));
+          _DSFalha.Next;
+        end;
+      end else
+        Result := GetMotivos;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetStatus : String;
+  begin
+    if (Params.Values['SituacaoLote'] = '2') then
+      Result := 'EMPROCESSAMENTO'
+    else
+    begin
+      if (Params.Values['faultstring'] = '') and (GetMotivo = '') then
+        Result := 'SUCESSO'
+      else
+        Result := 'ERRO';
+    end;
+  end;
+
+  function GetSituacaoNFSE : string;
+  begin
+    if (_NFSE.FieldByName('DataCancelamento').AsString = '') then
+    begin
+      if (_DSFalha.FieldByName('MotivoMensagem').AsString <> '') then
+        Result := 'ERRO'
+      else
+        Result := 'AUTORIZADA';
+    end
+    else
+      Result := 'CANCELADA';
+  end;
+
+  function GetChaveCancelamento : string;
+  begin
+    Result := _NFSE.FieldByName('NumeroNFSe').AsString;
+  end;
+
+  function GetXmlNFSe(const aNumero : string) : string;
+  begin
+    Result := XmlSelect(Params.Values['XmlLote'], '//*[local-name()="CompNfse"]/*[local-name()="Nfse"]/*[local-name()="InfNfse"]/*[local-name()="Numero" and text()="'+aNumero+'"]/../../..');
+
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função para Capturar a Ordem dos Campos de Falha
+  function CreateFieldsResponseFalha : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+    Result.Add('Motivo');
+  end;
+
+  //Função que passa o valor a lista de Resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Output := '';
+
+  Progress('Obtendo ponteiros dos datasets.');
+  GetPonteirosDataSets;
+
+  Progress('Adicionando valores aos campos.');
+  _NFSE.First;
+  _Motivo := GetMotivo;
+
+  if (GetStatus = 'EMPROCESSAMENTO') then
+  begin
+   Try
+      _ListFields := CreateFieldsResponseFalha;
+
+      AddValueListFields('Status', 'EMPROCESSAMENTO');
+      AddValueListFields('Motivo','');
+
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  if (_Motivo <> '') and (_Motivo <> '- ()') then
+  begin
+   Try
+      _ListFields := CreateFieldsResponseFalha;
+
+      AddValueListFields('Status', 'ERRO');
+      AddValueListFields('Motivo',_Motivo);
+
+      Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+    Finally
+      _ListFields.Free;
+    end;
+  end
+  else
+  begin
+    _NFSE.First;
+    while Not _NFSE.Eof Do
+    begin
+      _ListFields := CreateFieldsResponse;
+      if ((_ListFields <> nil) and (_ListFields.Text <> '')) then
+      Try
+        if _NFSE.FieldByName('CnpjPrestador').AsString <> '' then
+          AddValueListFields('Cnpj', _NFSE.FieldByName('CnpjPrestador').AsString)
+        else
+          AddValueListFields('Cnpj', _NFSE.FieldByName('CpfPrestador').AsString);
+
+        AddValueListFields('Status', 'SUCESSO');
+        AddValueListFields('Motivo', '');
+        AddValueListFields('InscMunicipal', _NFSE.FieldByName('InscMunicipal').AsString);
+        AddValueListFields('SerieRps', _NFSE.FieldByName('SerieRps').AsString);
+        AddValueListFields('NumeroRps', _NFSE.FieldByName('NumeroRps').AsString);
+        AddValueListFields('NumeroNFSe', _NFSE.FieldByName('NumeroNFSe').AsString);
+        AddValueListFields('DataEmissaoNFSe', _NFSE.FieldByName('DataEmissaoNFSe').AsString);
+        AddValueListFields('DataAutorizacao', _NFSE.FieldByName('DataAutorizacao').AsString);
+        AddValueListFields('CodVerificacao', _NFSE.FieldByName('CodVerificacao').AsString);
+        AddValueListFields('Situacao', GetSituacaoNFSe);
+        AddValueListFields('DataCancelamento', _NFSE.FieldByName('DataCancelamento').AsString);
+        AddValueListFields('ChaveCancelamento', GetChaveCancelamento);
+        AddValueListFields('Xml', GetXmlNFSe(_NFSE.FieldByName('NumeroNFSe').AsString));
+        AddValueListFields('Tipo', _NFSE.FieldByName('Tipo').AsString);
+
+        if (Params.Values['DelimitadorDaLinha'] = '') then
+          Output := Output + FormatLineResult + #13#10
+        else
+          Output := Output + FormatLineResult + Params.Values['DelimitadorDaLinha'];
+      Finally
+        _ListFields.Free;
+      end;
+      _NFSE.Next;
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

@@ -1,0 +1,14 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=EnviarLoteRpsResposta
+XSDFile=tipos_nfse_v01.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[EnviarLoteRpsResposta]
+Motivo=ImportarWebRPSXmlResponse/ImportarWebRPSXmlResult/string

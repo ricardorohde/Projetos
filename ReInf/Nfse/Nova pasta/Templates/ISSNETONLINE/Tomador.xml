@@ -1,0 +1,6 @@
+<Tomador>
+<tc:CpfCnpj>
+<tc:Cnpj>%s</tc:Cnpj>
+</tc:CpfCnpj>
+<tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+</Tomador>

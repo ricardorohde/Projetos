@@ -1,0 +1,68 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+
+Var
+  _Xml, _SituacaoLote: string;
+  i: Integer;
+begin
+  if Pos('<faultstring', Input) > 0 then
+  begin
+      Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    if (Pos('ConsultarSituacaoLoteRpsEnvioResponse', Input) > 0) then
+    begin
+      Datasets.ConfigSection := 'RETORNO_CONSULTARSITUACAOLOTE';
+      Datasets.XsdFile := PathXsd + 'RpsService.xsd';
+      Datasets.XsdElementName := 'ConsultarSituacaoLoteRpsEnvioResponse';
+      if Trim(MappingXsdFileName) <> '' then
+        Datasets.MappingFileName := MappingXsdFileName;
+      Progress('Criando XSDDataset.');
+      Datasets.CreateXSDDataset;
+      _Xml := StringReplace(Input, '&quot;', '"', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&lt;', '<', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&gt;', '>', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&', '&amp;', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [RfReplaceAll]);
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarSituacaoLoteRpsEnvioResponse"]');
+    end
+    else
+    begin
+      Datasets.ConfigSection := 'RETORNO_CONSULTARLOTE';
+      Datasets.XsdFile := PathXsd + 'RpsService.xsd';
+      Datasets.XsdElementName := 'ConsultarLoteRpsEnvioResponse';
+      if Trim(MappingXsdFileName) <> '' then
+        Datasets.MappingFileName := MappingXsdFileName;
+      Progress('Criando XSDDataset.');
+      Datasets.CreateXSDDataset;
+      _Xml := StringReplace(Input, '&quot;', '"', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&lt;', '<', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&gt;', '>', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&', '&amp;', [RfReplaceAll]);
+      _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [RfReplaceAll]);
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="ConsultarLoteRpsEnvioResponse"]');
+    end;
+
+    if xmlSelectNodeValue(_Xml,'//*[local-name()="situacaoLoteRps"]',_SituacaoLote) then
+    begin
+      Params.Add('SituacaoLote='+_SituacaoLote)
+    end
+    else
+    begin
+      Params.Add('SituacaoLote=');
+    end;
+
+    Params.Add('XmlLote='+_Xml);
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

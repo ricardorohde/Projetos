@@ -1,0 +1,136 @@
+;***************************************************************************************************
+;Configuração do NFSeDataset para Envio de Lote de RPS (Proxy)
+;***************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=EnviarLoteRpsEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Envio de Lote de RPS (Proxy)
+;***************************************************************************************************
+[EnviarLoteRpsEnvioResponse]
+NumeroLote=EnviarLoteRpsEnvioResponse/return/numeroLote
+DataRecebimento=EnviarLoteRpsEnvioResponse/return/dataRecebimento
+Protocolo=EnviarLoteRpsEnvioResponse/return/numeroProtocolo
+;MensagemRetorno
+Mensagem=EnviarLoteRpsEnvioResponse/return/mensagens
+
+;***************************************************************************************************
+;Nomes dos Campos: Cancelamento
+;***************************************************************************************************
+[CancelarNfseEnvioResponse]
+NumeroNFSe=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/numero
+CodigoVerificacaoAutorizada=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/idNota
+CodigoVerificacaoCancelada=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/idNfseCancelada
+CodigoVerificacaoRps=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/idRps
+Situacao=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/situacao
+NumeroRps=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/rpsNumero
+DataCancelamento=CancelarNfseEnvioResponse/return/nfeRpsNotaFiscal/dataProcessamento
+Mensagem=CancelarNfseEnvioResponse/return/mensagens
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=CancelarNfseEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Consulta lote Rps
+;***************************************************************************************************
+[ConsultarLoteRpsEnvioResponse]
+NumeroNFSe=ConsultarLoteRpsEnvioResponse/return/notasFiscais/numero
+CodigoVerificacaoAutorizada=ConsultarLoteRpsEnvioResponse/return/notasFiscais/idNota
+CodigoVerificacaoCancelada=ConsultarLoteRpsEnvioResponse/return/notasFiscais/idNfseCancelada
+Situacao=ConsultarLoteRpsEnvioResponse/return/notasFiscais/situacao
+NumeroRps=ConsultarLoteRpsEnvioResponse/return/notasFiscais/rpsNumero
+DataProcessamento=ConsultarLoteRpsEnvioResponse/return/notasFiscais/dataProcessamento
+
+;MensagemRetorno
+Mensagem=ConsultarLoteRpsEnvioResponse/return/mensagens
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Retorno de Consulta de Lote Rps
+;***************************************************************************************************
+[RETORNO_CONSULTARLOTE]
+XSDElementName=ConsultarLoteRpsEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Consulta de NFSe por RPS
+;***************************************************************************************************
+[RETORNO_CONSULTARNFSEPORRPS]
+XSDElementName=ConsultarNfseRpsEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Consulta de NFSe por RPS
+;***************************************************************************************************
+[ConsultarNfseRpsEnvioResponse]
+NumeroNfse=ConsultarNfseRpsEnvioResponse/return/nfeRpsNotaFiscal/numero
+DataProcessamento=ConsultarNfseRpsEnvioResponse/return/nfeRpsNotaFiscal/dataProcessamento
+NumeroRPS=ConsultarNfseRpsEnvioResponse/return/nfeRpsNotaFiscal/rpsNumero
+Situacao=ConsultarNfseRpsEnvioResponse/return/notasFiscais/situacao
+CodigoVerificacaoAutorizada=ConsultarNfseRpsEnvioResponse/return/nfeRpsNotaFiscal/idNota
+CodigoVerificacaoCancelada=ConsultarNfseRpsEnvioResponse/return/nfeRpsNotaFiscal/idNfseCancelada
+Mensagem=ConsultarNfseRpsEnvioResponse/return/mensagens
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Retorno de Consulta de situação Lote Rps
+;***************************************************************************************************
+[RETORNO_CONSULTARSITUACAOLOTE]
+XSDElementName=ConsultarSituacaoLoteRpsEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Consulta de situação Lote Rps
+;***************************************************************************************************
+[ConsultarSituacaoLoteRpsEnvioResponse]
+NumeroLote=ConsultarSituacaoLoteRpsEnvioResponse/return/numeroLote
+Situacao=ConsultarSituacaoLoteRpsEnvioResponse/return/situacaoLoteRps
+Mensagem=ConsultarSituacaoLoteRpsEnvioResponse/return/mensagens
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Retorno de Consulta de NFSe
+;***************************************************************************************************
+[RETORNO_CONSULTARNFSE]
+XSDElementName=ConsultarNfseEnvioResponse
+XSDFile=RpsService.xsd
+XSDStartNode=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;***************************************************************************************************
+;Nomes dos Campos: Consulta de Consulta de NFSe
+;***************************************************************************************************
+[ConsultarNfseEnvioResponse]
+NumeroNFSe=ConsultarNfseEnvioResponse/return/notasFiscais/numero
+CodigoVerificacaoAutorizada=ConsultarNfseEnvioResponse/return/notasFiscais/idNota
+CodigoVerificacaoCancelada=ConsultarNfseEnvioResponse/return/notasFiscais/idNfseCancelada
+Situacao=ConsultarNfseEnvioResponse/return/notasFiscais/situacao
+NumeroRps=ConsultarNfseEnvioResponse/return/notasFiscais/rpsNumero
+DataProcessamento=ConsultarNfseEnvioResponse/return/notasFiscais/dataProcessamento
+Mensagem=ConsultarNfseEnvioResponse/return/mensagens

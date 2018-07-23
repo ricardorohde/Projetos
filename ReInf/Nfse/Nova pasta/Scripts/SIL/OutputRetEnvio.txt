@@ -1,0 +1,108 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    Result := StringReplace(Result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    Result := StringReplace(Result, #13,'',[rfReplaceAll]);
+    Result := StringReplace(Result, #10,'',[rfReplaceAll]);
+    Result := StringReplace(Result, 'INSERT INTO', '', [rfreplaceall]);
+  end;
+
+  function GetNumeroProtocolo: string;
+  begin
+    Result := Trim(XmlDeepNodeSearch(Input, 'nfd', '/nfd/recibo/codrecibo/../..'));  // Se não achar retorna vazio.
+  end;
+
+  function GetMensagem: string;
+  var
+    _Mensagem : String;
+  begin
+    if XmlSelectNodeValue(Input,'//*[local-name()="nfdEntradaResponse"]',_Mensagem) then
+      Result := _Mensagem
+    else
+      Result := '';
+  end;
+
+  function GetMotivo: string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+      Result := 'Falha na comunicação com WebService-' + Params.Values['faultstring']
+    else
+    begin
+      if GetNumeroProtocolo = '' then
+        Result := GetMensagem
+      else
+        Result := '';
+    end;
+
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetStatus : string;
+  begin
+    if GetNumeroProtocolo = '' then
+      Result := 'ERRO'
+    else
+      Result := 'SUCESSO';
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','NumeroProtocolo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Progress('Obtendo ponteiros dos DataSets.');
+  _ListFields := CreateFieldsResponse;
+
+  if _ListFields <> nil then
+  Try
+    Progress('Adicionando valores aos campos');
+    AddValueListFields('Motivo', GetMotivo);
+    AddValueListFields('Status', GetStatus);
+    AddValueListFields('NumeroProtocolo', GetNumeroProtocolo);
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

@@ -1,0 +1,6 @@
+      <urn:tm_lote_rps_service.importarLoteRPS soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+         <xml xsi:type="xsd:string"><![CDATA[%s]]></xml>
+         <codMunicipio xsi:type="xsd:string">%s</codMunicipio>
+         <cnpjPrestador xsi:type="xsd:string">%s</cnpjPrestador>
+         <hashValidador xsi:type="xsd:string">%s</hashValidador>
+      </urn:tm_lote_rps_service.importarLoteRPS>

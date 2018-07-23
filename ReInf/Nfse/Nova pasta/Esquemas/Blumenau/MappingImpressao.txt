@@ -1,0 +1,136 @@
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de NFSe (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosNFSe]
+;Dados da NFSe
+Assinatura=/Nfse/NFe/Assinatura
+InscricaoPrestador=/Nfse/NFe/ChaveNFe/InscricaoPrestador
+NumeroNFSe=/Nfse/NFe/ChaveNFe/NumeroNFe
+CodigoVerificacao=/Nfse/NFe/ChaveNFe/CodigoVerificacao
+DataEmissao=/Nfse/NFe/DataEmissaoNFe
+NumeroLote=/Nfse/NFe/NumeroLote
+Serie=/Nfse/NFe/ChaveRPS/SerieRPS
+Numero=/Nfse/NFe/ChaveRPS/NumeroRPS
+Tipo=/Nfse/NFe/TipoRPS
+DataEmissaoRps=/Nfse/NFe/DataEmissaoRPS
+
+;Dados do Prestador
+CPFPrestador=/Nfse/NFe/CPFCNPJPrestador/CPF
+CNPJPrestador=/Nfse/NFe/CPFCNPJPrestador/CNPJ
+RazaoSocialPrestador=/Nfse/NFe/RazaoSocialPrestador
+TipoLogradouroPrestador=/Nfse/NFe/EnderecoPrestador/TipoLogradouro
+LogradouroPrestador=/Nfse/NFe/EnderecoPrestador/Logradouro
+NumeroEnderecoPrestador=/Nfse/NFe/EnderecoPrestador/NumeroEndereco
+ComplementoEnderecoPrestador=/Nfse/NFe/EnderecoPrestador/ComplementoEndereco
+BairroPrestador=/Nfse/NFe/EnderecoPrestador/Bairro
+CodigoMunicipioPrestador=/Nfse/NFe/EnderecoPrestador/Cidade
+UFPrestador=/Nfse/NFe/EnderecoPrestador/UF
+CEPPrestador=/Nfse/NFe/EnderecoPrestador/CEP
+EmailPrestador=/Nfse/NFe/EmailPrestador
+
+;Outras informações
+StatusNFe=/Nfse/NFe/StatusNFe
+DataHoraCancelamento=/Nfse/NFe/DataCancelamento
+TributacaoNFe=/Nfse/NFe/TributacaoNFe
+OpcaoSimples=/Nfse/NFe/OpcaoSimples
+NumeroGuia=/Nfse/NFe/NumeroGuia
+DataQuitacaoGuia=/Nfse/NFe/DataQuitacaoGuia
+
+;Dados do Serviço
+ValorServicos=/Nfse/NFe/ValorServicos
+ValorDeducoes=/Nfse/NFe/ValorDeducoes
+ValorPIS=/Nfse/NFe/ValorPIS
+ValorCOFINS=/Nfse/NFe/ValorCOFINS
+ValorINSS=/Nfse/NFe/ValorINSS
+ValorIR=/Nfse/NFe/ValorIR
+ValorCSLL=/Nfse/NFe/ValorCSLL
+ItemListaServico=/Nfse/NFe/CodigoServico
+Aliquota=/Nfse/NFe/AliquotaServicos
+ValorISS=/Nfse/NFe/ValorISS
+ValorCredito=/Nfse/NFe/ValorCredito
+ISSRetido=/Nfse/NFe/ISSRetido
+
+;Dados do Tomador
+CPFTomador=/Nfse/NFe/CPFCNPJTomador/CPF
+CNPJTomador=/Nfse/NFe/CPFCNPJTomador/CNPJ
+InscricaoMunicipalTomador=/Nfse/NFe/InscricaoMunicipalTomador
+InscricaoEstadualTomador=/Nfse/NFe/InscricaoEstadualTomador
+RazaoSocialTomador=/Nfse/NFe/RazaoSocialTomador
+TipoLogradouroTomador=/Nfse/NFe/EnderecoTomador/TipoLogradouro
+LogradouroTomador=/Nfse/NFe/EnderecoTomador/Logradouro
+NumeroEnderecoTomador=/Nfse/NFe/EnderecoTomador/NumeroEndereco
+ComplementoEnderecoTomador=/Nfse/NFe/EnderecoTomador/ComplementoEndereco
+BairroTomador=/Nfse/NFe/EnderecoTomador/Bairro
+CodigoMunicipioTomador=/Nfse/NFe/EnderecoTomador/Cidade
+UFTomador=/Nfse/NFe/EnderecoTomador/UF
+CEPTomador=/Nfse/NFe/EnderecoTomador/CEP
+EmailTomador=/Nfse/NFe/EmailTomador
+
+Discriminacao=/Nfse/NFe/Discriminacao
+
+;Dados customizados da NFSe
+OptanteSimples=String[1]
+NomeFantasiaPrestador=String[80]
+DataVencimentoIss=String[80]
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+;Dados do RPS
+Assinatura=/RPS/Assinatura
+InscricaoPrestador=/RPS/ChaveRPS/InscricaoPrestador
+Serie=/RPS/ChaveRPS/SerieRPS
+Numero=/RPS/ChaveRPS/NumeroRPS
+Tipo=/RPS/TipoRPS
+DataEmissao=/RPS/DataEmissao
+Status=/RPS/StatusRPS
+TributacaoRPS=/RPS/TributacaoRPS
+
+;Dados do Serviço
+ValorServicos=/RPS/ValorServicos
+ValorDeducoes=/RPS/ValorDeducoes
+ValorPIS=/RPS/ValorPIS
+ValorCOFINS=/RPS/ValorCOFINS
+ValorINSS=/RPS/ValorINSS
+ValorIR=/RPS/ValorIR
+ValorCSLL=/RPS/ValorCSLL
+ItemListaServico=/RPS/CodigoServico
+Aliquota=/RPS/AliquotaServicos
+ISSRetido=/RPS/ISSRetido
+
+;Dados do Tomador
+CPFTomador=/RPS/CPFCNPJTomador/CPF
+CNPJTomador=/RPS/CPFCNPJTomador/CNPJ
+InscricaoMunicipalTomador=/RPS/InscricaoMunicipalTomador
+InscricaoEstadualTomador=/RPS/InscricaoEstadualTomador
+RazaoSocialTomador=/RPS/RazaoSocialTomador
+TipoLogradouroTomador=/RPS/EnderecoTomador/TipoLogradouro
+LogradouroTomador=/RPS/EnderecoTomador/Logradouro
+NumeroEnderecoTomador=/RPS/EnderecoTomador/NumeroEndereco
+ComplementoEnderecoTomador=/RPS/EnderecoTomador/ComplementoEndereco
+BairroTomador=/RPS/EnderecoTomador/Bairro
+CodigoMunicipioTomador=/RPS/EnderecoTomador/Cidade
+UFTomador=/RPS/EnderecoTomador/UF
+CEPTomador=/RPS/EnderecoTomador/CEP
+EmailTomador=/RPS/EmailTomador
+
+Discriminacao=/RPS/Discriminacao
+
+;Dados customizados do RPS
+
+ValorISS=String[10]
+BaseCalculo=String[10]
+ValorCredito=String[10]
+
+CPFPrestador=String[20]
+CNPJPrestador=String[20]
+NomeFantasiaPrestador=String[80]
+RazaoSocialPrestador=String[80]
+EnderecoPrestador=String[80]
+NumeroEnderecoPrestador=String[7]
+ComplementoEnderecoPrestador=String[40]
+BairroPrestador=String[40]
+CodigoMunicipioPrestador=String[10]
+UFPrestador=String[2]
+CEPPrestador=String[10]
+EmailPrestador=String[80]

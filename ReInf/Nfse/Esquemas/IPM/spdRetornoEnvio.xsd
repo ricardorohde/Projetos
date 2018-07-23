@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="retorno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="mensagem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element maxOccurs="unbounded" name="codigo" type="xs:string"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="numero_nfse"/>
+        <xs:element ref="serie_nfse"/>
+        <xs:element ref="data_nfse"/>
+        <xs:element ref="hora_nfse"/>
+        <xs:element ref="arquivo_gerador_nfse"/>
+        <xs:element ref="nome_arquivo_gerado_eletron"/>
+        <xs:element ref="link_nfse"/>
+        <xs:element ref="cod_verificador_autenticidade"/>
+        <xs:element ref="codigo_html"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>  
+  <xs:element name="numero_nfse" type="xs:string"/>
+  <xs:element name="serie_nfse" type="xs:string"/>
+  <xs:element name="data_nfse" type="xs:string"/>
+  <xs:element name="hora_nfse" type="xs:string"/>
+  <xs:element name="arquivo_gerador_nfse" type="xs:string"/>
+  <xs:element name="nome_arquivo_gerado_eletron" type="xs:string"/>
+  <xs:element name="link_nfse" type="xs:string"/>
+  <xs:element name="cod_verificador_autenticidade" type="xs:string"/>
+  <xs:element name="codigo_html" type="xs:string"/>
+</xs:schema>

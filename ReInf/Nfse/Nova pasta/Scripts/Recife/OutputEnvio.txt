@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := (UpperCase(Params.Values['EnvioSincrono'])) = 'TRUE';
+  end;
+
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+  if not EnvioSincrono then
+    Output := RealizarDelimitacaoLoteRps(Output, 'Rps', 'ListaRps')
+  else
+    Output := Params.Values['DelimitadorRPS'] + Output + Params.Values['DelimitadorRPS'];
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_TIPLAN);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

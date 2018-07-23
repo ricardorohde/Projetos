@@ -1,0 +1,252 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _linha: string;
+  _NomeCampo: string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _QtdeRps: Integer;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'EnviarLoteRpsEnvio';
+  DSCIDADE_NOTA = 'GerarNfseEnvio';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\Comuns.txt}
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+    _DsTecnoAtual := nil;
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        if CampoTecno('IdRps') <> '' then
+          SetarCampo('IdRps')
+        else
+        begin
+          _ValorCampo := 'RPS_' + CampoTecno('NumeroRps') + '_' + CampoTecno('SerieRps') + '_' + CampoTecno('TipoRps');
+          SetarCampoValor('IdRps', _ValorCampo);
+        end;
+
+        SetarCampo('NumeroRps');
+        SetarCampo('SerieRps');
+        SetarCampo('TipoRps');
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'YYYY-MM-DD"T"HH:mm:ss');
+        SetarCampoValor('DataEmissao', _ValorCampo);
+        SetarCampoValor('Status', CampoTecno('SituacaoNota'));
+        SetarCampo('NumeroRpsSubstituido');
+        SetarCampo('SerieRpsSubstituido');
+        SetarCampo('TipoRpsSubstituido');
+
+        //NÃO DEVE SER ENVIADO
+        //CampoTecno('Competencia')
+        Campo(_DsCidadeAtual, 'ValorServicos').AsString := StringREplace(Campo(_DsCidadeAtual, 'ValorServicos').AsString, ',', '.', []);
+        SetarCampoCurrency('ValorServicos', True);
+        SetarCampoCurrency('ValorDeducoes', False);
+        SetarCampoCurrency('ValorPis', False);
+        SetarCampoCurrency('ValorCofins', False);
+        SetarCampoCurrency('ValorInss', False);
+        SetarCampoCurrency('ValorIr', False);
+        SetarCampoCurrency('ValorCsll', False);
+        SetarCampoCurrency('OutrasRetencoes', False);
+
+        //NÃO DEVE SER ENVIADO
+        {SetarCampoCurrency('ValorIss', False);
+        Campo(_DsCidadeAtual, 'ValorIss').AsString := Campo(_DsCidadeAtual, 'ValorIss').AsString}
+
+        {A tag alíquota será obrigatória apenas quando o Prestador é enquadrado no Simples Nacional.
+        Nas demais situações essa informação não é obrigatória e será gerada pelo sistema(Retorno do Envio).}
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _ValorCampo := StringReplace(CampoTecno('AliquotaISS'),',','.',[rfReplaceAll]);
+          SetarCampoValor('Aliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS.');
+
+        SetarCampoCurrency('DescontoIncondicionado', False);
+
+        //NÃO DEVE SER ENVIADO
+        {SetarCampoCurrency('DescontoCondicionado', False);}
+
+        //NÃO DEVE SER ENVIADO
+        {case AnsiIndexText(CampoTecno('IssRetido'), ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          0, 1, 2: SetarCampoValor('IssRetido', '1');
+          3, 4, 5, 6: SetarCampoValor('IssRetido', '2');
+        else
+          RaiseException('Valor inválido para o campo IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;}
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('ResponsavelRetencao');
+
+        //NÃO DEVE SER ENVIADO
+        {_ValorCampo := CampoTecno('CodigoItemListaServico');
+        SetarCampoValor('ItemListaServico', _ValorCampo);}
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('CodigoCnae');
+
+        SetarCampo('CodigoTributacaoMunicipio');
+
+        SetarCampoValor('Discriminacao', CampoTecno('DiscriminacaoServico'));
+
+        {A tabela de municípios a ser utilizada é a mesma em uso atualmente na DMS (Declaração Mensal de Serviços),
+         REST (Relação de Serviços de Terceiros) e MAPA BANCÁRIO na Prefeitura de Goiânia.
+         A tabela de municípios contém diferenças em relação à tabela de municípios do IBGE.}
+        _ValorCampo := CampoTecno('CodigoCidadePrestacao');
+        if _ValorCampo <> '' then
+        begin
+      try
+            _ValorCampo :=  BuscarInfoCidade('CodIBGE', _ValorCampo, 'CodDMS');
+            SetarCampoValor('CodigoMunicipio', _ValorCampo);
+          except
+            SetarCampoValor('CodigoMunicipio', _ValorCampo);
+          end;
+        end;
+
+        if _ValorCampo = '9999999' then
+          SetarCampoValor('CodigoPais', CampoTecno('CodigoPais'));
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('ExigibilidadeISS')
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('MunicipioIncidencia')
+
+        if (AnsiMatchText(CampoTecno('RegimeEspecialTributacao'), ['1', '2', '3', '4', '5', '6'])) then
+          SetarCampo('RegimeEspecialTributacao');
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('OptanteSimplesNacional');
+
+        //NÃO DEVE SER ENVIADO
+        //SetarCampo('IncentivoFiscal');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjPrestador'));
+        if _ValorCampo <> '' then
+        begin
+          case Length(_ValorCampo) of
+            11: SetarCampoValor('CpfPrestador', _ValorCampo);
+            14: SetarCampoValor('CnpjPrestador', _ValorCampo);
+          end;
+        end
+        else
+          RaiseException('Campo de preenchimento obrigatório não preenchido: CpfCnpjPrestador');
+
+        _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalPrestador'));
+        if _ValorCampo <> '' then
+          SetarCampoValor('InscricaoMunicipalPrestador',_ValorCampo)
+        else
+          RaiseException('Campo de preenchimento obrigatório não preenchido: InscricaoMunicipalPrestador');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        case Length(_ValorCampo) of
+          11: SetarCampoValor('CpfTomador', _ValorCampo);
+          14: SetarCampoValor('CnpjTomador', _ValorCampo);
+        end;
+
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+        SetarCampo('RazaoSocialTomador');
+        SetarCampo('EnderecoTomador');
+        SetarCampo('NumeroTomador');
+        SetarCampo('ComplementoTomador');
+        SetarCampo('BairroTomador');
+
+        {A tabela de municípios a ser utilizada é a mesma em uso atualmente na DMS (Declaração Mensal de Serviços),
+         REST (Relação de Serviços de Terceiros) e MAPA BANCÁRIO na Prefeitura de Goiânia.
+         A tabela de municípios contém diferenças em relação à tabela de municípios do IBGE.}
+        _ValorCampo := CampoTecno('CodigoCidadeTomador');
+        if _ValorCampo <> '' then
+        begin
+      try
+            _ValorCampo :=  BuscarInfoCidade('CodIBGE', _ValorCampo, 'CodDMS');
+            SetarCampoValor('CodigoMunicipioTomador', _ValorCampo);
+          except
+            SetarCampoValor('CodigoMunicipioTomador', _ValorCampo);
+          end;
+        end;
+        SetarCampo('UfTomador');
+        SetarCampoValor('CodigoPaisTomador', CampoTecno('PaisTomador'));
+        SetarCampo('CepTomador');
+        SetarCampo('EmailTomador');
+        VerificaDDD('TelefoneTomador', 'TelefoneTomador', 'DDDTomador');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjIntermediario'));
+        case Length(_ValorCampo) of
+          0 : { Campo vazio, ignorar };
+          11: SetarCampoValor('CpfIntermediario', _ValorCampo);
+          14: SetarCampoValor('CnpjIntermediario', _ValorCampo);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjIntermediario');
+        end;
+
+        SetarCampoValor('InscricaoMunicipalIntermediario', RemoveMascara(CampoTecno('InscricaoMunicipalIntermediario')));
+        SetarCampo('RazaoSocialIntermediario');
+
+        SetarCampo('CodigoObra');
+        SetarCampo('Art');
+
+        _DsCidadeAtual.Post;
+
+        _DsTecnoAtual.Next;
+      end;
+
+    SetarCamposMunicipio;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

@@ -1,0 +1,10 @@
+<EnviarLoteRpsEnvio xmlns="http://www.e-nfs.com.br">
+<LoteRps %s="L1">
+<NumeroLote>%s</NumeroLote>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<QuantidadeRps>%s</QuantidadeRps>
+%s
+</LoteRps>
+%s
+</EnviarLoteRpsEnvio>

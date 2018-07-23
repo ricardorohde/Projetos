@@ -1,0 +1,10 @@
+E:\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.exe
+E:\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.pdb
+E:\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.exe
+E:\Romania\RomaniaProblem\bin\Debug\RomaniaProblem.pdb
+E:\Romania\RomaniaProblem\obj\Debug\ResolveAssemblyReference.cache
+E:\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.MainForm.resources
+E:\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.Properties.Resources.resources
+E:\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.csproj.GenerateResource.Cache
+D:\Edson\Projetos\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.exe
+D:\Edson\Projetos\Romania\RomaniaProblem\obj\Debug\RomaniaProblem.pdb

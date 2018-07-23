@@ -1,0 +1,5 @@
+<proc:enviarSincrono soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<mensagemXml xsi:type="xsd:string">
+     %s
+   </mensagemXml>
+</proc:enviarSincrono>

@@ -1,0 +1,17 @@
+<ConsultarNfseServicoPrestado xmlns="https://iss.pontagrossa.pr.gov.br">
+<cabecalho><![CDATA[%s]]></cabecalho>
+<xml><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<ConsultarNfseServicoPrestadoEnvio xmlns="http://iss.pontagrossa.pr.gov.br/Arquivos/nfse.xsd">
+<Prestador>
+%s
+%s
+</Prestador>
+%s
+%s
+%s
+%s
+%s
+<Pagina>%s</Pagina>
+</ConsultarNfseServicoPrestadoEnvio>
+]]></xml>
+</ConsultarNfseServicoPrestado>

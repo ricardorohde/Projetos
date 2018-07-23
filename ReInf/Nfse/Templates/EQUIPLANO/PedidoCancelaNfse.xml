@@ -1,0 +1,10 @@
+<es:esCancelarNfseEnvio xmlns:es="http://www.equiplano.com.br/esnfs">
+<prestador>
+<nrInscricaoMunicipal>%s</nrInscricaoMunicipal>
+<cnpj>%s</cnpj>
+<idEntidade>%s</idEntidade>
+</prestador>
+<nrNfse>%s</nrNfse>
+<dsMotivoCancelamento>%s</dsMotivoCancelamento>
+%s
+</es:esCancelarNfseEnvio>

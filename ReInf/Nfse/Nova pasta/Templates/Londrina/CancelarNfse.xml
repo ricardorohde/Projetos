@@ -1,0 +1,11 @@
+<v1:CancelarNota>
+  <DescricaoCancelaNota>
+    <ccm>%s</ccm>
+    <cnpj>%s</cnpj>
+    <cpf>%s</cpf>
+    <senha>%s</senha>
+    <nota>%s</nota>
+    <cod_cancelamento>%s</cod_cancelamento>
+    <email>%s</email>
+  </DescricaoCancelaNota>
+</v1:CancelarNota>

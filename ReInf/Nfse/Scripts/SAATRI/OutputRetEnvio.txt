@@ -1,0 +1,69 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _DSSucesso, _DSFalha: TSpdXSDClientDataSet;
+  _ListFields: TStringList;
+
+  function EnvioSincrono: Boolean;
+  begin
+    if (UpperCase(Params.Values['EnvioSincrono'])) = 'TRUE' then
+      Result := true
+  end;
+
+  function GetNumeroProtocolo: string;
+  begin
+    // Só retorna protocolo se o lote foi aprovado.
+    if (GetMotivo(_DSFalha) = '') then
+      Result := _DSSucesso.FieldByName('Protocolo').AsString
+    else
+      Result := '';
+  end;
+
+  function GetStatusEnvio: string;
+  begin
+    if (GetMotivo(_DSFalha) = '') then
+      Result := 'SUCESSO'
+    else
+      Result := 'ERRO';
+  end;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+
+    if EnvioSincrono then
+      GetPonteirosDataSets('GerarNfseResposta', 'MensagemRetorno', _DSSucesso, _DSFalha)
+    else
+      GetPonteirosDataSets('EnviarLoteRpsResposta', 'MensagemRetorno', _DSSucesso, _DSFalha);
+
+    if not EnvioSincrono then
+    begin
+      _ListFields := CreateFieldsResponseEnvioAssincrono;
+      if _ListFields <> nil then
+        Try
+          Progress('Adicionando valores aos campos.');
+          AddValueListFields('Motivo', GetMotivo(_DSFalha), _ListFields);
+          AddValueListFields('Status', GetStatusEnvio, _ListFields);
+          AddValueListFields('NumeroProtocolo', GetNumeroProtocolo, _ListFields);
+          Output := FormatLineResult(_ListFields);
+        Finally
+          _ListFields.Free;
+        end;
+    end
+    else
+      Output := GetListFieldsNota(_DSSucesso, _DSFalha, _ListFields,
+        '//*[local-name()="InfNfse"]/*[local-name()="Numero" and text()="%s"]/../../..', 'XmlLote');
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

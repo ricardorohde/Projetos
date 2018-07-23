@@ -1,0 +1,289 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+
+var
+  _Tx2, _CamposMunicipio: TStringList;
+
+  _DsTecnoAtual, _DsCidadeAtual: TSpdXSDClientDataSet;
+  _PadraoTecnoNFSe: Boolean;
+  _ValorCampo, _NomeCampo, _Linha, _PastaTecnoNFSe, _NomeCidade, _UFCidadePrestacao: string;
+  _Inicio, _QtdeRps: Integer;
+  DSCIDADE_NOTA: string;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\Comuns.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+
+  procedure ExceptionValorInvalidoCampo(const aCampo: string);
+  begin
+    RaiseException('Valor inválido para o campo ' + aCampo);
+  end;
+
+  procedure VerificaLoteTx2Municipio;
+  var
+    i, y: integer;
+  begin
+    for i := 0 to _Tx2.Count-1 do
+    begin
+      if SameText(Trim(_Tx2[i]), 'INCLUIRRPS') then
+        Inc(y);
+      if y > 1 then
+        RaiseException('Envio síncrono não suporta envio em Lote');
+    end;
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+      DSCIDADE_NOTA := 'EmiteNFe';
+
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      if _DsTecnoAtual.RecordCount > 1 then
+        RaiseException('Envio síncrono não suporta envio em Lote');
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalPrestador'));
+        if _ValorCampo <> '' then
+          SetarCampoValor('InsMunicipal', _ValorCampo)
+        else
+          ExceptionValorInvalidoCampo('InscricaoMunicipalPrestador é obrigatório.');
+
+        _ValorCampo := StringReplace(CampoTecno('AliquotaISS'), ',', '.', []);
+        if _ValorCampo <> '' then
+        begin
+          FormataFloat(StrToFloat(_ValorCampo), 6, 4);
+          SetarCampoValor('aliq', _ValorCampo);
+        end
+        else
+          ExceptionValorInvalidoCampo('AliquotaISS é obrigatório.');
+
+        SetarCampoValor('bairro', CampoTecno('BairroTomador'));
+        SetarCampoValor('cep', CampoTecno('CepTomador'));
+
+        _ValorCampo := CampoTecno('DescricaoCidadeTomador');
+        if _ValorCampo <> '' then
+          SetarCampoValor('cidade', _ValorCampo)
+        else
+        begin
+          _ValorCampo := CampoTecno('CodigoCidadeTomador');
+          if _ValorCampo <> '' then
+          begin
+            _NomeCidade := BuscarInfoCidade('CodIBGE', _ValorCampo, 'NomeMunicSIAFI');
+            SetarCampoValor('cidade', _NomeCidade);
+          end
+          else
+            ExceptionValorInvalidoCampo('CodigoCidadeTomador é obrigatório.');
+        end;
+
+        _ValorCampo := StringReplace(CampoTecno('CodigoItemListaServico'), '.', '', []);
+        if _ValorCampo <> '' then
+          SetarCampoValor('codAtiv', _ValorCampo)
+        else
+          ExceptionValorInvalidoCampo('CodigoItemListaServico é obrigatório.');
+
+        _ValorCampo := CampoTecno('Competencia');
+        if _ValorCampo <> '' then
+        begin
+          try
+            _ValorCampo := FormatAnyDateTime(_ValorCampo, 'yyyymm');
+          except
+            ExceptionValorInvalidoCampo('Erro conversão campo competencia');
+          end;
+          SetarCampoValor('competencia', _ValorCampo);
+        end
+        else
+          ExceptionValorInvalidoCampo('Competencia é obrigatório.');
+
+        _ValorCampo := CampoTecno('DiscriminacaoServico');
+        if _ValorCampo <> '' then
+          SetarCampoValor('descServicos', _ValorCampo)
+        else
+          ExceptionValorInvalidoCampo('DiscriminacaoServico é obrigatório.');
+
+        SetarCampoValor('email', CampoTecno('EmailTomador'));
+        SetarCampoValor('endereco', CampoTecno('EnderecoTomador'));
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        if _ValorCampo <> '' then
+          SetarCampoValor('identTomador', _ValorCampo)
+        else
+        begin
+          _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalTomador'));
+          if _ValorCampo <> '' then
+            SetarCampoValor('identTomador', _ValorCampo)
+          else
+            ExceptionValorInvalidoCampo('CpfCnpjTomador é obrigatório.');
+        end;
+
+        _ValorCampo := CampoTecno('CodigoCidadeTomador');
+        if _ValorCampo <> '' then
+        begin
+          if _ValorCampo = '3148004' then
+            SetarCampoValor('local', '0')
+          else
+            SetarCampoValor('local', '1');
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadeTomador é obrigatório.');
+
+        _ValorCampo := CampoTecno('CodigoCidadePrestacao');
+        if _ValorCampo <> '' then
+        begin
+          _NomeCidade := BuscarInfoCidade('CodIBGE', _ValorCampo, 'NomeMunicSIAFI');
+          SetarCampoValor('municipioServ', _NomeCidade);
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadePrestacao é obrigatório.');
+
+        _ValorCampo := CampoTecno('RazaoSocialTomador');
+        if _ValorCampo <> '' then
+          SetarCampoValor('rzSocial', _ValorCampo)
+        else
+          ExceptionValorInvalidoCampo('RazaoSocialTomador é obrigatório.');
+
+        _ValorCampo := CampoTecno('OptanteSimplesNacional');
+        if _ValorCampo <> '' then
+        begin
+          if _ValorCampo = '1' then
+            SetarCampoValor('simples', 'S')
+          else
+            if _ValorCampo = '2' then
+              SetarCampoValor('simples', 'N')
+            else
+              ExceptionValorInvalidoCampo('OptanteSimplesNacional deve possuir valor 1 ou 2.');
+        end
+        else
+          ExceptionValorInvalidoCampo('OptanteSimplesNacional é obrigatório.');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        if _ValorCampo <> '' then
+        begin
+          if Length(_ValorCampo) = 14 then
+            SetarCampoValor('tipoIdent', '0')
+          else if Length(_ValorCampo) = 11 then
+            SetarCampoValor('tipoIdent', '1');
+        end
+        else
+        begin
+          _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalTomador'));
+          if _ValorCampo <> '' then
+            SetarCampoValor('tipoIdent', '2')
+          else
+            ExceptionValorInvalidoCampo('InscricaoMunicipalTomador é obrigatório.');
+        end;
+
+        _ValorCampo := CampoTecno('MunicipioIncidencia');
+        if _ValorCampo <> '' then
+        begin
+          if _ValorCampo <> '3148004' then
+          begin
+            SetarCampoValor('tipoRecol', '0');
+            _ValorCampo := CampoTecno('ValorIss');
+            if (_ValorCampo = '1') then
+              SetarCampoValor('tipoRecol', '1');
+          end
+          else
+          begin
+            SetarCampoValor('tipoRecol', '2');
+            _ValorCampo := CampoTecno('OptanteSimplesNacional');
+            if _ValorCampo = '1' then
+              SetarCampoValor('tipoRecol', '3');
+          end;
+        end
+        else
+          ExceptionValorInvalidoCampo('MunicipioIncidencia é obrigatório.');
+
+        _ValorCampo := CampoTecno('UfTomador');
+        if _ValorCampo <> '' then
+          SetarCampoValor('uf', _ValorCampo)
+        else
+          ExceptionValorInvalidoCampo('UfTomador é obrigatório.');
+
+        _ValorCampo := CampoTecno('CodigoCidadePrestacao');
+        if _ValorCampo <> '' then
+        begin
+          _UFCidadePrestacao := BuscarInfoCidade('CodIBGE', _ValorCampo, 'UF');
+          SetarCampoValor('ufServ', _UFCidadePrestacao);
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadePrestacao é obrigatório.');
+
+        SetarCampoCurrencyValor('ValorCofins', 'vlCOFINS', true);
+        SetarCampoCurrencyValor('ValorCsll', 'vlCSLL', true);
+        SetarCampoCurrencyValor('ValorDeducoes', 'vlDeducoes', true);
+        SetarCampoCurrencyValor('ValorInss', 'vlINSS', true);
+        SetarCampoCurrencyValor('ValorIr', 'vlIR', true);
+        SetarCampoCurrencyValor('ValorIss', 'vlImposto', true);
+        SetarCampoCurrencyValor('ValorPis', 'vlPIS', true);
+        SetarCampoCurrencyValor('ValorServicos', 'vlServicos', true);
+
+        _DsCidadeAtual.Post;
+        _DsTecnoAtual.Next;
+      end;
+      //Setando campos customizados(@)
+      SetarCamposMunicipio;
+      if CampoCidade('convenio') = '' then
+      begin
+        _DsCidadeAtual.Edit;
+        SetarCampoValor('convenio', '0');
+        _DsCidadeAtual.Post;
+      end;
+    end
+    else
+    begin
+      VerificaLoteTx2Municipio;
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+    end;
+  finally
+    _Tx2.free;
+    _CamposMunicipio.free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso')
+  end;
+end.

@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+var _aux: string;
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+  Output := RealizarDelimitacaoLoteRps(Output, 'nfd', 'tbnfd');
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_SIL);
+
+  // Incluir o nó tbfatura caso não exista (nenhum campo da parte de fatura preenchido)
+  if not XmlSelectNodeValue(Output, '//*[local-name()="tbfatura"]', _aux) then
+  begin
+    Output := StringReplace(Output, '<tbservico>', '<tbfatura></tbfatura><tbservico>', []);
+  end;
+
+  Progress('Arquivo XML gerado com sucesso.');
+end.

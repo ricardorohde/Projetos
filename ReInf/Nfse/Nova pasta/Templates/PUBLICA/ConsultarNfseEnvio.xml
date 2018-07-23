@@ -1,0 +1,10 @@
+    <ConsultarNfseFaixaEnvio xmlns="http://www.publica.inf.br">
+      <Prestador id="P1">
+        <Cnpj>%s</Cnpj>
+        <InscricaoMunicipal>%s</InscricaoMunicipal>
+      </Prestador>
+	  <Faixa>
+        <NumeroNfseInicial>%s</NumeroNfseInicial>
+        <NumeroNfseFinal>%s</NumeroNfseFinal>
+      </Faixa>
+	  </ConsultarNfseFaixaEnvio>

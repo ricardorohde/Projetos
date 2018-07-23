@@ -1,0 +1,97 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I .\RemoverEnvelopeXml.txt}
+{$I ..\Comuns\Comuns.TXT}
+{$I .\Utils.txt}
+
+  function EnvioSincrono : Boolean;
+  Var
+    _Value: string;
+  begin
+    if (xmlSelectNodeValue(Input,
+      '//*[local-name()="GerarNfseResponse" or local-name()="GerarNfseResposta"]', _Value)) then
+      Result := true;
+  end;
+
+  function SubstituirNFSe : Boolean;
+  Var
+    _Value: string;
+  begin
+    if (xmlSelectNodeValue(Input,
+      '//*[local-name()="SubstituirNfseResponse" or local-name()="SubstituirNfseResposta"]', _Value)) then
+      Result := true;
+  end;
+
+  function GetConfigSection : string;
+  begin
+    if EnvioSincrono then
+      Result := 'RETORNO_ENVIOSINCRONO'
+    else if SubstituirNFSe then
+      Result := 'RETORNO_SUBSTITUIRNFSE'
+    else
+      Result := 'RETORNO_ENVIAR';
+  end;
+
+Var
+  _Xml: string;
+begin
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+    Datasets.XsdFile := PathXsd + 'nfse v2 02.xsd';
+
+    Datasets.ConfigSection := GetConfigSection;
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+    if EnvioSincrono then
+    begin
+      _Xml := StringReplace(Input, '&lt;/nfse:GerarNfseResposta&gt;<!--CRLF-->',
+        '&lt;/nfse:GerarNfseResposta&gt;', []);
+
+      _Xml := DesescaparXml(_Xml);
+      _Xml := StringReplace(_Xml, '<?xml version="1.0" encoding="ISO-8859-1"?>', '', [rfReplaceAll]);
+      _Xml := StringReplace(_Xml, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName,
+        '//*[local-name()="GerarNfseResposta"]');
+
+      _Xml := StringReplace(_Xml, '&amp;amp;', '&amp;', [rfReplaceAll]);
+
+      _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+
+      Params.Add('EnvioSincrono=true');
+      Params.Add('XmlNfse=' + _Xml);
+    end
+    else if SubstituirNFSe then
+    begin
+      _Xml := StringReplace(Input, '<!--CRLF-->', #13#10, [rfReplaceAll]);
+      _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName,
+        '//*[local-name()="SubstituirNfseResposta"]');
+      _Xml := StringReplace(_Xml, #13#10, '<!--CRLF-->', [rfReplaceAll]);
+      Params.Add('SubstituirNFSe=true');
+      Params.Add('XmlNfse=' + _Xml);
+    end
+    else
+      _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+        '//*[local-name()="EnviarLoteRpsResposta"]');
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

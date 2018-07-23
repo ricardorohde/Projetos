@@ -1,0 +1,12 @@
+<ConsultarLoteRps xmlns="http://tempuri.org/">
+<xmlEnvio>
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<ConsultarLoteRpsEnvio>
+<Prestador>
+<Cnpj>%s</Cnpj>
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+<Protocolo>%s</Protocolo>
+</ConsultarLoteRpsEnvio>]]>
+</xmlEnvio>
+</ConsultarLoteRps>

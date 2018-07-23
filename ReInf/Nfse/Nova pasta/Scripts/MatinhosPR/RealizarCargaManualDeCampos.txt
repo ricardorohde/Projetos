@@ -1,0 +1,27 @@
+  procedure RealizarCargaManualDeCampos(const aNomeDsNotas: string);
+  var
+    _Aux, _Comando : string;
+    _i: Integer;
+    _DsNotas: TSpdXSDClientDataSet;
+  begin
+    { GovBR: o XML da consulta não corresponde com o esquema XML fornecido pelo
+        fabricante, portanto alguns campos não estão sendo carregados. Temos de
+        fazer a carga desses campos manualmente.}
+    _DsNotas := Datasets.GetDataSetByName(aNomeDsNotas);
+    if _DsNotas <> nil then
+    begin
+      _DsNotas.First;
+      _i := 0;
+      while not _DsNotas.Eof do
+      begin
+        _i := _i + 1;
+        _DsNotas.Edit;
+        _Comando := FormatX('//*[local-name()="CompNfse"][%d]'+
+          '//*[local-name()="DataHoraCancelamento"]', [_i]);
+        if XmlSelectNodeValue(_Xml, _Comando, _Aux) then
+          _DsNotas.FieldByName('DataCancelamento').AsString := _Aux;
+        _DsNotas.Post;
+        _DsNotas.Next;
+      end;
+    end;
+  end;

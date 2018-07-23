@@ -1,0 +1,484 @@
+
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Tx2: TStringList;
+  _CamposMunicipio: TStringList;
+  _inicio: Integer;
+  _PadraoTecnoNFSe: Boolean;
+  _CPFPrestador : Boolean;
+  _linha: string;
+  _NomeCampo: string;
+  _ValorCampo: string;
+  _PastaTecnoNFSe: string;
+  _DsTecnoAtual: TSpdXSDClientDataSet;
+  _DsCidadeAtual: TSpdXSDClientDataSet;
+  _Vlr: Double;
+  _cdsCidades: TClientDataSet;
+  _QtdeRps: Integer;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSCIDADE_LOTE = 'EnviarLoteRpsEnvio';
+  DSCIDADE_NOTA = 'Rps';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\SetarCamposMunicipio.txt}
+{$I ..\Comuns\Comuns.txt}
+
+  procedure SetarCampoTamanho(const aNomeCampoTecno, aNomeCampoCidade: string; Max: integer);
+  var
+    _Valor: string;
+  begin
+    _Valor := CampoTecno(aNomeCampoTecno)
+    if Length(_Valor) <= Max then
+    begin
+      SetarCampoValor(aNomeCampoCidade, Trim(_Valor));
+    end
+    else
+        RaiseException('Para essa cidade o campo "' + aNomeCampoTecno + '" não deve ser Maior que ' + inttostr(Max) + ' Caracteres');
+  end;
+
+  procedure SetarCampoValorTamanho(const aNomeCampoCidade, aValor: string; Max: integer);
+  begin
+    if Length(aValor) <= Max then
+      SetarCampoValor(aNomeCampoCidade, Trim(aValor))
+    else
+        RaiseException('Para essa cidade o campo referente a tag "' + aNomeCampoCidade + '" não deve ser Maior que ' + IntToStr(Max) + ' Caracteres');
+  end;
+
+  procedure SetarCampoObrigatorioTamanho(const aNomeCampoTecno, aNomeCampoCidade: string; Max: integer);
+  var
+    _Valor: string;
+  begin
+    _Valor := CampoTecno(aNomeCampoTecno)
+    if (CampoTecno(aNomeCampoTecno) <> '') and (Length(_Valor) <= Max ) then
+    begin
+      SetarCampoValor(aNomeCampoCidade, Trim(_Valor));
+    end
+    else
+        RaiseException('Para essa cidade o campo "' + aNomeCampoTecno + '" é obrigatório e não deve ser Maior que ' + inttostr(Max) + ' Caracteres');
+  end;
+
+  procedure SetarCampoObrigatorioValorTamanho(const aNomeCampoCidade, aValor: string; Max: integer);
+  begin
+    if (aValor <> '') and (Length(aValor) <= Max ) then
+      SetarCampoValor(aNomeCampoCidade, Trim(aValor))
+    else
+        RaiseException('Para essa cidade o campo referente a tag "' + aNomeCampoCidade + '" é obrigatório e não deve ser Maior que ' + inttostr(Max) + ' Caracteres');
+  end;
+
+  procedure VerificaSeEhNumero(const aNomeCampoTecno, aValor : string);
+  var
+    _ValorCampoInteiro : Int64;
+  begin
+    try
+      if aValor <> '' then
+        _ValorCampoInteiro := StrToInt64(Trim(aValor));
+    except
+      RaiseException('Valor inválido para o campo ' + aNomeCampoTecno + ', deve ser um numero.');
+    end;
+  end;
+
+  procedure SetarCpfCnpj(const aNomeCpfCidade, aNomeCnpjCidade, aNomeCampoTecno, aValorCampo: string);
+  begin
+
+    VerificaSeEhNumero(aNomeCampoTecno, aValorCampo);
+
+    case Length(aValorCampo) of
+      11:
+      begin
+        if Params.Values['Cidade'] = 'FORTALEZA' then
+          SetarCampoObrigatorioValorTamanho(aNomeCnpjCidade, 'CPF' + aValorCampo, 14)
+        else
+          SetarCampoObrigatorioValorTamanho(aNomeCpfCidade, aValorCampo, 11);
+      end;
+      14: SetarCampoObrigatorioValorTamanho(aNomeCnpjCidade, aValorCampo, 14);
+    else
+      RaiseException('Valor inválido para o campo ' + aNomeCampoTecno + ', CPF: 11 Caracteres; CNPJ: 14 Caracteres.');
+    end;
+  end;
+
+  procedure SetarTelefone(const aNomeCampoTecnoTel, aNomeCampoTel, aNomeCampoTecnoDDD: string);
+  var _ValorCampo : string;
+  begin
+    _ValorCampo := CampoTecno(aNomeCampoTecnoDDD);
+    VerificaSeEhNumero(aNomeCampoTecnoDDD, _ValorCampo);
+
+    if _ValorCampo <> '' then
+      _ValorCampo := _ValorCampo + RemoveMascara(CampoTecno(aNomeCampoTecnoTel))
+    else
+      _ValorCampo := CampoTecno(aNomeCampoTecnoTel);
+
+    VerificaSeEhNumero(aNomeCampoTecnoTel, _ValorCampo);
+    SetarCampoValorTamanho(aNomeCampoTel, _ValorCampo, 11);
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _cdsCidades := nil;
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasets;
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      // Passar dados para o Datasets, convertendo do padrão TecnoNFSe para o padrão da Cidade
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      // Começar com as notas
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+
+        _ValorCampo := RemoveMascara(CampoTecno('NumeroRps'));
+        VerificaSeEhNumero('NumeroRps', _ValorCampo);
+        SetarCampoObrigatorioTamanho('NumeroRps','NumeroRps', 15);
+
+        SetarCampoObrigatorioTamanho('SerieRps','SerieRps', 5);
+
+        _ValorCampo := CampoTecno('TipoRps');
+        if AnsiMatchText(_ValorCampo, ['1', '2', '3']) then
+          SetarCampoObrigatorioValorTamanho('TipoRps', _ValorCampo, 1)
+        else
+          RaiseException('Para essa cidade o campo TipoRps deve ser informado da seguinte forma: 1 - RPS; 2 - Nota Fiscal Conjugada (Mista); 3 – Cupom.');
+
+        if CampoTecno('IdRps') <> '' then
+          SetarCampo('IdRps')
+        else
+        begin
+          _ValorCampo := 'RPS_' + CampoTecno('NumeroRps') + '_' + CampoTecno('SerieRps') + '_' + CampoTecno('TipoRps');
+          SetarCampoValor('IdRps', _ValorCampo);
+        end;
+
+        _ValorCampo := RemoveMascara(CampoTecno('DataEmissao'));
+        if (_ValorCampo <> '') and ((Length(_ValorCampo) = 17) or (Length(_ValorCampo) = 8))then
+        begin
+          _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), 'YYYY-MM-DD"T"hh:mm:ss');
+           SetarCampoValor('DataEmissao', _ValorCampo);
+        end
+        else
+          RaiseException('Para essa cidade o campo DataEmissao é obrigatorio e deve ser no seguinte formato: YYYY-MM-DDThh:mm:ss');
+
+        _ValorCampo := CampoTecno('OptanteSimplesNacional');
+        if (_ValorCampo = '1') or (_ValorCampo = '2') then
+          SetarCampo('OptanteSimplesNacional')
+        else
+          RaiseException('Para essa cidade o campo OptanteSimplesNacional é obrigatorio e deve ser 1 - SIM, ou 2 - NÃO');
+
+        _ValorCampo := CampoTecno('IncentivadorCultural');
+        if (_ValorCampo = '1') or (_ValorCampo = '2') then
+          SetarCampo('IncentivadorCultural')
+        else
+          RaiseException('Para essa cidade o campo IncentivadorCultural é obrigatorio e deve ser 1 - SIM, ou 2 - NÃO');
+
+
+         _ValorCampo := CampoTecno('SituacaoNota');
+        if (_ValorCampo = '1') or (_ValorCampo = '2') then
+          SetarCampoValor('Status', CampoTecno('SituacaoNota'))
+        else
+          RaiseException('Para essa cidade o campo SituacaoNota é obrigatorio e deve ser 1 - Normal, ou 2 - Cancelada');
+
+        case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+          1, 4 : SetarCampoValor('NaturezaOperacao', '3');
+          3 : SetarCampoValor('NaturezaOperacao', '7');
+          2 : SetarCampoValor('NaturezaOperacao', '4');
+          5 : RaiseException('Valor inválido para o campo TipoTributacao. Para ABRASF o TipoTributacao não pode ser "5 - Retida". Para isso pode se utilizar "6 - Tributavel dentro do municipio" ou "7 - Tributável fora do município');
+          6 : SetarCampoValor('NaturezaOperacao', '1');
+          7 : SetarCampoValor('NaturezaOperacao', '2');
+        else
+          RaiseException('Valor inválido para o campo TipoTributacao. Valores aceitos: 1, 2, 3, 4, 6, 7.');
+        end;
+
+        _ValorCampo := CampoTecno('TipoTributacao');
+        if AnsiMatchText(_ValorCampo, ['6', '7']) then
+        begin
+          _ValorCampo := CampoTecno('NaturezaTributacao');
+          VerificaSeEhNumero('NaturezaTributacao', _ValorCampo);
+          case StrToIntDef(_ValorCampo, -1) of
+            0, 1: ;// IGNORADO
+            2, 3: SetarCampoValor('NaturezaOperacao', '1');
+            4: SetarCampoValor('NaturezaOperacao', '5');
+            5: SetarCampoValor('NaturezaOperacao', '6');
+          end;
+        end;
+
+        if not AnsiMatchText(CampoTecno('RegimeEspecialTributacao'), ['', '0']) then
+        begin
+          if (AnsiMatchText(CampoTecno('RegimeEspecialTributacao'), ['1', '2', '3', '4', '5', '6'])) then
+            SetarCampo('RegimeEspecialTributacao')
+          else
+            RaiseException('Valor inválido para o campo RegimeEspecialTributacao. Valores aceitos: 1, 2, 3, 4, 5, 6.');
+        end;
+
+        _ValorCampo := RemoveMascara(CampoTecno('NumeroRpsSubstituido'));
+        VerificaSeEhNumero('NumeroRpsSubstituido', _ValorCampo);
+        SetarCampoValorTamanho('NumeroRpsSubstituido', _ValorCampo, 15);
+
+        SetarCampoTamanho('SerieRpsSubstituido', 'SerieRpsSubstituido', 5);
+
+        _ValorCampo := CampoTecno('TipoRpsSubstituido');
+        if AnsiMatchText(_ValorCampo, ['', '1', '2', '3']) then
+          SetarCampoValorTamanho('TipoRpsSubstituido', _ValorCampo, 1)
+        else
+          RaiseException('Para essa cidade o campo TipoRpsSubstituido deve ser informado da seguinte forma: 1 - RPS; 2 - Nota Fiscal Conjugada (Mista); 3 – Cupom.');
+
+        SetarCampoCurrency('ValorServicos', True);
+        SetarCampoCurrency('ValorDeducoes', False);
+        SetarCampoCurrency('ValorPis', False);
+        SetarCampoCurrency('ValorCofins', False);
+        SetarCampoCurrency('ValorInss', False);
+        SetarCampoCurrency('ValorIr', False);
+        SetarCampoCurrency('ValorCsll', False);
+
+        case AnsiIndexText(CampoTecno('IssRetido'), ['', '1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          0: // Vazio: deduzir do TipoTributacao
+          begin
+            if CampoTecno('TipoTributacao') = '5' then
+              SetarCampoValor('IssRetido', '1')
+            else
+              SetarCampoValor('IssRetido', '2');
+          end;
+          1, 2, 3: SetarCampoValor('IssRetido', '1');
+          4, 5, 6, 7: SetarCampoValor('IssRetido', '2');
+        else
+          RaiseException('Valor inválido para o campo IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;
+
+        SetarCampoCurrency('ValorIss', False);
+
+        if AnsiMatchText(CampoTecno('IssRetido'), [ '1', 'sim', 'true']) then
+          SetarCampoObrigatorioValorTamanho('ValorIssRetido', CurrencyToXsdCurrency(AnyCurrencyToCurrency(CampoTecno('ValorIssRetido'))), 15)
+        else
+        begin
+          if not AnsiMatchText(CampoTecno('ValorIssRetido'), ['', '0.00', '0']) then
+            RaiseException('Quando o campo IssRetido for 2 - NÃO, o campo ValorIssRetido não deve ser preenchido');
+        end;
+
+        SetarCampoCurrency('OutrasRetencoes', False);
+        SetarCampoCurrency('BaseCalculo', False);
+        SetarCampoCurrency('ValorLiquidoNfse', False);
+        SetarCampoCurrency('DescontoIncondicionado', False);
+        SetarCampoCurrency('DescontoCondicionado', False);
+
+        // Transformável: para GINFES, 5% = 0.05
+        if DivideCampoPorcentagem(CampoTecno('AliquotaISS')) then
+        begin
+          _Vlr := StrToFloat(StringReplace(CampoTecno('AliquotaISS'),',','.',[rfReplaceAll])) / 100;  // 5 --> 0,05
+          _ValorCampo := FormataFloat(_Vlr, 5, 4);
+          SetarCampoValor('Aliquota', _ValorCampo);
+        end
+        else
+          RaiseException('Valor inválido para o campo AliquotaISS, o mesmo deve ser informado da seguinte maneira: "5.00" para 5%');
+
+        _ValorCampo := CampoTecno('CodigoItemListaServico');
+        _ValorCampo := FormatarCodigoItemListaServico(_ValorCampo, False);  // GINFES: sem ponto no ItemListaServico
+        VerificaSeEhNumero('CodigoItemListaServico', _ValorCampo);
+        SetarCampoObrigatorioValorTamanho('ItemListaServico', _ValorCampo, 5);
+
+        _ValorCampo := RemoveMascara(CampoTecno('CodigoCnae'));
+        VerificaSeEhNumero('CodigoCnae', _ValorCampo);
+        SetarCampoTamanho('CodigoCnae','CodigoCnae', 7);
+
+        SetarCampoTamanho('CodigoTributacaoMunicipio','CodigoTributacaoMunicipio', 20);
+
+        SetarCampoObrigatorioTamanho('DiscriminacaoServico','Discriminacao', 2000);
+
+        if (CampoTecno('CodigoCidadePrestacao') <> '99999') then
+        begin
+          _ValorCampo := RemoveMascara(CampoTecno('CodigoCidadePrestacao'));
+          VerificaSeEhNumero('CodigoCidadePrestacao', _ValorCampo);
+          SetarCampoObrigatorioTamanho('CodigoCidadePrestacao', 'CodigoMunicipio', 7);
+        end
+        else
+          SetarCampoValor('CodigoMunicipio','99999');
+
+        SetarCpfCnpj('CpfPrestador', 'CnpjPrestador', 'CpfCnpjPrestador', RemoveMascara(CampoTecno('CpfCnpjPrestador')));
+
+        _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalPrestador'));
+        VerificaSeEhNumero('InscricaoMunicipalPrestador', _ValorCampo);
+        SetarCampoObrigatorioValorTamanho('InscricaoMunicipalPrestador', RemoveMascara(CampoTecno('InscricaoMunicipalPrestador')), 15);
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        VerificaSeEhNumero('CpfCnpjTomador', _ValorCampo);
+        case Length(_ValorCampo) of
+          0 : { Campo vazio, ignorar };
+          11: SetarCampoObrigatorioValorTamanho('CpfTomador', _ValorCampo, 11);
+          14: SetarCampoObrigatorioValorTamanho('CnpjTomador', _ValorCampo, 14);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjTomador, CPF: 11 Caracteres; CNPJ: 14 Caracteres.');
+        end;
+
+        SetarCampoTamanho('RazaoSocialTomador', 'RazaoSocialTomador', 115);
+
+        _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalTomador'));
+        VerificaSeEhNumero('InscricaoMunicipalTomador', _ValorCampo);
+        SetarCampoValorTamanho('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')), 15);
+
+        SetarCampoTamanho('EnderecoTomador', 'EnderecoTomador', 125);
+        SetarCampoTamanho('NumeroTomador', 'NumeroTomador', 10);
+        SetarCampoTamanho('ComplementoTomador', 'ComplementoTomador', 60);
+        SetarCampoTamanho('BairroTomador', 'BairroTomador', 60);
+
+        if ((CampoTecno('PaisTomador') <> '1058') and (UpperCase(CampoTecno('PaisTomador')) <> 'BRASIL') and (CampoTecno('PaisTomador') <> '')) or (CampoTecno('CodigoCidadeTomador') = '99999') then
+        begin
+          SetarCampoValor('CodigoMunicipioTomador','99999');
+          SetarCampoValor('UfTomador', 'EX');
+        end
+        else
+        begin
+          _ValorCampo := RemoveMascara(CampoTecno('CodigoCidadeTomador'));
+          VerificaSeEhNumero('CodigoCidadeTomador', _ValorCampo);
+          SetarCampoTamanho('CodigoCidadeTomador', 'CodigoMunicipioTomador', 7);
+        end;
+
+        SetarCampoTamanho('UfTomador', 'UfTomador', 2);
+
+        _ValorCampo := RemoveMascara(CampoTecno('CepTomador'));
+        VerificaSeEhNumero('CepTomador', _ValorCampo);
+        SetarCampoTamanho('CepTomador', 'CepTomador', 8);
+
+        SetarTelefone('TelefoneTomador', 'TelefoneTomador', 'DDDTomador');
+        SetarCampoTamanho('EmailTomador', 'EmailTomador', 80);
+
+        SetarCampo('RazaoSocialIntermediario');
+
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjIntermediario'));
+        VerificaSeEhNumero('CpfCnpjIntermediario', _ValorCampo);
+        case Length(_ValorCampo) of
+          0 : { Campo vazio, ignorar };
+          11: SetarCampoValor('CpfIntermediario', _ValorCampo);
+          14: SetarCampoValor('CnpjIntermediario', _ValorCampo);
+        else
+          RaiseException('Valor inválido para o campo CpfCnpjIntermediario, CPF: 11 Caracteres; CNPJ: 14 Caracteres.');
+        end;
+
+        _ValorCampo := RemoveMascara(CampoTecno('InscricaoMunicipalIntermediario'));
+        VerificaSeEhNumero('InscricaoMunicipalIntermediario', _ValorCampo);
+        SetarCampoValorTamanho('InscricaoMunicipalIntermediario', _ValorCampo, 15);
+
+        SetarCampoTamanho('CodigoObra', 'CodigoObra', 15);
+        SetarCampoTamanho('Art', 'Art', 15);
+
+        _DsCidadeAtual.Post;
+
+        _DsTecnoAtual.Next;
+      end;
+
+      SetarCamposMunicipio;
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+
+      _ValorCampo := CampoTecno('NumeroLote');
+      VerificaSeEhNumero('NumeroLote', _ValorCampo);
+      SetarCampoObrigatorioValorTamanho('NumeroLote',_ValorCampo, 15);
+      // IdLote é deduzível do NumeroLote
+      if CampoTecno('IdLote') <> '' then
+        SetarCampo('IdLote')
+      else
+      begin
+        _ValorCampo := 'LOTE_' + CampoTecno('NumeroLote');
+        SetarCampoValor('IdLote', _ValorCampo);
+      end;
+
+      if (CampoTecno('CpfCnpjRemetente') <> '') then
+        SetarCpfCnpj('Cnpj', 'Cnpj', 'CpfCnpjRemetente', RemoveMascara(CampoTecno('CpfCnpjRemetente')))
+      else
+        SetarCpfCnpj('Cnpj', 'Cnpj', 'CpfCnpjRemetente', RemoveMascara(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CpfCnpjPrestador').AsString));
+
+      _ValorCampo := CampoTecno('InscricaoMunicipalRemetente');
+      if _ValorCampo = '' then
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('InscricaoMunicipalPrestador').AsString;
+      _ValorCampo := RemoveMascara(_ValorCampo);
+      VerificaSeEhNumero('InscricaoMunicipalRemetente', _ValorCampo);
+      SetarCampoObrigatorioValorTamanho('InscricaoMunicipal', RemoveMascara(_ValorCampo), 15);
+
+      if CampoTecno('QuantidadeRps') <> '' then
+        SetarCampo('QuantidadeRps')
+      else
+        SetarCampoValor('QuantidadeRps', IntToStr(_QtdeRps));
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+    end
+    else
+    begin
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+      if Params.Values['Cidade'] = 'FORTALEZA' then
+      begin
+        _CPFPrestador := false;
+
+        Datasets.GetDataSetByName(DSCIDADE_LOTE).First;
+        _CPFPrestador := Datasets.GetDataSetByName(DSCIDADE_LOTE).FieldByName('Cpf').AsString <> '';
+
+        if _CPFPrestador then
+        begin
+          while not Datasets.GetDataSetByName(DSCIDADE_LOTE).Eof do
+          begin
+            Datasets.GetDataSetByName(DSCIDADE_LOTE).Edit;
+            Datasets.GetDataSetByName(DSCIDADE_LOTE).FieldByName('Cnpj').AsString := 'CPF' + Datasets.GetDataSetByName(DSCIDADE_LOTE).FieldByName('Cpf').AsString;
+            Datasets.GetDataSetByName(DSCIDADE_LOTE).FieldByName('Cpf').AsString := '';
+            Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+            Datasets.GetDataSetByName(DSCIDADE_LOTE).Next;
+          end;
+
+          _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+          _DsCidadeAtual.First;
+          while not _DsCidadeAtual.Eof do
+          begin
+            if _DsCidadeAtual.FieldByName('CpfPrestador').AsString <> '' then
+            begin
+              _DsCidadeAtual.Edit;
+              _DsCidadeAtual.FieldByName('CnpjPrestador').AsString := 'CPF' + _DsCidadeAtual.FieldByName('CpfPrestador').AsString;
+              _DsCidadeAtual.FieldByName('CpfPrestador').AsString := '';
+              _DsCidadeAtual.Post;
+            end;
+            _DsCidadeAtual.Next;
+          end;
+        end;
+      end;
+    end;
+  finally
+    _Tx2.Free;
+    _CamposMunicipio.Free;
+    _cdsCidades.Free;
+    Progress('Arquivo TX2 carregado com Sucesso');
+  end;
+end.

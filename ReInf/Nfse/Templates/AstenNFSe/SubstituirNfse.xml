@@ -1,0 +1,1 @@
+<nfse:SubstituirNfse soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><parameters xsi:type="nfse:input"><nfseCabecMsg xsi:type="xsd:string"><cabecalho xmlns="http://www.abrasf.org.br/nfse.xsd" versao="2.01"><versaoDados>2.02</versaoDados></cabecalho></nfseCabecMsg><nfseDadosMsg xsi:type="xsd:string">%s</nfseDadosMsg></parameters></nfse:SubstituirNfse>

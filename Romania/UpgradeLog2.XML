@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="RomaniaProblem">
+</Property><Property Name="Solution File" Value="D:\Edson\Projetos\Romania\RomaniaProblem.sln">
+</Property><Property Name="User Options File" Value="D:\Edson\Projetos\Romania\RomaniaProblem.suo">
+</Property><Property Name="Date" Value="quarta-feira, 17 de setembro de 2014">
+</Property><Property Name="Time" Value="09:44">
+</Property><Property Name="Log Number" Value="2">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="RomaniaProblem.sln" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem.sln">
+</Event><Event ErrorLevel="0" Project="" Source="RomaniaProblem.suo" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem.suo">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\RomaniaProblem.csproj" Description="Project file successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\RomaniaProblem.csproj">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\DataStructures\FIFOQueue.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\DataStructures\FIFOQueue.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\DataStructures\LIFOQueue.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\DataStructures\LIFOQueue.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\DataStructures\PriorityQueue.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\DataStructures\PriorityQueue.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\DefaultHeuristicFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\DefaultHeuristicFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\DefaultStepCostFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\DefaultStepCostFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\GraphSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\GraphSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\HeuristicFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\HeuristicFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\Metrics.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\Metrics.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\Node.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\Node.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\NodeExpander.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\NodeExpander.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\NodeStore.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\NodeStore.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\PrioritySearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\PrioritySearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\Problem.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\Problem.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\QueueSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\QueueSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\Search.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\Search.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\SearchUtils.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\SearchUtils.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\StepCostFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\StepCostFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\Successor.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\Successor.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\SuccessorFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\SuccessorFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\TreeSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\TreeSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\InformedSearch\AStarSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\InformedSearch\AStarSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\InformedSearch\GreedyBestFirstSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\InformedSearch\GreedyBestFirstSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\MainForm.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\MainForm.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\MainForm.Designer.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\MainForm.Designer.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Framework\GoalTest.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Framework\GoalTest.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Nodestore\FIFONodeStore.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Nodestore\FIFONodeStore.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Nodestore\LIFONodeStore.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Nodestore\LIFONodeStore.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Nodestore\PriorityNodeStore.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Nodestore\PriorityNodeStore.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Program.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Program.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\AssemblyInfo.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\Resources.Designer.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\Settings.Designer.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Q4GoalTest.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Q4GoalTest.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Q4HeuristicFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Q4HeuristicFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Q4State.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Q4State.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Q4StepCostFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Q4StepCostFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Q4SuccessorFunction.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Q4SuccessorFunction.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\UninformedSearch\BreadthFirstSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\UninformedSearch\BreadthFirstSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\UninformedSearch\DepthFirstSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\UninformedSearch\DepthFirstSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\UninformedSearch\DepthLimitedSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\UninformedSearch\DepthLimitedSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\UninformedSearch\IterativeDeepeningSearch.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\UninformedSearch\IterativeDeepeningSearch.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Util\AbstractQueue.cs" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Util\AbstractQueue.cs">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\Settings.settings" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\mapa.bmp" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\mapa.bmp">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\MainForm.resx" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\MainForm.resx">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\Properties\Resources.resx" Description="File successfully backed up as D:\Edson\Projetos\Romania\Backup1\RomaniaProblem\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\RomaniaProblem.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="RomaniaProblem" Source="RomaniaProblem\RomaniaProblem.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="RomaniaProblem.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="RomaniaProblem.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="RomaniaProblem" Source="RomaniaProblem\RomaniaProblem.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

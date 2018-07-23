@@ -1,0 +1,4 @@
+<ConsultarSituacaoLoteRps.Execute xmlns="http://www.e-nfs.com.br">
+  <Nfsecabecmsg>&lt;cabecalho versao="201001"&gt;&lt;versaoDados&gt;V2010&lt;/versaoDados&gt;&lt;/cabecalho&gt;</Nfsecabecmsg>
+  <Nfsedadosmsg>%s</Nfsedadosmsg>
+</ConsultarSituacaoLoteRps.Execute>

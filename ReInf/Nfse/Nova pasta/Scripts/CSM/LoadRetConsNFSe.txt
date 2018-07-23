@@ -1,0 +1,39 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse_1.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if Pos('&amp;', Input) = 0 then
+    _Xml := StringReplace(Input, '&',  '&amp;',  [rfReplaceAll])
+  else
+    _Xml := Input;
+
+  _Xml := StringReplace(_Xml, 'ConsultarNfseResult','ConsultarNfseResposta',[rfReplaceAll]);
+  _Xml := XmlDeepNodeSearch(_XMl, Datasets.XsdElementName, '//*[namespace-uri()="http://www.sistema.com.br/Sistema.Ws.Nfse" and local-name()="ConsultarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+    _Xml := XmlSelect(_Xml, '//*[namespace-uri()="http://www.sistema.com.br/Nfse/arquivos/nfse_3.xsd" and local-name()="CompNfse"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

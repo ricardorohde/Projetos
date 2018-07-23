@@ -1,0 +1,12 @@
+<Pedido xmlns="">
+	<InfPedidoCancelamento Id="%s">
+		<IdentificacaoNfse>
+			<Numero>%s</Numero>
+			<Cnpj>%s</Cnpj>
+			<InscricaoMunicipal>%s</InscricaoMunicipal>
+			<CodigoMunicipio>%s</CodigoMunicipio>
+		</IdentificacaoNfse>
+		<CodigoCancelamento>%s</CodigoCancelamento>
+	</InfPedidoCancelamento>
+%s
+</Pedido>

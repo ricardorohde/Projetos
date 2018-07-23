@@ -1,0 +1,4 @@
+<el:CancelarNfseEnvio>
+ <identificacaoPrestador>%s</identificacaoPrestador>
+ <numeroNfse>%s</numeroNfse>
+</el:CancelarNfseEnvio>

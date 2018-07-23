@@ -1,0 +1,9 @@
+<p1:PedidoConsultaLote xmlns:p1="http://nfse.blumenau.sc.gov.br" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cabecalho Versao="1">
+    <CPFCNPJRemetente>
+      <CNPJ>%s</CNPJ>
+    </CPFCNPJRemetente>
+    <NumeroLote>%s</NumeroLote>
+  </Cabecalho>
+%s
+</p1:PedidoConsultaLote>

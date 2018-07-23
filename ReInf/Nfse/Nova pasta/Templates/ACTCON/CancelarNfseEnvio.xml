@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CancelarNfseEnvio xmlns="%s">
+	<Pedido>
+		<InfPedidoCancelamento Id="%s">
+			<IdentificacaoNfse>
+				<Numero>%s</Numero>			
+				<CpfCnpj>%s</CpfCnpj>
+				<InscricaoMunicipal>%s</InscricaoMunicipal>
+				<CodigoMunicipio>%s</CodigoMunicipio>
+			</IdentificacaoNfse>
+			<CodigoCancelamento>%s</CodigoCancelamento>
+		</InfPedidoCancelamento>
+	</Pedido>
+</CancelarNfseEnvio>

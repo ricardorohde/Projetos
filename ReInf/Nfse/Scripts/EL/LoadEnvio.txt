@@ -1,0 +1,459 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Params: TStringList;
+    Datasets: TspdXSDDataset;
+}
+
+var
+  _Tx2, _CamposMunicipio: TStringList;
+
+  _DsTecnoAtual, _DsCidadeAtual, _DsServicoAtual, _DsTecnoServico: TSpdXSDClientDataSet;
+  _PadraoTecnoNFSe: Boolean;
+  _ValorCampo, _NomeCampo, _Linha, _PastaTecnoNFSe, _valorCidade, _valorUF: string;
+  _Inicio, _QtdeRps, _QtdeServico: Integer;
+  _cdsCidades: TClientDataSet;
+
+const
+  DSTECNO_LOTE = 'TecnoNFSe';
+  DSTECNO_NOTA = 'Rps';
+  DSTECNO_SERVICO = 'Servico';
+  DSCIDADE_LOTE = 'LoteRps';
+  DSCIDADE_NOTA = 'Rps';
+  DSCIDADE_SERV = 'Servico';
+
+{$I ..\Comuns\RotinasLerSetarCampos.txt}
+{$I ..\Comuns\FormatarCodigoItemListaServico.txt}
+{$I ..\Comuns\EhComando.txt}
+{$I ..\Comuns\PrepararTecnoNFSeDatasetsItens.txt}
+{$I ..\Comuns\CriarDatasets.txt}
+{$I ..\Comuns\CarregarTX2.txt}
+{$I ..\Comuns\SetarCamposMunicipioDS.txt}
+{$I ..\Comuns\FormataFloat.txt}
+{$I ..\Comuns\Comuns.txt}
+{$I ..\Comuns\AbreArquivos.txt}
+{$I ..\Comuns\BuscarInfoCidade.txt}
+{$I ..\Comuns\Utils.txt}
+
+  function EnvioSincrono: Boolean;
+  begin
+    Result := False;
+  end;
+
+  procedure ExceptionValorInvalidoCampo(const aCampo: string);
+  begin
+    RaiseException('Valor inválido para o campo ' + aCampo);
+  end;
+
+  procedure SetarCampoValorServicoEL(const aCampo, aValor: string);
+  begin
+    Campo(_DsServicoAtual, aCampo).AsString := aValor;
+  end;
+
+  procedure SetarCampoCurrencyServEL(const aCampoEL, aCampoTecno: string; const SetarSeZero: boolean);
+  var _Valor: Currency;
+  begin
+    _Valor := AnyCurrencyToCurrency(CampoTecno(aCampoTecno));
+    if (_Valor <> 0) or SetarSeZero then
+      Campo(_DsServicoAtual, aCampoEL).AsString :=
+        CurrencyToXsdCurrency(_Valor);
+  end;
+
+  procedure SetarCampoCurrencyValorDSServico(const aCampo, aValor: string; const SetarSeZero: boolean);
+  var _Valor: Currency;
+  begin
+    _Valor := AnyCurrencyToCurrency(aValor);
+    if (_Valor <> 0) or SetarSeZero then
+      Campo(_DsServicoAtual, aCampo).AsString :=
+        CurrencyToXsdCurrency(_Valor);
+  end;
+
+begin
+  Progress('Criando XSDDataset');
+  CriarDatasets;
+
+  _Tx2 := TStringList.Create;
+  _CamposMunicipio := TStringList.Create;
+  _cdsCidades := TClientDataSet.Create(nil);
+
+  try
+    Progress('Carregando conteúdo/arquivo TX2');
+    CarregarTX2;
+
+    _DsTecnoAtual := nil;
+
+    if _PadraoTecnoNFSe then
+    begin
+
+      AbreArquivos(_PastaTecnoNFSe + 'Cidades.db', _cdsCidades);
+
+      Progress('Usando Padrão TecnoNFSe: preparando datasets');
+      PrepararTecnoNFSeDatasetsItens;
+
+      Progress('Usando Padrão TecnoNFSe: carregando dados das notas');
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_NOTA);
+      _DsServicoAtual := Datasets.GetDataSetByName(DSCIDADE_SERV);
+      _DsTecnoServico := Datasets.GetDataSetByName(DSTECNO_SERVICO);
+
+      _QtdeRps := _DsTecnoAtual.RecordCount;
+      if _QtdeRps > 5 then
+        RaiseException('Envio em lote deve conter no máximo 5 RPS de acordo com o schema.');
+      _DsTecnoAtual.First;
+
+      while not _DsTecnoAtual.Eof do
+      begin
+        _DsCidadeAtual.Append;
+        // Dados RPS
+        if CampoTecno('IdRps') <> '' then
+          SetarCampoValor('IdRps', AdicionarZerosEsquerda(CampoTecno('IdRps'),13))
+        else
+          SetarCampoValor('IdRps', AdicionarZerosEsquerda(CampoTecno('NumeroRps'),13));
+
+        SetarCampo('NumeroRps');
+        SetarCampoValor('Serie', CampoTecno('SerieRps'));
+        SetarCampoValor('Tipo', CampoTecno('TipoRps'));
+
+        _ValorCampo := CampoTecno('SituacaoNota');
+        if _ValorCampo <> '' then
+          SetarCampoValor('Status', CampoTecno('SituacaoNota'))
+        else
+          SetarCampoValor('Status', '1');
+
+        _ValorCampo := FormatAnyDateTime(CampoTecno('DataEmissao'), XSDDATETIMEFORMAT);
+        SetarCampoValor('DataEmissao', _ValorCampo);
+
+        //Dados Servico
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE).FieldByName('ValorTotalServicos').AsString;
+        if _ValorCampo <> '' then
+          SetarCampoValor('ValorServicos', FormataCurrency(_ValorCampo))
+        else
+          SetarCampoCurrency('ValorServicos', True);
+
+        SetarCampoCurrency('ValorDeducoes', True);
+        SetarCampoCurrency('ValorPis', True);
+        SetarCampoCurrency('ValorCofins', True);
+        SetarCampoCurrency('ValorInss', True);
+        SetarCampoCurrency('ValorIr', True);
+        SetarCampoCurrency('ValorCsll', True);
+        SetarCampoCurrencyValor('OutrasRetencoes', 'ValorOutrasRetencoes', False);
+        SetarCampoCurrency('ValorIss', True);
+        SetarCampoCurrency('ValorLiquidoNfse', True);
+        SetarCampoCurrency('ValorIssRetido', True);
+
+        _ValorCampo := CampoTecno('CodigoCidadePrestacao');
+        SetarCampoValor('CodigoMunicipio', _ValorCampo);
+        if _ValorCampo <> '' then
+        begin
+          _valorCidade := BuscarInfoCidade('CodIBGE', _ValorCampo, 'NomeMunicSIAFI');
+          _valorUF := BuscarInfoCidade('CodIBGE', _ValorCampo, 'UF');
+
+          if (SameText(StringReplace(_valorCidade+_valorUF, ' ','', [rfReplaceAll]), Params.Values['Cidade']) ) then
+            SetarCampoValor('LocalPrestacao', '2')
+          else
+            SetarCampoValor('LocalPrestacao', '1');
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadePrestacao é obrigatório.');
+
+        // O padrão EL possui uma particularidade em relação ao campo IssRetido cuja lógica é invertida em relação ao Abrasf.
+        case AnsiIndexText(CampoTecno('IssRetido'), ['1', 'sim', 'true', '2', 'nao', 'não', 'false']) of
+          0, 1, 2: SetarCampoValor('IssRetido', '2');
+          3, 4, 5, 6: SetarCampoValor('IssRetido', '1');
+        else
+          ExceptionValorInvalidoCampo('IssRetido. Valores aceitos: 1, sim, true, 2, nao, não, false.');
+        end;
+
+        SetarCampo('IncentivadorCultural');
+
+        //Optante Simples
+        _ValorCampo := CampoTecno('OptanteSimplesNacional');
+        case _ValorCampo of
+          '1', '2': SetarCampo('OptanteSimplesNacional')
+          else
+            ExceptionValorInvalidoCampo('OptanteSimplesNacional. Valores aceitos: 1, 2.');
+        end;
+
+        case StrToIntDef(CampoTecno('TipoTributacao'), -1) of
+          1 : SetarCampoValor('NaturezaOperacao', '3');
+          2 : SetarCampoValor('NaturezaOperacao', '4');
+          6 : SetarCampoValor('NaturezaOperacao', '1');
+          7 : SetarCampoValor('NaturezaOperacao', '2');
+        end;
+
+        case StrToIntDef(CampoTecno('NaturezaTributacao'), -1) of
+          4: SetarCampoValor('NaturezaOperacao', '5');
+          5: SetarCampoValor('NaturezaOperacao', '6');
+        end;
+
+          //Regime Especial Tributação
+        _ValorCampo := CampoTecno('RegimeEspecialTributacao');
+        if _ValorCampo <> '' then
+        begin
+          if  AnsiMatchText(_ValorCampo, ['0','1','2','3','4','5','6']) then
+            SetarCampo('RegimeEspecialTributacao')
+        end;
+
+        //Dados Prestador
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjPrestador'));
+        SetarCampoValor('CpfCnpjPrestador', _ValorCampo);
+        if Length(_ValorCampo) = 14 then
+          SetarCampoValor('IndicacaoCpfCnpjPrestador', '2')
+        else if Length(_ValorCampo) = 11 then
+          SetarCampoValor('IndicacaoCpfCnpjPrestador', '1')
+        else
+          SetarCampoValor('IndicacaoCpfCnpjPrestador', '1');
+
+        SetarCampoValor('RazaoSocialPrestador', CampoTecno('RazaoSocialPrestador'));
+        SetarCampoValor('InscricaoMunicipalPrestador', RemoveMascara(CampoTecno('InscricaoMunicipalPrestador')));
+        SetarCampoValor('LogradouroTipoPrestador', CampoTecno('TipoLogradouroPrestador'));
+        SetarCampoValor('LogradouroPrestador', CampoTecno('EnderecoPrestador'));
+        SetarCampoValor('LogradouroNumeroPrestador', CampoTecno('NumeroPrestador'));
+        SetarCampoValor('LogradouroComplementoPrestador', CampoTecno('ComplementoPrestador'));
+        SetarCampoValor('BairroPrestador', CampoTecno('BairroPrestador'));
+        SetarCampoValor('CepPrestador', CampoTecno('CepPrestador'));
+        SetarCampoValor('TelefonePrestador', CampoTecno('TelefonePrestador'));
+        SetarCampoValor('EmailPrestador', CampoTecno('EmailPrestador'));
+
+        _ValorCampo := CampoTecno('CodigoCidadePrestador');
+        if _ValorCampo <> '' then
+        begin
+          _valorCidade := BuscarInfoCidade('CodIBGE', _ValorCampo, 'NomeMunicSIAFI');
+          _valorUF := BuscarInfoCidade('CodIBGE', _ValorCampo, 'UF');
+
+          SetarCampoValor('CodigoMunicipioPrestador', _ValorCampo);
+          SetarCampoValor('MunicipioPrestador', _valorCidade);
+          SetarCampoValor('UfPrestador', _valorUF);
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadePrestador é obrigatório.');
+
+        //Dados Tomador
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjTomador'));
+        SetarCampoValor('CpfCnpjTomador', _ValorCampo);
+        if Length(_ValorCampo) = 14 then
+          SetarCampoValor('IndicacaoCpfCnpjTomador', '2')
+        else if Length(_ValorCampo) = 11 then
+          SetarCampoValor('IndicacaoCpfCnpjTomador', '1')
+        else
+          SetarCampoValor('IndicacaoCpfCnpjTomador', '1');
+
+        SetarCampo('RazaoSocialTomador');
+        SetarCampoValor('InscricaoMunicipalTomador', RemoveMascara(CampoTecno('InscricaoMunicipalTomador')));
+        SetarCampoValor('InscricaoEstadualTomador', RemoveMascara(CampoTecno('InscricaoEstadualTomador')));
+        SetarCampoValor('LogradouroTipoTomador', CampoTecno('TipoLogradouroTomador'));
+        SetarCampoValor('LogradouroTomador', CampoTecno('EnderecoTomador'));
+        SetarCampoValor('LogradouroNumeroTomador', CampoTecno('NumeroTomador'));
+        SetarCampoValor('LogradouroComplementoTomador', CampoTecno('ComplementoTomador'));
+        SetarCampoValor('BairroTomador', CampoTecno('BairroTomador'));
+        SetarCampoValor('CepTomador', CampoTecno('CepTomador'));
+        SetarCampoValor('TelefoneTomador', CampoTecno('TelefoneTomador'));
+        SetarCampoValor('EmailTomador', CampoTecno('EmailTomador'));
+        SetarCampoValor('UfTomador', CampoTecno('UfTomador'));
+
+        _ValorCampo := CampoTecno('CodigoCidadeTomador');
+        if _ValorCampo <> '' then
+        begin
+          _valorCidade := BuscarInfoCidade('CodIBGE', _ValorCampo, 'NomeMunicSIAFI');
+
+          SetarCampoValor('CodigoMunicipioTomador', _ValorCampo);
+          SetarCampoValor('MunicipioTomador', _valorCidade);
+        end
+        else
+          ExceptionValorInvalidoCampo('CodigoCidadeTomador é obrigatório.');
+
+        //Dados Intermediario
+        _ValorCampo := RemoveMascara(CampoTecno('CpfCnpjIntermediario'));
+        SetarCampoValor('CpfCnpjIntermediario', _ValorCampo);
+        if _ValorCampo <> '' then
+        begin
+          if Length(_ValorCampo) = 14 then
+            SetarCampoValor('IndicacaoCpfCnpjIntermediario', '2')
+          else if Length(_ValorCampo) = 11 then
+            SetarCampoValor('IndicacaoCpfCnpjIntermediario', '1')
+          else
+            SetarCampoValor('IndicacaoCpfCnpjIntermediario', '1');
+        end;
+
+        SetarCampoValor('InscricaoMunicipalIntermediario', RemoveMascara(CampoTecno('InscricaoMunicipalIntermediario')));
+
+        _ValorCampo := CampoTecno('QuantidadeServicos'); //Tratamento para quando o QuantidadeServicos do INCLUIRRPS do TecnoNFSe for maior que um,
+                                                         //preencher os serviços apenas com o INCLUIRSERVICO
+
+        if strtoint(_ValorCampo) < 2 then
+          begin
+            _DsServicoAtual.Edit;
+            SetarCampoValorServicoEL('CodigoCnae', CampoTecno('CodigoCnae'));
+            SetarCampoCurrencyServEL('ValorIssqn', 'ValorIss', True);
+            _ValorCampo := StringReplace(CampoTecno('AliquotaISS'), ',', '.', []);
+            if DivideCampoPorcentagem(_ValorCampo) then
+              begin
+                _ValorCampo := FloatToStr(StrToFloat(_ValorCampo) / 100);
+                _ValorCampo := StringReplace(_ValorCampo, ',', '.', []);
+                FormataFloat(StrToFloat(_ValorCampo), 6, 4);
+                SetarCampoValorServicoEL('Aliquota', _ValorCampo);
+              end
+              else
+                ExceptionValorInvalidoCampo('AliquotaISS');
+
+            SetarCampoCurrencyServEL('ValorServico', 'ValorServicos', True);
+
+            _ValorCampo := CampoTecno('QuantidadeServicos');
+            if _ValorCampo <> '' then
+              SetarCampoValorServicoEL('Quantidade', _ValorCampo)
+            else
+              SetarCampoValorServicoEL('Quantidade', '1');
+
+            _ValorCampo := CampoTecno('UnidadeServico');
+            if _ValorCampo <> '' then
+              SetarCampoValorServicoEL('Unidade', _ValorCampo)
+            else
+              SetarCampoValorServicoEL('Unidade', 'UN');
+              SetarCampoValorServicoEL('Descricao', CampoTecno('DiscriminacaoServico'));
+            if (SameText(Params.Values['Cidade'], 'VENDANOVADOIMIGRANTEES'))then
+            begin
+              SetarCampoValorServicoEL('CodigoServicoMunicipal', FormatarCodigoItemListaServico(CampoTecno('CodigoItemListaServico'), True));
+              SetarCampoValorServicoEL('CodigoServico116', FormatarCodigoItemListaServico(CampoTecno('CodigoItemListaServico'), True));
+            end
+            else
+            begin
+            SetarCampoValorServicoEL('CodigoServicoMunicipal', FormatarCodigoItemListaServicoSemZeroEsquerda(CampoTecno('CodigoItemListaServico'), True));
+            SetarCampoValorServicoEL('CodigoServico116', FormatarCodigoItemListaServicoSemZeroEsquerda(CampoTecno('CodigoItemListaServico'), True));
+            end;
+            _DsServicoAtual.Post;
+
+          end;
+        _DsCidadeAtual.Post;
+
+        _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_SERVICO);
+        _DsTecnoAtual.First;
+
+        while not _DsTecnoAtual.Eof do
+        begin
+          _QtdeServico := _DsTecnoAtual.RecordCount;
+          if _QtdeServico > 49 then
+            RaiseException('É permitido a inclusão de até 50 serviços por RPS.');
+          _DsServicoAtual.Append;
+
+          if CampoTecno('CodigoCnae') <> '' then
+            SetarCampoValorServicoEL('CodigoCnae', CampoTecno('CodigoCnae'))
+          else
+            SetarCampoValorServicoEL('CodigoCnae', TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CodigoCnae').AsString);
+
+          _ValorCampo := StringReplace(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('AliquotaISS').AsString, ',', '.', []);
+          if DivideCampoPorcentagem(_ValorCampo) then
+          begin
+            _ValorCampo := FloatToStr(StrToFloat(_ValorCampo) / 100);
+            _ValorCampo := StringReplace(_ValorCampo, ',', '.', []);
+            FormataFloat(StrToFloat(_ValorCampo), 6, 4);
+            SetarCampoValorServicoEL('Aliquota', _ValorCampo);
+          end
+          else
+            ExceptionValorInvalidoCampo('AliquotaISS');
+
+          if CampoTecno('ValorServicos') <> '' then
+            SetarCampoCurrencyServEL('ValorServico','ValorServicos', True)
+          else
+            SetarCampoCurrencyValorDSServico('ValorServico', TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('ValorServicos').AsString, True);
+
+          if CampoTecno('ValorIss') <> '' then
+            SetarCampoCurrencyServEL('ValorIssqn','ValorIss', True)
+          else
+            SetarCampoCurrencyValorDSServico('ValorIssqn', TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('ValorIss').AsString, True);
+
+          _ValorCampo := CampoTecno('QuantidadeServicos');
+          if _ValorCampo <> '' then
+            SetarCampoValorServicoEL('Quantidade', _ValorCampo)
+          else
+            SetarCampoValorServicoEL('Quantidade', '1');
+
+          _ValorCampo := CampoTecno('UnidadeServico');
+          if _ValorCampo <> '' then
+            SetarCampoValorServicoEL('Unidade', _ValorCampo)
+          else
+            SetarCampoValorServicoEL('Unidade', 'UN');
+
+          SetarCampoValorServicoEL('Descricao', CampoTecno('DiscriminacaoServico'));
+
+          if CampoTecno('CodigoItemListaServico') <> '' then
+          begin
+            SetarCampoValorServicoEL('CodigoServico116', FormatarCodigoItemListaServico(CampoTecno('CodigoItemListaServico'), True));
+            SetarCampoValorServicoEL('CodigoServicoMunicipal', FormatarCodigoItemListaServico(CampoTecno('CodigoItemListaServico'), True));
+          end
+          else
+          begin
+            SetarCampoValorServicoEL('CodigoServico116', FormatarCodigoItemListaServico(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CodigoItemListaServico').AsString, True));
+            SetarCampoValorServicoEL('CodigoServicoMunicipal', FormatarCodigoItemListaServico(TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CodigoItemListaServico').AsString, True));
+          end;
+          _DsServicoAtual.Post;
+          _DsTecnoAtual.Next;
+        end;
+        _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA);
+        _DsTecnoAtual.Next;
+      end;
+      //Setando campos customizados(@)
+      {
+        @NumeroAlvara
+        @Observacao
+        @NomeFantasiaPrestador
+        @NomeFantasiaTomador
+        @OutrosDescontos
+      }
+      SetarCamposMunicipioDS([DSCIDADE_NOTA, DSCIDADE_SERV]);
+
+      // Atribuir os campos do lote
+      Progress('Usando Padrão TecnoNFSe: carregando dados do lote');
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Insert;
+
+      _DsTecnoAtual := TecnoNFSeDS.GetDataSetByName(DSTECNO_LOTE);
+      _DsCidadeAtual := Datasets.GetDataSetByName(DSCIDADE_LOTE);
+
+      // IdLote é deduzível do NumeroLote
+      if CampoTecno('IdLote') <> '' then
+        SetarCampoValor('IdLote', AdicionarZerosEsquerda(CampoTecno('IdLote'),13))
+      else
+        SetarCampoValor('IdLote', AdicionarZerosEsquerda(CampoTecno('NumeroLote'),13));
+
+      SetarCampo('NumeroLote');
+
+      //Dedução campo CpfCnpjRemetente
+      _ValorCampo := CampoTecno('CpfCnpjRemetente');
+      if _ValorCampo = '' then
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName('CpfCnpjPrestador').AsString;
+
+      _ValorCampo := RemoveMascara(_ValorCampo);
+      SetarCampoValor('CpfCnpjRemetente', _ValorCampo);
+
+      if Length(_ValorCampo) = 14 then
+        SetarCampoValor('IndicacaoCpfCnpjRemente', '2')
+      else if Length(_ValorCampo) = 11 then
+        SetarCampoValor('IndicacaoCpfCnpjRemente', '1')
+      else
+        SetarCampoValor('IndicacaoCpfCnpjRemente', '1');
+
+      //Dedução campo InscricaoMunicipalRemetente
+      _ValorCampo := CampoTecno('InscricaoMunicipalRemetente');
+      if _ValorCampo = '' then
+        _ValorCampo := TecnoNFSeDS.GetDataSetByName(DSTECNO_NOTA).FieldByName(
+          'InscricaoMunicipalPrestador').AsString;
+      SetarCampoValor('InscricaoMunicipalRemente', RemoveMascara(_ValorCampo));
+
+      //Dedução quantidade
+      if CampoTecno('QuantidadeRps') <> '' then
+        SetarCampo('QuantidadeRps')
+      else
+        SetarCampoValor('QuantidadeRps', IntToStr(_QtdeRps));
+
+      Datasets.GetDataSetByName(DSCIDADE_LOTE).Post;
+    end
+    else
+      Datasets.LoadFromTx2Content(_Tx2.Text);
+  finally
+    _Tx2.free;
+    _cdsCidades.Free;
+    _CamposMunicipio.free;
+    Progress('Arquivo TX2 carregado com Sucesso')
+  end;
+end.

@@ -1,0 +1,5 @@
+ <ws:cancelarNfse xmlns:ws="http://ws.integration.iss.bsit.com.br/">
+ <CancelarNfseEnvio>
+%s
+</CancelarNfseEnvio>
+ </ws:cancelarNfse>

@@ -1,0 +1,10 @@
+<ws:ConsultarNfseServicoPrestadoRequest xmlns:ws="http://nfse.abrasf.org.br">
+  <nfseCabecMsg>
+    <![CDATA[<cabecalho xmlns="http://www.abrasf.org.br/nfse.xsd" versao="2.00">
+      <versaoDados>2.00</versaoDados>
+    </cabecalho>]]></nfseCabecMsg>
+  <nfseDadosMsg>
+    <![CDATA[<ConsultarNfseServicoTomadoEnvio xmlns="http://www.abrasf.org.br/nfse.xsd">%s%s%s%s%s%s%s
+      <Pagina>%s</Pagina>
+    </ConsultarNfseServicoTomadoEnvio>]]></nfseDadosMsg>
+</ws:ConsultarNfseServicoPrestadoRequest>

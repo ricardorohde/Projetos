@@ -1,0 +1,8 @@
+<ConsultaNfe soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+   <usuario>%s</usuario>
+   <pass>%s</pass>
+   <prf>%s</prf>
+   <usr>%s</usr>
+   <ctr>%s</ctr>
+   <tipo>%s</tipo>
+</ConsultaNfe>

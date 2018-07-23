@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfse="http://nfeleopoldina.portalfacil.com.br/homologacao/webservice/nfse.wsdl">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <nfse:ConsultarNfsePorFaixaRequest>
+        <nfseCabecMsg>
+          <![CDATA[<cabecalho versao="1.00" xmlns="http://nfeleopoldina.portalfacil.com.br/homologacao/schema/nfse_v201.xsd"><versaoDados>2.00</versaoDados></cabecalho>]]>
+        </nfseCabecMsg>
+        <nfseDadosMsg>
+          <![CDATA[<?xml version="1.0"?><ConsultarNfseFaixaEnvio xmlns="http://nfeleopoldina.portalfacil.com.br/homologacao/schema/nfse_v201.xsd"><Prestador><CpfCnpj><Cnpj>%s</Cnpj></CpfCnpj><InscricaoMunicipal>%s</InscricaoMunicipal></Prestador><Faixa><NumeroNfseInicial>%s</NumeroNfseInicial><NumeroNfseFinal>%s</NumeroNfseFinal></Faixa><Pagina>1</Pagina></ConsultarNfseFaixaEnvio>]]>
+        </nfseDadosMsg>
+      </nfse:ConsultarNfsePorFaixaRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+  {$I ..\Comuns\Comuns.txt}
+  {$I ..\CONSIST\Utils.txt}
+
+Var
+  _DSSucessoFalha, _DSOcorrencia : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+    if Params.Values['XmlNfse'] <> '' then
+    begin
+      GetPonteiroDataSetSucessoFalha('EmiteNFeResponse', _DSSucessoFalha);
+      Output :=  GetListFieldsNota( _DSSucessoFalha, _ListFields, '', 'XmlNfse');
+    end
+    else
+    begin
+      GetPonteiroDataSetValidacaoOcorrencia('ValidaNFeResponse', 'ocorrencia', _DSSucessoFalha, _DSOcorrencia);
+      Output := GetListFieldsValidacaoNota( _DSSucessoFalha, _DSOcorrencia, _ListFields, '', 'XmlValidaNfse');
+    end;
+  end;
+  Progress('Valores adicionados com sucesso.');
+end.

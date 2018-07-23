@@ -1,0 +1,5 @@
+<ns2:gerarNfse xmlns:ns2="http://ws.integration.iss.bsit.com.br/">
+<GerarNfseEnvio>
+%s
+</GerarNfseEnvio>
+</ns2:gerarNfse>

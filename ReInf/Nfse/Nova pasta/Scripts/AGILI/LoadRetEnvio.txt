@@ -1,0 +1,30 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+var
+  _Xml : String;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'WebAPI-NFSe.xsd';
+  Datasets.XsdElementName := 'GerarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName, '//*[local-name()="GerarNfseResposta"]');
+      Datasets.LoadFromXMLContent(_Xml)
+    Params.Add('XmlNfse='+Input);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

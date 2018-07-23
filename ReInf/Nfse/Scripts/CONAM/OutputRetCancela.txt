@@ -1,0 +1,80 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I Utils.TXT}
+Var
+  _ListFields : TStringList;
+  _Status, _Motivo, _Result, _Xml: string;
+
+  function GetStatus : String;
+  var
+    _Retorno : string;
+  begin
+    if xmlSelectNodeValue(Params.Values['XML'],  '//*[local-name()="Retorno"]', _Retorno) then
+    begin
+      if (Params.Values['faultstring'] = '') and (_Retorno = 'true') then
+      begin
+        result := 'SUCESSO';
+      end
+      else
+        result := 'ERRO';
+    end;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+   //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponseCancelamento : TStringList;
+  var
+    _i: Integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','DataCancelamento']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    Result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+begin
+  Progress('Obtendo os campos de resposta.');
+  _Xml := Params.Values['XML'];
+  _Status := GetStatus;
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponseCancelamento;
+  if _ListFields <> nil then
+  Try
+    AddValueListFields('Motivo', GetMotivo(_Xml));
+    AddValueListFields('Status', _Status);
+    AddValueListFields('DataCancelamento', '');
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

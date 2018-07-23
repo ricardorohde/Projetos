@@ -1,0 +1,147 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _DS : TSpdXSDClientDataSet;
+
+  procedure GetPonteirosDataSets;
+  begin
+    _DS := Datasets.GetDataSetByName('Msg');
+    if (_DS = nil) then
+      RaiseException('DataSet Msg não foi carregado corretamente.');
+  end;
+
+
+  function RemoveCaracteresInvalidosResposta(const aValue : string) : string;
+  begin
+    result := StringReplace(result, Params.Values['DelimitadorDoCampo'],'',[rfReplaceAll]);
+    result := StringReplace(result, Params.Values['DelimitadorDaLinha'],'',[rfReplaceAll]);
+    result := StringReplace(result, #13,'',[rfReplaceAll]);
+    result := StringReplace(result, #10,'',[rfReplaceAll]);
+  end;
+
+  function GetErro(const aXML: string) : string;
+  var
+      _Erro : String;
+  begin
+    if xmlSelectNodeValue(aXml,'//*[local-name()="Erro"]',_Erro) then
+      result := _Erro
+    else
+      result := '';
+  end;
+
+  function GetMotivo : string;
+  begin
+    if Params.Values['faultstring'] <> '' then
+    begin
+      Result := 'Falha na comunicação com WebService-' + Input;
+    end
+    else if (_DS <> nil) then
+    begin
+      _DS.First;
+      while Not _DS.Eof do
+      begin
+        if (Result = '') then
+          Result := Format1('%s', Trim(_DS.FieldByName('Status').AsString))
+        else
+          Result := Format2('%s: %s', Result, Trim(_DS.FieldByName('Status').AsString));
+        _DS.Next;
+      end
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+  end;
+
+  function GetStatus : string;
+  begin
+    if GetErro(Params.Values['XML']) = '0' then
+     result := 'SUCESSO'
+  else
+     result := 'ERRO';
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+    _i: Integer;
+  begin
+    result := TStringList.Create;
+    result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+  // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Erro','Status', 'Motivo', 'NumeroProtocolo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  //Função que passa o valor a lista de resultado
+  procedure AddValueListFields(const aParamName, aValue : string);
+  begin
+    if _ListFields.IndexOf(aParamName) > -1 then
+      _ListFields[_ListFields.IndexOf(aParamName)] := aValue;
+  end;
+
+  //Função que formata a lista em resposta, considerando DelimitadorDoCampo
+  function FormatLineResult : string;
+  var
+    i : integer;
+  begin
+    result := '';
+    for i := 0 to _ListFields.Count - 1 do
+      Result := Result + _ListFields[i] + Params.Values['DelimitadorDoCampo']
+  end;
+
+  function GetProtocolo(const aXML: string) : string;
+  var
+     _i : integer;
+    _protocolo : String;
+    _valorProtocolo : String;
+    _posIni, _posFim : integer;
+  begin
+    _protocolo := XmlSelect(aXML, '//*[local-name()="Status"]');
+    _posIni := Pos('º',_protocolo) + 2;
+    _posFim := Pos('foi',_protocolo) -1;
+    if _posIni > 2 then
+    begin
+      for _i := _posIni to _posFim-1 do
+      begin
+          _valorProtocolo := _valorProtocolo + copy(_protocolo, _i, 1);
+      end;
+    end;
+    Result := _valorProtocolo;
+  end;
+
+begin
+
+  Progress('Obtendo ponteiros dos datasets.');
+  GetPonteirosDataSets;
+
+  _ListFields := CreateFieldsResponse;
+  if _ListFields <> nil then
+  Try
+    Progress('Adicionando valores aos campos.');
+    AddValueListFields('Status', GetStatus);
+    if GetStatus = 'SUCESSO' then
+    begin
+      AddValueListFields('Motivo', '');
+      AddValueListFields('NumeroProtocolo', GetProtocolo(Params.Values['XML']));
+    end
+    else
+    begin
+      AddValueListFields('Motivo',GetMotivo);
+      AddValueListFields('NumeroProtocolo', '')
+    end;
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

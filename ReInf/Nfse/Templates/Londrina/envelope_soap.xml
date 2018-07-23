@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:v1="http://iss.londrina.pr.gov.br/ws/v1_03">
+<soapenv:Header/>
+<soapenv:Body>
+%s
+</soapenv:Body>
+</soapenv:Envelope>

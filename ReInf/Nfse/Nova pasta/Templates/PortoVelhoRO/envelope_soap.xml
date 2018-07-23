@@ -1,0 +1,5 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:nfse="http://nfse.abrasf.org.br">
+<soapenv:Header/>
+<soapenv:Body>%s
+</soapenv:Body>
+</soapenv:Envelope>

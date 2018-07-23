@@ -1,0 +1,5 @@
+<urn:gravaNotaXML soapenv:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+	<params xsi:type="xsd:string"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+	%s]]>
+	</params>
+</urn:gravaNotaXML>

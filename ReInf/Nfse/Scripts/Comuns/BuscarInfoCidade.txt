@@ -1,0 +1,7 @@
+  function BuscarInfoCidade(const aCampoBusca, aValorCampo, aCampoRetorno: string): string;
+  begin
+    if (aValorCampo <> '') and _cdsCidades.Locate(aCampoBusca, aValorCampo, []) then
+      Result := _cdsCidades.FieldByName(aCampoRetorno).AsString
+    else
+      RaiseException('Informação do município não encontrada: ' + aCampoBusca + '; Valor buscado: ' + aValorCampo);
+  end;

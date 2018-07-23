@@ -1,0 +1,37 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+{$I .\Utils.txt}
+Var
+  _Xml,_DataHora,_Sucesso,_Codigo,_Mensagem,_Correcao : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'cancelar_nfse_resposta_v1.xsd';
+  Datasets.XsdElementName := 'CancelarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  _Xml := DesescaparXml(Input);
+  //Retorno não segue o schema, sendo necessário alguns ajustes.
+  _Xml := StringReplace(_Xml, '&lt;MensagemRetorno&gt;', '&lt;ListaMensagemRetorno&gt;&lt;MensagemRetorno&gt;', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '&lt;/MensagemRetorno&gt;', '&lt;/MensagemRetorno&gt;&lt;/ListaMensagemRetorno&gt;', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '<MensagemRetorno>', '<ListaMensagemRetorno><MensagemRetorno>', [RfReplaceAll]);
+  _Xml := StringReplace(_Xml, '</MensagemRetorno>', '</MensagemRetorno></ListaMensagemRetorno>', [RfReplaceAll]);
+
+  _Xml := XmlSelect(_Xml, '//*[local-name()="CancelarNfseResposta"]');
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else if (Pos('<Cancelamento/>', _Xml) > 0) and (Pos('<Sucesso>true</Sucesso>', _Xml) = 0) then
+    Params.Add('Erro='+Input)
+  else
+  begin
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

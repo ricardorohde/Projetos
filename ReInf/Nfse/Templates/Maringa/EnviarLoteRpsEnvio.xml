@@ -1,0 +1,13 @@
+&lt;EnviarLoteRpsSincronoEnvio xmlns="http://www.abrasf.org.br/nfse.xsd" 
+							xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+							xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+							xsi:schemaLocation="http://www.abrasf.org.br/nfse.xsd nfse_v2.01.xsd "&gt;
+<LoteRps %s="L1" versao="%s"> 
+<NumeroLote>%s</NumeroLote>
+%s
+<InscricaoMunicipal>%s</InscricaoMunicipal>
+<QuantidadeRps>%s</QuantidadeRps>
+%s
+</LoteRps>
+%s
+&lt;/EnviarLoteRpsSincronoEnvio&gt;

@@ -1,0 +1,145 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Motivo,_Status, _Xml,_InscMun,_NumNFSe : String;
+  i,_count : integer;
+
+const
+  XPATH_SUCESSO = '//*[local-name()="notas"]/*[local-name()="nota"]';
+
+  {$I Utils.txt}
+
+  function GetStatus : String;
+  begin
+    if (GetMotivo(Params.Values['XmlLote']) <> '') then
+    begin
+      if pos('processamento', GetValueTag('aviso',Params.Values['XmlLote'])) > 0 then
+        Result := 'EMPROCESSAMENTO'
+      else if GetValueTag('status',Params.Values['XmlLote']) = 'FALSE' then
+        Result := 'ERRO'
+    end
+      else
+        Result := 'SUCESSO';
+  end;
+
+  function CreateFieldsResponseProcessamento : TStringList;
+  begin
+    Result := TStringList.Create;
+    Result.Add('Status');
+  end;
+
+  //Função para Capturar a Ordem dos Campos do Params
+  function CreateFieldsResponse : TStringList;
+  var
+   _i : integer;
+  begin
+    Result := TStringList.Create;
+    Result.Text := StringReplace(Params.Values['ListaCampos'], ',',#13#10,[rfReplaceAll]);
+
+    // Checar se os campos da ListaCampos são suportados
+    for _i := 0 to Result.Count - 1 do
+    begin
+      if not AnsiMatchText(Trim(Result[_i]), ['Status','Motivo','Cnpj','InscMunicipal',
+        'SerieRps','NumeroRps','NumeroNFSe','DataEmissaoNFSe','DataAutorizacao',
+        'CodVerificacao','Situacao','DataCancelamento','ChaveCancelamento','Xml'
+        ,'Tipo']) then
+        RaiseException('Campo "' + Result[_i] + '" não suportado')
+      else
+        Result[_i] := Trim(Result[_i]);
+    end;
+  end;
+
+  function GetResult(const aListFieldsResult : TStringList) : string;
+  begin
+    if (Params.Values['DelimitadorDaLinha'] = '') then
+      Result := FormatLineResult(aListFieldsResult) + #13#10
+    else
+      Result := FormatLineResult(aListFieldsResult) + Params.Values['DelimitadorDaLinha'];
+  end;
+
+begin
+  Progress('Obtendo ponteiros dos datasets.');
+
+  if Params.Values['faultstring'] <> '' then
+    Output := GetListFieldsFaultstring(_ListFields, Input)
+  else
+  begin
+    _Status := GetStatus;
+    _Motivo := GetMotivo(Params.Values['XmlLote']);
+
+    if _Status = 'SUCESSO' then
+    begin
+      _count := XmlSelectCountNode(Params.Values['XmlLote'], XPATH_SUCESSO);
+      for i := 1 to _count do
+      begin
+        _ListFields := CreateFieldsResponse;
+        if _ListFields <> nil then
+        begin
+          try
+            _Xml := XmlSelect(Params.Values['XmlLote'], XPATH_SUCESSO + '['+ IntToStr(i) +']');
+            XmlSelectNodeValue(_Xml, '//*[local-name()="IdentificacaoPrestador"]/*[local-name()="InscricaoMunicipal"]', _InscMun);
+            XmlSelectNodeValue(_Xml, '//*[local-name()="InfNfse"]/*[local-name()="Numero"]', _NumNFSe);
+            Progress('Adicionando valores aos campos.');
+            AddValueListFields('Status', 'SUCESSO', _ListFields);
+            AddValueListFields('Motivo', '', _ListFields);
+            AddValueListFields('Cnpj', GetValueTag('CNPJ', _Xml), _ListFields);
+            AddValueListFields('InscMunicipal', _InscMun, _ListFields);
+            AddValueListFields('SerieRps', '', _ListFields);
+            AddValueListFields('NumeroRps', GetValueTag('NumeroRps', _Xml), _ListFields);
+            AddValueListFields('NumeroNFSe', _NumNFSe, _ListFields);
+            AddValueListFields('DataEmissaoNFSe', GetValueTag('DataEmissao', _Xml), _ListFields);
+            AddValueListFields('DataAutorizacao', GetValueTag('DataEmissao', _Xml), _ListFields);
+            AddValueListFields('CodVerificacao', GetValueTag('CodigoVerificacao', _Xml), _ListFields);
+            AddValueListFields('Situacao', 'AUTORIZADA', _ListFields);
+            AddValueListFields('DataCancelamento', '', _ListFields);
+            AddValueListFields('ChaveCancelamento', _NumNFSe, _ListFields);
+            AddValueListFields('Tipo', '', _ListFields);
+            AddValueListFields('Xml', XmlSelect(_Xml, '//*[local-name()="CompNfse"]'), _ListFields);
+
+            Output := Output + GetResult(_ListFields);
+          finally
+            _ListFields.Free;
+          end;
+        end;
+      end;
+    end
+    else
+    begin
+      if _Status = 'EMPROCESSAMENTO' then
+      begin
+        try
+          _ListFields := CreateFieldsResponseProcessamento;
+          AddValueListFields('Status', _Status, _ListFields);
+          Output := Output + FormatLineResult(_ListFields) + Params.Values['DelimitadorDaLinha'];
+        finally
+          _ListFields.Free;
+        end;
+      end
+      else
+      begin
+        if _Status = 'ERRO' then
+        begin
+          _ListFields := CreateFieldsResponseFalha;
+          if _ListFields <> nil then
+          begin
+            try
+              AddValueListFields('Status', 'ERRO', _ListFields);
+              AddValueListFields('Motivo', _Motivo, _ListFields);
+              Output := Output + FormatLineResult(_ListFields);
+            finally
+              _ListFields.Free;
+            end;
+          end;
+        end;
+      end;
+    end;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

@@ -1,0 +1,17 @@
+<abr:AHCANCELARNFSE.Execute><abr:Entrada>
+    &lt;CancelarNfseEnvio xmlns=&quot;http://www.abrasf.org.br/nfse.xsd&quot;&gt;
+	&lt;Pedido&gt;
+		&lt;InfPedidoCancelamento&gt;
+			&lt;IdentificacaoNfse&gt;
+				&lt;Numero&gt;%s&lt;/Numero&gt;
+				&lt;CpfCnpj&gt;
+					&lt;Cnpj&gt;%s&lt;/Cnpj&gt;
+				&lt;/CpfCnpj&gt;
+				&lt;InscricaoMunicipal&gt;%s&lt;/InscricaoMunicipal&gt;
+				&lt;CodigoMunicipio&gt;%s&lt;/CodigoMunicipio&gt;
+			&lt;/IdentificacaoNfse&gt;
+			&lt;CodigoCancelamento&gt;%s&lt;/CodigoCancelamento&gt;
+		&lt;/InfPedidoCancelamento&gt;
+	&lt;/Pedido&gt;
+&lt;/CancelarNfseEnvio&gt;  
+   </abr:Entrada></abr:AHCANCELARNFSE.Execute>

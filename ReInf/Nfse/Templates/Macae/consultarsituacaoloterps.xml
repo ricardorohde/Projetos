@@ -1,0 +1,12 @@
+<ConsultarSituacaoLoteRpsRequest xmlns="http://www.nfe.com.br/">
+  <inputXML>
+    <![CDATA[<?xml version="1.0" encoding="utf-8"?>
+    <ConsultarSituacaoLoteRpsEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">
+      <Prestador>
+        <Cnpj>%s</Cnpj>
+        <InscricaoMunicipal>%s</InscricaoMunicipal>
+      </Prestador>
+      <Protocolo>%s</Protocolo>
+    </ConsultarSituacaoLoteRpsEnvio>]]>
+  </inputXML>
+</ConsultarSituacaoLoteRpsRequest>

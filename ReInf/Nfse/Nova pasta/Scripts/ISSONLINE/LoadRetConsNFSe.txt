@@ -1,0 +1,41 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml, _Situacao : string;
+begin
+
+  Progress('Carregando configurações de XSDDataset.');
+
+  Datasets.XsdFile := PathXsd + 'spd_envio.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSE';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  if Pos('&amp;', Input) = 0 then
+    _Xml := StringReplace(Input, '&',  '&amp;',  [rfReplaceAll])
+  else
+    _Xml := Input;
+
+  _Situacao := XmlDeepNodeSearch(Input, 'INCONSISTENCIA', '//*[local-name()="INCONSISTENCIA"]');
+
+  Progress('Carregando XML de Retorno de Envio de lote');
+
+  if _Situacao <> '' then
+    Params.Add('Situacao='+_Situacao)
+  else if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    _Xml := XmlSelect(_Xml, '//*[local-name()="NFSE"]');
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso');
+  end;
+end.

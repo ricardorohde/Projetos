@@ -1,0 +1,6 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:end="http://endpoint.nfse.ws.webservicenfse.edza.com.br/">
+<soapenv:Header/>
+<soapenv:Body>
+%s
+</soapenv:Body>
+</soapenv:Envelope>

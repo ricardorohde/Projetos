@@ -1,0 +1,44 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _aux : string;
+  _DSFalha: TSpdXSDClientDataSet;
+begin
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'EnviarLoteRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_ENVIAR';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Datasets.CreateXSDDataset;
+  if Pos('<faultstring',input) > 0 then
+  begin
+    Params.Add('faultstring='+input);
+  end
+  else
+  begin
+    If Pos('<ii:Fault', input) > 0 then
+    begin
+      //Params.Add('Fault='+input);
+      _DSFalha := Datasets.GetDataSetByName('MensagemRetorno');
+      _DSFalha.Insert;
+      XmlSelectNodeValue(Input, '//*[local-name()="Code"]', _aux);
+      _DSFalha.FieldByName('MotivoCodigo').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Reason"]', _aux);
+      _DSFalha.FieldByName('MotivoMensagem').AsString := _aux;
+      XmlSelectNodeValue(Input, '//*[local-name()="Detail"]', _aux);
+      _DSFalha.FieldByName('MotivoCorrecao').AsString := _aux;
+      _DSFalha.Post;
+    end
+    else
+    begin
+      _Xml := XmlDeepNodeSearch(Input, 'EnviarLoteRpsResposta', '//*[local-name()="EnviarLoteRpsResposta"]');
+      Datasets.LoadFromXMLContent(_Xml);
+    end;
+  end;
+end.

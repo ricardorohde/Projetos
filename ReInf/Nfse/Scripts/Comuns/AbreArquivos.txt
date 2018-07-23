@@ -1,0 +1,11 @@
+procedure AbreArquivos(aCaminho : String; var aDataSet : TClientDataSet);
+var
+  _Stream : TFileStream;
+begin
+  _Stream := TFileStream.Create(aCaminho, fmShareDenyNone);
+  try
+    aDataSet.LoadFromStream(_Stream);
+  finally
+    _Stream.Free;
+  end;
+end;

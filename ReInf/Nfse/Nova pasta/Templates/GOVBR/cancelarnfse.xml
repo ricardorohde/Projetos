@@ -1,0 +1,6 @@
+<CancelarNfse xmlns="http://tempuri.org/">
+<xmlEnvio>
+<![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<CancelarNfseEnvio>%s</CancelarNfseEnvio>]]>
+</xmlEnvio>
+</CancelarNfse>

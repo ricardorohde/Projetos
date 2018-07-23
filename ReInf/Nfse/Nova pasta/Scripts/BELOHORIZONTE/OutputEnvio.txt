@@ -1,0 +1,29 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+const NS_ABRASF = ' xmlns="http://www.abrasf.org.br/nfse.xsd"';
+begin
+  Progress('Gerando arquivo XML.');
+  Output := Datasets.AsXML;
+
+  // Se o dataset for para o padrão normal, é necessário envelopar o XML em um template
+  if Datasets.DsPrincipal.Name = 'LoteRps' then
+  begin
+    Output := StringReplace(Output, NS_ABRASF, '', []);
+
+    If Params.Values['NomeServico'] = 'GerarNfseEnvio' then
+      Output := '<GerarNfseEnvio'+NS_ABRASF+'>'+Output+'</GerarNfseEnvio>'
+    else
+      Output := '<EnviarLoteRpsEnvio'+NS_ABRASF+'>'+Output+'</EnviarLoteRpsEnvio>';
+  end;
+
+  Output := RealizarDelimitacaoLoteRps(Output, 'Rps', 'ListaRps');
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_BELOHORIZONTE);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

@@ -1,0 +1,53 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+
+
+  function GetConfigSection: string;
+  begin
+    Result := 'RETORNO_ENVIOSINCRONO'
+  end;
+
+Var
+  _Xml: string;
+
+{$I Utils.txt}
+
+begin
+  if Pos('<faultstring', Input) > 0 then
+  begin
+    Input := StringReplace(Input, #13#10, '', [rfReplaceAll]);
+    Params.Add('faultstring=' + Input);
+  end
+  else
+  begin
+    Progress('Carregando configurações de XSDDataset.');
+
+    Datasets.ConfigSection := GetConfigSection;
+
+    if Trim(MappingXsdFileName) <> '' then
+      Datasets.MappingFileName := MappingXsdFileName;
+
+    Progress('Criando XSDDataset.');
+    Datasets.CreateXSDDataset;
+
+
+    Input := StringReplace(Input, '&lt;', '<', [rfReplaceAll]);
+    Input := StringReplace(Input, '&gt;', '>', [rfReplaceAll]);
+    Input := StringReplace(Input, '<?xml version="1.0" encoding="UTF-8"?>', '', [rfReplaceAll]);
+    _Xml := XmlDeepNodeSearch(Input, Datasets.XsdElementName,
+      '//*[local-name()="EnviarLoteRpsSincronoResposta"]');
+    Params.Add('EnvioSincrono=true');
+    // Em alguns casos o XmlDeepNodeSearch pode indentar o XML, causando problemas no CSV
+    _Xml := UnindentXml(_Xml);
+    Params.Add('XmlLote=' + _Xml);
+
+    Datasets.LoadFromXMLContent(_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

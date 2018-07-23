@@ -1,0 +1,95 @@
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[RETORNO_ENVIAR]
+XSDElementName=EnviarLoteRpsResposta
+XSDFile=nfse.xsd
+XSDStartNode=
+IgnoredXPaths=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno do Envio de Lote de RPS
+;*****************************************************************************************************************************************
+[EnviarLoteRpsResposta]
+NumeroProtocolo=EnviarLoteRpsResposta/Protocolo
+MotivoCodigo=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=EnviarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Correcao
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno de Cancelamento
+;*****************************************************************************************************************************************
+[RETORNO_CANCELARNFSE]
+XSDElementName=CancelarNfseResposta
+XSDFile=nfse.xsd
+XSDStartNode=
+IgnoredXPaths=CancelarNfseResposta/Cancelamento/Confirmacao/Pedido/Signature;CancelarNfseResposta/Cancelamento/Signature
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+
+;***************************************************************************************************
+;Nomes dos Campos: Retorno de Cancelamento
+;***************************************************************************************************
+[CancelarNfseResposta]
+;Sucesso=CancelarNfseResposta/Cancelamento/Confirmacao/InfConfirmacaoCancelamento/Sucesso
+DataCancelamento=CancelarNfseResposta/Cancelamento/Confirmacao/DataHoraCancelamento
+MotivoCodigo=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=CancelarNfseResposta/ListaMensagemRetorno/MensagemRetorno/Correcao
+
+
+;***************************************************************************************************
+;Configuração do NFSeDataset para Retorno de Lote
+;***************************************************************************************************
+[RETORNO_CONSULTARLOTE]
+XSDElementName=ConsultarLoteRpsResposta
+XSDFile=nfse.xsd
+XSDStartNode=
+IgnoredXPaths=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/Signature;ConsultarLoteRpsResposta/ListaNfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/Signature;ConsultarLoteRpsResposta/ListaNfse/CompNfse/NfseCancelamento/Signature;ConsultarLoteRpsResposta/ListaNfse/CompNfse/NfseSubstituicao/Signature
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+
+;***************************************************************************************************
+;Nomes dos Campos: Retorno da Consulta por Lote
+;***************************************************************************************************
+[ConsultarLoteRpsResposta]
+NumeroNFSe=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/Numero
+CodVerificacao=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/CodigoVerificacao
+DataEmissaoNFSe=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/DataEmissao
+NumeroRps=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Numero
+SerieRps=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Serie
+Tipo=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/IdentificacaoRps/Tipo
+DataAutorizacao=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/DataEmissaoRps
+Cnpj=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/Cnpj
+InscMunicipal=ConsultarLoteRpsResposta/ListaNfse/CompNfse/Nfse/InfNfse/PrestadorServico/IdentificacaoPrestador/InscricaoMunicipal
+DataCancelamento=ConsultarLoteRpsResposta/ListaNfse/CompNfse/NfseCancelamento/Confirmacao/DataHoraCancelamento
+CodigoCancelamento=ConsultarLoteRpsResposta/ListaNfse/CompNfse/NfseCancelamento/Confirmacao/Pedido/InfPedidoCancelamento/CodigoCancelamento
+MotivoCodigo=ConsultarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=ConsultarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=ConsultarLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Correcao
+
+;*****************************************************************************************************************************************
+;Configuração do XsdDataset para Retorno da Consulta de Situacao do Lote
+;*****************************************************************************************************************************************
+[RETORNO_CONSULTARSITUACAOLOTE]
+XSDElementName=ConsultarSituacaoLoteRpsResposta
+XSDFile=nfse.xsd
+XSDStartNode=
+IgnoredXPaths=
+UseNamespacePrefixes=0
+XMLHeader=
+RootAttributes=
+
+;*****************************************************************************************************************************************
+;Nomes dos Campos: Retorno da Consulta de Situacao do Lote
+;*****************************************************************************************************************************************
+[ConsultarSituacaoLoteRpsResposta]
+NumeroLote=ConsultarSituacaoLoteRpsResposta/NumeroLote
+Situacao=ConsultarSituacaoLoteRpsResposta/Situacao
+MotivoCodigo=ConsultarSituacaoLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Codigo
+MotivoMensagem=ConsultarSituacaoLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Mensagem
+MotivoCorrecao=ConsultarSituacaoLoteRpsResposta/ListaMensagemRetorno/MensagemRetorno/Correcao

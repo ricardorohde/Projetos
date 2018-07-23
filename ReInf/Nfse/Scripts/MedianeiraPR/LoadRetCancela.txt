@@ -1,0 +1,52 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+Var
+  _Xml, _Comando, _Aux: string;
+  _DsCancelamento: TSpdXSDClientDataSet;
+
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.ConfigSection := 'RETORNO_CANCELARNFSE';
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := StringReplace(Input,'<?xml version="1.0" encoding="utf-8"?>','',[rfReplaceAll]);
+  _Xml := StringReplace(Input,'&#xD;','',[rfReplaceAll]);
+  // GovBR: apesar do envio de lote de RPS não poder ter namespace, o retorno do cancelamento tem o NS da Abrasf.
+
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[local-name()="CancelarNfseResposta"]');
+
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+
+    { GovBR: o XML do retorno do cancelamento não corresponde com o esquema XML
+        fornecido pelo fabricante, portanto alguns campos não estão sendo
+        carregados. Temos de fazer a carga desses campos manualmente.}
+    _DsCancelamento := Datasets.GetDataSetByName('CancelarNfseResposta');
+    if _DsCancelamento <> nil then
+    begin
+      _DsCancelamento.Edit;
+      _Comando := '//*[local-name()="CancelarNfseResposta"]'+
+        '//*[local-name()="DataHoraCancelamento"]';
+      if XmlSelectNodeValue(_Xml, _Comando, _Aux) then
+      begin
+        _DsCancelamento.FieldByName('DataCancelamento').AsString := _Aux;
+      end;
+      _DsCancelamento.Post;
+    end;
+
+    Progress('XML carregado com sucesso.');
+  end;
+end.

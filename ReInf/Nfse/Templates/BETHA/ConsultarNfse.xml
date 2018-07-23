@@ -1,0 +1,10 @@
+<ConsultarNfseEnvio xmlns="http://www.betha.com.br/e-nota-contribuinte-ws">
+<Prestador xmlns="">
+	<Cnpj>%s</Cnpj>
+	<InscricaoMunicipal>%s</InscricaoMunicipal>
+</Prestador>
+%s
+%s
+%s
+%s
+</ConsultarNfseEnvio>

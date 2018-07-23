@@ -1,0 +1,73 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  _ListFields : TStringList;
+  _Status, _Xml: String;
+
+{$I ..\SIGISS\Utils.TXT}
+
+  function GetMotivo(const aXML:string) : string;
+  Var
+    i, _QtdErros: Integer;
+    _FaultString, _CodErro, _DescErro: string;
+  begin
+    Result := '';
+    if Params.Values['faultstring'] <> '' then
+    begin
+      if xmlSelectNodeValue(Params.Values['faultstring'], '//*[local-name()="faultstring"]', _FaultString) then
+        Result := 'Falha na comunicação com WebService-' +_FaultString
+      else
+        Result := 'Falha na comunicação com WebService-' + Params.Values['faultstring'];
+    end
+    else
+    begin
+      _QtdErros := XmlSelectCountNode(aXML, '//*[local-name()="item"]');
+      for i := 0 to _QtdErros -1 do
+      begin
+        _DescErro := XmlSelectItemIndexNode(aXML, '//*[local-name()="DescricaoErro"]', i);
+        _DescErro := GetValueXml(_DescErro, '//*[local-name()="DescricaoErro"]')
+
+        _CodErro := XmlSelectItemIndexNode(aXML, '//*[local-name()="id"]', i);
+        _CodErro := GetValueXml(_CodErro, '//*[local-name()="id"]')
+
+        if Result = '' then
+          Result := Format2('%s: %s.', _CodErro, _DescErro)
+        else
+          Result := Format3('%s %s: %s.', Result, _CodErro, _DescErro);
+      end;
+    end;
+    Result := RemoveCaracteresInvalidosResposta(Result);
+    Result := StringReplace(result, Chr(9),' ',[rfReplaceAll]);
+  end;
+
+begin
+  _Xml := Params.Values['XML'];
+  _Status := GetStatus(_Xml);
+
+  Progress('Adicionando valores aos campos.');
+  _ListFields := CreateFieldsResponseCancelamento;
+  if _ListFields <> nil then
+  Try
+    AddValueListFields('Status', _Status);
+    if _Status = 'SUCESSO' then
+    begin
+      AddValueListFields('Motivo', '');
+      AddValueListFields('DataCancelamento', FormatDateTime('yyyy-mm-dd',now));
+    end
+    else
+    begin
+      AddValueListFields('DataCancelamento', '');
+      AddValueListFields('Motivo', GetMotivo(_XML));
+    end;
+    Output := FormatLineResult;
+  Finally
+    _ListFields.Free;
+    Progress('Valores adicionados com sucesso.');
+  end;
+end.

@@ -1,0 +1,15 @@
+<p1:PedidoConsultaNFePeriodo xmlns:p1="http://www.prefeitura.sp.gov.br/nfe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Cabecalho Versao="1">
+    <CPFCNPJRemetente>
+      <CNPJ>%s</CNPJ>
+    </CPFCNPJRemetente>
+    <CPFCNPJ>
+    %s
+    </CPFCNPJ>
+    %s
+    <dtInicio>%s</dtInicio>
+    <dtFim>%s</dtFim>
+    <NumeroPagina>%s</NumeroPagina>
+  </Cabecalho>
+%s
+</p1:PedidoConsultaNFePeriodo>

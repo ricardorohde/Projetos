@@ -1,0 +1,100 @@
+;*****************************************************************************************************************************************
+;Definições dos Campos: Impressão de RPS (Impressão Nova)
+;*****************************************************************************************************************************************
+[PrintXml_DadosRPS]
+;Dados do RPS
+Id=/Rps/InfRps/@Id
+Numero=/Rps/InfRps/IdentificacaoRps/Numero
+Serie=/Rps/InfRps/IdentificacaoRps/Serie
+Tipo=/Rps/InfRps/IdentificacaoRps/Tipo
+DataEmissao=/Rps/InfRps/DataEmissao
+NaturezaOperacao=/Rps/InfRps/NaturezaOperacao
+RegimeEspecialTributacao=/Rps/InfRps/RegimeEspecialTributacao
+OptanteSimplesNacional=/Rps/InfRps/OptanteSimplesNacional
+IncentivadorCultural=/Rps/InfRps/IncentivadorCultural
+Status=/Rps/InfRps/Status
+NumeroRpsSubstituido=/Rps/InfRps/RpsSubstituido/Numero
+SerieRpsSubstituido=/Rps/InfRps/RpsSubstituido/Serie
+TipoRpsSubstituido=/Rps/InfRps/RpsSubstituido/Tipo
+
+;Dados do Serviço
+ValorServicos=/Rps/InfRps/Servico/Valores/ValorServicos
+ValorDeducoes=/Rps/InfRps/Servico/Valores/ValorDeducoes
+ValorPis=/Rps/InfRps/Servico/Valores/ValorPis
+ValorCofins=/Rps/InfRps/Servico/Valores/ValorCofins
+ValorInss=/Rps/InfRps/Servico/Valores/ValorInss
+ValorIr=/Rps/InfRps/Servico/Valores/ValorIr
+ValorCsll=/Rps/InfRps/Servico/Valores/ValorCsll
+IssRetido=/Rps/InfRps/Servico/Valores/IssRetido
+ValorIss=/Rps/InfRps/Servico/Valores/ValorIss
+ValorIssRetido=/Rps/InfRps/Servico/Valores/ValorIssRetido
+OutrasRetencoes=/Rps/InfRps/Servico/Valores/OutrasRetencoes
+BaseCalculo=/Rps/InfRps/Servico/Valores/BaseCalculo
+Aliquota=/Rps/InfRps/Servico/Valores/Aliquota
+ValorLiquidoNfse=/Rps/InfRps/Servico/Valores/ValorLiquidoNfse
+DescontoIncondicionado=/Rps/InfRps/Servico/Valores/DescontoIncondicionado
+DescontoCondicionado=/Rps/InfRps/Servico/Valores/DescontoCondicionado
+ItemListaServico=/Rps/InfRps/Servico/ItemListaServico
+CodigoCnae=/Rps/InfRps/Servico/CodigoCnae
+CodigoTributacaoMunicipio=/Rps/InfRps/Servico/CodigoTributacaoMunicipio
+Discriminacao=/Rps/InfRps/Servico/Discriminacao
+CodigoMunicipio=/Rps/InfRps/Servico/CodigoMunicipio
+
+;Dados do Prestador
+CnpjPrestador=/Rps/InfRps/Prestador/Cnpj
+InscricaoPrestador=/Rps/InfRps/Prestador/InscricaoMunicipal
+
+;Dados do Tomador
+CpfTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cpf
+CnpjTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/CpfCnpj/Cnpj
+InscricaoMunicipalTomador=/Rps/InfRps/Tomador/IdentificacaoTomador/InscricaoMunicipal
+RazaoSocialTomador=/Rps/InfRps/Tomador/RazaoSocial
+EnderecoTomador=/Rps/InfRps/Tomador/Endereco/Endereco
+NumeroEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Numero
+ComplementoEnderecoTomador=/Rps/InfRps/Tomador/Endereco/Complemento
+BairroTomador=/Rps/InfRps/Tomador/Endereco/Bairro
+CodigoMunicipioTomador=/Rps/InfRps/Tomador/Endereco/CodigoMunicipio
+UFTomador=/Rps/InfRps/Tomador/Endereco/Uf
+CepTomador=/Rps/InfRps/Tomador/Endereco/Cep
+TelefoneTomador=/Rps/InfRps/Tomador/Contato/Telefone
+EmailTomador=/Rps/InfRps/Tomador/Contato/Email
+
+Parcelas=/Nfse/CompNfse/Nfse/InfNfse/Parcelas/Parcela[]
+
+;Dados do Intermediário
+RazaoSocialIntermediario=/Rps/InfRps/IntermediarioServico/RazaoSocial
+CpfIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cpf
+CnpjIntermediario=/Rps/InfRps/IntermediarioServico/CpfCnpj/Cnpj
+InscricaoMunicipalIntermediario=/Rps/InfRps/IntermediarioServico/InscricaoMunicipal
+
+;Dados da Obra
+CodigoObra=/Rps/InfRps/ConstrucaoCivil/CodigoObra
+Art=/Rps/InfRps/ConstrucaoCivil/Art
+
+;Outras informações
+OutrasInformacoes=/Nfse/CompNfse/Nfse/InfNfse/OutrasInformacoes
+
+;Campos Customizados
+NomeFantasiaPrestador=String[80]
+RazaoSocialPrestador=String[80]
+EnderecoPrestador=String[80]
+CodigoMunicipioPrestador=String[10]
+UfPrestador=String[2]
+NumeroEnderecoPrestador=String[7]
+ComplementoEnderecoPrestador=String[20]
+BairroPrestador=String[40]
+CepPrestador=String[8]
+TelefonePrestador=String[20]
+EmailPrestador=String[80]
+CelularPrestador=String[20]
+CelularTomador=String[20]
+SitePrestador=String[80]
+InscricaoEstadualPrestador=String[40]
+InscricaoEstadualTomador=String[40]
+NomeFantasiaTomador=String[80]
+
+[PrintXml_Parcelas]
+Parcela=/Nfse/Nota/Parcelas/Parcela[]/Parcela
+Vencimento=/Nfse/Nota/Parcelas/Parcela[]/Vencimento
+Valor=/Nfse/Nota/Parcelas/Parcela[]/Valor
+Pagamento=/Nfse/Nota/Parcelas/Parcela[]/Pagamento

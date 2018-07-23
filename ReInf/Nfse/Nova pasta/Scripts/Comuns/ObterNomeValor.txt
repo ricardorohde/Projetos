@@ -1,0 +1,16 @@
+  // Obter as partes Nome e Valor de uma string contendo um par "Nome=Valor"
+  procedure ObterNomeValor(const aNomeValor: string; var aNome: string; var aValor: string);
+  var
+    _p: Integer;
+  begin
+    _p := Pos('=', aNomeValor);
+    if _p > 0 then
+    begin
+      //aNome := LeftStr(aNomeValor, _p-1);
+      aNome := Copy(aNomeValor, 1, _p-1);
+      aValor := Copy(aNomeValor, _p+1, MaxInt);
+    end
+    else
+      RaiseException('Atribuição inválida: ' + aNomeValor);
+  end;
+

@@ -1,0 +1,1214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PontoEletronicoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PontoEletronicoModelStoreContainer">
+          <EntitySet Name="Conf_WebService" EntityType="PontoEletronicoModel.Store.Conf_WebService" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Configuracao" EntityType="PontoEletronicoModel.Store.Configuracao" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Digital" EntityType="PontoEletronicoModel.Store.Digital" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Funcionario" EntityType="PontoEletronicoModel.Store.Funcionario" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="FuncionarioTolerancia" EntityType="PontoEletronicoModel.Store.FuncionarioTolerancia" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gestor" EntityType="PontoEletronicoModel.Store.Gestor" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HorarioComplementar" EntityType="PontoEletronicoModel.Store.HorarioComplementar" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HorarioEscala" EntityType="PontoEletronicoModel.Store.HorarioEscala" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="HorarioTurno" EntityType="PontoEletronicoModel.Store.HorarioTurno" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Movimento" EntityType="PontoEletronicoModel.Store.Movimento" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Terminal" EntityType="PontoEletronicoModel.Store.Terminal" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TerminalDigital" EntityType="PontoEletronicoModel.Store.TerminalDigital" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Configuracao_Empresa" Association="PontoEletronicoModel.Store.FK_Configuracao_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Configuracao" EntitySet="Configuracao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Digital_Funcionario" Association="PontoEletronicoModel.Store.FK_Digital_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="Digital" EntitySet="Digital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Digital_Gestor" Association="PontoEletronicoModel.Store.FK_Digital_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Digital" EntitySet="Digital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funcionario_Empresa" Association="PontoEletronicoModel.Store.FK_Funcionario_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Funcionario" EntitySet="Funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FuncionarioTolerancia_Funcionario" Association="PontoEletronicoModel.Store.FK_FuncionarioTolerancia_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="FuncionarioTolerancia" EntitySet="FuncionarioTolerancia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioComplementar_Funcionario" Association="PontoEletronicoModel.Store.FK_HorarioComplementar_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioComplementar" EntitySet="HorarioComplementar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioComplementar_Gestor" Association="PontoEletronicoModel.Store.FK_HorarioComplementar_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioComplementar" EntitySet="HorarioComplementar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioEscala_Funcionario" Association="PontoEletronicoModel.Store.FK_HorarioEscala_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioEscala" EntitySet="HorarioEscala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioEscala_Gestor" Association="PontoEletronicoModel.Store.FK_HorarioEscala_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioEscala" EntitySet="HorarioEscala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioTurno_Funcionario" Association="PontoEletronicoModel.Store.FK_HorarioTurno_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioTurno" EntitySet="HorarioTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioTurno_Gestor" Association="PontoEletronicoModel.Store.FK_HorarioTurno_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioTurno" EntitySet="HorarioTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimento_Empresa" Association="PontoEletronicoModel.Store.FK_Movimento_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Gestor" Association="PontoEletronicoModel.Store.FK_Terminal_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Terminal" EntitySet="Terminal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TerminalDigital_Digital" Association="PontoEletronicoModel.Store.FK_TerminalDigital_Digital">
+            <End Role="Digital" EntitySet="Digital" />
+            <End Role="TerminalDigital" EntitySet="TerminalDigital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TerminalDigital_Terminal" Association="PontoEletronicoModel.Store.FK_TerminalDigital_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="TerminalDigital" EntitySet="TerminalDigital" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Conf_WebService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NmIdentificacao" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Valor" Type="varchar(max)" />
+          <Property Name="Arquivo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Configuracao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NmIdentificacao" Type="varchar" Nullable="false" MaxLength="30" />
+          <Property Name="Valor" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Digital">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Digital" Type="varchar(max)" />
+          <Property Name="DtAlteracaoCad" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdEmpresaExterno" Type="int" Nullable="false" />
+          <Property Name="IdFuncionarioExterno" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="NomeCurto" Type="varchar" MaxLength="30" />
+          <Property Name="DtNascimento" Type="datetime" />
+          <Property Name="Mensagem" Type="varchar" MaxLength="255" />
+          <Property Name="HrEntrada" Type="datetime" />
+          <Property Name="HrSaidaAlmoco" Type="datetime" />
+          <Property Name="HrEntradaAlmoco" Type="datetime" />
+          <Property Name="HrSaida" Type="datetime" />
+          <Property Name="HrSaidaIntervalo" Type="datetime" />
+          <Property Name="HrEntradaIntervalo" Type="datetime" />
+          <Property Name="DiasFolga" Type="varchar" MaxLength="7" />
+          <Property Name="VerificaMarcacaoDIG" Type="varchar(max)" />
+          <Property Name="VerificaMarcacaoCod" Type="varchar" MaxLength="20" />
+          <Property Name="DtDemissao" Type="datetime" />
+          <Property Name="Foto" Type="varchar(max)" />
+          <Property Name="TpPessoa" Type="char" MaxLength="1" />
+          <Property Name="VerificaMarcacaoSenha" Type="nchar" MaxLength="10" />
+          <Property Name="DtAlteracaoCad" Type="datetime" />
+          <Property Name="IntervaloMinimoAlmoco" Type="int" />
+          <Property Name="ConsideraAlmoco" Type="bit" />
+          <Property Name="PIS" Type="varchar" MaxLength="14" />
+        </EntityType>
+        <EntityType Name="FuncionarioTolerancia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IgnoraToleranciaEntrada" Type="bit" />
+          <Property Name="IgnoraToleranciaEntradaAntecipada" Type="bit" />
+          <Property Name="IgnoraToleranciaSaidaAlmoco" Type="bit" />
+          <Property Name="IgnoraToleranciaSaidaAlmocoAntecipada" Type="bit" />
+          <Property Name="IgnoraToleranciaEntradaAlmoco" Type="bit" />
+          <Property Name="IgnoraToleranciaEntradaAlmocoAntecipada" Type="bit" />
+          <Property Name="IgnoraToleranciaSaida" Type="bit" />
+          <Property Name="IgnoraToleranciaSaidaAntecipada" Type="bit" />
+          <Property Name="ToleranciaEntrada" Type="smallint" />
+          <Property Name="ToleranciaEntradaAntecipada" Type="smallint" />
+          <Property Name="ToleranciaSaidaAlmoco" Type="smallint" />
+          <Property Name="ToleranciaSaidaAlmocoAntecipada" Type="smallint" />
+          <Property Name="ToleranciaEntradaAlmoco" Type="smallint" />
+          <Property Name="ToleranciaEntradaAlmocoAntecipada" Type="smallint" />
+          <Property Name="ToleranciaSaida" Type="smallint" />
+          <Property Name="ToleranciaSaidaAntecipada" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Gestor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Nome" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Ativo" Type="bit" Nullable="false" />
+          <Property Name="Cadastro" Type="datetime" Nullable="false" />
+          <Property Name="Ativacao" Type="datetime" />
+          <Property Name="Codigo" Type="nchar" MaxLength="10" />
+          <Property Name="Obs" Type="varchar(max)" />
+          <Property Name="AtivaRelacionamento" Type="bit" />
+        </EntityType>
+        <EntityType Name="HorarioComplementar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Entrada" Type="datetime" />
+          <Property Name="SaidaAlmoco" Type="datetime" />
+          <Property Name="EntradaAlmoco" Type="datetime" />
+          <Property Name="Saida" Type="datetime" />
+          <Property Name="SaidaIntervalo" Type="datetime" />
+          <Property Name="EntradaIntervalo" Type="datetime" />
+          <Property Name="Inicio" Type="datetime" />
+          <Property Name="Fim" Type="datetime" />
+          <Property Name="DiaSemana" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="HorarioEscala">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Entrada" Type="datetime" />
+          <Property Name="SaidaAlmoco" Type="datetime" />
+          <Property Name="EntradaAlmoco" Type="datetime" />
+          <Property Name="Saida" Type="datetime" />
+          <Property Name="SaidaIntervalo" Type="datetime" />
+          <Property Name="EntradaIntervalo" Type="datetime" />
+          <Property Name="Referencia" Type="datetime" />
+          <Property Name="Folga" Type="bit" />
+        </EntityType>
+        <EntityType Name="HorarioTurno">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Entrada" Type="datetime" />
+          <Property Name="SaidaAlmoco" Type="datetime" />
+          <Property Name="EntradaAlmoco" Type="datetime" />
+          <Property Name="Saida" Type="datetime" />
+          <Property Name="SaidaIntervalo" Type="datetime" />
+          <Property Name="EntradaIntervalo" Type="datetime" />
+          <Property Name="Inicio" Type="datetime" />
+          <Property Name="Fim" Type="datetime" />
+          <Property Name="Tipo" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="FuncionarioID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="DtHrMovimentacao" Type="datetime" />
+          <Property Name="Status" Type="char" MaxLength="1" />
+          <Property Name="TerminaldeMarcacao" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GestorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Mec_terminal" Type="varchar(max)" />
+          <Property Name="Nome" Type="varchar" MaxLength="50" />
+          <Property Name="UF" Type="char" MaxLength="2" />
+          <Property Name="DtHoraUltimoEnvio" Type="datetime" />
+          <Property Name="DtHoraProximoEnvio" Type="datetime" />
+          <Property Name="VersaoIcartao" Type="int" />
+          <Property Name="RecebeMov" Type="bit" />
+          <Property Name="REPUltimaImportacao" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TerminalDigital">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdTerminal" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IdDigital" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Configuracao_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="Configuracao" Type="PontoEletronicoModel.Store.Configuracao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Configuracao">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Digital_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Digital" Type="PontoEletronicoModel.Store.Digital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Digital">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Digital_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="Digital" Type="PontoEletronicoModel.Store.Digital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Digital">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funcionario_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FuncionarioTolerancia_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FuncionarioTolerancia" Type="PontoEletronicoModel.Store.FuncionarioTolerancia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FuncionarioTolerancia">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioComplementar_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioComplementar" Type="PontoEletronicoModel.Store.HorarioComplementar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioComplementar">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioComplementar_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="HorarioComplementar" Type="PontoEletronicoModel.Store.HorarioComplementar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioComplementar">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioEscala_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioEscala" Type="PontoEletronicoModel.Store.HorarioEscala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioEscala">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioEscala_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="HorarioEscala" Type="PontoEletronicoModel.Store.HorarioEscala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioEscala">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioTurno_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Store.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioTurno" Type="PontoEletronicoModel.Store.HorarioTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioTurno">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioTurno_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="HorarioTurno" Type="PontoEletronicoModel.Store.HorarioTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioTurno">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimento_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="Movimento" Type="PontoEletronicoModel.Store.Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Store.Gestor" Multiplicity="1" />
+          <End Role="Terminal" Type="PontoEletronicoModel.Store.Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TerminalDigital_Digital">
+          <End Role="Digital" Type="PontoEletronicoModel.Store.Digital" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TerminalDigital" Type="PontoEletronicoModel.Store.TerminalDigital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Digital">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TerminalDigital">
+              <PropertyRef Name="IdDigital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TerminalDigital_Terminal">
+          <End Role="Terminal" Type="PontoEletronicoModel.Store.Terminal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TerminalDigital" Type="PontoEletronicoModel.Store.TerminalDigital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TerminalDigital">
+              <PropertyRef Name="IdTerminal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PontoEletronicoModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PontoEletronicoEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Conf_WebService" EntityType="PontoEletronicoModel.Conf_WebService" />
+          <EntitySet Name="Configuracao" EntityType="PontoEletronicoModel.Configuracao" />
+          <EntitySet Name="Digital" EntityType="PontoEletronicoModel.Digital" />
+          <EntitySet Name="Funcionario" EntityType="PontoEletronicoModel.Funcionario" />
+          <EntitySet Name="FuncionarioTolerancia" EntityType="PontoEletronicoModel.FuncionarioTolerancia" />
+          <EntitySet Name="Gestor" EntityType="PontoEletronicoModel.Gestor" />
+          <EntitySet Name="HorarioComplementar" EntityType="PontoEletronicoModel.HorarioComplementar" />
+          <EntitySet Name="HorarioEscala" EntityType="PontoEletronicoModel.HorarioEscala" />
+          <EntitySet Name="HorarioTurno" EntityType="PontoEletronicoModel.HorarioTurno" />
+          <EntitySet Name="Movimento" EntityType="PontoEletronicoModel.Movimento" />
+          <EntitySet Name="Terminal" EntityType="PontoEletronicoModel.Terminal" />
+          <EntitySet Name="TerminalDigital" EntityType="PontoEletronicoModel.TerminalDigital" />
+          <AssociationSet Name="FK_Configuracao_Empresa" Association="PontoEletronicoModel.FK_Configuracao_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Configuracao" EntitySet="Configuracao" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Digital_Funcionario" Association="PontoEletronicoModel.FK_Digital_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="Digital" EntitySet="Digital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Digital_Gestor" Association="PontoEletronicoModel.FK_Digital_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Digital" EntitySet="Digital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TerminalDigital_Digital" Association="PontoEletronicoModel.FK_TerminalDigital_Digital">
+            <End Role="Digital" EntitySet="Digital" />
+            <End Role="TerminalDigital" EntitySet="TerminalDigital" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Funcionario_Empresa" Association="PontoEletronicoModel.FK_Funcionario_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Funcionario" EntitySet="Funcionario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FuncionarioTolerancia_Funcionario" Association="PontoEletronicoModel.FK_FuncionarioTolerancia_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="FuncionarioTolerancia" EntitySet="FuncionarioTolerancia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioComplementar_Funcionario" Association="PontoEletronicoModel.FK_HorarioComplementar_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioComplementar" EntitySet="HorarioComplementar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioEscala_Funcionario" Association="PontoEletronicoModel.FK_HorarioEscala_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioEscala" EntitySet="HorarioEscala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioTurno_Funcionario" Association="PontoEletronicoModel.FK_HorarioTurno_Funcionario">
+            <End Role="Funcionario" EntitySet="Funcionario" />
+            <End Role="HorarioTurno" EntitySet="HorarioTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioComplementar_Gestor" Association="PontoEletronicoModel.FK_HorarioComplementar_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioComplementar" EntitySet="HorarioComplementar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioEscala_Gestor" Association="PontoEletronicoModel.FK_HorarioEscala_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioEscala" EntitySet="HorarioEscala" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HorarioTurno_Gestor" Association="PontoEletronicoModel.FK_HorarioTurno_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="HorarioTurno" EntitySet="HorarioTurno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Movimento_Empresa" Association="PontoEletronicoModel.FK_Movimento_Empresa">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Movimento" EntitySet="Movimento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminal_Gestor" Association="PontoEletronicoModel.FK_Terminal_Gestor">
+            <End Role="Gestor" EntitySet="Gestor" />
+            <End Role="Terminal" EntitySet="Terminal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TerminalDigital_Terminal" Association="PontoEletronicoModel.FK_TerminalDigital_Terminal">
+            <End Role="Terminal" EntitySet="Terminal" />
+            <End Role="TerminalDigital" EntitySet="TerminalDigital" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Conf_WebService">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="NmIdentificacao" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Valor" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Arquivo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Configuracao">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="NmIdentificacao" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Valor" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_Configuracao_Empresa" FromRole="Configuracao" ToRole="Gestor" />
+        </EntityType>
+        <EntityType Name="Digital">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="Digital1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="DtAlteracaoCad" Type="DateTime" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_Digital_Funcionario" FromRole="Digital" ToRole="Funcionario" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_Digital_Gestor" FromRole="Digital" ToRole="Gestor" />
+          <NavigationProperty Name="TerminalDigital" Relationship="PontoEletronicoModel.FK_TerminalDigital_Digital" FromRole="Digital" ToRole="TerminalDigital" />
+        </EntityType>
+        <EntityType Name="Funcionario">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="IdEmpresaExterno" Type="Int32" Nullable="false" />
+          <Property Name="IdFuncionarioExterno" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="NomeCurto" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="DtNascimento" Type="DateTime" />
+          <Property Name="Mensagem" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="HrEntrada" Type="DateTime" />
+          <Property Name="HrSaidaAlmoco" Type="DateTime" />
+          <Property Name="HrEntradaAlmoco" Type="DateTime" />
+          <Property Name="HrSaida" Type="DateTime" />
+          <Property Name="HrSaidaIntervalo" Type="DateTime" />
+          <Property Name="HrEntradaIntervalo" Type="DateTime" />
+          <Property Name="DiasFolga" Type="String" MaxLength="7" Unicode="false" FixedLength="false" />
+          <Property Name="VerificaMarcacaoDIG" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="VerificaMarcacaoCod" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="DtDemissao" Type="DateTime" />
+          <Property Name="Foto" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TpPessoa" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="VerificaMarcacaoSenha" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="DtAlteracaoCad" Type="DateTime" />
+          <Property Name="IntervaloMinimoAlmoco" Type="Int32" />
+          <Property Name="ConsideraAlmoco" Type="Boolean" />
+          <Property Name="PIS" Type="String" MaxLength="14" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Digital" Relationship="PontoEletronicoModel.FK_Digital_Funcionario" FromRole="Funcionario" ToRole="Digital" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_Funcionario_Empresa" FromRole="Funcionario" ToRole="Gestor" />
+          <NavigationProperty Name="FuncionarioTolerancia" Relationship="PontoEletronicoModel.FK_FuncionarioTolerancia_Funcionario" FromRole="Funcionario" ToRole="FuncionarioTolerancia" />
+          <NavigationProperty Name="HorarioComplementar" Relationship="PontoEletronicoModel.FK_HorarioComplementar_Funcionario" FromRole="Funcionario" ToRole="HorarioComplementar" />
+          <NavigationProperty Name="HorarioEscala" Relationship="PontoEletronicoModel.FK_HorarioEscala_Funcionario" FromRole="Funcionario" ToRole="HorarioEscala" />
+          <NavigationProperty Name="HorarioTurno" Relationship="PontoEletronicoModel.FK_HorarioTurno_Funcionario" FromRole="Funcionario" ToRole="HorarioTurno" />
+        </EntityType>
+        <EntityType Name="FuncionarioTolerancia">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="IgnoraToleranciaEntrada" Type="Boolean" />
+          <Property Name="IgnoraToleranciaEntradaAntecipada" Type="Boolean" />
+          <Property Name="IgnoraToleranciaSaidaAlmoco" Type="Boolean" />
+          <Property Name="IgnoraToleranciaSaidaAlmocoAntecipada" Type="Boolean" />
+          <Property Name="IgnoraToleranciaEntradaAlmoco" Type="Boolean" />
+          <Property Name="IgnoraToleranciaEntradaAlmocoAntecipada" Type="Boolean" />
+          <Property Name="IgnoraToleranciaSaida" Type="Boolean" />
+          <Property Name="IgnoraToleranciaSaidaAntecipada" Type="Boolean" />
+          <Property Name="ToleranciaEntrada" Type="Int16" />
+          <Property Name="ToleranciaEntradaAntecipada" Type="Int16" />
+          <Property Name="ToleranciaSaidaAlmoco" Type="Int16" />
+          <Property Name="ToleranciaSaidaAlmocoAntecipada" Type="Int16" />
+          <Property Name="ToleranciaEntradaAlmoco" Type="Int16" />
+          <Property Name="ToleranciaEntradaAlmocoAntecipada" Type="Int16" />
+          <Property Name="ToleranciaSaida" Type="Int16" />
+          <Property Name="ToleranciaSaidaAntecipada" Type="Int16" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_FuncionarioTolerancia_Funcionario" FromRole="FuncionarioTolerancia" ToRole="Funcionario" />
+        </EntityType>
+        <EntityType Name="Gestor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Nome" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Ativo" Type="Boolean" Nullable="false" />
+          <Property Name="Cadastro" Type="DateTime" Nullable="false" />
+          <Property Name="Ativacao" Type="DateTime" />
+          <Property Name="Codigo" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="Obs" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="AtivaRelacionamento" Type="Boolean" />
+          <NavigationProperty Name="Configuracao" Relationship="PontoEletronicoModel.FK_Configuracao_Empresa" FromRole="Gestor" ToRole="Configuracao" />
+          <NavigationProperty Name="Digital" Relationship="PontoEletronicoModel.FK_Digital_Gestor" FromRole="Gestor" ToRole="Digital" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_Funcionario_Empresa" FromRole="Gestor" ToRole="Funcionario" />
+          <NavigationProperty Name="HorarioComplementar" Relationship="PontoEletronicoModel.FK_HorarioComplementar_Gestor" FromRole="Gestor" ToRole="HorarioComplementar" />
+          <NavigationProperty Name="HorarioEscala" Relationship="PontoEletronicoModel.FK_HorarioEscala_Gestor" FromRole="Gestor" ToRole="HorarioEscala" />
+          <NavigationProperty Name="HorarioTurno" Relationship="PontoEletronicoModel.FK_HorarioTurno_Gestor" FromRole="Gestor" ToRole="HorarioTurno" />
+          <NavigationProperty Name="Movimento" Relationship="PontoEletronicoModel.FK_Movimento_Empresa" FromRole="Gestor" ToRole="Movimento" />
+          <NavigationProperty Name="Terminal" Relationship="PontoEletronicoModel.FK_Terminal_Gestor" FromRole="Gestor" ToRole="Terminal" />
+        </EntityType>
+        <EntityType Name="HorarioComplementar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="Entrada" Type="DateTime" />
+          <Property Name="SaidaAlmoco" Type="DateTime" />
+          <Property Name="EntradaAlmoco" Type="DateTime" />
+          <Property Name="Saida" Type="DateTime" />
+          <Property Name="SaidaIntervalo" Type="DateTime" />
+          <Property Name="EntradaIntervalo" Type="DateTime" />
+          <Property Name="Inicio" Type="DateTime" />
+          <Property Name="Fim" Type="DateTime" />
+          <Property Name="DiaSemana" Type="Byte" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_HorarioComplementar_Funcionario" FromRole="HorarioComplementar" ToRole="Funcionario" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_HorarioComplementar_Gestor" FromRole="HorarioComplementar" ToRole="Gestor" />
+        </EntityType>
+        <EntityType Name="HorarioEscala">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="Entrada" Type="DateTime" />
+          <Property Name="SaidaAlmoco" Type="DateTime" />
+          <Property Name="EntradaAlmoco" Type="DateTime" />
+          <Property Name="Saida" Type="DateTime" />
+          <Property Name="SaidaIntervalo" Type="DateTime" />
+          <Property Name="EntradaIntervalo" Type="DateTime" />
+          <Property Name="Referencia" Type="DateTime" />
+          <Property Name="Folga" Type="Boolean" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_HorarioEscala_Funcionario" FromRole="HorarioEscala" ToRole="Funcionario" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_HorarioEscala_Gestor" FromRole="HorarioEscala" ToRole="Gestor" />
+        </EntityType>
+        <EntityType Name="HorarioTurno">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="Entrada" Type="DateTime" />
+          <Property Name="SaidaAlmoco" Type="DateTime" />
+          <Property Name="EntradaAlmoco" Type="DateTime" />
+          <Property Name="Saida" Type="DateTime" />
+          <Property Name="SaidaIntervalo" Type="DateTime" />
+          <Property Name="EntradaIntervalo" Type="DateTime" />
+          <Property Name="Inicio" Type="DateTime" />
+          <Property Name="Fim" Type="DateTime" />
+          <Property Name="Tipo" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Funcionario" Relationship="PontoEletronicoModel.FK_HorarioTurno_Funcionario" FromRole="HorarioTurno" ToRole="Funcionario" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_HorarioTurno_Gestor" FromRole="HorarioTurno" ToRole="Gestor" />
+        </EntityType>
+        <EntityType Name="Movimento">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="FuncionarioID" Type="Guid" Nullable="false" />
+          <Property Name="DtHrMovimentacao" Type="DateTime" />
+          <Property Name="Status" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="TerminaldeMarcacao" Type="Guid" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_Movimento_Empresa" FromRole="Movimento" ToRole="Gestor" />
+        </EntityType>
+        <EntityType Name="Terminal">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="GestorID" Type="Guid" Nullable="false" />
+          <Property Name="Mec_terminal" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Nome" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UF" Type="String" MaxLength="2" Unicode="false" FixedLength="true" />
+          <Property Name="DtHoraUltimoEnvio" Type="DateTime" />
+          <Property Name="DtHoraProximoEnvio" Type="DateTime" />
+          <Property Name="VersaoIcartao" Type="Int32" />
+          <Property Name="RecebeMov" Type="Boolean" />
+          <Property Name="REPUltimaImportacao" Type="DateTime" />
+          <NavigationProperty Name="Gestor" Relationship="PontoEletronicoModel.FK_Terminal_Gestor" FromRole="Terminal" ToRole="Gestor" />
+          <NavigationProperty Name="TerminalDigital" Relationship="PontoEletronicoModel.FK_TerminalDigital_Terminal" FromRole="Terminal" ToRole="TerminalDigital" />
+        </EntityType>
+        <EntityType Name="TerminalDigital">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="IdTerminal" Type="Guid" Nullable="false" />
+          <Property Name="IdDigital" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Digital" Relationship="PontoEletronicoModel.FK_TerminalDigital_Digital" FromRole="TerminalDigital" ToRole="Digital" />
+          <NavigationProperty Name="Terminal" Relationship="PontoEletronicoModel.FK_TerminalDigital_Terminal" FromRole="TerminalDigital" ToRole="Terminal" />
+        </EntityType>
+        <Association Name="FK_Configuracao_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="Configuracao" Type="PontoEletronicoModel.Configuracao" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Configuracao">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Digital_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Digital" Type="PontoEletronicoModel.Digital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Digital">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Digital_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="Digital" Type="PontoEletronicoModel.Digital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Digital">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TerminalDigital_Digital">
+          <End Role="Digital" Type="PontoEletronicoModel.Digital" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TerminalDigital" Type="PontoEletronicoModel.TerminalDigital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Digital">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TerminalDigital">
+              <PropertyRef Name="IdDigital" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Funcionario_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Funcionario">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FuncionarioTolerancia_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="FuncionarioTolerancia" Type="PontoEletronicoModel.FuncionarioTolerancia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="FuncionarioTolerancia">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioComplementar_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioComplementar" Type="PontoEletronicoModel.HorarioComplementar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioComplementar">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioEscala_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioEscala" Type="PontoEletronicoModel.HorarioEscala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioEscala">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioTurno_Funcionario">
+          <End Role="Funcionario" Type="PontoEletronicoModel.Funcionario" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HorarioTurno" Type="PontoEletronicoModel.HorarioTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Funcionario">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioTurno">
+              <PropertyRef Name="FuncionarioID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioComplementar_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="HorarioComplementar" Type="PontoEletronicoModel.HorarioComplementar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioComplementar">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioEscala_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="HorarioEscala" Type="PontoEletronicoModel.HorarioEscala" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioEscala">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HorarioTurno_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="HorarioTurno" Type="PontoEletronicoModel.HorarioTurno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="HorarioTurno">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Movimento_Empresa">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="Movimento" Type="PontoEletronicoModel.Movimento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Movimento">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminal_Gestor">
+          <End Role="Gestor" Type="PontoEletronicoModel.Gestor" Multiplicity="1" />
+          <End Role="Terminal" Type="PontoEletronicoModel.Terminal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gestor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Terminal">
+              <PropertyRef Name="GestorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TerminalDigital_Terminal">
+          <End Role="Terminal" Type="PontoEletronicoModel.Terminal" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TerminalDigital" Type="PontoEletronicoModel.TerminalDigital" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Terminal">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TerminalDigital">
+              <PropertyRef Name="IdTerminal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PontoEletronicoModelStoreContainer" CdmEntityContainer="PontoEletronicoEntities">
+          <EntitySetMapping Name="Conf_WebService"><EntityTypeMapping TypeName="PontoEletronicoModel.Conf_WebService"><MappingFragment StoreEntitySet="Conf_WebService">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="NmIdentificacao" ColumnName="NmIdentificacao" />
+            <ScalarProperty Name="Valor" ColumnName="Valor" />
+            <ScalarProperty Name="Arquivo" ColumnName="Arquivo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Configuracao"><EntityTypeMapping TypeName="PontoEletronicoModel.Configuracao"><MappingFragment StoreEntitySet="Configuracao">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="NmIdentificacao" ColumnName="NmIdentificacao" />
+            <ScalarProperty Name="Valor" ColumnName="Valor" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Digital"><EntityTypeMapping TypeName="PontoEletronicoModel.Digital"><MappingFragment StoreEntitySet="Digital">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="Digital1" ColumnName="Digital" />
+            <ScalarProperty Name="DtAlteracaoCad" ColumnName="DtAlteracaoCad" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Funcionario"><EntityTypeMapping TypeName="PontoEletronicoModel.Funcionario"><MappingFragment StoreEntitySet="Funcionario">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="IdEmpresaExterno" ColumnName="IdEmpresaExterno" />
+            <ScalarProperty Name="IdFuncionarioExterno" ColumnName="IdFuncionarioExterno" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="NomeCurto" ColumnName="NomeCurto" />
+            <ScalarProperty Name="DtNascimento" ColumnName="DtNascimento" />
+            <ScalarProperty Name="Mensagem" ColumnName="Mensagem" />
+            <ScalarProperty Name="HrEntrada" ColumnName="HrEntrada" />
+            <ScalarProperty Name="HrSaidaAlmoco" ColumnName="HrSaidaAlmoco" />
+            <ScalarProperty Name="HrEntradaAlmoco" ColumnName="HrEntradaAlmoco" />
+            <ScalarProperty Name="HrSaida" ColumnName="HrSaida" />
+            <ScalarProperty Name="HrSaidaIntervalo" ColumnName="HrSaidaIntervalo" />
+            <ScalarProperty Name="HrEntradaIntervalo" ColumnName="HrEntradaIntervalo" />
+            <ScalarProperty Name="DiasFolga" ColumnName="DiasFolga" />
+            <ScalarProperty Name="VerificaMarcacaoDIG" ColumnName="VerificaMarcacaoDIG" />
+            <ScalarProperty Name="VerificaMarcacaoCod" ColumnName="VerificaMarcacaoCod" />
+            <ScalarProperty Name="DtDemissao" ColumnName="DtDemissao" />
+            <ScalarProperty Name="Foto" ColumnName="Foto" />
+            <ScalarProperty Name="TpPessoa" ColumnName="TpPessoa" />
+            <ScalarProperty Name="VerificaMarcacaoSenha" ColumnName="VerificaMarcacaoSenha" />
+            <ScalarProperty Name="DtAlteracaoCad" ColumnName="DtAlteracaoCad" />
+            <ScalarProperty Name="IntervaloMinimoAlmoco" ColumnName="IntervaloMinimoAlmoco" />
+            <ScalarProperty Name="ConsideraAlmoco" ColumnName="ConsideraAlmoco" />
+            <ScalarProperty Name="PIS" ColumnName="PIS" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="FuncionarioTolerancia"><EntityTypeMapping TypeName="PontoEletronicoModel.FuncionarioTolerancia"><MappingFragment StoreEntitySet="FuncionarioTolerancia">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="IgnoraToleranciaEntrada" ColumnName="IgnoraToleranciaEntrada" />
+            <ScalarProperty Name="IgnoraToleranciaEntradaAntecipada" ColumnName="IgnoraToleranciaEntradaAntecipada" />
+            <ScalarProperty Name="IgnoraToleranciaSaidaAlmoco" ColumnName="IgnoraToleranciaSaidaAlmoco" />
+            <ScalarProperty Name="IgnoraToleranciaSaidaAlmocoAntecipada" ColumnName="IgnoraToleranciaSaidaAlmocoAntecipada" />
+            <ScalarProperty Name="IgnoraToleranciaEntradaAlmoco" ColumnName="IgnoraToleranciaEntradaAlmoco" />
+            <ScalarProperty Name="IgnoraToleranciaEntradaAlmocoAntecipada" ColumnName="IgnoraToleranciaEntradaAlmocoAntecipada" />
+            <ScalarProperty Name="IgnoraToleranciaSaida" ColumnName="IgnoraToleranciaSaida" />
+            <ScalarProperty Name="IgnoraToleranciaSaidaAntecipada" ColumnName="IgnoraToleranciaSaidaAntecipada" />
+            <ScalarProperty Name="ToleranciaEntrada" ColumnName="ToleranciaEntrada" />
+            <ScalarProperty Name="ToleranciaEntradaAntecipada" ColumnName="ToleranciaEntradaAntecipada" />
+            <ScalarProperty Name="ToleranciaSaidaAlmoco" ColumnName="ToleranciaSaidaAlmoco" />
+            <ScalarProperty Name="ToleranciaSaidaAlmocoAntecipada" ColumnName="ToleranciaSaidaAlmocoAntecipada" />
+            <ScalarProperty Name="ToleranciaEntradaAlmoco" ColumnName="ToleranciaEntradaAlmoco" />
+            <ScalarProperty Name="ToleranciaEntradaAlmocoAntecipada" ColumnName="ToleranciaEntradaAlmocoAntecipada" />
+            <ScalarProperty Name="ToleranciaSaida" ColumnName="ToleranciaSaida" />
+            <ScalarProperty Name="ToleranciaSaidaAntecipada" ColumnName="ToleranciaSaidaAntecipada" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Gestor"><EntityTypeMapping TypeName="PontoEletronicoModel.Gestor"><MappingFragment StoreEntitySet="Gestor">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="Ativo" ColumnName="Ativo" />
+            <ScalarProperty Name="Cadastro" ColumnName="Cadastro" />
+            <ScalarProperty Name="Ativacao" ColumnName="Ativacao" />
+            <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+            <ScalarProperty Name="Obs" ColumnName="Obs" />
+            <ScalarProperty Name="AtivaRelacionamento" ColumnName="AtivaRelacionamento" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HorarioComplementar"><EntityTypeMapping TypeName="PontoEletronicoModel.HorarioComplementar"><MappingFragment StoreEntitySet="HorarioComplementar">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+            <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+            <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+            <ScalarProperty Name="Saida" ColumnName="Saida" />
+            <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+            <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+            <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+            <ScalarProperty Name="Fim" ColumnName="Fim" />
+            <ScalarProperty Name="DiaSemana" ColumnName="DiaSemana" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HorarioEscala"><EntityTypeMapping TypeName="PontoEletronicoModel.HorarioEscala"><MappingFragment StoreEntitySet="HorarioEscala">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+            <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+            <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+            <ScalarProperty Name="Saida" ColumnName="Saida" />
+            <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+            <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+            <ScalarProperty Name="Referencia" ColumnName="Referencia" />
+            <ScalarProperty Name="Folga" ColumnName="Folga" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="HorarioTurno"><EntityTypeMapping TypeName="PontoEletronicoModel.HorarioTurno"><MappingFragment StoreEntitySet="HorarioTurno">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="Entrada" ColumnName="Entrada" />
+            <ScalarProperty Name="SaidaAlmoco" ColumnName="SaidaAlmoco" />
+            <ScalarProperty Name="EntradaAlmoco" ColumnName="EntradaAlmoco" />
+            <ScalarProperty Name="Saida" ColumnName="Saida" />
+            <ScalarProperty Name="SaidaIntervalo" ColumnName="SaidaIntervalo" />
+            <ScalarProperty Name="EntradaIntervalo" ColumnName="EntradaIntervalo" />
+            <ScalarProperty Name="Inicio" ColumnName="Inicio" />
+            <ScalarProperty Name="Fim" ColumnName="Fim" />
+            <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Movimento"><EntityTypeMapping TypeName="PontoEletronicoModel.Movimento"><MappingFragment StoreEntitySet="Movimento">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="FuncionarioID" ColumnName="FuncionarioID" />
+            <ScalarProperty Name="DtHrMovimentacao" ColumnName="DtHrMovimentacao" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="TerminaldeMarcacao" ColumnName="TerminaldeMarcacao" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Terminal"><EntityTypeMapping TypeName="PontoEletronicoModel.Terminal"><MappingFragment StoreEntitySet="Terminal">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="GestorID" ColumnName="GestorID" />
+            <ScalarProperty Name="Mec_terminal" ColumnName="Mec_terminal" />
+            <ScalarProperty Name="Nome" ColumnName="Nome" />
+            <ScalarProperty Name="UF" ColumnName="UF" />
+            <ScalarProperty Name="DtHoraUltimoEnvio" ColumnName="DtHoraUltimoEnvio" />
+            <ScalarProperty Name="DtHoraProximoEnvio" ColumnName="DtHoraProximoEnvio" />
+            <ScalarProperty Name="VersaoIcartao" ColumnName="VersaoIcartao" />
+            <ScalarProperty Name="RecebeMov" ColumnName="RecebeMov" />
+            <ScalarProperty Name="REPUltimaImportacao" ColumnName="REPUltimaImportacao" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TerminalDigital"><EntityTypeMapping TypeName="PontoEletronicoModel.TerminalDigital"><MappingFragment StoreEntitySet="TerminalDigital">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="IdTerminal" ColumnName="IdTerminal" />
+            <ScalarProperty Name="IdDigital" ColumnName="IdDigital" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Iponto">
+        <EntityTypeShape EntityType="PontoEletronicoModel.Conf_WebService" Width="1.5" PointX="7.125" PointY="9.875" Height="1.787985026041667" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Configuracao" Width="1.5" PointX="3" PointY="9.5" Height="1.9802864583333353" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Digital" Width="1.5" PointX="8.25" PointY="17.75" Height="2.5571907552083317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Funcionario" Width="1.5" PointX="3" PointY="15.5" Height="6.9801236979166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.FuncionarioTolerancia" Width="2.125" PointX="5.25" PointY="16.625" Height="4.6725065104166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Gestor" Width="1.5" PointX="0.75" PointY="15.875" Height="4.0956022135416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.HorarioComplementar" Width="1.5" PointX="8.25" PointY="13.125" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.HorarioEscala" Width="1.5" PointX="8.25" PointY="21.25" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.HorarioTurno" Width="1.5" PointX="5.25" PointY="12.125" Height="3.7109993489583317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Movimento" Width="1.5" PointX="3" PointY="23.25" Height="2.3648893229166674" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.Terminal" Width="1.5" PointX="3" PointY="26.375" Height="3.3263964843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="PontoEletronicoModel.TerminalDigital" Width="1.5" PointX="10.5" PointY="22.75" Height="1.9802864583333317" IsExpanded="true" />
+        <AssociationConnector Association="PontoEletronicoModel.FK_Configuracao_Empresa" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="15.875" />
+          <ConnectorPoint PointX="1.5" PointY="10.490143229166668" />
+          <ConnectorPoint PointX="3" PointY="10.490143229166668" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_Digital_Funcionario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="19.910673014322917" />
+          <ConnectorPoint PointX="5" PointY="19.910673014322917" />
+          <ConnectorPoint PointX="5" PointY="21.547506510416667" />
+          <ConnectorPoint PointX="8" PointY="21.547506510416667" />
+          <ConnectorPoint PointX="8" PointY="20.557190755208332" />
+          <ConnectorPoint PointX="9" PointY="20.557190755208332" />
+          <ConnectorPoint PointX="9" PointY="20.307190755208332" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_Digital_Gestor" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="18.434753383463544" />
+          <ConnectorPoint PointX="2.75" PointY="18.434753383463544" />
+          <ConnectorPoint PointX="2.75" PointY="15.25" />
+          <ConnectorPoint PointX="5" PointY="15.25" />
+          <ConnectorPoint PointX="5" PointY="16.085999348958332" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="16.085999348958332" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="16.085999348958332" />
+          <ConnectorPoint PointX="8" PointY="16.085999348958332" />
+          <ConnectorPoint PointX="8" PointY="17.5" />
+          <ConnectorPoint PointX="9" PointY="17.5" />
+          <ConnectorPoint PointX="9" PointY="17.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_TerminalDigital_Digital" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="19.028595377604166" />
+          <ConnectorPoint PointX="11.25" PointY="19.028595377604166" />
+          <ConnectorPoint PointX="11.25" PointY="22.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_Funcionario_Empresa" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.836400553385417" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="16.836400553385417" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="16.836400553385417" />
+          <ConnectorPoint PointX="3" PointY="16.836400553385417" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_FuncionarioTolerancia_Funcionario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="18.205336507161459" />
+          <ConnectorPoint PointX="5.25" PointY="18.205336507161459" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioComplementar_Funcionario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.386749674479166" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="16.386749674479166" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="16.386749674479166" />
+          <ConnectorPoint PointX="8.25" PointY="16.386749674479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioEscala_Funcionario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="22.076315104166667" />
+          <ConnectorPoint PointX="8.25" PointY="22.076315104166667" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioTurno_Funcionario" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="15.667999674479166" />
+          <ConnectorPoint PointX="4.854166666666667" PointY="15.667999674479166" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="15.667999674479166" />
+          <ConnectorPoint PointX="5.25" PointY="15.667999674479166" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioComplementar_Gestor" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062519999999998" PointY="15.875" />
+          <ConnectorPoint PointX="1.9062519999999998" PointY="14.980499674479166" />
+          <ConnectorPoint PointX="4.9375" PointY="14.980499674479166" />
+          <ConnectorPoint PointX="4.9375" PointY="16.210999348958332" />
+          <ConnectorPoint PointX="7.875" PointY="16.210999348958332" />
+          <ConnectorPoint PointX="7.875" PointY="14.605500174479165" />
+          <ConnectorPoint PointX="8.25" PointY="14.605500174479165" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioEscala_Gestor" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="19.970602213541667" />
+          <ConnectorPoint PointX="1.5" PointY="22.865061848958334" />
+          <ConnectorPoint PointX="1.8229191666666667" PointY="22.865061848958334" />
+          <ConnectorPoint PointX="1.9895858333333332" PointY="22.865061848958334" />
+          <ConnectorPoint PointX="8.25" PointY="22.865061848958334" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_HorarioTurno_Gestor" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="15.875" />
+          <ConnectorPoint PointX="1.0937475" PointY="13.552749837239583" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="13.552749837239583" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="13.552749837239583" />
+          <ConnectorPoint PointX="5.25" PointY="13.552749837239583" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_Movimento_Empresa" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="19.970602213541667" />
+          <ConnectorPoint PointX="1.9062525" PointY="24.432444661458334" />
+          <ConnectorPoint PointX="3" PointY="24.432444661458334" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_Terminal_Gestor" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="19.970602213541667" />
+          <ConnectorPoint PointX="1.0937475" PointY="28.0381982421875" />
+          <ConnectorPoint PointX="3" PointY="28.0381982421875" />
+        </AssociationConnector>
+        <AssociationConnector Association="PontoEletronicoModel.FK_TerminalDigital_Terminal" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="28.0381982421875" />
+          <ConnectorPoint PointX="11.25" PointY="28.0381982421875" />
+          <ConnectorPoint PointX="11.25" PointY="24.730286458333332" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

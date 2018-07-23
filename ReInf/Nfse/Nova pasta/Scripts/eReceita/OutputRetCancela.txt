@@ -1,0 +1,38 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+Var
+  //Objetos instanciados no Comuns.txt
+  _DSSucesso, _DSFalha : TSpdXSDClientDataSet;
+  _ListFields : TStringList;
+
+  {$I ..\Comuns\Comuns.TXT}
+  {$I .\Utils.txt}
+
+begin
+  if Params.Values['faultstring'] <> '' then
+    Output :=  GetListFieldsFaulstring(_ListFields, Input)
+  else
+  begin
+    Progress('Obtendo ponteiros dos datasets.');
+    GetPonteirosDataSets('CancelarNfseResposta','MensagemRetorno',_DSSucesso, _DSFalha);
+
+    Progress('Adicionando valores aos campos.');
+    _ListFields := CreateFieldsResponseCancelamento;
+    if _ListFields <> nil then
+    Try
+      AddValueListFields('Motivo', GetMotivo(_DSFalha), _ListFields);
+      AddValueListFields('Status', GetStatus(_DSFalha), _ListFields);
+      AddValueListFields('DataCancelamento',_DSSucesso.FieldByName('DataCancelamento').AsString, _ListFields);
+      Output := FormatLineResult(_ListFields);
+    Finally
+      _ListFields.Free;
+      Progress('Valores adicionados com sucesso.');
+    end;
+  end;
+end.

@@ -1,0 +1,33 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+Var
+  _Xml, _Fault, _Erro, _Status : string;
+begin
+  Progress('Carregando XML de Retorno de Envio');
+
+  _Xml := Input
+  _Status := XmlSelect(_Xml, '//*[local-name()="statusEmissao"]')
+
+  if Pos('200', _Status) > 0 then
+    _Xml := XmlSelect(_Xml, '//*[local-name()="nfeResposta"]')
+  else
+  begin
+    if Pos('Internal Server Error', Input) > 0 then
+    begin
+      _Xml := 'Erro interno no servidor da prefeitura, verifique os dados do xml de envio e tente novamente.';
+       Params.Add('Erro='+ _Xml);
+    end;
+  end;
+
+  begin
+    Params.Add('XML='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

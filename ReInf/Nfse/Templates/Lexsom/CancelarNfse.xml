@@ -1,0 +1,5 @@
+<tem:CancelamentoNFSE>        
+<tem:xml>
+<CancelarNfseEnvio xmlns="http://www.abrasf.org.br/ABRASF/arquivos/nfse.xsd">%s</CancelarNfseEnvio>
+</tem:xml>
+</tem:CancelamentoNFSE>

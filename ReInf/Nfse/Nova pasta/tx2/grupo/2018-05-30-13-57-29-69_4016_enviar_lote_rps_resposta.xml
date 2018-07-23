@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><soap:Body><RecepcionarLoteRpsResponse xmlns="http://nfse.abrasf.org.br"><outputXML xmlns="">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;EnviarLoteRpsResposta xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.abrasf.org.br/nfse.xsd"&gt;
+  &lt;ListaMensagemRetorno&gt;
+    &lt;MensagemRetorno&gt;
+      &lt;Codigo&gt;E233&lt;/Codigo&gt;
+      &lt;Mensagem&gt;Lote já processado. &lt;/Mensagem&gt;
+      &lt;Correcao&gt;Atribua um novo número ao lote de RPS, caso os RPS nele contidos ainda não tenham sidos processados.&lt;/Correcao&gt;
+    &lt;/MensagemRetorno&gt;
+  &lt;/ListaMensagemRetorno&gt;
+&lt;/EnviarLoteRpsResposta&gt;</outputXML></RecepcionarLoteRpsResponse></soap:Body></soap:Envelope>

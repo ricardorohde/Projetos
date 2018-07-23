@@ -1,0 +1,24 @@
+{
+  Variáveis externas disponíveis:
+    Output: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I ..\Comuns\RealizarDelimitacaoLoteRps.txt}
+{$I ..\Comuns\InserirQuebrasDeLinha.txt}
+
+var
+  _DelimitadorRPS: string;
+begin
+  Progress('Gerando arquivo XML.');
+  if Params.Values['Delimitador'] = '' then
+    _DelimitadorRPS := Params.Values['DelimitadorRPS']
+  else
+    _DelimitadorRPS := Params.Values['Delimitador'];
+
+  Output := Datasets.AsXML;
+  Output := RealizarDelimitacaoLoteRps(Output, 'Rps', 'GerarNfseEnvio');
+  Output := StringReplace(Trim(Output),'<InfDeclaracaoPrestacaoServico>'+_DelimitadorRPS,'<InfDeclaracaoPrestacaoServico>',[rfReplaceAll]);
+  Output := InserirQuebrasDeLinha(Output, STR_LINE_BREAK_GOIANIA);
+  Progress('Arquivo XML gerado com sucesso.');
+end.

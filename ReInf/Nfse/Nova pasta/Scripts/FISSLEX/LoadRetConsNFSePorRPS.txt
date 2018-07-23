@@ -1,0 +1,51 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+    Params : TStringList;
+}
+Var
+  _Xml : string;
+begin
+  Progress('Carregando configurações de XSDDataset.');
+  Datasets.XsdFile := PathXsd + 'nfse.xsd';
+  Datasets.XsdElementName := 'ConsultarNfseRpsResposta';
+  Datasets.ConfigSection := 'RETORNO_CONSULTARNFSEPORRPS';
+
+  if Trim(MappingXsdFileName) <> '' then
+    Datasets.MappingFileName := MappingXsdFileName;
+
+  Progress('Criando XSDDataset.');
+  Datasets.CreateXSDDataset;
+
+  _Xml := '';
+
+  if Pos('<Consultarnfserpsresposta xmlns="FISS-LEX"/>', Input) > 0 then
+  begin
+    _Xml := StringReplace(Input, '<Consultarnfserpsresposta xmlns="FISS-LEX"/>', '<Consultarnfserpsresposta xmlns="FISS-LEX">',[]);
+    _Xml := StringReplace(_Xml, '</Listamensagemretorno>', '</Listamensagemretorno></Consultarnfserpsresposta>',[]);
+  end;
+
+  if _Xml = '' then
+    _Xml := StringReplace(Input,'Consultarnfserpsresposta','ConsultarNfseRpsResposta',[rfReplaceAll])
+  else
+    _Xml := StringReplace(_Xml,'Consultarnfserpsresposta','ConsultarNfseRpsResposta',[rfReplaceAll]);
+
+  _Xml := XmlDeepNodeSearch(_Xml, Datasets.XsdElementName, '//*[namespace-uri()="FISS-LEX" and local-name()="ConsultarNfseRpsResposta"]');
+  _Xml := StringReplace(_Xml, 'tcMensagemRetorno', 'MensagemRetorno', [rfReplaceAll]);
+
+  if Pos('<faultstring',input) > 0 then
+    Params.Add('faultstring='+input)
+  else
+  begin
+    Datasets.LoadFromXMLContent(_Xml);
+
+    if (XmlSelect(_Xml, '//*[namespace-uri()="FISS-LEX" and local-name()="Nfse"]') <> '') then
+      _Xml := XmlSelect(_Xml, '//*[namespace-uri()="FISS-LEX" and local-name()="Nfse"]');
+
+    Params.Add('XmlNFSe='+_Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

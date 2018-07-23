@@ -1,0 +1,25 @@
+{
+  Variáveis externas disponíveis:
+    PathXsd: string;
+    MappingXsdFileName: string;
+    Input: string;
+    Datasets: TspdXSDDataset;
+}
+
+{$I Utils.txt}
+
+Var
+  _Xml, _Datahora: string;
+begin
+
+  if Pos('<faultstring', Input) > 0 then
+    Params.Add('faultstring=' + Input)
+  else
+  begin
+    Progress('Carregando XML de Cancelamento de NFSe');
+    _Xml := UnEscapeXml(Input);
+    _Xml := XmlSelect(_Xml, '//*[local-name()="RespostaLoteRps"]');
+    Params.Add('Xml=' + _Xml);
+    Progress('XML carregado com sucesso.');
+  end;
+end.

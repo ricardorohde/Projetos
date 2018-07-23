@@ -1,0 +1,14 @@
+<CancelarNfseEnvio xmlns="http://www.issnetonline.com.br/webserviceabrasf/vsd/servico_cancelar_nfse_envio.xsd" xmlns:tc="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_complexos.xsd" xmlns:ts="http://www.issnetonline.com.br/webserviceabrasf/vsd/tipos_simples.xsd">
+<Pedido xmlns="">
+<tc:InfPedidoCancelamento>
+<tc:IdentificacaoNfse>
+<tc:Numero>%s</tc:Numero>
+<tc:Cnpj>%s</tc:Cnpj>
+<tc:InscricaoMunicipal>%s</tc:InscricaoMunicipal>
+<tc:CodigoMunicipio>%s</tc:CodigoMunicipio>
+</tc:IdentificacaoNfse>
+<tc:CodigoCancelamento>%s</tc:CodigoCancelamento>
+</tc:InfPedidoCancelamento>
+%s
+</Pedido>
+</CancelarNfseEnvio>

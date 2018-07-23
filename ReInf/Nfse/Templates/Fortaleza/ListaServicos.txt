@@ -1,0 +1,235 @@
+1. Serviços de informática e congêneres
+0101=Análise E Desenvolvimento De Sistemas.
+0102=Programação.
+0103=Processamento De Dados E Congêneres.
+0104=Elaboração De Programas De Computadores, Inclusive De Jogos Eletrônicos.
+0105=Licenciamento Ou Cessão De Direito De Uso De Programas De Computação.
+0106=Assessoria E Consultoria Em Informática.
+0107=Suporte Técnico Em Informática, Inclusive Instalação, Configuração E Manutenção De Programas De Computação E Bancos De Dados.
+0108=Planejamento, Confecção, Manutenção E Atualização De Páginas Eletrônicas.
+2. Serviços de pesquisas e desenvolvimento de qualquer natureza.
+0201=Serviços De Pesquisas E Desenvolvimento De Qualquer Natureza.
+3. Serviços prestados mediante locação, cessão de direito de uso de congêneres.
+0301=Cessão De Direito De Uso De Marcas E De Sinais De Propaganda.
+0302=Exploração De Salões De Festas, Centro De Convenções, Escritórios Virtuais, Stands, Quadras Esportivas, Estádios, Ginásios, Auditórios, Casas De Espetáculos, Parques De Diversões, Canchas E Congêneres, Para Realização De Eventos Ou Negócios De Qualquer Natureza
+0303=Locação, Sublocação, Arrendamento, Direito De Passagem Ou Permissão De Uso, Compartilhado Ou Não, De Ferrovia, Rodovia, Postes, Cabos, Dutos E Condutos De Qualquer Natureza.
+0304=Cessão De Andaimes, Palcos, Coberturas E Outras Estruturas De Uso Temporário.
+4. Serviços de saúde, assistência médica e congêneres.
+0401=Medicina E Biomedicina.
+0402=Análises Clínicas, Patologia, Eletricidade Médica, Radioterapia, Quimioterapia, Ultra-Sonografia, Ressonância Magnética, Radiologia, Tomografia E Congêneres.
+0403=Hospitais, Clínicas, Laboratórios, Sanatórios, Manicômios, Casas De Saúde, Prontos-Socorros, Ambulatórios E Congêneres.
+0404=Instrumentação Cirúrgica.
+0405=Acupuntura.
+0406=Enfermagem, Inclusive Serviços Auxiliares.
+0407=Serviços Farmacêuticos.
+0408=Terapia Ocupacional, Fisioterapia E Fonoaudiologia.
+0409=Terapias De Qualquer Espécie Destinadas Ao Tratamento Físico, Orgânico E Mental.
+0410=Nutrição.
+0411=Obstetrícia.
+0412=Odontologia.
+0413=Ortóptica.
+0414=Próteses sob encomenda.
+0415=Psicanálise.
+0416=Psicologia.
+0417=Casas de repouso e de recuperação, creches, asilos e congêneres.
+0418=Inseminação artificial, fertilização in vitro e congêneres.
+0419=Bancos de sangue, leite, pele, olhos, óvulos, sêmen e congêneres.
+0420=Coleta de sangue, leite, tecidos, sêmen, órgãos e materiais biológicos de qualquer espécie.
+0421=Unidade de atendimento, assistência ou tratamento móvel e congêneres.
+0422=Planos de medicina de grupo ou individual e convênios para prestação de assistência médica, hospitalar, odontológica e congêneres. 
+0423=Outros planos de saúde que se cumpram através de serviços de terceiros contratados, credenciados, cooperados ou apenas pagos pelo operador do plano mediante indicação do beneficiário.
+5. Serviços de medicina e assistência veterinária e congêneres.
+0501=Medicina Veterinária E Zootecnia.
+0502=Hospitais, Clínicas, Ambulatórios, Prontos-Socorros E Congêneres, Na Área Veterinária.
+0503=Laboratórios De Análise Na Área Veterinária.
+0504=Inseminação Artificial, Fertilização In Vitro E Congêneres.
+0505=Bancos De Sangue E De Órgãos E Congêneres.
+0506=Coleta De Sangue, Leite, Tecidos, Sêmen, Órgãos E Materiais Biológicos De Qualquer Espécie.
+0507=Unidade De Atendimento, Assistência Ou Tratamento Móvel E Congêneres.
+0508=Guarda, Tratamento, Amestramento, Embelezamento, Alojamento E Congêneres.
+0509=Planos De Atendimento E Assistência Médico-Veterinária.
+6. Serviços de cuidados pessoais, estética, atividades físicas e congêneres.
+0601=Barbearia, Cabeleireiros, Manicuros, Pedicuros E Congêneres.
+0602=Esteticistas, Tratamento De Pele, Depilação E Congêneres.
+0603=Banhos, Duchas, Sauna, Massagens E Congêneres.
+0604=Ginástica, Dança, Esportes, Natação, Artes Marciais E Demais Atividades Físicas
+0605=Centros De Emagrecimento, Spa E Congêneres.
+7. Serviços relativos à engenharia, à arquitetura, à geologia, ao urbanismo, à construção civil, à manutenção, à limpeza, ao meio ambiente, ao saneamento e congêneres.
+0701=Engenharia, Agronomia, Agrimensura, Arquitetura, Geologia, Urbanismo, Paisagismo E Congêneres.
+0702=Execução, Por Administração, Empreitada Ou Subempreitada, De Obras De Construção Civil, Hidráulica Ou Elétrica E De Outras Obras Semelhantes, Inclusive Sondagem, Perfuração De Poços, Escavação, Drenagem E Irrigação, Terraplanagem, Pavimentação, Concretagem E A Instalação E Montagem De Produtos, Peças E Equipamentos (Exceto O Fornecimento De Mercadorias Produzidas Pelo Prestador De Serviços Fora Do Local Da Prestação Dos Serviços, Que Fica Sujeito Ao Icms)
+0703=Elaboração De Planos Diretores, Estudos De Viabilidade, Estudos Organizacionais E Outros, Relacionados Com Obras E Serviços De Engenharia; Elaboração De Anteprojetos, Projetos Básicos E Projetos Executivos Para Trabalhos De Engenharia.
+0704=Demolição.
+0705=Reparação, Conservação E Reforma De Edifícios, Estradas, Pontes, Portos E Congêneres (Exceto O Fornecimento De Mercadorias Produzidas Pelo Prestador Dos Serviços, Fora Do Local Da Prestação Dos Serviços, Que Fica Sujeito Ao Icms)
+0706=Colocação E Instalação De Tapetes, Carpetes, Assoalhos, Cortinas, Revestimentos De Parede, Vidros, Divisórias, Placas De Gesso E Congêneres, Com Material Fornecido Pelo Tomador Do Serviço.
+0707=Recuperação, Raspagem, Polimento E Lustração De Pisos E Congêneres.
+0708=Calafetação.
+0709=Varrição, Coleta, Remoção, Incineração, Tratamento, Reciclagem, Separação E Destinação Final De Lixo, Rejeitos E Outros Resíduos Quaisquer.
+0710=Limpeza, manutenção e conservação de vias e logradouros públicos, imóveis, chaminés, piscinas, parques, jardins e congêneres.
+0711=Decoração e jardinagem, inclusive corte e poda de árvores.
+0712=Controle e tratamento de efluentes de qualquer natureza e de agentes físicos, químicos e biológicos.
+0713=Dedetização, desinfecção, desinsetização, imunização, higienização, desratização, pulverização e congêneres.
+0714=Florestamento, reflorestamento, semeadura, adubação e congêneres.
+0715=Escoramento, contenção de encostas e serviços congêneres.
+0716=Limpeza e dragagem de rios, portos, canais, baías, lagos, lagoas, represas, açudes e congêneres.
+0717=Acompanhamento e fiscalização da execução de obras de engenharia, arquitetura e urbanismo.
+0718=Aerofotogrametria (inclusive interpretação), cartografia, mapeamento, levantamentos topográficos, batimétricos, geográficos, geodésicos, geológicos, geofísicos e congêneres.
+0719=Pesquisa, perfuração, cimentação, mergulho, perfilagem, concretação, testemunhagem, pescaria, estimulação e outros serviços relacionados com a exploração e explotação de petróleo, gás natural e de outros recursos minerais.
+0720=Nucleação e bombardeamento de nuvens e congêneres.
+8. Serviços de educação, ensino, orientação pedagógica e educacional, instrução, treinamento e avaliação pessoal de qualquer grau ou natureza.
+0801=Ensino Regular Pré-Escolar, Fundamental, Médio E Superior.
+0802=Instrução, Treinamento, Orientação Pedagógica E Educacional, Avaliação De Conhecimentos De Qualquer Natureza
+9. Serviços relativos à hospedagem, ao turismo, a viagens e congêneres.
+0901=Hospedagem De Qualquer Natureza Em Hotéis, Apart-Service Condominiais, Flat, Apart-Hotéis, Hotéis Residência, Residence-Service, Suite Service, Hotelaria Marítima, Motéis, Pensões E Congêneres; Ocupação Por Temporada Com Fornecimento De Serviço (O Valor Da Alimentação E Gorjeta, Quando Incluído No Preço Da Diária, Fica Sujeito Ao Imposto Sobre Serviços)
+0902=Agenciamento, Organização, Promoção, Intermediação E Execução De Programas De Turismo, Passeios, Viagens, Excursões, Hospedagens E Congêneres.
+0903=Guias De Turismo.
+10. Serviços de intermediação e congêneres.
+1001=Agenciamento, Corretagem Ou Intermediação De Câmbio, De Seguros, De Cartões De Crédito, De Planos De Saúde E De Planos De Previdência Privada.
+1002=Agenciamento, Corretagem Ou Intermediação De Títulos Em Geral, Valores Mobiliários E Contratos Quaisquer.
+1003=Agenciamento, Corretagem Ou Intermediação De Direitos De Propriedade Industrial, Artística Ou Literária.
+1004=Agenciamento, Corretagem Ou Intermediação De Contratos De Arrendamento Mercantil (Leasing), De Franquia (Franchising) E De Faturização (Factoring).
+1005=Agenciamento, Corretagem Ou Intermediação De Bens Móveis Ou Imóveis, Não Abrangidos Em Outros Itens Ou Subitens, Inclusive Aqueles Realizados No Âmbito De Bolsas De Mercadorias E Futuros, Por Quaisquer Meios.
+1006=Agenciamento Marítimo.
+1007=Agenciamento De Notícias.
+1008=Agenciamento De Publicidade E Propaganda, Inclusive O Agenciamento De Veiculação Por Quaisquer Meios.
+1009=Representação De Qualquer Natureza, Inclusive Comercial.
+1010=Distribuição de bens de terceiros.
+11. Serviços de guarda, estacionamento, armazenamento, vigilância e congêneres.
+1101=Guarda E Estacionamento De Veículos Terrestres Automotores, De Aeronaves E De Embarcações.
+1102=Vigilância, Segurança Ou Monitoramento De Bens E Pessoas.
+1103=Escolta, Inclusive De Veículos E Cargas.
+1104=Armazenamento, Depósito, Carga, Descarga, Arrumação E Guarda De Bens De Qualquer Espécie.
+12. Serviços de diversões, lazer, entretenimento e congêneres.
+1201=Espetáculos Teatrais.
+1202=Exibições Cinematográficas.
+1203=Espetáculos Circenses.
+1204=Programas De Auditório.
+1205=Parques De Diversões, Centros De Lazer E Congêneres.
+1206=Boates, Taxi-Dancing E Congêneres.
+1207=Shows, Ballet, Danças, Desfiles, Bailes, Óperas, Concertos, Recitais, Festivais E Congêneres.
+1208=Feiras, Exposições, Congressos E Congêneres.
+1209=Bilhares, Boliches E Diversões Eletrônicas Ou Não.
+1210=Corridas e competições de animais.
+1211=Competições esportivas ou de destreza física ou intelectual, com ou sem a participação do espectador.
+1212=Execução de música.
+1213=Produção, mediante ou sem encomenda prévia, de eventos, espetáculos, entrevistas, shows, ballet, danças, desfiles, bailes, teatros, óperas, concertos, recitais, festivais e congêneres. 5%
+1214=Fornecimento de música para ambientes fechados ou não, mediante transmissão por qualquer processo.
+1215=Desfiles de blocos carnavalescos ou folclóricos, trios elétricos e congêneres.
+1216=Exibição de filmes, entrevistas, musicais, espetáculos, shows, concertos, desfiles, óperas, competições esportivas, de destreza intelectual ou congêneres. 5%
+1217=Recreação e animação, inclusive em festas e eventos de qualquer natureza.
+13. Serviços relativos à fonografia, à fotografia, à cinematografia e à reprografia.
+1301=Fonografia Ou Gravação De Sons, Inclusive Trucagem, Dublagem, Mixagem E Congêneres.
+1302=Fotografia E Cinematografia, Inclusive Revelação, Ampliação, Cópia, Reprodução, Trucagem E Congêneres.
+1303=Reprografia, Microfilmagem E Digitalização.
+1304=Composição Gráfica, Fotocomposição, Clicheria, Zincografia, Litografia, Fotolitografia.
+14. Serviços relativos a bens de terceiros.
+1401=Lubrificação, Limpeza, Lustração, Revisão, Carga E Recarga, Conserto, Restauração, Blindagem, Manutenção E Conservação De Máquinas, Veículos, Aparelhos, Equipamentos, Motores, Elevadores Ou De Qualquer Objeto (Exceto Peças E Partes Empregadas, Que Ficam Sujeitas Ao Icms)
+1402=Assistência Técnica.
+1403=Recondicionamento De Motores (Exceto Peças E Partes Empregadas, Que Ficam Sujeitas Ao Icms).
+1404=Recauchutagem Ou Regeneração De Pneus.
+1405=Restauração, Recondicionamento, Acondicionamento, Pintura, Beneficiamento, Lavagem, Secagem, Tingimento, Galvanoplastia, Anodização, Corte, Recorte, Polimento, Plastificação E Congêneres, De Objetos Quaisquer.
+1406=Instalação E Montagem De Aparelhos, Máquinas E Equipamentos, Inclusive Montagem Industrial, Prestados Ao Usuário Final, Exclusivamente Com Material Por Ele Fornecido.
+1407=Colocação De Molduras E Congêneres.
+1408=Encadernação, Gravação E Douração De Livros, Revistas E Congêneres.
+1409=Alfaiataria E Costura, Quando O Material For Fornecido Pelo Usuário Final, Exceto Aviamento.
+1410=Tinturaria e lavanderia.
+1411=Tapeçaria e reforma de estofamentos em geral.
+1412=Funilaria e lanternagem.
+1413=Carpintaria e serralheria.
+15. Serviços relacionados ao setor bancário ou financeiro, inclusive aqueles prestados por instituições financeiras autorizadas a funcionar pela União ou por quem de direito.
+1501=Administração De Fundos Quaisquer, De Consórcio, De Cartão De Crédito Ou Débito E Congêneres, De Carteira De Clientes, De Cheques Pré-Datados E Congêneres.
+1502=Abertura De Contas Em Geral, Inclusive Conta-Corrente, Conta De Investimentos E Aplicação E Caderneta De Poupança, No País E No Exterior, Bem Como A Manutenção Das Referidas Contas Ativas E Inativas
+1503=Locação E Manutenção De Cofres Particulares, De Terminais Eletrônicos, De Terminais De Atendimento E De Bens E Equipamentos Em Geral.
+1504=Fornecimento Ou Emissão De Atestados Em Geral, Inclusive Atestado De Idoneidade, Atestado De Capacidade Financeira E Congêneres.
+1505=Cadastro, Elaboração De Ficha Cadastral, Renovação Cadastral E Congêneres, Inclusão Ou Exclusão No Cadastro De Emitentes De Cheques Sem Fundos ¿ Ccf Ou Em Quaisquer Outros Bancos Cadastrais
+1506=Emissão, Reemissão E Fornecimento De Avisos, Comprovantes E Documentos Em Geral; Abono De Firmas; Coleta E Entrega De Documentos, Bens E Valores; Comunicação Com Outra Agência Ou Com A Administração Central; Licenciamento Eletrônico De Veículos; Transferência De Veículos; Agenciamento Fiduciário Ou Depositário; Devolução De Bens Em Custódia
+1507=Acesso, Movimentação, Atendimento E Consulta A Contas Em Geral, Por Qualquer Meio Ou Processo, Inclusive Por Telefone, Fac-Símile, Internet E Telex, Acesso A Terminais De Atendimento, Inclusive Vinte E Quatro Horas; Acesso A Outro Banco E A Rede Compartilhada; Fornecimento De Saldo, Extrato E Demais Informações Relativas A Contas Em Geral, Por Qualquer Meio Ou Processo
+1508=Emissão, Reemissão, Alteração, Cessão, Substituição, Cancelamento E Registro De Contrato De Crédito; Estudo, Análise E Avaliação De Operações De Crédito; Emissão, Concessão, Alteração Ou Contratação De Aval, Fiança, Anuência E Congêneres; Serviços Relativos A Abertura De Crédito, Para Quaisquer Fins
+1509=Arrendamento Mercantil (Leasing) De Quaisquer Bens, Inclusive Cessão De Direitos E Obrigações, Substituição De Garantia, Alteração, Cancelamento E Registro De Contrato, E Demais Serviços Relacionados Ao Arrendamento Mercantil (Leasing)
+1510=Serviços relacionados a cobranças, recebimentos ou pagamentos em geral, de títulos quaisquer, de contas ou carnês, de câmbio, de tributos e por conta de terceiros, inclusive os efetuados por meio eletrônico, automático ou por máquinas de atendimento; fornecimento de posição de cobrança, recebimento ou pagamento; emissão de carnês, fichas de compensação, impressos e documentos em geral.
+1511=Devolução de títulos, protesto de títulos, sustação de protesto, manutenção de títulos, reapresentação de títulos, e os demais serviços a eles relacionados. 
+1512=Custódia em geral, inclusive de títulos e valores mobiliários. 
+1513=Serviços relacionados a operações de câmbio em geral, edição, alteração, prorrogação, cancelamento e baixa de contrato de câmbio; emissão de registro de exportação ou de crédito; cobrança ou depósito no exterior; emissão, fornecimento e cancelamento de cheques de viagem; fornecimento, transferência, cancelamento e os demais serviços relativos à carta de crédito de importação, exportação e garantias recebidas; envio e recebimento de mensagens em geral relacionadas a operações de câmbio.
+1514=Fornecimento, emissão, reemissão, renovação e manutenção de cartão magnético, cartão de crédito, cartão de débito, cartão salário e congêneres.
+1515=Compensação de cheques e títulos quaisquer; serviços relacionados a depósito, inclusive depósito identificado, a saque de contas quaisquer, por qualquer meio ou processo, inclusive em terminais eletrônicos e de atendimento.
+1516=Emissão, reemissão, liquidação, alteração, cancelamento e baixa de ordens de pagamento, ordens de crédito e similares, por qualquer meio ou processo; serviços relacionados à transferência de valores, dados, fundos, pagamentos e similares, inclusive entre contas em geral.
+1517=Emissão, fornecimento, devolução, sustação, cancelamento e oposição de cheques quaisquer, avulso ou por talão.
+1518=Serviços relacionados a crédito imobiliário, avaliação e vistoria de imóvel ou obra, análise técnica e jurídica, emissão, reemissão, alteração, transferência e renegociação de contrato, emissão e reemissão do termo de quitação e os demais serviços relacionados a crédito imobiliário.
+16. Serviços de transporte de natureza municipal.
+1601=Serviços de transporte de natureza municipal.
+160101=Serviços de transporte coletivo regular intramunicipal.
+160102=Serviços de transporte público alternativo intramunicipal.
+160103=Demais serviços de transporte de natureza municipal.
+17. Serviços de apoio técnico, administrativo, jurídico, contábil, comercial e congêneres.
+1701=Assessoria Ou Consultoria De Qualquer Natureza, Não Contida Em Outros Itens Desta Lista; Análise, Exame, Pesquisa, Coleta, Compilação E Fornecimento De Dados E Informações De Qualquer Natureza, Inclusive Cadastro E Similares.
+1702=Datilografia, Digitação, Estenografia, Expediente, Secretaria Em Geral, Resposta Audível, Redação, Edição, Interpretação, Revisão, Tradução, Apoio E Infraestrutura Administrativa E Congêneres
+1703=Planejamento, Coordenação, Programação Ou Organização Técnica, Financeira Ou Administrativa.
+1704=Recrutamento, Agenciamento, Seleção E Colocação De Mão-De-Obra.
+1705=Fornecimento De Mão-De-Obra, Mesmo Em Caráter Temporário, Inclusive De Empregados Ou Trabalhadores, Avulsos Ou Temporários, Contratados Pelo Prestador De Serviço
+1706=Propaganda E Publicidade, Inclusive Promoção De Vendas, Planejamento De Campanhas Ou Sistemas De Publicidade, Elaboração De Desenhos, Textos E Demais Materiais Publicitários
+1707=Franquia (Franchising).
+1708=Perícias, Laudos, Exames Técnicos E Análises Técnicas.
+1709=Planejamento, Organização E Administração De Feiras, Exposições, Congressos E Congêneres.
+1710=Organização de festas e recepções; bufê (exceto o fornecimento de alimentação e bebidas, que fica sujeito ao ICMS).
+1711=Administração em geral, inclusive de bens e negócios de terceiros.
+1712=Leilão e congêneres.
+1713=Advocacia.
+1714=Arbitragem de qualquer espécie, inclusive jurídica.
+1715=Auditoria.
+1716=Análise de Organização e Métodos.
+1717=Atuária e cálculos técnicos de qualquer natureza.
+1718=Contabilidade, inclusive serviços técnicos e auxiliares.
+1719=Consultoria e assessoria econômica ou financeira.
+1720=Estatística.
+1721=Cobrança em geral.
+1722=Assessoria, análise, avaliação, atendimento, consulta, cadastro, seleção, gerenciamento de informações, administração de contas a receber ou a pagar e, em geral, relacionados a operações de faturização (factoring).
+1723. Apresentação de palestras, conferências, seminários e congêneres.
+18. Serviços de regulação de sinistros vinculados a contratos de seguros, inspeção e avaliação de riscos para cobertura de contratos de seguros, prevenção e gerência de riscos seguráveis e congêneres.
+1801=Serviços De Regulação De Sinistros Vinculados A Contratos De Seguros; Inspeção E Avaliação De Riscos Para Cobertura De Contratos De Seguros; Prevenção E Gerência De Riscos Seguráveis E Congêneres
+19. Serviços de distribuição e venda de bilhetes e os demais produtos de loteria, bingos, cartões, pules ou cupons de apostas, sorteios, prêmios, inclusive os decorrentes de títulos de capitalização e congêneres.
+1901=Serviços De Distribuição E Venda De Bilhetes E Demais Produtos De Loteria, Bingos, Cartões, Pules Ou Cupons De Apostas, Sorteios, Prêmios, Inclusive Os Decorrentes De Títulos De Capitalização E Congêneres.
+20. Serviços portuários, aeroportuários, ferroportuários, de terminais rodoviários, ferroviários e metroviários.
+2001=Serviços Portuários, Ferroportuários, Utilização De Porto, Movimentação De Passageiros, Reboque De Embarcações, Rebocador Escoteiro, Atracação, Desatracação, Serviços De Praticagem, Capatazia, Armazenagem De Qualquer Natureza, Serviços Acessórios, Movimentação De Mercadorias, Serviços De Apoio Marítimo, De Movimentação Ao Largo, Serviços De Armadores, Estiva, Conferência, Logística E Congêneres
+2002=Serviços Aeroportuários, Utilização De Aeroporto, Movimentação De Passageiros, Armazenagem De Qualquer Natureza, Capatazia, Movimentação De Aeronaves, Serviços De Apoio Aeroportuários, Serviços Acessórios, Movimentação De Mercadorias, Logística E Congêneres
+2003=Serviços De Terminais Rodoviários, Ferroviários, Metroviários, Movimentação De Passageiros, Mercadorias, Inclusive Suas Operações, Logística E Congêneres.
+21. Serviços de registros públicos, cartorários e notariais.
+2101=Serviços De Registros Públicos, Cartorários E Notariais.
+22. Serviços de exploração de rodovia.
+2201=Serviços De Exploração De Rodovia Mediante Cobrança De Preço Ou Pedágio Dos Usuários, Envolvendo Execução De Serviços De Conservação, Manutenção, Melhoramentos Para Adequação De Capacidade E Segurança De Trânsito, Operação, Monitoração, Assistência Aos Usuários E Outros Serviços Definidos Em Contratos, Atos De Concessão Ou De Permissão Ou Em Normas Oficiais
+23. Serviços de programação e comunicação visual, desenho industrial e congêneres.
+2301=Serviços De Programação E Comunicação Visual, Desenho Industrial E Congêneres.
+24. Serviços de chaveiros, confecção de carimbos, placas, sinalização visual, banners, adesivos e congêneres.
+2401=Serviços De Chaveiros, Confecção De Carimbos, Placas, Sinalização Visual, Banners, Adesivos E Congêneres.
+25. Serviços funerários.
+2501=Funerais, Inclusive Fornecimento De Caixão, Urna Ou Esquifes; Aluguel De Capela; Transporte Do Corpo Cadavérico; Fornecimento De Flores, Coroas E Outros Paramentos; Desembaraço De Certidão De Óbito; Fornecimento De Véu, Essa E Outros Adornos; Embalsamento, Embelezamento, Conservação Ou Restauração De Cadáveres
+2502=Cremação De Corpos E Partes De Corpos Cadavéricos.
+2503=Planos Ou Convênio Funerários.
+2504=Manutenção E Conservação De Jazigos E Cemitérios.
+26. Serviços de coleta, remessa ou entrega de correspondências, documentos, objetos, bens ou valores, inclusive pelos correios e suas agências franqueadas; courrier e congêneres.
+2601=Serviços De Coleta, Remessa Ou Entrega De Correspondências, Documentos, Objetos, Bens Ou Valores, Inclusive Pelos Correios E Suas Agências Franqueadas; Courrier E Congêneres.
+27. Serviços de assistência social.
+2701=Serviços De Assistência Social.
+28. Serviços de avaliação de bens e serviços de qualquer natureza. 
+2801=Serviços De Avaliação De Bens E Serviços De Qualquer Natureza.
+29. Serviços de biblioteconomia.
+2901=Serviços De Biblioteconomia.
+30. Serviços de biologia, biotecnologia e química.
+3001=Serviços De Biologia, Biotecnologia E Química.
+31. Serviços técnicos em edificações, eletrônica, eletrotécnica, mecânica, telecomunicações e congêneres. 
+3101=Serviços Técnicos Em Edificações, Eletrônica, Eletrotécnica, Mecânica, Telecomunicações E Congêneres.
+32. Serviços de desenhos técnicos.
+3201=Serviços De Desenhos Técnicos.
+33. Serviços de desembaraço aduaneiro, comissários, despachantes e congêneres.
+3301=Serviços De Desembaraço Aduaneiro, Comissários, Despachantes E Congêneres.
+34. Serviços de investigações particulares, detetives e congêneres.
+3401=Serviços De Investigações Particulares, Detetives E Congêneres.
+35. Serviços de reportagem, assessoria de imprensa, jornalismo e relações públicas.
+3501=Serviços De Reportagem, Assessoria De Imprensa, Jornalismo E Relações Públicas.
+36. Serviços de meteorologia.
+3601=Serviços De Meteorologia.
+37. Serviços de artistas, atletas, modelos e manequins.
+3701=Serviços De Artistas, Atletas, Modelos E Manequins.
+38. Serviços de museologia.
+3801=Serviços De Museologia.
+39. Serviços de ourivesaria e lapidação.
+3901=Serviços De Ourivesaria E Lapidação (Quando O Material For Fornecido Pelo Tomador Do Serviço).
+40. Serviços relativos a obras de arte sob encomenda.

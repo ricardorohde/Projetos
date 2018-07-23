@@ -1,0 +1,10 @@
+function RemoverEnvelopeSincronoXml(const aXml: string): string;
+  var
+    _EnvelopeInicio, _EnvelopeFim: string;
+  begin
+    _EnvelopeInicio := '<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">' +
+               '<soap:Header/><soap:Body><ws:GerarNfseResponse xmlns:ws="http://nfse.abrasf.org.br"><outputXML>';
+    _EnvelopeFim := '</outputXML></ws:GerarNfseResponse></soap:Body></soap:Envelope>';
+    Result := StringReplace(aXml, _EnvelopeInicio, '', []);
+    Result := StringReplace(Result, _EnvelopeFim, '', []);
+  end;
