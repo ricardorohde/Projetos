@@ -7,23 +7,30 @@ uses Classes, Contnrs, SysUtils, StrUtils, Dialogs,
 
 type
   TCliente = class(TInterfaceBase)
-
   private
-    FTeste: string;
-    procedure SetTeste(const Value: string);
+    FNome: string;
+    FId: TPrimaryKey;
+    procedure SetNome(const Value: string);
+    procedure SetId(const Value: TPrimaryKey);
   public
 
   published
-    property Teste : string read FTeste write SetTeste;
+    property Id : TPrimaryKey read FId write SetId;
+    property Nome : string read FNome write SetNome;
   end;
 
 implementation
 
 { TCliente }
 
-procedure TCliente.SetTeste(const Value: string);
+procedure TCliente.SetId(const Value: TPrimaryKey);
 begin
-  FTeste := Value;
+  FId := Value;
+end;
+
+procedure TCliente.SetNome(const Value: string);
+begin
+  FNome := Value;
 end;
 
 end.

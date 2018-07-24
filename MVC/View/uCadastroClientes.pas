@@ -3,7 +3,7 @@ unit uCadastroClientes;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, TypInfo,
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, Buttons, ExtCtrls;
 
 type
@@ -34,20 +34,11 @@ uses
 
 procedure TfrmCadastroClientes.btnSalvarClick(Sender: TObject);
 var
-  Count, I: Integer;
-  List : TPropList;
   lCliente : TCliente;
-  Info : PPropInfo;
 begin
-  lCliente := TCliente.Create(['ABC']);
-  Count := GetPropList(TypeInfo(TCliente), tkProperties, @List);
-
-  for I := 0 to Pred(Count) do
-  begin
-    Info := GetPropInfo(TypeInfo(TCliente), List[I]^.Name);
-    Listbox1.Items.Add(List[I]^.Name + ' : ' + Info^.PropType^.Name);
-  end;
-
+  lCliente := TCliente.Create(['ID', 'NOME']);
+  lCliente.Prop['ID']:= edtCodigo.Text;
+  lCliente.Prop['NOME']:= edtNome.Text;
   lCliente.Free;
 //var
 //  lCliente: TCliente;

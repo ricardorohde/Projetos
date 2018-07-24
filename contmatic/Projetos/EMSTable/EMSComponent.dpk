@@ -1,0 +1,48 @@
+package EMSComponent;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Aadvanced EMS Components - Runtime'}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  dbrtl,
+  dsnap,
+  xmlrtl,
+  vcl,
+  bdertl,
+  vcldb,
+  adortl;
+
+contains
+  DeclaraType in 'DeclaraType.pas',
+  uPesquisa in 'uPesquisa.pas' {frmPesquisa},
+  dbLookUpEdit in 'dbLookUpEdit.pas',
+  LookupEdit in 'LookupEdit.pas',
+  DBFilterEdit in 'DBFilterEdit.pas',
+  DBFindEdit in 'DBFindEdit.pas',
+  DBSearchEdit in 'DBSearchEdit.pas',
+  EMSParameters in 'EMSParameters.pas';
+
+end.

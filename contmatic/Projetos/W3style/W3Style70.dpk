@@ -1,0 +1,68 @@
+package W3Style70;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST ON}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DESCRIPTION 'Advanced W3 Style Components - Runtime'}
+{$IMPLICITBUILD OFF}
+
+requires
+  vcl,
+  vcldb,
+  vclsmp,
+  bdertl,
+  dsnap,
+  TCFLib,
+  am2000_d7,
+  rtl,
+  dbrtl,
+  designide,
+  vclactnband,
+  vclx,
+  adortl;
+
+contains
+  CacheQuery in 'CacheQuery.pas',
+  Filters in 'Filters.pas',
+  UTool in 'UTool.pas',
+  ITFilterEdit in 'ITFilterEdit.pas',
+  CadVirtual in 'CadVirtual.pas',
+  DBGridPesquisa in 'DBGridPesquisa.pas',
+  Procura in 'Procura.pas' {fmProcura},
+  CriaSQL in 'CriaSQL.pas' {fmCriaSQL},
+  DirectoryDialog in 'DirectoryDialog.pas' {fmDirectoryDialog},
+  ITDBSearch in 'ITDBSearch.pas',
+  ITDBFileSearch in 'ITDBFileSearch.pas',
+  ITDBDirectorySearch in 'ITDBDirectorySearch.pas',
+  ItDatabase in 'ItDatabase.pas',
+  ITMenuItem in 'ITMenuItem.pas',
+  ITFilterMemo in 'ITFilterMemo.pas',
+  ITFilter in 'ITFilter.pas',
+  ITValida in 'ITValida.pas',
+  DeclaraType in 'DeclaraType.pas',
+  LookupEdit in 'LookupEdit.pas',
+  dbLookUpEdit in 'dbLookUpEdit.pas',
+  DBFindEdit in 'DBFindEdit.pas',
+  DBSearchEdit in 'DBSearchEdit.pas',
+  UConfiguracao in 'UConfiguracao.pas' {fmConfiguracao};
+
+end.

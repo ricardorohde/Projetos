@@ -1,0 +1,66 @@
+package AltPack_Imp_TRON;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$LIBSUFFIX '_513102'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  IBO40XRT_D7,
+  dsnap,
+  AltPack_Importador,
+  Altpack_Standard,
+  vcl,
+  cxEditorsVCLD7,
+  cxLibraryVCLD7,
+  dxThemeD7,
+  dxGDIPlusD7,
+  dxCoreD7,
+  vclx,
+  cxDataD7,
+  dbrtl,
+  ibxpress,
+  vcljpg,
+  vcldb,
+  cxExtEditorsVCLD7,
+  IBO40CRT_D7,
+  altlib_interface,
+  altlib_fstatus,
+  altlib_database,
+  CachedTable,
+  F157_R70,
+  bdertl,
+  altlib_databaseini,
+  VCLZipD7_3,
+  altlib_setuptable,
+  altlib_progresswindow,
+  rxctl7,
+  VclSmp,
+  rxdb7;
+
+contains
+  uConfigTRON in 'uConfigTRON.pas' {frmConfigTron},
+  uTRON in 'uTRON.pas';
+
+end.

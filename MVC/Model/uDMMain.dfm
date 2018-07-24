@@ -3,12 +3,11 @@ object DataModule1: TDataModule1
   Height = 272
   Width = 249
   object IBDatabase1: TIBDatabase
-    Connected = True
-    DatabaseName = 'C:\BASE\DADOS\fb3\SQS2002.FDB'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey')
     LoginPrompt = False
+    BeforeConnect = IBDatabase1BeforeConnect
     Left = 24
     Top = 16
   end
@@ -25,7 +24,6 @@ object DataModule1: TDataModule1
     SelectSQL.Strings = (
       'select * from BASE_CASA_IMOV'
       'ORDER BY CODIGO')
-    Active = True
     Left = 24
     Top = 136
     object IBDataSet1FILIAL: TIntegerField
@@ -127,7 +125,6 @@ object DataModule1: TDataModule1
     end
   end
   object IBTransaction1: TIBTransaction
-    Active = True
     DefaultDatabase = IBDatabase1
     Left = 128
     Top = 24

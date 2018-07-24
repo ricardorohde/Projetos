@@ -1,0 +1,11 @@
+K 13
+svn:externals
+V 258
+https://svn.alterdata.matriz/svn/dsp/Programacao/WIN/lib_pack/conversor/tags/Importador_5.13.11 externals/AltPack_Importador
+https://svn.alterdata.matriz/svn/dsp/Programacao/WIN/lib_pack/conversor/tags/InterfaceValidador_5.13.11 externals/InterfaceValidador
+
+K 14
+tsvn:autoprops
+V 20
+*.* = svn:needs-lock
+END

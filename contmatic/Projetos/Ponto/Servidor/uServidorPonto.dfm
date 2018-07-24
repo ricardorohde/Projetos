@@ -1,0 +1,132 @@
+object frmServidorPonto: TfrmServidorPonto
+  Left = 390
+  Top = 239
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Servidor Ponto'
+  ClientHeight = 223
+  ClientWidth = 174
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnClose = FormClose
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 174
+    Height = 182
+    Align = alClient
+    TabOrder = 0
+    object Label1: TLabel
+      Left = 8
+      Top = 8
+      Width = 80
+      Height = 13
+      Caption = 'Banco de Dados'
+    end
+    object Label2: TLabel
+      Left = 8
+      Top = 50
+      Width = 36
+      Height = 13
+      Caption = 'Usu'#225'rio'
+    end
+    object Label3: TLabel
+      Left = 8
+      Top = 91
+      Width = 31
+      Height = 13
+      Caption = 'Senha'
+    end
+    object Label4: TLabel
+      Left = 8
+      Top = 133
+      Width = 39
+      Height = 13
+      Caption = 'Servidor'
+    end
+    object edtDataBase: TEdit
+      Left = 8
+      Top = 24
+      Width = 121
+      Height = 21
+      TabOrder = 0
+      Text = 'postgres'
+    end
+    object edtUsuario: TEdit
+      Left = 8
+      Top = 65
+      Width = 121
+      Height = 21
+      TabOrder = 1
+      Text = 'postgres'
+    end
+    object edtSenha: TEdit
+      Left = 8
+      Top = 106
+      Width = 121
+      Height = 21
+      TabOrder = 2
+      Text = '123'
+    end
+    object edtServidor: TEdit
+      Left = 8
+      Top = 148
+      Width = 121
+      Height = 21
+      TabOrder = 3
+      Text = 'localhost'
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 182
+    Width = 174
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    object btnConectar: TBitBtn
+      Left = 52
+      Top = 8
+      Width = 111
+      Height = 25
+      Caption = 'Conectar'
+      TabOrder = 0
+      OnClick = btnConectarClick
+      Glyph.Data = {
+        36030000424D3603000000000000360000002800000010000000100000000100
+        1800000000000003000000000000000000000000000000000000FFFFFFFFFFFF
+        478DE65396E8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFA8CDF329BEEC5AAAECFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF93BDF127FFFF90A2E9FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEFF3FC2BE7F70CE3F8D8D6F4FF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFF85A1E924FFFF259CE8FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDFE3F92AD8F408FFFF47
+        9EEDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFF96AFEB21FFFF00D2FF7E93E2FFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDDDAF639B4EB0C
+        FFFF06A8F37076D6FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFF9CD2F5008AE5008AE5129CEA08DBFD00DDFF06A8F36262CCFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF5F6FD76DFF641FFFF00D4FA00
+        D4FA00D4FA00CFFF06A8F38093DFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFEEF2FC9CF4F857FFFF3DD8F846D5F734E8FF23E3FF06A8F3ACAF
+        E7FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFC5D4F498FFFF4C
+        F0FE53EAFE68BCEE699DE0B3CDF0888DDDFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFEFEFFA0CBF16CFCFF37E2FC51DEFD7E9DE1FFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFDEE6F890
+        E0F75EF4FF3CE1FF54D0FA849AE0FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFCDE1F78AF0FE49EAFF36ECFF47BEF17CA3
+        E1FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+        FFFFA6CAF07DD2F57AC7F275C8F36AA9E392BEEAFFFFFFFFFFFF}
+    end
+  end
+end

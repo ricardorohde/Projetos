@@ -3,67 +3,74 @@ unit uInterfaceBase;
 interface
 
 uses Classes, Contnrs, SysUtils, StrUtils, Dialogs,
-     Variants;
+  Variants;
 
-  type TpOperacao = (toInsert, toEdit, toDelete, toNone);
+type
+  TInterfaceBase = class;
+  TListaInterfaceBase = class;
 
-  type
-    IInterfaceBase = interface
-      procedure SetCodigo(const Value: Integer);
-      function  GetCodigo() : Integer;
-      procedure SetDescricao(const Value: string);
-      function  GetDescricao() : string;
-      function  GetProp(const PropName: String): Variant;
-      procedure SetProp(const PropName: String; const Value: Variant);
+  TpOperacao = (toInsert, toEdit, toDelete, toNone);
 
-      property Codigo    : Integer read GetCodigo    write SetCodigo;
-      property Descricao : string  read GetDescricao write SetDescricao;
+  TPrimaryKey = Integer;
 
-      property Prop[const PropName : String]: Variant read GetProp write SetProp;
-    end;
+  IInterfaceBase = interface
+    procedure SetCodigo(const Value: Integer);
+    function GetCodigo(): Integer;
+    procedure SetDescricao(const Value: string);
+    function GetDescricao(): string;
+    function GetProp(const PropName: string): Variant;
+    procedure SetProp(const PropName: string; const Value: Variant);
 
-  type
-    TInterfaceBase = class(TInterfacedObject, IInterfaceBase)
-    private
-      FCodigo       : Integer;
-      FDescricao    : string;
-      FValores      : array of Variant;
-      FCampos       : array of string;
-      FTipoOperacao : TpOperacao;
+    property Codigo: Integer read GetCodigo write SetCodigo;
+    property Descricao: string read GetDescricao write SetDescricao;
 
-      procedure SetCodigo(const Value: Integer);
-      function  GetCodigo() : Integer;
-      procedure SetDescricao(const Value: string);
-      function  GetDescricao() : string;
-      function  GetProp(const PropName: String): Variant;
-      procedure SetProp(const PropName: String; const Value: Variant);
-      function  GetTipoOperacao: TpOperacao;
-      procedure SetTipoOperacao(const Value: TpOperacao);
-    public
-      procedure AfterConstruction; override;
-      function  GetNamePropByIndex(AIndex : Integer) : string;
-      function  GetCountProp : Integer;
+    property Prop[const PropName: string]: Variant read GetProp write SetProp;
+  end;
 
-      constructor Create(AValue : array of string); reintroduce;
+  IInterfaceDAO = interface
+    procedure Salvar(ClassDAO: TInterfaceBase; const Tabela: string);
+  end;
 
-      property Codigo       : Integer    read GetCodigo       write SetCodigo;
-      property Descricao    : string     read GetDescricao    write SetDescricao;
-      property TipoOperacao : TpOperacao read GetTipoOperacao write SetTipoOperacao;
+  TInterfaceBase = class(TInterfacedObject, IInterfaceBase)
+  private
+    FCodigo: Integer;
+    FDescricao: string;
+    FValores: array of Variant;
+    FCampos: array of string;
+    FTipoOperacao: TpOperacao;
 
-      property Prop[const PropName : String]: Variant read GetProp write SetProp;
-    end;
+    procedure SetCodigo(const Value: Integer);
+    function GetCodigo(): Integer;
+    procedure SetDescricao(const Value: string);
+    function GetDescricao(): string;
+    function GetProp(const PropName: string): Variant;
+    procedure SetProp(const PropName: string; const Value: Variant);
+    function GetTipoOperacao: TpOperacao;
+    procedure SetTipoOperacao(const Value: TpOperacao);
+  public
+    procedure AfterConstruction; override;
+    function GetNamePropByIndex(AIndex: Integer): string;
+    function GetCountProp: Integer;
 
-  type
-    TListaInterfaceBase = class(TObjectList)
-      private
-        FPessoa : TInterfaceBase;
+    constructor Create(AValue: array of string); reintroduce;
 
-        function  GetPessoa: TInterfaceBase;
-        procedure SetPessoa(const Value: TInterfaceBase);
-      public
-        function Add(APessoa: TInterfaceBase): Integer; reintroduce; virtual;
-        property Pessoa : TInterfaceBase read GetPessoa write SetPessoa;
-    end;
+    property Codigo: Integer read GetCodigo write SetCodigo;
+    property Descricao: string read GetDescricao write SetDescricao;
+    property TipoOperacao: TpOperacao read GetTipoOperacao write SetTipoOperacao;
+
+    property Prop[const PropName: string]: Variant read GetProp write SetProp;
+  end;
+
+  TListaInterfaceBase = class(TObjectList)
+  private
+    FPessoa: TInterfaceBase;
+
+    function GetPessoa: TInterfaceBase;
+    procedure SetPessoa(const Value: TInterfaceBase);
+  public
+    function Add(APessoa: TInterfaceBase): Integer; reintroduce; virtual;
+    property Pessoa: TInterfaceBase read GetPessoa write SetPessoa;
+  end;
 
 implementation
 
@@ -76,80 +83,80 @@ end;
 
 constructor TInterfaceBase.Create(AValue: array of string);
 var
-  i : Integer;
+  i: Integer;
 begin
-  SetLength(FCampos,  Length(AValue));
+  SetLength(FCampos, Length(AValue));
   SetLength(FValores, Length(AValue));
-  for i := Low(AValue) to High(AValue) do
-    FCampos[i] := UpperCase(AValue[i]);
+  for i:= Low(AValue) to High(AValue) do
+    FCampos[i]:= UpperCase(AValue[i]);
 end;
 
 function TInterfaceBase.GetCodigo: Integer;
 begin
-  result := FCodigo;
+  result:= FCodigo;
 end;
 
 function TInterfaceBase.GetCountProp: Integer;
 begin
-  result := Length(FCampos);
+  result:= Length(FCampos);
 end;
 
 function TInterfaceBase.GetDescricao: string;
 begin
-  Result := FDescricao;
+  Result:= FDescricao;
 end;
 
 function TInterfaceBase.GetNamePropByIndex(AIndex: Integer): string;
 begin
-  Result := FCampos[AIndex];
+  Result:= FCampos[AIndex];
 end;
 
-function TInterfaceBase.GetProp(const PropName: String): Variant;
+function TInterfaceBase.GetProp(const PropName: string): Variant;
 begin
-  Result := FValores[AnsiIndexStr(UpperCase(PropName), FCampos)];
+  Result:= FValores[AnsiIndexStr(UpperCase(PropName), FCampos)];
 end;
 
 function TInterfaceBase.GetTipoOperacao: TpOperacao;
 begin
-  result := FTipoOperacao;
+  result:= FTipoOperacao;
 end;
 
 procedure TInterfaceBase.SetCodigo(const Value: Integer);
 begin
-  FCodigo := Value;
+  FCodigo:= Value;
 end;
 
 procedure TInterfaceBase.SetDescricao(const Value: string);
 begin
-  FDescricao := Value;
+  FDescricao:= Value;
 end;
 
-procedure TInterfaceBase.SetProp(const PropName: String;
+procedure TInterfaceBase.SetProp(const PropName: string;
   const Value: Variant);
 begin
-  FValores[AnsiIndexStr(UpperCase(PropName), FCampos)] := Value;
+  FValores[AnsiIndexStr(UpperCase(PropName), FCampos)]:= Value;
 end;
 
 procedure TInterfaceBase.SetTipoOperacao(const Value: TpOperacao);
 begin
-  FTipoOperacao := Value;
+  FTipoOperacao:= Value;
 end;
 
 { TListaPessoas }
 
 function TListaInterfaceBase.Add(APessoa: TInterfaceBase): Integer;
 begin
-  Result := (Self as TObjectList).Add(APessoa as TObject);
+  Result:= (Self as TObjectList).Add(APessoa as TObject);
 end;
 
 function TListaInterfaceBase.GetPessoa: TInterfaceBase;
 begin
-  Result := FPessoa;
+  Result:= FPessoa;
 end;
 
 procedure TListaInterfaceBase.SetPessoa(const Value: TInterfaceBase);
 begin
-  FPessoa := Value;
+  FPessoa:= Value;
 end;
-
 end.
+

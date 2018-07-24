@@ -48,6 +48,11 @@
 				<Form>DataModule1</Form>
 				<DesignClass>TDataModule</DesignClass>
 			</DCCReference>
+			<DCCReference Include="BaseLibrary.pas"/>
+			<DCCReference Include="uPrincipal.pas">
+				<Form>frmPrincipal</Form>
+			</DCCReference>
+			<DCCReference Include="Controller\uDAO.pas"/>
 			<None Include="ModelSupport_ProjetoMVC\default.txaPackage"/>
 			<None Include="ModelSupport_ProjetoMVC\default.txvpck"/>
 			<BuildConfiguration Include="Base">

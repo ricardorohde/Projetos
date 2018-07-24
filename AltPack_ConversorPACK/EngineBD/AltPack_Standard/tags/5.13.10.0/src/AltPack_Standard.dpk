@@ -1,0 +1,51 @@
+package AltPack_Standard;
+
+{$R *.res}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO ON}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION ON}
+{$OVERFLOWCHECKS OFF}
+{$RANGECHECKS OFF}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES OFF}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$LIBSUFFIX '_51310'}
+{$IMPLICITBUILD OFF}
+
+requires
+  rtl,
+  vcl,
+  cxEditorsVCLD7,
+  cxLibraryVCLD7,
+  dxThemeD7,
+  dxGDIPlusD7,
+  dxCoreD7,
+  vclx,
+  cxDataD7,
+  dsnap,
+  dbrtl,
+  ibxpress,
+  vcljpg,
+  vcldb;
+
+contains
+  AlterdataHints in 'AlterdataHints.pas',
+  AlterdataHintsView in 'AlterdataHintsView.pas' {AlterdataHintsView},
+  AlterdataSystemUtils in 'AlterdataSystemUtils.pas',
+  AlterdataDataFormat in 'AlterdataDataFormat.pas',
+  AlterdataFilesUtils in 'AlterdataFilesUtils.pas';
+
+end.
