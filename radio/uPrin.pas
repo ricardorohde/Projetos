@@ -14,13 +14,14 @@ type
     PopupMenu1: TPopupMenu;
     pmnuiExit: TMenuItem;
     Abrir: TMenuItem;
-    WebBrowser1: TWebBrowser;
+    Timer1: TTimer;
     procedure FormCreate(Sender: TObject);
     procedure AbrirClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure pmnuiExitClick(Sender: TObject);
     procedure pmnuiOpenClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
     { Private declarations }
 
@@ -35,11 +36,7 @@ type
 var
   frmPrincipal: TfrmPrincipal;
 
-const DATABASE_NAME = 'AGENDA';
-      DRIVE_NAME  = 'STANDARD';
-      //DRIVE_NAME  = 'PARADOX';
-      DB_EXTENSION = '.DB';
-      WM_ICONTRAY  = WM_USER + 1;
+const WM_ICONTRAY  = WM_USER + 1;
 
 
 implementation
@@ -114,10 +111,16 @@ begin
   ShowWindow(Application.Handle, SW_HIDE);
 end;
 
+procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
+begin
+  //ShowMessage('Teste');
+end;
+
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
-  WebBrowser1.Navigate('http://stat10.novotempo.com/aovivo/radio/');
-  ShowWindow(Application.Handle, SW_HIDE);  
+//  WebBrowser1.Navigate('http://stat10.novotempo.com/aovivo/radio/');
+  ShowWindow(Application.Handle, SW_HIDE);
+  Timer1.Enabled:= True;
 end;
 
 end.

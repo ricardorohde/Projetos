@@ -20,6 +20,7 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_UsePackage>vclx;vcl;dbrtl;Rave76VCL;bdertl;rtl;vclactnband;vcldb;vcldbx;dsnap;dsnapcon;TeeUI;TeeDB;Tee;adortl;vclib;ibxpress;IndyCore;IndySystem;IndyProtocols;xmlrtl;inet;intrawebdb_100_120;Intraweb_100_120;VclSmp;vclie;websnap;webdsnap;inetdbbde;inetdbxpress;soaprtl;vclribbon;DbxCommonDriver;DbxClientDriver;DBXInterBaseDriver;DBXMySQLDriver;dbexpress;dbxcds;ipstudiowindataset;ipstudiowin;QR5Run_RAD6;tmsd2009;tmsexd2009;tmsxlsd2009;tmswizd2009;fs12;frx12;frxcs12;fsDB12;frxDB12;fsBDE12;frxBDE12;fsADO12;frxADO12;fsIBX12;frxIBX12;frxDBX12;frxe12;fsTee12;frxTee12;Jcl;IP2k_2009;A407_R120;O407_r120;Mdiw;Package1;Barcode;Pfast;G113_R120;fcstudiowin;S403_D120;S403_R120;rxbde;rxctl;rxdb;tc_custom_driver;fqb120;tc_ibx_driver;users_v20;FIBPlus2009;FIBDBMidas2009;PKIECtrl12;PKIEDB12;rsl2009;dclOffice2k;Pacote_instalacao;ACBr_Comum;ACBr_synapse;ACBr_OpenSSL;ACBr_Diversos;ACBr_Serial;ACBr_Convenio115;ACBr_TXTComum;ACBr_LFD;ACBr_PAF;ACBr_SEF2;ACBr_PCNComum;ACBr_Sintegra;ACBr_SPED;ACBr_SPEDImportar;ACBR_DeSTDA;ACBr_Ponto;ACBr_TCP;ACBr_Boleto;ACBr_MTER;ACBr_NFe;ACBr_DFeComum;ACBr_NFCeECFVirtual;ACBr_NFeDanfeESCPOS;ACBr_CTe;ACBr_NFSe;ACBr_MDFe;ACBr_GNRE;ACBr_SAT;ACBr_SATECFVirtual;ACBr_SATExtratoESCPOS;ACBr_BlocoX;ACBr_TEFD;ACBr_SATWS;spdGov16_D2009;spdGov_D2009;DbxDevartInterBaseDriver120;gbCob7;Reinf;NFSeConverter_D2009;spdNFSe_D2009</DCC_UsePackage>
 			<DCC_UnitAlias>WinTypes=Windows;WinProcs=Windows;DbiTypes=BDE;DbiProcs=BDE;DbiErrs=BDE;$(DCC_UnitAlias)</DCC_UnitAlias>
 			<DCC_DependencyCheckOutputName>Project1.exe</DCC_DependencyCheckOutputName>
 			<DCC_ImageBase>00400000</DCC_ImageBase>
@@ -99,6 +100,9 @@
 						<VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
 						<VersionInfoKeys Name="Comments"/>
 					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dclofficexp120.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
 				</Delphi.Personality>
 			</BorlandProject>
 			<ProjectFileVersion>12</ProjectFileVersion>

@@ -324,7 +324,7 @@ end;
 procedure TReinf.LoadConfig();
 begin
   Reinf.CpfCnpjEmpregador:= Config.CpfCnpjEmpregador;
-  Reinf.VersaoManual:= vm13;
+//  Reinf.VersaoManual:= vm13;
   Reinf.DiretorioTemplates:= Config.DiretorioTemplates;
   Reinf.DiretorioEsquemas:= Config.DiretorioEsquemas;
   Reinf.Ambiente:= akPreProducaoReais;
@@ -333,80 +333,80 @@ begin
 end;
 
 procedure TReinf.Processar();
-var
-  i: Integer;
-  lFileName: string;
-  ArquivoTx2: TStringList;
-  ArquivoXML: TStringList;
-  _Retorno: IspdRetEnviarLoteEventos;
+//var
+//  i: Integer;
+//  lFileName: string;
+//  ArquivoTx2: TStringList;
+//  ArquivoXML: TStringList;
+//  _Retorno: IspdRetEnviarLoteEventos;
 begin
-  LoadConfig();
-  try
-    ArquivoTx2:= TStringList.Create;
-    ArquivoXML:= TStringList.Create;
-    for i := 0 to FListaReinf.Count - 1 do
-    begin
-      case Tipo of
-        tpIncluir: ArquivoTx2.Add('INCLUIRR1000');
-        tpExcluir: ArquivoTx2.Add('EXCLUIRR1000');
-      end;
-      ArquivoTx2.Add(Format('tpAmb_4=%d', [ TInfo(FListaReinf.Items[i]).TipoAmbiente]));
-      ArquivoTx2.Add(Format('procEmi_5=%d', [ TInfo(FListaReinf.Items[i]).ProcEmi]));
-      ArquivoTx2.Add(Format('verProc_6=%s', [ TInfo(FListaReinf.Items[i]).Versao]));
-      ArquivoTx2.Add(Format('tpInsc_8=%d', [ TInfo(FListaReinf.Items[i]).TipoInscricao]));
-      ArquivoTx2.Add(Format('nrInsc_9=%s', [ TInfo(FListaReinf.Items[i]).NumeroInscricao]));
-      ArquivoTx2.Add(Format('iniValid_13=%s', [ TInfo(FListaReinf.Items[i]).ValidadeInicial]));
-      ArquivoTx2.Add(Format('fimValid_14=%s', [ TInfo(FListaReinf.Items[i]).ValidadeFinal]));
-
-      if Tipo = tpIncluir then
-      begin
-        ArquivoTx2.Add(Format('classTrib_16=%s', [ TInfo(FListaReinf.Items[i]).ClassificacaoTributaria]));
-        ArquivoTx2.Add(Format('indEscrituracao_17=%d', [ TInfo(FListaReinf.Items[i]).Escrituracao]));
-        ArquivoTx2.Add(Format('indDesoneracao_18=%d', [ TInfo(FListaReinf.Items[i]).Desoneracao]));
-        ArquivoTx2.Add(Format('indAcordoIsenMulta_19=%d', [ TInfo(FListaReinf.Items[i]).AcordoIsentoMulta]));
-        ArquivoTx2.Add(Format('indSitPJ_20=%d', [ TInfo(FListaReinf.Items[i]).SituacaoPJ]));
-        ArquivoTx2.Add(Format('nmCtt_22=%s', [ TInfo(FListaReinf.Items[i]).NomeContato]));
-        ArquivoTx2.Add(Format('cpfCtt_23=%s', [ TInfo(FListaReinf.Items[i]).CPFContato]));
-        ArquivoTx2.Add(Format('foneFixo_24=%s', [ TInfo(FListaReinf.Items[i]).TelefoneFixo]));
-        ArquivoTx2.Add(Format('foneCel_25=%s', [ TInfo(FListaReinf.Items[i]).Celular]));
-        ArquivoTx2.Add(Format('email_26=%s', [ TInfo(FListaReinf.Items[i]).Email]));
-        ArquivoTx2.Add(Format('ideEFR_34=%s', [ TInfo(FListaReinf.Items[i]).ideEFR]));
-        ArquivoTx2.Add(Format('cnpjEFR_35=%s', [ TInfo(FListaReinf.Items[i]).CNPJ_EFR]));
-        ArquivoTx2.Add('INCLUIRSOFTHOUSE_27');
-        ArquivoTx2.Add(Format('cnpjSoftHouse_28=%s', [ Self.SoftHouse.Cnpj ]));
-        ArquivoTx2.Add(Format('nmRazao_29=%s', [ Self.SoftHouse.RazaoSocial ]));
-        ArquivoTx2.Add(Format('nmCont_30=%s', [ Self.SoftHouse.Contato ]));
-        ArquivoTx2.Add(Format('telefone_31=%s', [ Self.SoftHouse.Telefone ]));
-        ArquivoTx2.Add(Format('email_32=%s', [ Self.SoftHouse.Email ]));
-        ArquivoTx2.Add('SALVARSOFTHOUSE_27');
-      end;
-      ArquivoTx2.Add('SALVARR1000');
-    end;
-
-    if OpcaoDesenvolvedor() then
-    begin
-      lFileName:= Config.DiretorioImpressao + '\TX2';
-      if not DirectoryExists(lFileName) then
-        ForceDirectories(lFileName);
-
-      lFileName:= lFileName + '\_ArquivoTX2'+ FormatDateTime('YYYYMMDDHHMMSSZZZ', Now) + '.Tx2';
-      ArquivoTx2.SaveToFile(lFileName);
-    end;
-
-    //Gerar Arquivo XML
-    ArquivoXML.Text := Reinf.GerarXMLporTx2(ArquivoTx2.Text);
-    //Assinar Arquivo XML
-    ArquivoXML.Text := Reinf.AssinarEvento(ArquivoXML.Text);
-    ArquivoXML.SaveToFile(Config.DiretorioImpressao + '/_ArquivoXML'+ FormatDateTime('YYYYMMDDHHMMSSZZZ', Now) + '.xml');
-
-    //Enviar Arquivo XML
-    _Retorno := Reinf.EnviarLoteEventos(ArquivoXML.Text);
-    Retorno.IdLote:= _Retorno.IdLote;
-    Retorno.Mensagem:= _Retorno.Mensagem;
-  finally
-    FreeAndNil( ArquivoTx2 );
-    FreeAndNil( ArquivoXML );
-  end;
+//  LoadConfig();
+//  try
+//    ArquivoTx2:= TStringList.Create;
+//    ArquivoXML:= TStringList.Create;
+//    for i := 0 to FListaReinf.Count - 1 do
+//    begin
+//      case Tipo of
+//        tpIncluir: ArquivoTx2.Add('INCLUIRR1000');
+//        tpExcluir: ArquivoTx2.Add('EXCLUIRR1000');
+//      end;
+//      ArquivoTx2.Add(Format('tpAmb_4=%d', [ TInfo(FListaReinf.Items[i]).TipoAmbiente]));
+//      ArquivoTx2.Add(Format('procEmi_5=%d', [ TInfo(FListaReinf.Items[i]).ProcEmi]));
+//      ArquivoTx2.Add(Format('verProc_6=%s', [ TInfo(FListaReinf.Items[i]).Versao]));
+//      ArquivoTx2.Add(Format('tpInsc_8=%d', [ TInfo(FListaReinf.Items[i]).TipoInscricao]));
+//      ArquivoTx2.Add(Format('nrInsc_9=%s', [ TInfo(FListaReinf.Items[i]).NumeroInscricao]));
+//      ArquivoTx2.Add(Format('iniValid_13=%s', [ TInfo(FListaReinf.Items[i]).ValidadeInicial]));
+//      ArquivoTx2.Add(Format('fimValid_14=%s', [ TInfo(FListaReinf.Items[i]).ValidadeFinal]));
+//
+//      if Tipo = tpIncluir then
+//      begin
+//        ArquivoTx2.Add(Format('classTrib_16=%s', [ TInfo(FListaReinf.Items[i]).ClassificacaoTributaria]));
+//        ArquivoTx2.Add(Format('indEscrituracao_17=%d', [ TInfo(FListaReinf.Items[i]).Escrituracao]));
+//        ArquivoTx2.Add(Format('indDesoneracao_18=%d', [ TInfo(FListaReinf.Items[i]).Desoneracao]));
+//        ArquivoTx2.Add(Format('indAcordoIsenMulta_19=%d', [ TInfo(FListaReinf.Items[i]).AcordoIsentoMulta]));
+//        ArquivoTx2.Add(Format('indSitPJ_20=%d', [ TInfo(FListaReinf.Items[i]).SituacaoPJ]));
+//        ArquivoTx2.Add(Format('nmCtt_22=%s', [ TInfo(FListaReinf.Items[i]).NomeContato]));
+//        ArquivoTx2.Add(Format('cpfCtt_23=%s', [ TInfo(FListaReinf.Items[i]).CPFContato]));
+//        ArquivoTx2.Add(Format('foneFixo_24=%s', [ TInfo(FListaReinf.Items[i]).TelefoneFixo]));
+//        ArquivoTx2.Add(Format('foneCel_25=%s', [ TInfo(FListaReinf.Items[i]).Celular]));
+//        ArquivoTx2.Add(Format('email_26=%s', [ TInfo(FListaReinf.Items[i]).Email]));
+//        ArquivoTx2.Add(Format('ideEFR_34=%s', [ TInfo(FListaReinf.Items[i]).ideEFR]));
+//        ArquivoTx2.Add(Format('cnpjEFR_35=%s', [ TInfo(FListaReinf.Items[i]).CNPJ_EFR]));
+//        ArquivoTx2.Add('INCLUIRSOFTHOUSE_27');
+//        ArquivoTx2.Add(Format('cnpjSoftHouse_28=%s', [ Self.SoftHouse.Cnpj ]));
+//        ArquivoTx2.Add(Format('nmRazao_29=%s', [ Self.SoftHouse.RazaoSocial ]));
+//        ArquivoTx2.Add(Format('nmCont_30=%s', [ Self.SoftHouse.Contato ]));
+//        ArquivoTx2.Add(Format('telefone_31=%s', [ Self.SoftHouse.Telefone ]));
+//        ArquivoTx2.Add(Format('email_32=%s', [ Self.SoftHouse.Email ]));
+//        ArquivoTx2.Add('SALVARSOFTHOUSE_27');
+//      end;
+//      ArquivoTx2.Add('SALVARR1000');
+//    end;
+//
+//    if OpcaoDesenvolvedor() then
+//    begin
+//      lFileName:= Config.DiretorioImpressao + '\TX2';
+//      if not DirectoryExists(lFileName) then
+//        ForceDirectories(lFileName);
+//
+//      lFileName:= lFileName + '\_ArquivoTX2'+ FormatDateTime('YYYYMMDDHHMMSSZZZ', Now) + '.Tx2';
+//      ArquivoTx2.SaveToFile(lFileName);
+//    end;
+//
+//    //Gerar Arquivo XML
+//    ArquivoXML.Text := Reinf.GerarXMLporTx2(ArquivoTx2.Text);
+//    //Assinar Arquivo XML
+//    ArquivoXML.Text := Reinf.AssinarEvento(ArquivoXML.Text);
+//    ArquivoXML.SaveToFile(Config.DiretorioImpressao + '/_ArquivoXML'+ FormatDateTime('YYYYMMDDHHMMSSZZZ', Now) + '.xml');
+//
+//    //Enviar Arquivo XML
+//    _Retorno := Reinf.EnviarLoteEventos(ArquivoXML.Text);
+//    Retorno.IdLote:= _Retorno.IdLote;
+//    Retorno.Mensagem:= _Retorno.Mensagem;
+//  finally
+//    FreeAndNil( ArquivoTx2 );
+//    FreeAndNil( ArquivoXML );
+//  end;
 end;
 
 procedure TReinf.SetConfig(const Value: TConfiguracao);

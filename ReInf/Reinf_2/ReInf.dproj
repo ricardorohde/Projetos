@@ -1,0 +1,118 @@
+﻿	<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+		<PropertyGroup>
+			<ProjectGuid>{5A496858-A7E4-4E01-8D27-6E9055FABCDF}</ProjectGuid>
+			<MainSource>ReInf.dpr</MainSource>
+			<Config Condition="'$(Config)'==''">Debug</Config>
+			<DCC_DCCCompiler>DCC32</DCC_DCCCompiler>
+			<ProjectVersion>12.0</ProjectVersion>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_1)'!=''">
+			<Cfg_1>true</Cfg_1>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_2)'!=''">
+			<Cfg_2>true</Cfg_2>
+			<CfgParent>Base</CfgParent>
+			<Base>true</Base>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Base)'!=''">
+			<DCC_ExeOutput>C:\Edson\Projetos\Projetos\ReInf\Reinf_2</DCC_ExeOutput>
+			<DCC_UsePackage>vclx;vcl;dbrtl;Rave76VCL;bdertl;rtl;vclactnband;vcldb;vcldbx;dsnap;dsnapcon;TeeUI;TeeDB;Tee;adortl;vclib;ibxpress;IndyCore;IndySystem;IndyProtocols;xmlrtl;inet;intrawebdb_100_120;Intraweb_100_120;VclSmp;vclie;websnap;webdsnap;inetdbbde;inetdbxpress;soaprtl;vclribbon;DbxCommonDriver;DbxClientDriver;DBXInterBaseDriver;DBXMySQLDriver;dbexpress;dbxcds;ipstudiowindataset;ipstudiowin;QR5Run_RAD6;tmsd2009;tmsexd2009;tmsxlsd2009;tmswizd2009;fs12;frx12;frxcs12;fsDB12;frxDB12;fsBDE12;frxBDE12;fsADO12;frxADO12;fsIBX12;frxIBX12;frxDBX12;frxe12;fsTee12;frxTee12;Jcl;IP2k_2009;A407_R120;O407_r120;Mdiw;Package1;Barcode;Pfast;G113_R120;fcstudiowin;S403_D120;S403_R120;rxbde;rxctl;rxdb;tc_custom_driver;fqb120;tc_ibx_driver;users_v20;FIBPlus2009;FIBDBMidas2009;PKIECtrl12;PKIEDB12;rsl2009;dclOffice2k;Pacote_instalacao;ACBr_Comum;ACBr_synapse;ACBr_OpenSSL;ACBr_Diversos;ACBr_Serial;ACBr_Convenio115;ACBr_TXTComum;ACBr_LFD;ACBr_PAF;ACBr_SEF2;ACBr_PCNComum;ACBr_Sintegra;ACBr_SPED;ACBr_SPEDImportar;ACBR_DeSTDA;ACBr_Ponto;ACBr_TCP;ACBr_Boleto;ACBr_MTER;ACBr_NFe;ACBr_DFeComum;ACBr_NFCeECFVirtual;ACBr_NFeDanfeESCPOS;ACBr_CTe;ACBr_NFSe;ACBr_MDFe;ACBr_GNRE;ACBr_SAT;ACBr_SATECFVirtual;ACBr_SATExtratoESCPOS;ACBr_BlocoX;ACBr_TEFD;ACBr_SATWS;spdGov16_D2009;spdGov_D2009;DbxDevartInterBaseDriver120;gbCob7;spdNFSe_D2009;NFSeConverter_D2009;Reinf</DCC_UsePackage>
+			<DCC_DependencyCheckOutputName>ReInf.exe</DCC_DependencyCheckOutputName>
+			<DCC_ImageBase>00400000</DCC_ImageBase>
+			<DCC_Platform>x86</DCC_Platform>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_1)'!=''">
+			<DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+			<DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+			<DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+			<DCC_DebugInformation>false</DCC_DebugInformation>
+		</PropertyGroup>
+		<PropertyGroup Condition="'$(Cfg_2)'!=''">
+			<DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+		</PropertyGroup>
+		<ItemGroup>
+			<DelphiCompile Include="ReInf.dpr">
+				<MainSource>MainSource</MainSource>
+			</DelphiCompile>
+			<DCCReference Include="uPrin.pas">
+				<Form>frmPrincipal</Form>
+			</DCCReference>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\Formulario\Module.pas">
+				<Form>DMPrincipal</Form>
+				<DesignClass>TDataModule</DesignClass>
+			</DCCReference>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\Interface_Calculo\Utils.pas"/>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\Interface_Calculo\CustomUtil.pas"/>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\Formulario\Gr_Custom.pas">
+				<Form>FrmCustom</Form>
+			</DCCReference>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\Interface_Calculo\Int_Dados.pas">
+				<Form>FrmDados</Form>
+			</DCCReference>
+			<DCCReference Include="C:\AdmBens\ERP_Desktop\Fontes2009\BaseLibrary.pas"/>
+			<BuildConfiguration Include="Base">
+				<Key>Base</Key>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Debug">
+				<Key>Cfg_2</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+			<BuildConfiguration Include="Release">
+				<Key>Cfg_1</Key>
+				<CfgParent>Base</CfgParent>
+			</BuildConfiguration>
+		</ItemGroup>
+		<Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+		<ProjectExtensions>
+			<Borland.Personality>Delphi.Personality.12</Borland.Personality>
+			<Borland.ProjectType>VCLApplication</Borland.ProjectType>
+			<BorlandProject>
+				<Delphi.Personality>
+					<Source>
+						<Source Name="MainSource">ReInf.dpr</Source>
+					</Source>
+					<Parameters>
+						<Parameters Name="UseLauncher">False</Parameters>
+						<Parameters Name="LoadAllSymbols">True</Parameters>
+						<Parameters Name="LoadUnspecifiedSymbols">False</Parameters>
+					</Parameters>
+					<VersionInfo>
+						<VersionInfo Name="IncludeVerInfo">True</VersionInfo>
+						<VersionInfo Name="AutoIncBuild">False</VersionInfo>
+						<VersionInfo Name="MajorVer">5</VersionInfo>
+						<VersionInfo Name="MinorVer">12</VersionInfo>
+						<VersionInfo Name="Release">12</VersionInfo>
+						<VersionInfo Name="Build">3</VersionInfo>
+						<VersionInfo Name="Debug">False</VersionInfo>
+						<VersionInfo Name="PreRelease">False</VersionInfo>
+						<VersionInfo Name="Special">False</VersionInfo>
+						<VersionInfo Name="Private">False</VersionInfo>
+						<VersionInfo Name="DLL">False</VersionInfo>
+						<VersionInfo Name="Locale">1046</VersionInfo>
+						<VersionInfo Name="CodePage">1252</VersionInfo>
+					</VersionInfo>
+					<VersionInfoKeys>
+						<VersionInfoKeys Name="CompanyName">Alterdata Software</VersionInfoKeys>
+						<VersionInfoKeys Name="FileDescription">Ponto Eletrônico</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">5.12.12.3</VersionInfoKeys>
+						<VersionInfoKeys Name="InternalName">Wponto</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalCopyright">Alterdata Software</VersionInfoKeys>
+						<VersionInfoKeys Name="LegalTrademarks"/>
+						<VersionInfoKeys Name="OriginalFilename">Wponto.exe</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductName">Alterdata WPonto</VersionInfoKeys>
+						<VersionInfoKeys Name="ProductVersion">5.1212.3</VersionInfoKeys>
+						<VersionInfoKeys Name="Comments">www.alterdata.com.br</VersionInfoKeys>
+					</VersionInfoKeys>
+					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDS)\bin\dclofficexp120.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
+					</Excluded_Packages>
+				</Delphi.Personality>
+			</BorlandProject>
+			<ProjectFileVersion>12</ProjectFileVersion>
+		</ProjectExtensions>
+	</Project>

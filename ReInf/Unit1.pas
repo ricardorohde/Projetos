@@ -288,7 +288,7 @@ begin
       Nfse.Incluir();
     end;
 
-    Nfse.Nome_Arquivo:= Nfse.Config.DiretorioImpressao + '\NF_ELETRONICA_'+FormatDateTime('MM_YYYY', Nfse.Config.DataFim)+ Nfse.Config.Cnpj +'_74_C.xml';
+    Nfse.Nome_Arquivo:= Nfse.Config.DiretorioImpressao + 'NF_ELETRONICA_'+FormatDateTime('MM_YYYY', Nfse.Config.DataFim)+ Nfse.Config.Cnpj +'_74_C.xml';
     Nfse.Processar();
   finally
     FreeAndNil( Nfse );
