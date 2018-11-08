@@ -7,7 +7,43 @@
 
     <body>
         <form action="index.html" method="post">
+            <label>Lojas</label><br>
+            <input type="text" list="lojas" name="nome_loja" id="nome_loja" size="50" maxlength="50" placeholder="Digite o nome da loja">            
+            <datalist id="lojas">
+                <option value="Centauro">
+                <option value="Centro Automotivo">
+                <option value="Centro Ótico">
+                <option value="Centro de Beleza">
+                <option value="Magazine Luiza">
+                <option value="Mc Donalds">
+            </datalist>
             
+            <select id=cbPais>
+                <option value="" >Select Country</option>
+                <option value="usa" >Usa</option>
+                <option value="ca" >Canada</option>
+                <option value="me" >Mexico</option>
+            </select>            
+            
+<!--
+            <label>South American countries</label><br>
+            <input list="countries" placeholder="Type a country">
+
+            <datalist id="countries">
+              <option value="Argentina">
+              <option value="Bolivia">
+              <option value="Brazil">
+              <option value="Chile">
+              <option value="Colombia">
+              <option value="Ecuador">
+              <option value="Guyana">
+              <option value="Paraguay">
+              <option value="Peru">
+              <option value="Suriname">
+              <option value="Uruguay">
+              <option value="Venezuela">
+            </datalist>            
+-->
         </form>
     </body>
 </html>

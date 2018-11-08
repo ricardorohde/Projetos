@@ -10,7 +10,20 @@
     <body>
         
         <h2>Formulário</h2>
-        
-    
+        <form action="destino.html" method="post">
+            <label for="nome">Nome completo: </label>
+            <input type="text" name="nome" id="nome" size="50" maxlength="100" required autofocus placeholder="Insira seu Nome">
+            <label for="telefone">Telefone: </label>
+            <input type="tel" name="telefone" id="telefone" size="20" maxlength="9" placeholder="(99) 9999-9999">            
+            <label for="nascimento">Nascimento: </label>
+            <input type="date" name="nascimento" id="nascimento">
+            <label for="filhos">Quant. Filhos: </label>
+            <input type="number" name="filhos" id="filhos" min="1" max="10" value="1">                        
+            <label for="email">E-mail: </label>
+            <input type="email" name="email" id="email" size="20" maxlength="50" required placeholder="fulano@dominio.com">            
+            <label for="website">Website: </label>
+            <input type="url" name="website" id="website" size="50" maxlength="50" placeholder="http:\\www.seusite.com">                                
+            <input type="submit" value="Enviar" name="enviar" id="enviar">
+        </form>                  
     </body>
 </html>
