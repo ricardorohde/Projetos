@@ -2,11 +2,10 @@
     <head>
         <title>Curso de CSS3 - Essencial</title>
         <meta charset="utf-8">
-
+        <link href="_css/estilos.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
     
-        <style>
-
+ <!--       <style>
             body {
                 font-family: Roboto, sans-serif;
             }
@@ -14,7 +13,10 @@
             h1 { 
                 font-size: 3em;
                 text-transform: capitalize;
-
+                /*espaçamento das letras*/
+                letter-spacing: -0.1em;
+                /*espaçamento das palavras*/
+                word-spacing: 0.01em;
             }
 
             h4 {
@@ -43,14 +45,20 @@
             }
 
         </style>
-
-
+-->
     </head>
-
     <body>
-        <h1>cascading style sheets</h1>
-        <h4>Origem: Wikipédia, a enciclopédia livre.</h4>
-        <p><a href="#">Cascading</a> Style Sheets (ou simplesmente CSS) uma linguagem de estilo utilizada para definir a apresentação de documentos escritos em uma linguagem de marcação, como ou XML. Seu principal benefício é prover a separação entre o formato e o conteúdo de um documento.</p>
-        <p>Em vez de colocar a formatação dentro do documento, o desenvolvedor cria um link (ligação) para uma página que contém os estilos, procedendo de forma idêntica para todas as páginas de um portal. Quando quiser alterar a aparência do portal basta portanto modificar apenas um arquivo.</p>
+        <div class="dvcabecalho">            
+        </div>
+        <div id="Content">
+            <div id="Panes">
+                <h2>O que é Lorem Ipsum?</h2>
+                <p><strong>Lorem Ipsum</strong> é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. Se popularizou na década de 60, quando a Letraset lançou decalques contendo passagens de Lorem Ipsum, e mais recentemente quando passou a ser integrado a softwares de editoração eletrônica como Aldus PageMaker.
+                </p>
+                <h2>Porque nós o usamos?</h2>
+                <p>É um fato conhecido de todos que um leitor se distrairá com o conteúdo de texto legível de uma página quando estiver examinando sua diagramação. A vantagem de usar Lorem Ipsum é que ele tem uma distribuição normal de letras, ao contrário de "Conteúdo aqui, conteúdo aqui", fazendo com que ele tenha uma aparência similar a de um texto legível. Muitos softwares de publicação e editores de páginas na internet agora usam Lorem Ipsum como texto-modelo padrão, e uma rápida busca por 'lorem ipsum' mostra vários websites ainda em sua fase de construção. Várias versões novas surgiram ao longo dos anos, eventualmente por acidente, e às vezes de propósito (injetando humor, e coisas do gênero).
+                </p>
+            </div>
+        </div>
     </body>
 </html>

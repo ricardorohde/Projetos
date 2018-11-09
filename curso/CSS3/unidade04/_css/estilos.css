@@ -1,0 +1,34 @@
+body, html {
+    font-family: 'Open Sans',Arial,sans-serif;
+    font-size: 100%;
+    font-size: 14px;
+    line-height: 20px;
+    -webkit-text-size-adjust: none;
+}
+.dvcabecalho{
+    background-color: aqua;
+    height: 100px;
+    margin: 10px, 10px, 10px,10px;            
+}
+
+div#Panes {
+    margin-top: 15px;
+    width: 1050px;
+    height: auto;
+    margin: auto;    
+}
+#Content {
+    position: relative;
+}
+
+div#Panes h2 {
+text-align: left;
+display: inline;
+
+}
+
+div#Panes p {
+text-align: left;
+display: block;
+
+}
