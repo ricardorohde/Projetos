@@ -4,21 +4,20 @@
 		}
 		
 		.box {
-			width: 330px;
+			width: 450px;
 			height: auto;
 			float: left;
 		}
 		
 		div#a-b-c {
-			width: 1050px;
+			width: 1400px;
 			height: auto;
 			margin: auto;
 		}
 		
 		div#a-b-c h2 {
 		text-align: left;
-		display: inline;
-
+		display: inherit;
 		}
 		
 		div#a-b-c p {
@@ -27,5 +26,5 @@
 
 		}
 		.left {
-			margin-left: 20px;
+			margin-left: 10px;
 		}
