@@ -2,6 +2,11 @@ unit uCliente;
 
 interface
 
+uses System.Classes, System.SysUtils, Vcl.Forms, Dialogs, {System.Contnrs,}
+  DBXJSON, DBXJsonReflect, uWebServiceHttp, xmldom, XMLIntf, msxmldom, XMLDoc,
+  StrUtils, msxml, System.Types, System.Variants, DBClient, mshtml, ActiveX,
+  ComObj, Generics.Collections, LIB, uAcessoSite;
+
 type
   TCliente = class
   private
@@ -85,11 +90,36 @@ type
     property Contato: string read FContato write SetContato;
     property DDD: string read FDDD write SetDDD;
     property DDI: string read FDDI write SetDDI;
+
+    function Add: TCliente;
+  end;
+
+  TClientes = class(TAcessoSite)
+    private
+      FListaDeClientes: TObjectList<TCliente>;
+      procedure SetListaDeCliente(const Value: TObjectList<TCliente>);
+    function PreencherCustomersCliente(var Cliente: TCliente;
+      const psID: string): Boolean;
+    function PreencherCountriesCliente(var cliente: TCliente;
+      const psID: string): Boolean;
+    function PreencherStatesCliente(var cliente: TCliente;
+      const psID: string): Boolean;
+    public
+
+      Procedure ListarClientes(Id: Integer);
+      procedure AfterConstruction; override;
+      procedure BeforeDestruction; override;
+      property ListaDeCliente: TObjectList<TCliente> read FListaDeClientes write SetListaDeCliente;
   end;
 
 implementation
 
 { TCliente }
+
+function TCliente.Add: TCliente;
+begin
+  result:= TCliente.Create;
+end;
 
 procedure TCliente.SetBairro(const Value: string);
 begin
@@ -219,6 +249,269 @@ end;
 procedure TCliente.SetUf(const Value: string);
 begin
   FUf := Value;
+end;
+
+{ TClientes }
+
+procedure TClientes.AfterConstruction;
+begin
+  inherited;
+  FListaDeClientes:= TObjectList<TCliente>.Create(nil);
+end;
+
+procedure TClientes.BeforeDestruction;
+begin
+  inherited;
+  FreeAndNil( FListaDeClientes );
+end;
+
+procedure TClientes.ListarClientes(Id: Integer);
+var
+  Cliente: TCliente;
+  FXMLAddresses: IXMLDocument;
+  NodeAddresses, NodeReturnCliente: IXMLNode;
+  i, j: Integer;
+  XML, StrAux: string;
+begin
+  try
+    FXMLAddresses:= TXmlDocument.Create(nil);
+    XML:= GetXML( Format('addresses/?display=full&filter[id]=[%d]', [Id]));
+    FXMLAddresses.LoadFromXML( XML );
+    if FXMLAddresses.Active then
+    begin
+      NodeAddresses:= GetNodeByName(FXMLAddresses.DocumentElement, 'addresses');
+      for i := 0 to NodeAddresses.ChildNodes.Count - 1 do
+      begin
+        Cliente:= Cliente.Add;
+        NodeReturnCliente := NodeAddresses.ChildNodes[i];
+        for j := 0 to NodeReturnCliente.ChildNodes.Count -1 do
+        begin
+          case AnsiIndexStr( AnsiUpperCase(NodeReturnCliente.ChildNodes[j].NodeName),
+            ['ID','ID_CUSTOMER','ID_SUPPLIER','ID_COUNTRY','ID_STATE','ADDRESS1',
+             'ADDRESS2','POSTCODE','CITY','PHONE','PHONE_MOBILE','NUMEND','COMPL'] ) of
+            0:
+              Cliente.codigo := StrToInt( VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, '0' ));  //ID
+            1:
+              if not PreencherCustomersCliente( Cliente, NodeReturnCliente.ChildNodes[j].NodeValue) then //ID_CUSTOMER
+              begin
+                FreeAndNil(Cliente);
+                Break;
+              end;
+            2:
+              Cliente.fornecedor := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, '' );   //ID_SUPPLIER
+            3:
+              if not PreencherCountriesCliente(Cliente, NodeReturnCliente.ChildNodes[j].NodeValue) then //ID_COUNTRY
+              begin
+                FreeAndNil(Cliente);
+                Break;
+              end;
+
+            4:
+              if not PreencherStatesCliente(Cliente, NodeReturnCliente.ChildNodes[j].NodeValue) then //ID_STATE
+              begin
+                FreeAndNil(Cliente);
+                Break;
+              end;
+            5:
+              Cliente.endereco := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, ''); //ADDRESS1
+            6:
+              Cliente.Bairro := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, ''); // ADDRESS2
+            7:
+              Cliente.Cep := Trim( ClearString( VarToStrDef(NodeReturnCliente.ChildNodes[j].NodeValue, '') , '-/.') ); // POSTCODE
+            8:
+              Cliente.municipio := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, ''); //CITY
+            9:
+              begin
+                // PHONE
+                StrAux:= VarToStrDef(NodeReturnCliente.ChildNodes[j].NodeValue, '');
+                if Pos('(', StrAux) > 0 then
+                  begin
+                    Cliente.DDD:= ClearString( Copy(StrAux, 1, Pos(')', StrAux)), '()');
+                    Delete(StrAux, 1, Pos(')', StrAux));
+                    Cliente.telefone:= Trim( ClearString( StrAux , '()-/.') );
+                  end
+                else
+                  Cliente.telefone := Trim( ClearString( VarToStrDef(NodeReturnCliente.ChildNodes[j].NodeValue, '') , '()-/.') );
+              end;
+            10:
+              begin
+                // PHONE_MOBILE
+                StrAux:= VarToStrDef(NodeReturnCliente.ChildNodes[j].NodeValue, '');
+                if Pos('(', StrAux) > 0 then
+                  begin
+                    Delete(StrAux, 1, Pos(')', StrAux));
+                    Cliente.celular:= Trim( ClearString( StrAux , '()-/.') );
+                  end
+                else
+                  Cliente.celular := Trim( ClearString( VarToStrDef(NodeReturnCliente.ChildNodes[j].NodeValue, '') , '()-/.') ); // PHONE
+              end;
+            11:
+              Cliente.numero := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, '');  //NUMEND
+            12:
+              Cliente.Complemento := VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, ''); //COMPL
+          end;
+        end;
+
+        if Assigned(Cliente) then
+          FListaDeClientes.Add(Cliente);
+      end;
+    end;
+  finally
+    FXMLAddresses:= nil;
+  end;
+end;
+
+function TClientes.PreencherCustomersCliente(var Cliente: TCliente; const psID: string): Boolean;
+var
+  FXMLCustomers: IXMLDocument;
+  NodeCustomer, Node: IXMLNode;
+  i, j: Integer;
+  XML: string;
+begin
+  Result:= False;
+  try
+    FXMLCustomers:= TXmlDocument.Create(nil);
+    XML:= GetXML( Format('customers/?display=full&filter[id]=[%s]', [psID]));
+    FXMLCustomers.LoadFromXML( XML );
+    if FXMLCustomers.Active then
+    begin
+      NodeCustomer:= GetNodeByName(FXMLCustomers.DocumentElement, 'customers');
+      for I := 0 to NodeCustomer.ChildNodes.Count -1 do
+      begin
+        //Node:= GetNodeByName(NodeCustomer.ChildNodes[i], 'customer');
+        Node:= NodeCustomer.ChildNodes[i];
+        if VarToStrDef(Node.ChildNodes.FindNode('id').NodeValue, '') = psID then
+        begin
+          for j := 0 to Node.ChildNodes.Count -1 do
+          begin
+            case AnsiIndexStr(AnsiUpperCase(Node.ChildNodes[j].NodeName),
+              ['LASTNAME','FIRSTNAME','EMAIL','BIRTHDAY','WEBSITE','COMPANY','ACTIVE','TIPO','CPF_CNPJ','RG_IE']) of
+    //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
+              1:
+                begin
+                  Cliente.Nome:= Node.ChildNodes[j].NodeValue + ' ' + Node.ChildNodes.FindNode('lastname').NodeValue ;//firstname
+                  Cliente.NomeReduzido:= Node.ChildNodes[j].NodeValue;//firstname
+                end;
+              2: Cliente.Email := Node.ChildNodes[j].NodeValue;        //email
+              3:
+                if (VarToStrDef( Node.ChildNodes[j].NodeValue, '') <> EmptyStr)  then
+                  Cliente.DataNascimento := StrToDateUSA(Node.ChildNodes[j].NodeValue);  //birthday
+              4:
+                if (VarToStrDef( Node.ChildNodes[j].NodeValue, '') <> EmptyStr) then
+                  Cliente.Homepage := VarToStrDef( Node.ChildNodes[j].NodeValue, '');
+              5:
+                if (VarToStrDef( Node.ChildNodes[j].NodeValue, '') <> EmptyStr) then
+                  Cliente.RazaoSocial := VarToStrDef( Node.ChildNodes[j].NodeValue, '');//company
+              6:
+                if VarToStrDef( Node.ChildNodes[j].NodeValue, '') = '1' then //active
+                  Cliente.StatusCliente:= '0'
+                else
+                  Cliente.StatusCliente:= '1';
+
+              7: Cliente.Pessoa := AnsiUpperCase( VarToStrDef( Node.ChildNodes[j].NodeValue, '') );         //tipo
+              8:
+                if (VarToStrDef( Node.ChildNodes[j].NodeValue, '') <> EmptyStr) then //cpf_cnpj
+                  Cliente.CnpjCpf:= Trim( ClearString( VarToStrDef(Node.ChildNodes[j].NodeValue, '') , '-/.') );
+              9:
+                if (VarToStrDef( Node.ChildNodes[j].NodeValue, '') <> EmptyStr) then
+                  Cliente.RgIe:= VarToStrDef( Node.ChildNodes[j].NodeValue, '');          //rg_ie
+            end;
+          end;
+
+          Result:= True;
+          Break;
+        end;
+      end;
+    end;
+  finally
+    FXMLCustomers:= nil;
+  end;
+end;
+
+function TClientes.PreencherStatesCliente(var cliente: TCliente;const psID: string): Boolean;
+var
+  FXMLStates: IXMLDocument;
+  NodeStates, Node: IXMLNode;
+  i, j: Integer;
+  XML: string;
+begin
+  Result:= False;
+  try
+    FXMLStates:= TXmlDocument.Create(nil);
+    XML:= GetXML( Format('states/?display=full&filter[id]=[%s]', [psID]));
+    FXMLStates.LoadFromXML( XML );
+    if FXMLStates.Active then
+    begin
+      NodeStates:= GetNodeByName(FXMLStates.DocumentElement, 'states');
+      for i := 0 to NodeStates.ChildNodes.Count -1 do
+      begin
+        //Node:= GetNodeByName(NodeStates.ChildNodes[i], 'state');
+        Node:= NodeStates.ChildNodes[i];
+        if VarToStrDef(Node.ChildNodes.FindNode('id').NodeValue, '') = psID then
+        begin
+          for j := 0 to Node.ChildNodes.Count -1 do
+          begin
+            case AnsiIndexStr(AnsiUpperCase(Node.ChildNodes[j].NodeName),['NAME', 'ISO_CODE']) of
+              0: cliente.municipio := VarToStrDef( Node.ChildNodes[j].NodeValue, '');
+              1: cliente.Uf := VarToStrDef( Node.ChildNodes[j].NodeValue, '');
+            end;
+          end;
+
+          Result:= True;
+          Break;
+        end;
+      end;
+    end;
+  finally
+    FXMLStates:= nil;
+  end;
+end;
+
+function TClientes.PreencherCountriesCliente(var cliente: TCliente; const psID: string): Boolean;
+var
+  FXMLCountries: IXMLDocument;
+  NodeCountries, Node: IXMLNode;
+  i, j: Integer;
+  lteste: string;
+  XML: string;
+begin
+  Result:= False;
+  try
+    FXMLCountries:= TXmlDocument.Create(nil);
+    XML:= GetXML( Format('countries/?display=full&filter[id]=[%s]', [psID]));
+    FXMLCountries.LoadFromXML( XML );
+    if FXMLCountries.Active then
+    begin
+      NodeCountries:= GetNodeByName(FXMLCountries.DocumentElement, 'countries');
+      for i := 0 to NodeCountries.ChildNodes.Count -1 do
+      begin
+        //Node:= GetNodeByName(NodeCountries.ChildNodes[i], 'country');
+        Node:= NodeCountries.ChildNodes[i];
+        if VarToStrDef(Node.ChildNodes.FindNode('id').NodeValue, '') = psID then
+        begin
+          for j := 0 to Node.ChildNodes.Count -1 do
+          begin
+            lteste:= AnsiUpperCase(Node.ChildNodes[j].NodeName);
+            case AnsiIndexStr(lteste,['ID','CALL_PREFIX','NAME']) of
+              0: cliente.CodPais:= VarToStrDef( Node.ChildNodes[j].NodeValue, '');
+              1: cliente.DDI:= VarToStrDef( Node.ChildNodes[j].NodeValue, '');
+              2: cliente.NomePais := VarToStrDef( Node.ChildNodes[j].ChildNodes['language'].NodeValue, '');
+            end;
+          end;
+
+          Result:= True;
+          Break;
+        end;
+      end;
+    end;
+  finally
+    FXMLCountries:= nil;
+  end;
+end;
+
+procedure TClientes.SetListaDeCliente(const Value: TObjectList<TCliente>);
+begin
+  FListaDeClientes := Value;
 end;
 
 end.

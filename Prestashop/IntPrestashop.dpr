@@ -9,7 +9,10 @@ uses
   uAcessoSite in 'AcessoSite\uAcessoSite.pas',
   uProduto in '_Classes\uProduto.pas',
   uCliente in '_Classes\uCliente.pas',
-  uPedido in '_Classes\uPedido.pas';
+  uPedido in '_Classes\uPedido.pas',
+  uPedidos in '_Classes\uPedidos.pas',
+  uProdutosExportacao in '_Classes\uProdutosExportacao.pas',
+  uWebServiceREST in '_Classes\uWebServiceREST.pas';
 
 {$R *.res}
 

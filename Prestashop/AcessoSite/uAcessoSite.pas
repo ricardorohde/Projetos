@@ -5,49 +5,65 @@ interface
 uses System.Classes, System.SysUtils, Vcl.Forms, Dialogs, {System.Contnrs,}
   DBXJSON, DBXJsonReflect, uWebServiceHttp, xmldom, XMLIntf, msxmldom, XMLDoc,
   StrUtils, msxml, System.Types, System.Variants, DBClient, mshtml, ActiveX,
-  ComObj, Generics.Collections;
+  ComObj, Generics.Collections, IniFiles;
 
 type
-  TAcessoSiteEvolucao = class(TWebServiceHttp)
+  TAcessoSite = class(TWebServiceHttp)
   private
-    FAppSenha: string;
     FSenha: string;
     FURL: string;
     FUsuario: string;
-    FUser: string;
     procedure ConfigurarRequisicao();
     constructor CreatePrivate();
-    procedure SetAppSenha(const Value: string);
-    procedure SetSenha(const Value: string);
-    procedure SetURL(const Value: string);
-    procedure SetUser(const Value: string);
-    procedure SetUsuario(const Value: string);
   public
-    property URL: string read FURL write SetURL;
-    property User: string read FUser write SetUser;
-    property Usuario: string read FUsuario write SetUsuario;
-    property AppSenha: string read FAppSenha write SetAppSenha;
-    property Senha: string read FSenha write SetSenha;
+    function GetXML(psComplemento: string): string;
+    function PostXML(aXml: string): string;
 
+    procedure AfterConstruction; override;
+    procedure BeforeDestruction; override;
   end;
 
-function GetAcessoSiteEvolucao : TAcessoSiteEvolucao;
-var
-  AcessoSiteEvolucao: TAcessoSiteEvolucao;
+//function GetAcessoSiteEvolucao : TAcessoSite;
+//var
+//  AcessoSiteEvolucao: TAcessoSite;
 
 implementation
 
-function GetAcessoSiteEvolucao : TAcessoSiteEvolucao;
-begin
-  if not Assigned( AcessoSiteEvolucao ) then
-    AcessoSiteEvolucao := TAcessoSiteEvolucao.createPrivate;
+uses uWebServiceREST;
 
-  Result := AcessoSiteEvolucao;
-end;
+//function GetAcessoSiteEvolucao : TAcessoSite;
+//begin
+//  if not Assigned( AcessoSiteEvolucao ) then
+//    AcessoSiteEvolucao := TAcessoSite.createPrivate;
+//
+//  Result := AcessoSiteEvolucao;
+//end;
 
 { TAcessoSiteEvolucao }
 
-procedure TAcessoSiteEvolucao.ConfigurarRequisicao;
+procedure TAcessoSite.AfterConstruction;
+begin
+  inherited;
+  with TIniFile.Create(ExtractFilePath(Application.Exename) + 'IntPrestashop.ini') do
+  try
+    if ReadString('Prestashop', 'URL', '') <> ''  then
+    begin
+      FSenha:=ReadString('Prestashop', 'Senha', '');
+      FURL:=ReadString('Prestashop', 'URL', '');
+      FUsuario:=ReadString('Prestashop', 'Usuario', '');
+    end;
+  finally
+    free;
+  end;
+end;
+
+procedure TAcessoSite.BeforeDestruction;
+begin
+  inherited;
+
+end;
+
+procedure TAcessoSite.ConfigurarRequisicao;
 begin
   self.getCustomHeaders.Clear;
   self.getRequest.Username := 'XTM4T52R7EKV1557DGYMTVZCDWG78KGT';
@@ -60,33 +76,34 @@ begin
   self.Params.Clear;
 end;
 
-constructor TAcessoSiteEvolucao.CreatePrivate;
+constructor TAcessoSite.CreatePrivate;
 begin
   inherited Create(True);
 end;
-procedure TAcessoSiteEvolucao.SetAppSenha(const Value: string);
+
+function TAcessoSite.GetXML(psComplemento: string): string;
 begin
-  FAppSenha := Value;
+  ConfigurarRequisicao();
+  self.URL:= FURL + '/api/'+ psComplemento;
+  Result := get();
 end;
 
-procedure TAcessoSiteEvolucao.SetSenha(const Value: string);
+function TAcessoSite.PostXML(aXML: string): string;
+var
+  WebServiceREST: TWebServiceREST;
 begin
-  FSenha := Value;
-end;
+  try
+    WebServiceREST:= TWebServiceREST.create;
 
-procedure TAcessoSiteEvolucao.SetURL(const Value: string);
-begin
-  FURL := Value;
-end;
+  finally
+    FreeAndNil( WebServiceREST );
+  end;
 
-procedure TAcessoSiteEvolucao.SetUser(const Value: string);
-begin
-  FUser := Value;
-end;
-
-procedure TAcessoSiteEvolucao.SetUsuario(const Value: string);
-begin
-  FUsuario := Value;
+//  URL:= FURL + psComplemento;
+//
+//  Params.Clear;
+//  Params.Add('');
+//  Result := post();
 end;
 
 end.

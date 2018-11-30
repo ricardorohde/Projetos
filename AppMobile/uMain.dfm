@@ -45,8 +45,6 @@ object srvMobile: TsrvMobile
   object scnMysql: TSQLConnection
     ConnectionName = 'MYSQLCONNECTION'
     DriverName = 'MySQL'
-    GetDriverFunc = 'getSQLDriverMYSQL'
-    LibraryName = 'dbxmys.dll'
     LoginPrompt = False
     Params.Strings = (
       'DriverUnit=Data.DBXMySQL'
@@ -84,7 +82,6 @@ object srvMobile: TsrvMobile
       'Encrypted=False'
       'ConnectTimeout=60'
       'Port=9195')
-    VendorLib = 'LIBMYSQL.dll'
     Left = 800
     Top = 16
   end
@@ -92,7 +89,6 @@ object srvMobile: TsrvMobile
     BeforeOpen = sqlPedidos_MySql_DadosBeforeOpen
     AfterOpen = sqlPedidos_MySql_DadosAfterOpen
     CommandText = 'select * from pedidos where importado != 1 and orders_status = 3'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = 1
     Params = <>
     SQLConnection = scnMysql
@@ -361,7 +357,6 @@ object srvMobile: TsrvMobile
   end
   object sqlPedidos_MySql_Itens: TSQLDataSet
     CommandText = 'select * from pedidos_produtos'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = 1
     Params = <>
     SQLConnection = scnMysql
@@ -2790,7 +2785,6 @@ object srvMobile: TsrvMobile
     CommandText = 
       'select * from clientes where importado != 1 and customers_cpf_cn' +
       'pj is not null and customers_cpf_cnpj <> '#39#39
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = scnMysql
@@ -2930,7 +2924,6 @@ object srvMobile: TsrvMobile
   end
   object sqlPedidos_Mysql_Clientes: TSQLDataSet
     CommandText = 'select * from clientes'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = scnMysql
@@ -3205,7 +3198,6 @@ object srvMobile: TsrvMobile
     end
   end
   object sqlAux: TSQLDataSet
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = scnMysql
@@ -3215,7 +3207,6 @@ object srvMobile: TsrvMobile
   object sqlProdutos: TSQLDataSet
     SchemaName = 'iset_39959'
     CommandText = 'select * from produtos'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = 1
     Params = <>
     SQLConnection = scnMysql
@@ -3529,7 +3520,6 @@ object srvMobile: TsrvMobile
   end
   object sqlClientes_Endereco_Mysql: TSQLDataSet
     CommandText = 'SELECT * FROM clientes_enderecos'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = scnMysql
@@ -3611,7 +3601,6 @@ object srvMobile: TsrvMobile
   end
   object sqlEstados_Mysql: TSQLDataSet
     CommandText = 'SELECT * FROM estados'
-    DbxCommandType = 'Dbx.SQL'
     MaxBlobSize = -1
     Params = <>
     SQLConnection = scnMysql

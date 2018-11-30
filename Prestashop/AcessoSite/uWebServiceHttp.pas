@@ -26,6 +26,7 @@ type
     function getParams: TStrings;
     function LimparXML(value: string): string;
     function IsConected(): Boolean;
+    procedure adiciona(a: TStringStream);
   protected
     URL, User, Pass, ApyKey, Key, Signature: String;
     FParams: TStrings;
@@ -142,18 +143,79 @@ begin
   end;
 end;
 
+procedure TWebServiceHttp.adiciona(a: TStringStream);
+begin
+  A:= TStringStream.Create(
+  'xml=<?xml version="1.0" encoding="UTF-8"?>'+
+'<prestashop xmlns:xlink="http://www.w3.org/1999/xlink">'+
+'<product>'+
+'<id_manufacturer format="isUnsignedId"/>'+
+'<id_supplier format="isUnsignedId"/>'+
+'<id_category_default format="isUnsignedId"/>'+
+'<out_of_stock required="true" format="isUnsignedInt"/>'+
+'<new/>'+
+'<cache_default_attribute/>'+
+'<id_default_image not_filterable="true"/>'+
+'<id_default_combination not_filterable="true"/>'+
+'<reference maxSize="32" format="isReference"/>'+
+'<supplier_reference maxSize="32" format="isReference"/>'+
+'<location maxSize="64" format="isReference"/>'+
+'<ean13 maxSize="13" format="isEan13"/>'+
+'<upc maxSize="12" format="isUpc"/>'+
+'<unity maxSize="10" format="isString"/>'+
+'<id_tax_rules_group format="isUnsignedId"/>'+
+'<id_color_default format="isUnsignedInt"/>'+
+'<minimal_quantity format="isUnsignedInt"/>'+
+'<price required="true" format="isPrice">1000</price>'+
+'<additional_shipping_cost format="isPrice"/>'+
+'<wholesale_price format="isPrice"/>'+
+'<on_sale format="isBool"/>'+
+'<online_only format="isBool"/>'+
+'<ecotax format="isPrice"/>'+
+'<unit_price format="isPrice"/>'+
+'<width format="isUnsignedFloat"/>'+
+'<height format="isUnsignedFloat"/>'+
+'<depth format="isUnsignedFloat"/>'+
+'<weight format="isUnsignedFloat"/>'+
+'<quantity_discount format="isBool"/>'+
+'<customizable format="isUnsignedInt"/>'+
+'<uploadable_files format="isUnsignedInt"/>'+
+'<text_fields format="isUnsignedInt"/>'+
+'<active format="isBool">1</active>'+
+'<available_for_order format="isBool"/>'+
+'<condition format="isGenericName"/>'+
+'<show_price format="isBool"/>'+
+'<indexed format="isBool"/>'+
+'<cache_is_pack format="isBool"/>'+
+'<cache_has_attachments format="isBool"/>'+
+'<quantity required="true">50</quantity>'+
+'<meta_description maxSize="255" format="isGenericName"><language id="6" xlink:href="http://192.168.2.101/api/languages/6" format="isUnsignedId"/></meta_description>'+
+'<meta_keywords maxSize="255" format="isGenericName"><language id="6" xlink:href="http://192.168.2.101/api/languages/6" format="isUnsignedId"/></meta_keywords>'+
+'<meta_title maxSize="128" format="isGenericName"><language id="6" xlink:href="http://192.168.2.101/api/languages/6" format="isUnsignedId"/></meta_title>'+
+'<link_rewrite required="true" maxSize="128" format="isLinkRewrite">blabla</link_rewrite>'+
+'<name required="true" maxSize="128" format="isCatalogName">blabla</name>'+
+'<available_now maxSize="255" format="isGenericName"><language id="6" xlink:href="http://192.168.2.101/api/languages/6" format="isUnsignedId"/></available_now>'+
+'<available_later maxSize="255" format="IsGenericName"><language id="6" xlink:href="http://192.168.2.101/api/languages/6" format="isUnsignedId"/></available_later>'+
+'<description format="isString">blabla</description>'+
+'<description_short format="isString">blabla</description_short>'+
+'<associations></associations>'+
+'</product>'+
+'</prestashop>');
+end;
+
 function TWebServiceHttp.post: String;
 var
   params : TIdMultiPartFormDataStream;
-  XML: string;
+   a: TStringStream;
+   XML: string;
 begin
   XML:= Trim(self.Params.Text);
   params:= TIdMultiPartFormDataStream.Create;
   try
+
     try
       IdHTTP.Request.CustomHeaders.Clear;
       IdHTTP.Request.Clear;
-
       IdHTTP.HandleRedirects := true;
       IdHTTP.HTTPOptions:= [hoKeepOrigProtocol];
       IdHTTP.ProtocolVersion := pv1_1;
@@ -215,6 +277,7 @@ function TWebServiceHttp.getRequest: TIdHTTPRequest;
 begin
   result := self.IdHTTP.Request;
 end;
+
 
 function TWebServiceHttp.getSignature: String;
 begin

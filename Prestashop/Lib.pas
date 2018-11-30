@@ -3,8 +3,8 @@ unit Lib;
 interface
 
 uses
-  Windows, Messages, SysUtils, Classes, Controls, Forms, Dialogs, IB, IBIntf, IBExternals,
-  IBSQLMonitor, IBUtils, MaskUtils, StrUtils, xmldom, XMLIntf, msxmldom, XMLDoc, msxml,
+  Windows, Messages, SysUtils, Classes, Controls, Forms, Dialogs,
+  MaskUtils, StrUtils, xmldom, XMLIntf, msxmldom, XMLDoc, msxml,
   Variants;
 
   function Confirma(const Mensagem: string; const Titulo: string = ''): Boolean;
