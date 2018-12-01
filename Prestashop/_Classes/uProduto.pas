@@ -83,16 +83,17 @@ type
       FListaDeProdutos: TObjectList<TProduto>;
       procedure SetListaDeProdutos(const Value: TObjectList<TProduto>);
       function HtmlToText(Value: string): string;
-    function PreencherFabricanteProduto(var produto: TProduto;
-      const psID: string): Boolean;
-    function PreencherCategoriaProduto(var produto: TProduto;
-      const psID: string): Boolean;
-    function PreencherNCMProduto(var produto: TProduto;
-      const psID: string): Boolean;
-    function PreencherQuantidadeProduto(var produto: TProduto;
-      const psID: string): Boolean;
+      function PreencherFabricanteProduto(var produto: TProduto;
+        const psID: string): Boolean;
+      function PreencherCategoriaProduto(var produto: TProduto;
+        const psID: string): Boolean;
+      function PreencherNCMProduto(var produto: TProduto;
+        const psID: string): Boolean;
+      function PreencherQuantidadeProduto(var produto: TProduto;
+        const psID: string): Boolean;
     public
       Procedure ListarProdutos(Id: Integer);
+      function ExportarProdutos(): string;
       procedure AfterConstruction; override;
       procedure BeforeDestruction; override;
       property ListaDeProdutos: TObjectList<TProduto> read FListaDeProdutos write SetListaDeProdutos;
@@ -517,4 +518,52 @@ begin
   FListaDeProdutos := Value;
 end;
 
+function TProdutos.ExportarProdutos(): string;
+var
+  XML: string;
+  k,i,j, a: integer;
+  Produto: TProduto;
+  FXMLDocument: IXMLDocument;
+  aNode, aCNode, aCCNode: IXMLNode;
+begin
+//  XML:= GetXML(Format('/products?schema=blank&ws_key=%s', [User]));
+  XML:= GetSchema('products');;
+  for k:= 0 to ListaDeProdutos.Count -1 do
+  begin
+    Produto:= ListaDeProdutos.Items[k] as TProduto;
+    try
+      FXMLDocument:= TXmlDocument.Create(nil);
+      FXMLDocument.LoadFromXML(XML);
+      aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+      if assigned(aNode) then
+      begin
+        for i := 0 to aNode.ChildNodes.Count-1 do
+        begin
+          aCNode:= aNode.ChildNodes.Get(i);
+          for j := 0 to aCNode.ChildNodes.Count-1 do
+          begin
+            aCCNode := aCNode.ChildNodes[j];
+            case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['ID', 'NEW', 'NAME', 'ACTIVE', 'EAN13',
+              'DATE_ADD', 'DATE_UPD', 'PRICE','WHOLESALE_PRICE']) of
+//              0: aCCNode.NodeValue:= Produto.Codigo;
+              1: aCCNode.NodeValue:= Produto.Codigo;
+              2:
+                for a := 0 to aCCNode.ChildNodes.Count-1 do
+                  aCCNode.ChildNodes[a].NodeValue:= Produto.Nome;
+              3: aCCNode.NodeValue:= Produto.Status;
+              4: aCCNode.NodeValue:= Produto.FCodigoBarrasEAN;
+              5, 6: aCCNode.NodeValue:= FormatDateTime('YYYY-MM-DD HH:MM:SS', Now);
+              7: aCCNode.NodeValue:= Produto.PrecoVenda1;
+              8: aCCNode.NodeValue:= Produto.PrecoCusto1;
+            end;
+          end;
+        end;
+      end;
+
+      PostXML('products', FXMLDocument.XML.Text);
+    finally
+      FXMLDocument:= nil;
+    end;
+  end;
+end;
 end.

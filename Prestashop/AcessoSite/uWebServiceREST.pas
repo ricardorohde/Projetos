@@ -5,9 +5,7 @@ interface
 uses System.Classes, System.SysUtils, Vcl.Forms, Dialogs, generics.Collections,
   IPPeerClient, REST.Client, Data.Bind.Components,
   Data.Bind.ObjectScope, REST.Authenticator.Simple, Xml.xmldom, Xml.XMLIntf,
-  Xml.XMLDoc, REST.types;
-
-implementation
+  Xml.XMLDoc, REST.Types;
 
 type
   TWebServiceREST = class
@@ -29,12 +27,16 @@ type
     property Usuario: string read FUsuario write SetUsuario;
 
     function GetSchema(const Resource: string): string;
-    function Post(const xml: string): string;
+    function Post(const Resource, xml: string): string;
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
   end;
 
 { TWebServiceREST }
+
+implementation
+
+uses Module;
 
 procedure TWebServiceREST.AfterConstruction;
 begin
@@ -79,14 +81,22 @@ begin
   Result:= RESTResponse1.Content;
 end;
 
-function TWebServiceREST.Post(const xml: string): string;
+function TWebServiceREST.Post(const Resource, xml: string): string;
 begin
   Config();
+  RESTRequest1.Params.Clear;
+  RESTClient1.Authenticator := nil;
+//  SimpleAuthenticator1.UserNameKey := '';
+//  SimpleAuthenticator1.UserName := '';
+
+  RESTClient1.BaseURL:= URL;
+  RESTRequest1.Resource:= Resource;
   RESTRequest1.ClearBody;
   RESTRequest1.AddBody(Xml, ctTEXT_XML);
   RESTRequest1.ResourceSuffix := Format('?ws_key=%s', [Usuario]);
   RESTRequest1.Method := rmPost;
   RESTRequest1.Execute;
+  result:= RESTResponse1.Content;
 end;
 
 procedure TWebServiceREST.SetSenha(const Value: string);

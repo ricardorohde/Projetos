@@ -36,7 +36,7 @@ type
     function getRequest: TIdHTTPRequest;
 
     function post: String; overload;
-    procedure post(const Source, Return: TStringStream); overload;
+    function post(const XML: string): string; overload;
 
     function get(): String; overload;
     procedure get(const value: TStringStream); overload;
@@ -205,14 +205,13 @@ end;
 
 function TWebServiceHttp.post: String;
 var
-  params : TIdMultiPartFormDataStream;
-   a: TStringStream;
+  parametros : TIdMultiPartFormDataStream;
+
    XML: string;
 begin
   XML:= Trim(self.Params.Text);
-  params:= TIdMultiPartFormDataStream.Create;
+  parametros:= TIdMultiPartFormDataStream.Create;
   try
-
     try
       IdHTTP.Request.CustomHeaders.Clear;
       IdHTTP.Request.Clear;
@@ -221,27 +220,74 @@ begin
       IdHTTP.ProtocolVersion := pv1_1;
       IdHTTP.Request.UserAgent := 'Mozilla/5.0 (compatible; Test)';
       IdHTTP.Request.ContentType := 'application/x-www-form-urlencoded';
-      Result := IdHTTP.post(self.URL, params);
+      Result := IdHTTP.post(self.URL, parametros);
     except on E: Exception do
       raise Exception.Create('Erro: ' + E.Message);
     end;
   finally
-    FreeAndNil(params);
+    FreeAndNil(parametros);
   end;
 end;
 
-procedure TWebServiceHttp.post(const Source, Return: TStringStream);
+//function TForm1.UploadArquivo(server, script, caminhoarq : string) : boolean;
+function TWebServiceHttp.post(const XML: string): string;
+var
+  Lista : TStringList;
 begin
+  IdHTTP.Request.ContentType := 'utf-8';
+  IdHTTP.ProtocolVersion := pv1_0;
+  IdHTTP.Request.Accept := 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8';
+  //IdHTTP.Request.UserAgent := 'Mozilla/3.0 (compatible; Indy Library)';
+  IdHTTP.Request.UserAgent := 'Mozilla/3.0 (compatible;Indy Library)';
+  result := '';
+  Lista := TStringList.Create;
   try
-    { IdHTTP.Request.Method := 'POST';
-      IdHTTP.Request.ContentType := 'application/json'; }
+    try
+      Lista.Text:= XML;
 
-    IdHTTP.post(self.URL, Source, Return);
+      result := UTF8Decode(Trim(IdHTTP.Post(Self.URL, Lista)));
+//      if result = 'OK' then
+//        Result := true;
+    finally
+      FreeAndNil( Lista );
+    end;
   except
-    on E: Exception do
-      raise Exception.Create(E.Message);
+    on e:exception do  ShowMessage('Erro ao enviar arquivo ao servidor! Detalhes: '+e.Message);
   end;
 end;
+
+//function TWebServiceHttp.post(const XML: string): string;
+//var
+//  params: TStringStream;
+//begin
+//  params:= TStringStream.Create(XML);
+//  try
+//    try
+//      IdHTTP.Request.CustomHeaders.Clear;
+//      IdHTTP.Request.Clear;
+//      IdHTTP.HandleRedirects := true;
+//      IdHTTP.HTTPOptions:= [hoKeepOrigProtocol];
+//      IdHTTP.ProtocolVersion := pv1_1;
+//      IdHTTP.Request.UserAgent := 'Mozilla/5.0 (compatible; Test)';
+//      IdHTTP.Request.ContentType := 'application/x-www-form-urlencoded';
+//      Result := IdHTTP.post(self.URL, params);
+//    except on E: Exception do
+//      raise Exception.Create('Erro: ' + E.Message);
+//    end;
+//  finally
+//    FreeAndNil(params);
+//  end;
+
+//  try
+//    { IdHTTP.Request.Method := 'POST';
+//      IdHTTP.Request.ContentType := 'application/json'; }
+//
+//    IdHTTP.post(self.URL, Source, Return);
+//  except
+//    on E: Exception do
+//      raise Exception.Create(E.Message);
+//  end;
+//end;
 
 procedure TWebServiceHttp.SetParams(const Value: TStrings);
 begin

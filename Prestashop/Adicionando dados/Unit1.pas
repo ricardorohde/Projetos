@@ -6,18 +6,19 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, IPPeerClient, REST.Client, Data.Bind.Components,
   Data.Bind.ObjectScope, REST.Authenticator.Simple, Xml.xmldom, Xml.XMLIntf,
-  Xml.XMLDoc, REST.types;
+  Xml.XMLDoc, REST.types, Vcl.ExtCtrls;
 
 type
   TForm1 = class(TForm)
-    Button1: TButton;
     Memo1: TMemo;
-    Button2: TButton;
     RESTRequest1: TRESTRequest;
     RESTClient1: TRESTClient;
     SimpleAuthenticator1: TSimpleAuthenticator;
     RESTResponse1: TRESTResponse;
     XMLDocument1: TXMLDocument;
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
   private
@@ -77,7 +78,8 @@ begin
 //  SimpleAuthenticator1.UserName := '';
 
   RESTClient1.BaseURL := 'http://localhost/MinhaLoja/api/';
-  RESTRequest1.Resource := 'manufacturers';
+//  RESTRequest1.Resource := 'manufacturers';
+  RESTRequest1.Resource := 'products';
   RESTRequest1.ResourceSuffix := '?schema=blank&ws_key=Q6ZEP8W4N2Y7ZUWRL7HS1Z83IX3AMHQW';
   RESTRequest1.Method := rmGet;
   RESTRequest1.Execute;
@@ -85,8 +87,7 @@ begin
   XMLDocument1.LoadFromXML(aXml);
 
   aNode := XMLDocument1.ChildNodes.FindNode('prestashop');
-  if assigned(aNode)
-  then begin
+  if assigned(aNode) then begin
     for i := 0 to aNode.ChildNodes.Count-1 do
     begin
       aCNode := aNode.ChildNodes.Get(i);
@@ -95,7 +96,13 @@ begin
         aCCNode := aCNode.ChildNodes.Get(j);
         if aCCNode.NodeName = 'id' then aCCNode.NodeValue := ''; //cannot pass id at create
         if aCCNode.NodeName = 'active' then aCCNode.NodeValue := '1' ;
-        if aCCNode.NodeName = 'name' then aCCNode.NodeValue := 'New Brand';
+        if aCCNode.NodeName = 'price' then aCCNode.NodeValue := '10.00' ;
+        if aCCNode.NodeName = 'name' then
+        begin
+          aCCNode.ChildNodes[0].NodeValue := 'New Brand';
+          aCCNode.ChildNodes[1].NodeValue := 'New Brand';
+        end;
+
       end;
     end;
   end;
@@ -105,7 +112,6 @@ begin
   RESTRequest1.ClearBody;
   RESTRequest1.AddBody(aXml, ctTEXT_XML);
   RESTRequest1.ResourceSuffix := '?ws_key=Q6ZEP8W4N2Y7ZUWRL7HS1Z83IX3AMHQW#';
-
   RESTRequest1.Method := rmPost;
   RESTRequest1.Execute;
 

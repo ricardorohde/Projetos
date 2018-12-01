@@ -140,7 +140,6 @@ begin
 
           0:
             loPedido.codigo := StrToInt(NodeNext.ChildNodes[j].nodeValue); // ID
-
           1:
             begin
               loPedido.ClienteEntrega := StrToInt( VarToStrDef( NodeNext.ChildNodes[j].nodeValue, '0') ); // ID_ADDRESS_DELIVERY

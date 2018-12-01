@@ -11,8 +11,7 @@ uses
   uCliente in '_Classes\uCliente.pas',
   uPedido in '_Classes\uPedido.pas',
   uPedidos in '_Classes\uPedidos.pas',
-  uProdutosExportacao in '_Classes\uProdutosExportacao.pas',
-  uWebServiceREST in '_Classes\uWebServiceREST.pas';
+  uWebServiceREST in 'AcessoSite\uWebServiceREST.pas';
 
 {$R *.res}
 

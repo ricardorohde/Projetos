@@ -13,32 +13,49 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Button1: TButton
-    Left = 80
-    Top = 120
-    Width = 75
-    Height = 25
-    Caption = 'Button1'
-    TabOrder = 0
-    OnClick = Button1Click
-  end
   object Memo1: TMemo
-    Left = 72
-    Top = 8
-    Width = 185
-    Height = 89
+    Left = 0
+    Top = 0
+    Width = 635
+    Height = 258
+    Align = alClient
     Lines.Strings = (
       'Memo1')
-    TabOrder = 1
+    TabOrder = 0
+    ExplicitLeft = 72
+    ExplicitTop = 8
+    ExplicitWidth = 185
+    ExplicitHeight = 89
   end
-  object Button2: TButton
-    Left = 182
-    Top = 120
-    Width = 75
-    Height = 25
-    Caption = 'Button2'
-    TabOrder = 2
-    OnClick = Button2Click
+  object Panel1: TPanel
+    Left = 0
+    Top = 258
+    Width = 635
+    Height = 41
+    Align = alBottom
+    Caption = 'Panel1'
+    TabOrder = 1
+    ExplicitLeft = 320
+    ExplicitTop = 256
+    ExplicitWidth = 185
+    object Button1: TButton
+      Left = 80
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Button1'
+      TabOrder = 0
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Left = 182
+      Top = 8
+      Width = 75
+      Height = 25
+      Caption = 'Button2'
+      TabOrder = 1
+      OnClick = Button2Click
+    end
   end
   object RESTRequest1: TRESTRequest
     Client = RESTClient1

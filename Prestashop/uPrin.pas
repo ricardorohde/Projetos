@@ -5,13 +5,13 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ScktComp, StdCtrls, ExtCtrls, ComCtrls, Menus,ShellApi,Registry,
-  OleCtrls, SHDocVw, uPedidos, uPedido, uProdutosExportacao, uProduto,
-  uCliente,
+  OleCtrls, SHDocVw, uPedidos, uPedido, uProduto, uCliente,
 
 //Firedac
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async,
-  FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Xml.xmldom,
+  Xml.XMLIntf, Xml.XMLDoc;
 
 type
   TWThreadMonitorar = class(TThread)
@@ -45,6 +45,7 @@ type
 
     public
       Procedure ExportarProdutos();
+      Procedure ExportarClientes();
   end;
 
 
@@ -53,6 +54,7 @@ type
     pmnuiExit: TMenuItem;
     Abrir: TMenuItem;
     TrayIcon1: TTrayIcon;
+    XMLDocument1: TXMLDocument;
     procedure FormCreate(Sender: TObject);
     procedure AbrirClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -124,22 +126,23 @@ var
   Exportacao: TExportacao;
   Importacao: TImportacao;
 begin
-//  frmPrincipal.TrayIcon1.BalloonFlags:= bfInfo;
-//  frmPrincipal.TrayIcon1.BalloonTitle:= 'Executado';
-//  frmPrincipal.TrayIcon1.ShowBalloonHint;
-  try
-    Importacao:= TImportacao.Create;
-    Importacao.ImportarPedidos();
-  Finally
-    FreeAndNil( Importacao );
-  End;
-
+  frmPrincipal.TrayIcon1.Animate:= True;
+  frmPrincipal.TrayIcon1.BalloonFlags:= bfInfo;
+  frmPrincipal.TrayIcon1.BalloonTitle:= 'Executado';
+  frmPrincipal.TrayIcon1.ShowBalloonHint;
 //  try
-//    Exportacao:= TExportacao.Create;
-//    Exportacao.ExportarProdutos();
+//    Importacao:= TImportacao.Create;
+//    Importacao.ImportarPedidos();
 //  Finally
-//    FreeAndNil( Exportacao );
+//    FreeAndNil( Importacao );
 //  End;
+//
+  try
+    Exportacao:= TExportacao.Create;
+    Exportacao.ExportarProdutos();
+  Finally
+    FreeAndNil( Exportacao );
+  End;
 end;
 
 constructor TWThreadMonitorar.Create(CreateSuspended: Boolean; AForm: TForm);
@@ -191,8 +194,8 @@ begin
   try
     Clientes:= TClientes.Create;
     Clientes.ListarClientes(IdCliente);
-    for I := 0 to Clientes.ListaDeCliente.Count -1 do
-      InserirCliente( Clientes.ListaDeCliente.Items[i] as TCliente );
+    for I := 0 to Clientes.ListaDeClientes.Count -1 do
+      InserirCliente( Clientes.ListaDeClientes.Items[i] as TCliente );
   finally
     FreeAndNil( Clientes );
   end;
@@ -347,41 +350,106 @@ end;
 
 { TExportacao }
 
-procedure TExportacao.ExportarProdutos();
-//var
-//  Produtos: TProdutos;
+procedure TExportacao.ExportarClientes;
 var
+  Cliente: TCliente;
+  Clientes: TClientes;
   Query: TFDQuery;
 begin
   try
+    Clientes:= TClientes.Create;
     Query:= TFDQuery.Create(nil);
     Query.Connection:= DataModule1.Conexao;
+    Query.SQl.Add('SELECT C.*, M.nmcidade, M.uf');
+    Query.SQl.Add('FROM Cliente C');
+    Query.SQl.Add('left join municipio M on M.idmunicipio = C.idmunicipio');
+    Query.Open;
+    Query.First;
+    while not Query.Eof do
+    begin
+      Cliente:= Cliente.Add;
+      Cliente.Codigo:= Query.FieldByName('idcliente').AsInteger;
+      Cliente.Nome:= Query.FieldByName('nmcliente').AsString;
+//      Cliente.NomeReduzido:= Query.FieldByName('nmfantasia').AsString;
+      Cliente.Endereco:= Query.FieldByName('endereco').AsString;
+      Cliente.Numero:= Query.FieldByName('numero').AsString;
+      Cliente.Complemento:= Query.FieldByName('complemento').AsString;
+      Cliente.Bairro:= Query.FieldByName('bairro').AsString;
+      Cliente.Cep:= Query.FieldByName('cep').AsString;
+      Cliente.Municipio:= Query.FieldByName('nmcidade').AsString;
+      Cliente.Uf:= Query.FieldByName('uf').AsString;
+      Cliente.Telefone:= Query.FieldByName('telefone').AsString;
+      Cliente.Celular:= Query.FieldByName('celular').AsString;
+      Cliente.CnpjCpf:= Query.FieldByName('cpfcnpj').AsString;
+      Cliente.RgIe:= Query.FieldByName('rgie').AsString;
+      Cliente.RazaoSocial:= Query.FieldByName('nmempresa').AsString;
+      if Query.FieldByName('flgativo').AsString = 'S' then
+        Cliente.StatusCliente:= '1'
+      else
+        Cliente.StatusCliente:= '0';
 
-
-//    Query.Open(Format('SELECT 1 FROM %s WHERE %s LIMIT 1', [Tabela, Filtro]));
-
-
-
-
-
-
-
-
-
-
-
-
+      Clientes.ListaDeClientes.Add(Cliente);
+      Query.Next;
+    end;
+    Clientes.ExportarClientes();
   finally
+    FreeAndNil( Clientes );
     FreeAndNil( Query );
   end;
+end;
 
-
-//  try
-//    Produtos:= Produtos.Add;
-//    Produtos.ExportarProdutos();
-//  finally
-//    FreeAndNil( Produtos );
-//  end;
+procedure TExportacao.ExportarProdutos();
+var
+  Produto: TProduto;
+  Produtos: TProdutos;
+  Query: TFDQuery;
+begin
+  try
+    Produtos:= TProdutos.Create;
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.SQl.Add('SELECT');
+    Query.SQl.Add('  P.IdProduto,');
+    Query.SQl.Add('  P.codBarra,');
+    Query.SQl.Add('  P.NmProduto,');
+    Query.SQl.Add('  P.precocusto,');
+    Query.SQl.Add('  P.precovenda,');
+    Query.SQl.Add('  P.flgativo,');
+    Query.SQl.Add('  P.estoqueminimo,');
+    Query.SQl.Add('  P.idgrupoproduto,');
+    Query.SQl.Add('  GP.nmgrupo,');
+    Query.SQl.Add('  N.codncm,');
+    Query.SQl.Add('  U.unidade');
+    Query.SQl.Add('FROM PRODUTO P');
+    Query.SQl.Add('LEFT JOIN NCM N ON N.IDNCM = P.IDNCM');
+    Query.SQl.Add('LEFT JOIN GRUPOPRODUTO GP ON GP.IDGRUPOPRODUTO = P.IDGRUPOPRODUTO');
+    Query.SQl.Add('LEFT JOIN UNIDADEMEDIDA U ON U.IDUNIDADE = P.IDUNIDADE');
+    Query.Open;
+    Query.First;
+    while not Query.Eof do
+    begin
+      Produto:= Produto.Add;
+      Produto.Codigo:= Query.FieldByName('IdProduto').AsInteger;
+      Produto.Nome:= Query.FieldByName('NmProduto').AsString;
+      if Query.FieldByName('flgativo').AsString = 'S' then
+        Produto.Status:= '1'
+      else
+        Produto.Status:= '0';
+      Produto.CodigoBarrasEAN:= Query.FieldByName('codBarra').AsString;
+      Produto.PrecoCusto1:= Query.FieldByName('precocusto').AsCurrency;
+      Produto.PrecoVenda1:= Query.FieldByName('precovenda').AsCurrency;
+      Produto.NCM:= Query.FieldByName('codncm').AsString;
+      Produto.CodGrupo:= Query.FieldByName('idgrupoproduto').AsInteger;
+      Produto.Grupo:= Query.FieldByName('nmgrupo').AsString;
+      Produto.PrimeiraUnidade:= Query.FieldByName('unidade').AsString;
+      Produtos.ListaDeProdutos.Add(Produto);
+      Query.Next;
+    end;
+    Produtos.ExportarProdutos();
+  finally
+    FreeAndNil( Produtos );
+    FreeAndNil( Query );
+  end;
 end;
 
 end.
