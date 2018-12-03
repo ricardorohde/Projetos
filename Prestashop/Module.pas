@@ -27,10 +27,12 @@ type
     procedure DataModuleCreate(Sender: TObject);
   private
     function LerConfiguracaoBanco: TConfigBanco;
-
     { Private declarations }
   public
     { Public declarations }
+    function MaxId(Tabela, Campo: string): Integer;
+    function Find(Tabela, Filtro: String): Boolean;
+    procedure AtualizaIdPrestashop(Tabela, Filtro, CampoId: String; ValorId: Integer);
   end;
 
 var
@@ -60,6 +62,50 @@ begin
   end;
 end;
 
+Function TDataModule1.MaxId(Tabela, Campo: string): Integer;
+var
+  Query: TFDQuery;
+begin
+  result:= 1;
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= Conexao;
+    Query.Open(Format('SELECT Max(%s) FROM %s', [Campo, Tabela]));
+
+    if not Query.IsEmpty and not Query.Fields[0].IsNull then
+      result:= Query.Fields[0].AsInteger + 1;
+  finally
+    FreeAndNil( Query );
+  end;
+end;
+
+function TDataModule1.Find(Tabela, Filtro: String): Boolean;
+var
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= Conexao;
+    Query.Open(Format('SELECT 1 FROM %s WHERE %s LIMIT 1', [Tabela, Filtro]));
+    result:= not Query.IsEmpty;
+  finally
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TDataModule1.AtualizaIdPrestashop(Tabela, Filtro, CampoId: String; ValorId: Integer);
+var
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= Conexao;
+    Query.SQL.Text:= Format('update %s set %s = %d where %s', [Tabela, CampoId, ValorId, Filtro]);
+    Query.ExecSQL
+  finally
+    FreeAndNil( Query );
+  end;
+end;
 
 procedure TDataModule1.DataModuleCreate(Sender: TObject);
 var

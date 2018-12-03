@@ -29,9 +29,7 @@ type
   TImportacao = Class
     private
       procedure InserirPedido(Pedido: TPedido);
-    function MaxId(Tabela, Campo: string): Integer;
     procedure InserirItemPedido(Item: TProduto; IdMaster: Integer);
-    function Find(Tabela, Filtro: String): Boolean;
     procedure ImportarCliente(IdCliente: Integer);
     procedure InserirCliente(Cliente: TCliente);
     procedure ImportarProduto(IdProduto: Integer);
@@ -139,6 +137,7 @@ begin
 //
   try
     Exportacao:= TExportacao.Create;
+//    Exportacao.ExportarClientes();
     Exportacao.ExportarProdutos();
   Finally
     FreeAndNil( Exportacao );
@@ -202,22 +201,36 @@ begin
 end;
 
 procedure TImportacao.InserirCliente(Cliente: TCliente);
-begin
-//Voltar
-end;
-
-Function TImportacao.MaxId(Tabela, Campo: string): Integer;
 var
   Query: TFDQuery;
+  ID: Integer;
 begin
-  result:= 1;
+  Id:= DataModule1.MaxId('Cliente', 'idcliente');
   try
     Query:= TFDQuery.Create(nil);
     Query.Connection:= DataModule1.Conexao;
-    Query.Open(Format('SELECT Max(%s) FROM %s', [Campo, Tabela]));
-
-    if not Query.IsEmpty and not Query.Fields[0].IsNull then
-      result:= Query.Fields[0].AsInteger + 1;
+    Query.Open('SELECT * FROM Cliente where 1=0');
+    Query.Append;
+    Query.FieldByName('idcliente').AsInteger:= Cliente.Codigo;
+    Query.FieldByName('nmcliente').AsString:= Cliente.Nome;
+//      Cliente.NomeReduzido:= Query.FieldByName('nmfantasia').AsString;
+    Query.FieldByName('endereco').AsString:= Cliente.Endereco;
+    Query.FieldByName('numero').AsString:= Cliente.Numero;
+    Query.FieldByName('complemento').AsString:= Cliente.Complemento;
+    Query.FieldByName('bairro').AsString:= Cliente.Bairro;
+    Query.FieldByName('cep').AsString:= Cliente.Cep;
+    Query.FieldByName('nmcidade').AsString:= Cliente.Municipio;
+    Query.FieldByName('uf').AsString:= Cliente.Uf;
+    Query.FieldByName('telefone').AsString:= Cliente.Telefone;
+    Query.FieldByName('celular').AsString:= Cliente.Celular;
+    Query.FieldByName('cpfcnpj').AsString:= Cliente.CnpjCpf;
+    Query.FieldByName('rgie').AsString:= Cliente.RgIe;
+    Query.FieldByName('nmempresa').AsString:= Cliente.RazaoSocial;
+    if Cliente.StatusCliente = '1' then
+      Query.FieldByName('flgativo').AsString:= 'S'
+    else
+      Query.FieldByName('flgativo').AsString:= 'N';
+    Query.Post;
   finally
     FreeAndNil( Query );
   end;
@@ -228,7 +241,7 @@ var
   Query: TFDQuery;
   i: Integer;
 begin
-  if not Find('produto', Format('idproduto = %d', [Item.Codigo])) then
+  if not DataModule1.Find('produto', Format('idproduto = %d', [Item.Codigo])) then
     ImportarProduto(Item.Codigo);
 
   try
@@ -236,7 +249,7 @@ begin
     Query.Connection:= DataModule1.Conexao;
     Query.Open('SELECT * FROM movdetail WHERE 1=0');
     Query.Append;
-    Query.FieldByName('idmovdetail').AsInteger:= MaxId('movdetail', 'idmovdetail');
+    Query.FieldByName('idmovdetail').AsInteger:= DataModule1.MaxId('movdetail', 'idmovdetail');
     Query.FieldByName('idmovheader').AsInteger:= IdMaster;
 //    Query.FieldByName('idordemservico'
     Query.FieldByName('idproduto').AsInteger:= Item.Codigo;
@@ -267,21 +280,6 @@ begin
   end;
 end;
 
-
-function TImportacao.Find(Tabela, Filtro: String): Boolean;
-var
-  Query: TFDQuery;
-begin
-  try
-    Query:= TFDQuery.Create(nil);
-    Query.Connection:= DataModule1.Conexao;
-    Query.Open(Format('SELECT 1 FROM %s WHERE %s LIMIT 1', [Tabela, Filtro]));
-    result:= not Query.IsEmpty;
-  finally
-    FreeAndNil( Query );
-  end;
-end;
-
 procedure TImportacao.ImportarProduto(IdProduto: Integer);
 var
   Produtos: TProdutos;
@@ -298,8 +296,33 @@ begin
 end;
 
 procedure TImportacao.InserirProduto(Produto: TProduto);
+var
+  Query: TFDQuery;
+  i, ID: Integer;
 begin
-//Voltar
+  Id:= DataModule1.MaxId('Produto', 'IdProduto');
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT * FROM Produto where 1=0');
+    Query.Append;
+    Query.FieldByName('IdProduto').AsInteger:= Produto.Codigo;
+    Query.FieldByName('NmProduto').AsString:= Produto.Nome;
+    if Produto.Status= '1' then
+      Query.FieldByName('flgativo').AsString:= 'S'
+    else
+      Query.FieldByName('flgativo').AsString:= 'N';
+    Query.FieldByName('codBarra').AsString:= Produto.CodigoBarrasEAN;
+    Query.FieldByName('precocusto').AsCurrency:= Produto.PrecoCusto1;
+    Query.FieldByName('precovenda').AsCurrency:= Produto.PrecoVenda1;
+    Query.FieldByName('codncm').AsString:= Produto.NCM;
+    Query.FieldByName('idgrupoproduto').AsInteger:= Produto.CodGrupo;
+    Query.FieldByName('nmgrupo').AsString:= Produto.Grupo;
+    Query.FieldByName('unidade').AsString:= Produto.PrimeiraUnidade;
+    Query.Post;
+  finally
+    FreeAndNil( Query );
+  end;
 end;
 
 procedure TImportacao.InserirPedido(Pedido: TPedido);
@@ -307,10 +330,10 @@ var
   Query: TFDQuery;
   i, ID: Integer;
 begin
-  if not Find('Cliente', Format('idcliente = %d', [Pedido.Cliente])) then
+  if not DataModule1.Find('Cliente', Format('idcliente = %d', [Pedido.Cliente])) then
     ImportarCliente(Pedido.Cliente);
 
-  Id:= MaxId('movheader', 'idmovheader');
+  Id:= DataModule1.MaxId('movheader', 'idmovheader');
   try
     Query:= TFDQuery.Create(nil);
     Query.Connection:= DataModule1.Conexao;
@@ -363,6 +386,7 @@ begin
     Query.SQl.Add('SELECT C.*, M.nmcidade, M.uf');
     Query.SQl.Add('FROM Cliente C');
     Query.SQl.Add('left join municipio M on M.idmunicipio = C.idmunicipio');
+    Query.SQl.Add('WHERE C.IdPrestashop IS NULL');
     Query.Open;
     Query.First;
     while not Query.Eof do
@@ -424,6 +448,7 @@ begin
     Query.SQl.Add('LEFT JOIN NCM N ON N.IDNCM = P.IDNCM');
     Query.SQl.Add('LEFT JOIN GRUPOPRODUTO GP ON GP.IDGRUPOPRODUTO = P.IDGRUPOPRODUTO');
     Query.SQl.Add('LEFT JOIN UNIDADEMEDIDA U ON U.IDUNIDADE = P.IDUNIDADE');
+    Query.SQl.Add('WHERE P.IdPrestashop IS NULL');
     Query.Open;
     Query.First;
     while not Query.Eof do
@@ -445,6 +470,7 @@ begin
       Produtos.ListaDeProdutos.Add(Produto);
       Query.Next;
     end;
+
     Produtos.ExportarProdutos();
   finally
     FreeAndNil( Produtos );
