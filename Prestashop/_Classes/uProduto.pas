@@ -91,9 +91,6 @@ type
         const psID: string): Boolean;
       function PreencherQuantidadeProduto(var produto: TProduto;
         const psID: string): Boolean;
-      function ExportarManufacturers(Produto: TProduto): string;
-      function ExportarCategories(Produto: TProduto): string;
-      function ExportarProduct_feature_values(Produto: TProduto): string;
       function ExportarStock_availables(Produto: TProduto): string;
       function RetornaIdPrestashop(XMLRetorno: IXMLDocument): Integer;
     public
@@ -525,138 +522,14 @@ begin
   FListaDeProdutos := Value;
 end;
 
-function TProdutos.ExportarManufacturers(Produto: TProduto): string;
-var
-  XML: string;
-  k,i,j,a, ID: integer;
-  FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
-begin
-  Result:= '';
-  try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('manufacturers');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
-      begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
-        begin
-          aCCNode := aCNode.ChildNodes[j];
-
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['NAME']) of
-  //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
-            0: aCCNode.NodeValue:= Produto.Fabricante;
-          end;
-        end;
-      end;
-    end;
-
-    XML:= PostXML('manufacturers', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
-  finally
-    FXMLDocument:= nil;
-    FXMLRetorno:= nil;
-  end;
-end;
-
-function TProdutos.ExportarCategories(Produto: TProduto): string;
-var
-  XML: string;
-  k,i,j,a, ID: integer;
-  FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
-begin
-  Result:= '';
-  try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('categories');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
-      begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
-        begin
-          aCCNode := aCNode.ChildNodes[j];
-
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['ID','NAME']) of
-            0: aCCNode.NodeValue:= Produto.CodGrupo;
-            1: aCCNode.NodeValue:= Produto.Grupo;
-          end;
-        end;
-      end;
-    end;
-
-    XML:= PostXML('categories', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
-  finally
-    FXMLDocument:= nil;
-    FXMLRetorno:= nil;
-  end;
-end;
-
-function TProdutos.ExportarProduct_feature_values(Produto: TProduto): string;
-var
-  XML: string;
-  k,i,j,a, ID: integer;
-  FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
-begin
-  Result:= '';
-  try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('product_feature_values');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
-      begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
-        begin
-          aCCNode := aCNode.ChildNodes[j];
-
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['VALUE']) of
-            0: aCCNode.NodeValue:= Produto.NCM;
-          end;
-        end;
-      end;
-    end;
-
-    XML:= PostXML('product_feature_values', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
-  finally
-    FXMLDocument:= nil;
-    FXMLRetorno:= nil;
-  end;
-end;
-
 procedure TProdutos.ExportarProdutos();
 var
   XML: string;
   k,i,j,a, ID: integer;
   Produto: TProduto;
   FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
+  aNode, aCNode, aCCNode,
+  NodeAux, Nodefeature: IXMLNode;
 begin
 //  XML:= GetXML(Format('/products?schema=blank&ws_key=%s', [User]));
   for k:= 0 to ListaDeProdutos.Count -1 do
@@ -677,7 +550,8 @@ begin
           begin
             aCCNode := aCNode.ChildNodes[j];
             case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['ID', 'NEW', 'NAME', 'ACTIVE', 'EAN13',
-              'DATE_ADD', 'DATE_UPD', 'PRICE','WHOLESALE_PRICE', 'ID_MANUFACTURER', 'ID_CATEGORY_DEFAULT']) of
+              'DATE_ADD', 'DATE_UPD', 'PRICE','WHOLESALE_PRICE', 'ID_MANUFACTURER', 'ID_CATEGORY_DEFAULT',
+              'PRODUCT_FEATURES', 'ASSOCIATIONS']) of
 //              0: aCCNode.NodeValue:= Produto.Codigo;
               1: aCCNode.NodeValue:= Produto.Codigo;
               2:
@@ -688,10 +562,33 @@ begin
               5, 6: aCCNode.NodeValue:= FormatDateTime('YYYY-MM-DD HH:MM:SS', Now);
               7: aCCNode.NodeValue:= Produto.PrecoVenda1;
               8: aCCNode.NodeValue:= Produto.PrecoCusto1;
-              9: aCCNode.NodeValue:= ExportarManufacturers(Produto);
-              10: aCCNode.NodeValue:= ExportarCategories(Produto);
-//              10: aCCNode.NodeValue:= ExportarProduct_feature_values(Produto);
-//              10: aCCNode.NodeValue:= ExportarStock_availables(Produto);
+              9: aCCNode.NodeValue:= Produto.Fabricante;
+              10: aCCNode.NodeValue:= Produto.CodGrupo;
+              11: aCCNode.NodeValue:= Produto.NCM;
+              12:
+                for a := 0 to aCCNode.ChildNodes.Count -1 do
+                begin
+                  NodeAux:= aCCNode.ChildNodes[a];
+                  case AnsiIndexStr(AnsiUpperCase(NodeAux.NodeName), ['CATEGORIES', 'PRODUCT_FEATURES', 'STOCK_AVAILABLES']) of
+                    0:
+                      begin
+                        Nodefeature:= GetNodeByName(NodeAux, 'Id');
+                        Nodefeature.NodeValue:= Produto.CodGrupo;
+                      end;
+                    1:
+                      begin
+                        Nodefeature:= GetNodeByName(NodeAux, 'Id');
+                        Nodefeature.NodeValue:= Produto.NCM;
+                      end;
+//                    2:
+//                      begin
+//                        Nodefeature:= GetNodeByName(NodeAux, 'Id');
+//                        Nodefeature.NodeValue:= Produto.qaunGrupo;
+//                      end;
+                  end;
+                end;
+//              12: aCCNode.NodeValue:= Produto);
+
             end;
           end;
         end;

@@ -36,6 +36,7 @@ type
     FStatusCliente: string;
     FTelefone: string;
     FCelular: string;
+    FCodigoMunicipioWS: string;
     procedure SetBairro(const Value: string);
     procedure SetCelular(const Value: string);
     procedure SetCep(const Value: String);
@@ -62,6 +63,7 @@ type
     procedure SetStatusCliente(const Value: string);
     procedure SetTelefone(const Value: string);
     procedure SetUf(const Value: string);
+    procedure SetCodigoMunicipioWS(const Value: string);
 
   public
     property Codigo: Integer read FCodigo write SetCodigo;
@@ -83,6 +85,7 @@ type
     property Bairro: string read FBairro write SetBairro;
     property Cep: String read FCep write SetCep;
     property Municipio: string read FMunicipio write SetMunicipio;
+    property CodigoMunicipioWS: string read FCodigoMunicipioWS write SetCodigoMunicipioWS;
     property Telefone: string read FTelefone write SetTelefone;
     property Celular: string read FCelular write SetCelular;
     property Numero: String read FNumero write SetNumero;
@@ -106,9 +109,10 @@ type
         const psID: string): Boolean;
 
       function ExportarCustomers(Cliente: TCliente): string;
-      function ExportarCountries(Cliente: TCliente): string;
-      function ExportarStates(Cliente: TCliente): string;
+//      function ExportarCountries(Cliente: TCliente): string;
+//      function ExportarStates(Cliente: TCliente): string;
       function RetornaIdPrestashop(XMLRetorno: IXMLDocument): Integer;
+      function GetPais(): Integer;
     public
       Procedure ListarClientes(Id: Integer);
       procedure ExportarClientes();
@@ -152,6 +156,11 @@ end;
 procedure TCliente.SetCodigo(const Value: Integer);
 begin
   FCodigo := Value;
+end;
+
+procedure TCliente.SetCodigoMunicipioWS(const Value: string);
+begin
+  FCodigoMunicipioWS := Value;
 end;
 
 procedure TCliente.SetCodPais(const Value: string);
@@ -264,7 +273,7 @@ end;
 procedure TClientes.AfterConstruction;
 begin
   inherited;
-  FListaDeClientes:= TObjectList<TCliente>.Create(nil);
+  FListaDeClientes:= TObjectList<TCliente>.Create();
 end;
 
 procedure TClientes.BeforeDestruction;
@@ -273,60 +282,92 @@ begin
   FreeAndNil( FListaDeClientes );
 end;
 
+function TClientes.GetPais(): Integer;
+var
+  FXMLRetorno: IXMLDocument;
+  XML: string;
+begin
+  try
+    FXMLRetorno:= TXmlDocument.Create(nil);
+    XML:= GetXML( Format('/countries?display=full&filter[iso_code]=[%s]', ['BR']));
+    FXMLRetorno.LoadFromXML(XML);
+    Result:= GetNodeByName(FXMLRetorno.DocumentElement, 'ID').NodeValue;
+  finally
+    FXMLRetorno:= nil;
+  end;
+end;
+
 procedure TClientes.ExportarClientes();
 var
   XML: string;
   k,i,j,a,ID: integer;
+  CodigoPais: integer;
   Cliente: TCliente;
   FXMLRetorno: IXMLDocument;
   FXMLDocument: IXMLDocument;
   aNode, aCNode, aCCNode: IXMLNode;
 begin
+  CodigoPais:= GetPais();
+  if CodigoPais = -1 then
+  begin
+    Erro('Código do Pais inválido');
+    Exit;
+  end;
+
 //  XML:= GetXML(Format('/products?schema=blank&ws_key=%s', [User]));
   for k:= 0 to ListaDeClientes.Count -1 do
   begin
-    Cliente:= ListaDeClientes.Items[k] as TCliente;
     try
-      FXMLDocument:= TXmlDocument.Create(nil);
-      FXMLRetorno:= TXmlDocument.Create(nil);
-      XML:= GetSchema('addresses');;
-      FXMLDocument.LoadFromXML(XML);
-      aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-      if assigned(aNode) then
-      begin
-        for i := 0 to aNode.ChildNodes.Count-1 do
+      Cliente:= ListaDeClientes.Items[k] as TCliente;
+      try
+        FXMLDocument:= TXmlDocument.Create(nil);
+        FXMLRetorno:= TXmlDocument.Create(nil);
+        XML:= GetSchema('addresses');;
+        FXMLDocument.LoadFromXML(XML);
+        aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+        if assigned(aNode) then
         begin
-          aCNode := aNode.ChildNodes.Get(i);
-          for j := 0 to aCNode.ChildNodes.Count-1 do
+          for i := 0 to aNode.ChildNodes.Count-1 do
           begin
-            aCCNode := aCNode.ChildNodes[j];
-            case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
-              ['ID','ID_CUSTOMER','ID_SUPPLIER','ID_COUNTRY','ID_STATE','ADDRESS1',
-               'ADDRESS2','POSTCODE','CITY','PHONE','PHONE_MOBILE','NUMEND','COMPL'] ) of
-//              0:
-//                Cliente.codigo := StrToInt( VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, '0' ));  //ID
-              1: aCCNode.NodeValue:= ExportarCustomers(Cliente);
-              2: aCCNode.NodeValue:= Cliente.fornecedor;
-              3: aCCNode.NodeValue:= ExportarCountries(Cliente);
-              4: aCCNode.NodeValue:= ExportarStates(Cliente);
-              5: aCCNode.NodeValue:= Cliente.endereco;
-              6: aCCNode.NodeValue:= Cliente.Bairro;
-              7: aCCNode.NodeValue:= Cliente.Cep;
-              8: aCCNode.NodeValue:= Cliente.municipio;
-              9: aCCNode.NodeValue:= Cliente.telefone;
-              10: aCCNode.NodeValue:= Cliente.celular;
-              11: aCCNode.NodeValue:= Cliente.numero;
-              12: aCCNode.NodeValue:= Cliente.Complemento;
+            aCNode := aNode.ChildNodes.Get(i);
+            for j := 0 to aCNode.ChildNodes.Count-1 do
+            begin
+              aCCNode := aCNode.ChildNodes[j];
+              case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
+                ['ID','ID_CUSTOMER','ID_SUPPLIER','ID_COUNTRY','ID_STATE','ADDRESS1',
+                 'ADDRESS2','POSTCODE','CITY','PHONE','PHONE_MOBILE','NUMEND','COMPL',
+                 'DATE_ADD', 'DATE_UPD', 'ALIAS', 'FIRSTNAME', 'LASTNAME'] ) of
+  //              0:
+  //                Cliente.codigo := StrToInt( VarToStrDef( NodeReturnCliente.ChildNodes[j].NodeValue, '0' ));  //ID
+                1: aCCNode.NodeValue:= ExportarCustomers(Cliente);
+                2: aCCNode.NodeValue:= Cliente.fornecedor;
+                3: aCCNode.NodeValue:= CodigoPais;
+                4: aCCNode.NodeValue:= Cliente.CodigoMunicipioWS;
+                5: aCCNode.NodeValue:= Cliente.endereco;
+                6: aCCNode.NodeValue:= Cliente.Bairro;
+                7: aCCNode.NodeValue:= Cliente.Cep;
+                8: aCCNode.NodeValue:= Cliente.municipio;
+                9: aCCNode.NodeValue:= Cliente.telefone;
+                10: aCCNode.NodeValue:= Cliente.celular;
+                11: aCCNode.NodeValue:= Cliente.numero;
+                12: aCCNode.NodeValue:= Cliente.Complemento;
+                13,14: aCCNode.NodeValue:= FormatDateTime('YYYY-MM-DD HH:MM:SS', Now);
+                15: aCCNode.NodeValue:= Copy(Cliente.Nome, 1, 30);
+                16: aCCNode.NodeValue:= LimpaString('/*-!@#$%¨&*()_+- ',Copy(Cliente.Nome, 1, 15));
+                17: aCCNode.NodeValue:= ' - ';
+              end;
             end;
           end;
         end;
-      end;
 
-      XML:= PostXML('addresses', FXMLDocument.XML.Text);
-      FXMLRetorno.LoadFromXML(XML);
-      ID:= RetornaIdPrestashop(FXMLRetorno);
-      if ID <> -1 then
-        DataModule1.AtualizaIdPrestashop('Cliente', Format('idcliente = %d', [Cliente.Codigo]), 'IdPrestashop', ID);
+        XML:= PostXML('addresses', FXMLDocument.XML.Text);
+        FXMLRetorno.LoadFromXML(XML);
+        ID:= RetornaIdPrestashop(FXMLRetorno);
+        if ID <> -1 then
+          DataModule1.AtualizaIdPrestashop('Cliente', Format('idcliente = %d', [Cliente.Codigo]), 'IdPrestashop', ID);
+      except
+        AddLog(RetornaErroPrestashop(FXMLRetorno));
+      end;
     finally
       FXMLDocument:= nil;
       FXMLRetorno:= nil;
@@ -371,144 +412,152 @@ var
 begin
   Result:= '';
   try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('customers');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
+    try
+      FXMLDocument:= TXmlDocument.Create(nil);
+      FXMLRetorno:= TXmlDocument.Create(nil);
+      XML:= GetSchema('customers');;
+      FXMLDocument.LoadFromXML(XML);
+      aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+      if assigned(aNode) then
       begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
+        for i := 0 to aNode.ChildNodes.Count-1 do
         begin
-          aCCNode := aCNode.ChildNodes[j];
+          aCNode := aNode.ChildNodes.Get(i);
+          for j := 0 to aCNode.ChildNodes.Count-1 do
+          begin
+            aCCNode := aCNode.ChildNodes[j];
 
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
-            ['ID','LASTNAME','FIRSTNAME','EMAIL','BIRTHDAY','WEBSITE','COMPANY','ACTIVE','TIPO','CPF_CNPJ','RG_IE']) of
-  //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
-            1: aCCNode.NodeValue:= Cliente.Nome;
-            2: aCCNode.NodeValue:= Cliente.NomeReduzido;
-            3: aCCNode.NodeValue:= Cliente.Email;
-            4: aCCNode.NodeValue:= Cliente.DataNascimento;
-            5: aCCNode.NodeValue:= Cliente.Homepage;
-            6: aCCNode.NodeValue:= Cliente.RazaoSocial;
-            7: aCCNode.NodeValue:= Cliente.StatusCliente;
-            8: aCCNode.NodeValue:= Cliente.Pessoa;
-            9: aCCNode.NodeValue:= Cliente.CnpjCpf;
-            10: aCCNode.NodeValue:= Cliente.RgIe;
+            case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
+              ['ID','FIRSTNAME','LASTNAME','EMAIL','BIRTHDAY','WEBSITE',
+               'COMPANY','ACTIVE','TIPO','CPF_CNPJ','RG_IE',
+               'DATE_ADD', 'DATE_UPD']) of
+    //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
+              1: aCCNode.NodeValue:= LimpaString('/*-!@#$%¨&*()_+-',Copy(Cliente.Nome, 1, 10));
+              2: aCCNode.NodeValue:= ' - ';
+              3: aCCNode.NodeValue:= Cliente.Email;
+              4: aCCNode.NodeValue:= Cliente.DataNascimento;
+              5: aCCNode.NodeValue:= Cliente.Homepage;
+              6: aCCNode.NodeValue:= Cliente.RazaoSocial;
+              7: aCCNode.NodeValue:= Cliente.StatusCliente;
+              8: aCCNode.NodeValue:= Cliente.Pessoa;
+              9: aCCNode.NodeValue:= Cliente.CnpjCpf;
+              10: aCCNode.NodeValue:= Cliente.RgIe;
+              11,12: aCCNode.NodeValue:= FormatDateTime('YYYY-MM-DD HH:MM:SS', Now);
+            end;
           end;
         end;
       end;
-    end;
 
-    XML:= PostXML('customers', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
+      XML:= PostXML('customers', FXMLDocument.XML.Text);
+      FXMLRetorno.LoadFromXML(XML);
+      ID:= RetornaIdPrestashop(FXMLRetorno);
+      if ID <> -1 then
+        Result:= IntToStr(ID);
+    except
+      AddLog(RetornaErroPrestashop(FXMLRetorno));
+    end;
   finally
     FXMLDocument:= nil;
     FXMLRetorno:= nil;
   end;
 end;
 
-function TClientes.ExportarCountries(Cliente: TCliente): string;
-var
-  XML: string;
-  k,i,j,a, ID: integer;
-  FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
-begin
-  Result:= '';
-  try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('countries');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
-      begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
-        begin
-          aCCNode := aCNode.ChildNodes[j];
+//function TClientes.ExportarCountries(Cliente: TCliente): string;
+//var
+//  XML: string;
+//  k,i,j,a, ID: integer;
+//  FXMLDocument, FXMLRetorno: IXMLDocument;
+//  aNode, aCNode, aCCNode: IXMLNode;
+//begin
+//  Result:= '';
+//  try
+//    FXMLDocument:= TXmlDocument.Create(nil);
+//    FXMLRetorno:= TXmlDocument.Create(nil);
+//    XML:= GetSchema('countries');;
+//    FXMLDocument.LoadFromXML(XML);
+//    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+//    if assigned(aNode) then
+//    begin
+//      for i := 0 to aNode.ChildNodes.Count-1 do
+//      begin
+//        aCNode := aNode.ChildNodes.Get(i);
+//        for j := 0 to aCNode.ChildNodes.Count-1 do
+//        begin
+//          aCCNode := aCNode.ChildNodes[j];
+//
+//          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
+//            ['ID','LASTNAME','FIRSTNAME','EMAIL','BIRTHDAY','WEBSITE','COMPANY','ACTIVE','TIPO','CPF_CNPJ','RG_IE']) of
+//  //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
+//            1: aCCNode.NodeValue:= Cliente.Nome;
+//            2: aCCNode.NodeValue:= Cliente.NomeReduzido;
+//            3: aCCNode.NodeValue:= Cliente.Email;
+//            4: aCCNode.NodeValue:= Cliente.DataNascimento;
+//            5: aCCNode.NodeValue:= Cliente.Homepage;
+//            6: aCCNode.NodeValue:= Cliente.RazaoSocial;
+//            7: aCCNode.NodeValue:= Cliente.StatusCliente;
+//            8: aCCNode.NodeValue:= Cliente.Pessoa;
+//            9: aCCNode.NodeValue:= Cliente.CnpjCpf;
+//            10: aCCNode.NodeValue:= Cliente.RgIe;
+//          end;
+//        end;
+//      end;
+//    end;
+//
+//    XML:= PostXML('countries', FXMLDocument.XML.Text);
+//    FXMLRetorno.LoadFromXML(XML);
+//    ID:= RetornaIdPrestashop(FXMLRetorno);
+//    if ID <> -1 then
+//      Result:= IntToStr(ID);
+//  finally
+//    FXMLDocument:= nil;
+//    FXMLRetorno:= nil;
+//  end;
+//end;
+//
+//function TClientes.ExportarStates(Cliente: TCliente): string;
+//var
+//  XML: string;
+//  k,i,j,a, ID: integer;
+//  FXMLDocument, FXMLRetorno: IXMLDocument;
+//  aNode, aCNode, aCCNode: IXMLNode;
+//begin
+//  Result:= '';
+////  XML:= GetXML(Format('/products?schema=blank&ws_key=%s', [User]));
+//  try
+//    FXMLDocument:= TXmlDocument.Create(nil);
+//    FXMLRetorno:= TXmlDocument.Create(nil);
+//    XML:= GetSchema('states');;
+//    FXMLDocument.LoadFromXML(XML);
+//    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+//    if assigned(aNode) then
+//    begin
+//      for i := 0 to aNode.ChildNodes.Count-1 do
+//      begin
+//        aCNode := aNode.ChildNodes.Get(i);
+//        for j := 0 to aCNode.ChildNodes.Count-1 do
+//        begin
+//          aCCNode := aCNode.ChildNodes[j];
+//          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),['ID','CALL_PREFIX','NAME']) of
+//            0: aCCNode.NodeValue:= cliente.CodPais;
+//            1: aCCNode.NodeValue:= cliente.DDI;
+//            2: aCCNode.NodeValue:= cliente.NomePais;
+//          end;
+//        end;
+//      end;
+//    end;
+//
+//
+//    XML:= PostXML('states', FXMLDocument.XML.Text);
+//    FXMLRetorno.LoadFromXML(XML);
+//    ID:= RetornaIdPrestashop(FXMLRetorno);
+//    if ID <> -1 then
+//      Result:= IntToStr(ID);
+//  finally
+//    FXMLDocument:= nil;
+//    FXMLRetorno:= nil;
+//  end;
+//end;
 
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),
-            ['ID','LASTNAME','FIRSTNAME','EMAIL','BIRTHDAY','WEBSITE','COMPANY','ACTIVE','TIPO','CPF_CNPJ','RG_IE']) of
-  //          0: Cliente.NomeReduzido := Node.ChildNodes[j].NodeValue; //lastname
-            1: aCCNode.NodeValue:= Cliente.Nome;
-            2: aCCNode.NodeValue:= Cliente.NomeReduzido;
-            3: aCCNode.NodeValue:= Cliente.Email;
-            4: aCCNode.NodeValue:= Cliente.DataNascimento;
-            5: aCCNode.NodeValue:= Cliente.Homepage;
-            6: aCCNode.NodeValue:= Cliente.RazaoSocial;
-            7: aCCNode.NodeValue:= Cliente.StatusCliente;
-            8: aCCNode.NodeValue:= Cliente.Pessoa;
-            9: aCCNode.NodeValue:= Cliente.CnpjCpf;
-            10: aCCNode.NodeValue:= Cliente.RgIe;
-          end;
-        end;
-      end;
-    end;
-
-    XML:= PostXML('countries', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
-  finally
-    FXMLDocument:= nil;
-    FXMLRetorno:= nil;
-  end;
-end;
-
-function TClientes.ExportarStates(Cliente: TCliente): string;
-var
-  XML: string;
-  k,i,j,a, ID: integer;
-  FXMLDocument, FXMLRetorno: IXMLDocument;
-  aNode, aCNode, aCCNode: IXMLNode;
-begin
-  Result:= '';
-//  XML:= GetXML(Format('/products?schema=blank&ws_key=%s', [User]));
-  try
-    FXMLDocument:= TXmlDocument.Create(nil);
-    FXMLRetorno:= TXmlDocument.Create(nil);
-    XML:= GetSchema('states');;
-    FXMLDocument.LoadFromXML(XML);
-    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
-    if assigned(aNode) then
-    begin
-      for i := 0 to aNode.ChildNodes.Count-1 do
-      begin
-        aCNode := aNode.ChildNodes.Get(i);
-        for j := 0 to aCNode.ChildNodes.Count-1 do
-        begin
-          aCCNode := aCNode.ChildNodes[j];
-          case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName),['ID','CALL_PREFIX','NAME']) of
-            0: aCCNode.NodeValue:= cliente.CodPais;
-            1: aCCNode.NodeValue:= cliente.DDI;
-            2: aCCNode.NodeValue:= cliente.NomePais;
-          end;
-        end;
-      end;
-    end;
-
-
-    XML:= PostXML('states', FXMLDocument.XML.Text);
-    FXMLRetorno.LoadFromXML(XML);
-    ID:= RetornaIdPrestashop(FXMLRetorno);
-    if ID <> -1 then
-      Result:= IntToStr(ID);
-  finally
-    FXMLDocument:= nil;
-    FXMLRetorno:= nil;
-  end;
-end;
 procedure TClientes.ListarClientes(Id: Integer);
 var
   Cliente: TCliente;

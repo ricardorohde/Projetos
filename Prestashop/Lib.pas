@@ -28,6 +28,8 @@ uses
   function StrToFloatEsp(Value: string): Double;
   Function IsDate(stDate : String) : Boolean;
   function StrToDateUSA(Value: string): TDateTime;
+  procedure AddLog(Texto: string);
+  function RetornaErroPrestashop(XMLRetorno: IXMLDocument): String;
 
   const CR = #13;
   const LF = #10;
@@ -326,5 +328,52 @@ begin
   lsdata := copy(Value,9,2)+'/'+copy(Value, 6,2)+'/'+ copy(Value, 1,4);
   if IsDate(lsdata) then
     result:= StrToDate(lsdata);
+end;
+
+procedure AddLog(Texto: string);
+var
+  NomeDoLog: string;
+  Arquivo: TextFile;
+begin
+  NomeDoLog := ChangeFileExt(Application.Exename, '.log');
+  AssignFile(Arquivo, NomeDoLog);
+  if FileExists(NomeDoLog) then
+    Append(arquivo) { se existir, apenas adiciona linhas }
+  else
+    ReWrite(arquivo); { cria um novo se não existir }
+  try
+    WriteLn(arquivo, DateTimeToStr(Now) + ':' + Texto);
+    WriteLn(arquivo, '----------------------------------------------------------------------');
+  finally
+    CloseFile(arquivo)
+  end;
+end;
+
+function RetornaErroPrestashop(XMLRetorno: IXMLDocument): String;
+var
+  i,j: integer;
+  aNode, aCNode, aCCNode: IXMLNode;
+begin
+  Result:= '';
+  if not XMLRetorno.Active then Exit;
+
+  aNode := XMLRetorno.ChildNodes.FindNode('prestashop');
+  if assigned(aNode) then
+  begin
+    for i := 0 to aNode.ChildNodes.Count-1 do
+    begin
+      aCNode:= GetNodeByName(aNode.ChildNodes[i], 'error');
+      for j := 0 to aCNode.ChildNodes.Count-1 do
+      begin
+        aCCNode := aCNode.ChildNodes[j];
+
+        if AnsiUpperCase(aCCNode.NodeName) = 'CODE' then
+          Result:= Result + Format('[%s]', [VarToStrDef(aCCNode.NodeValue, '')]);
+
+        if AnsiUpperCase(aCCNode.NodeName) = 'MESSAGE' then
+          Result:= Result + ' - ' + VarToStrDef(aCCNode.NodeValue, '-1');
+      end;
+    end;
+  end;
 end;
 end.

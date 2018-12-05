@@ -120,8 +120,8 @@ var
   NodeItem: IXMLNode;
   lsXML: string;
 begin
-  //lsXML:= GetXML( Format('orders/?display=full&filter[date_upd]=[%s]%s[valid]=1', [FormatDateTime('YYYY-MM-DD', Date), '%&date=1']) );
-  lsXML:= GetXML( Format('orders/?display=full&filter[date_upd]=[%s]%s[valid]=1', ['2018-11-19', '%&date=1']) );
+  lsXML:= GetXML( Format('/orders/?display=full&filter[date_upd]=[%s]%s[valid]=1', [FormatDateTime('YYYY-MM-DD', Date), '%&date=1']) );
+//  lsXML:= GetXML( Format('orders/?display=full&filter[date_upd]=[%s]%s[valid]=1', ['2018-11-19', '%&date=1']) );
   FXMLDocument.LoadFromXML( lsXML );
   if FXMLDocument.Active then
   begin

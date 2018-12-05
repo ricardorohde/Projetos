@@ -5,7 +5,7 @@ interface
 uses System.Classes, System.SysUtils, Vcl.Forms, Dialogs, generics.Collections,
   IPPeerClient, REST.Client, Data.Bind.Components,
   Data.Bind.ObjectScope, REST.Authenticator.Simple, Xml.xmldom, Xml.XMLIntf,
-  Xml.XMLDoc, REST.Types;
+  Xml.XMLDoc, REST.Types, LIB;
 
 type
   TWebServiceREST = class
@@ -21,6 +21,8 @@ type
     procedure SetURL(const Value: string);
     procedure SetUsuario(const Value: string);
     procedure Config();
+    procedure RESTRequest1HTTPProtocolError(Sender: TCustomRESTRequest);
+    procedure RESTClient1HTTPProtocolError(Sender: TCustomRESTClient);
   public
     property Senha: string read FSenha write SetSenha;
     property URL: string read FURL write SetURL;
@@ -45,6 +47,9 @@ begin
   RESTRequest1:= TRESTRequest.Create(nil);
   RESTResponse1:= TRESTResponse.Create(nil);
   SimpleAuthenticator1:= TSimpleAuthenticator.Create(nil);
+
+  RESTRequest1.OnHTTPProtocolError:= RESTRequest1HTTPProtocolError;
+  RESTClient1.OnHTTPProtocolError:= RESTClient1HTTPProtocolError;
 end;
 
 procedure TWebServiceREST.BeforeDestruction;
@@ -81,22 +86,50 @@ begin
   Result:= RESTResponse1.Content;
 end;
 
+procedure TWebServiceREST.RESTRequest1HTTPProtocolError(Sender: TCustomRESTRequest);
+var
+  XML: string;
+  FXMLRetorno: TXmlDocument;
+begin
+  try
+    FXMLRetorno:= TXmlDocument.Create(nil);
+    XML:= RESTResponse1.Content;
+    FXMLRetorno.LoadFromXML(XML);
+    if FXMLRetorno.Active then
+      AddLog( RetornaErroPrestashop( FXMLRetorno ));
+  finally
+    FXMLRetorno:= nil;
+  end;
+end;
+
+procedure TWebServiceREST.RESTClient1HTTPProtocolError(Sender: TCustomRESTClient);
+begin
+//  TCustomRESTClient( Sender ).
+end;
+
 function TWebServiceREST.Post(const Resource, xml: string): string;
 begin
-  Config();
-  RESTRequest1.Params.Clear;
-  RESTClient1.Authenticator := nil;
-//  SimpleAuthenticator1.UserNameKey := '';
-//  SimpleAuthenticator1.UserName := '';
+  try
+    Config();
+    RESTRequest1.Params.Clear;
+    RESTClient1.Authenticator := nil;
+  //  SimpleAuthenticator1.UserNameKey := '';
+  //  SimpleAuthenticator1.UserName := '';
 
-  RESTClient1.BaseURL:= URL;
-  RESTRequest1.Resource:= Resource;
-  RESTRequest1.ClearBody;
-  RESTRequest1.AddBody(Xml, ctTEXT_XML);
-  RESTRequest1.ResourceSuffix := Format('?ws_key=%s', [Usuario]);
-  RESTRequest1.Method := rmPost;
-  RESTRequest1.Execute;
-  result:= RESTResponse1.Content;
+    RESTClient1.BaseURL:= URL;
+    RESTRequest1.Resource:= Resource;
+    RESTRequest1.ClearBody;
+    RESTRequest1.AddBody(Xml, ctTEXT_XML);
+    RESTRequest1.ResourceSuffix := Format('?ws_key=%s', [Usuario]);
+    RESTRequest1.Method := rmPost;
+    RESTRequest1.Execute;
+    result:= RESTResponse1.Content;
+  except on e:exception do
+    begin
+      AddLog(e.Message);
+      AddLog(RESTResponse1.Content);
+    end;
+  end;
 end;
 
 procedure TWebServiceREST.SetSenha(const Value: string);

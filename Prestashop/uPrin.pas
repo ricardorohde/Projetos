@@ -5,7 +5,8 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ScktComp, StdCtrls, ExtCtrls, ComCtrls, Menus,ShellApi,Registry,
-  OleCtrls, SHDocVw, uPedidos, uPedido, uProduto, uCliente,
+  OleCtrls, SHDocVw, uPedidos, uPedido, uProduto, uCliente, uClassesPrestashop,
+  IniFiles,  LIB,
 
 //Firedac
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
@@ -40,8 +41,12 @@ type
 
   TExportacao = class
     private
-
     public
+      Procedure ExportarMarcas();
+      Procedure ExportarCategorias();
+      Procedure ExportarNCM();
+      procedure ExportarMunicipios();
+      procedure ExportarPaises();
       Procedure ExportarProdutos();
       Procedure ExportarClientes();
   end;
@@ -59,13 +64,13 @@ type
     procedure pmnuiExitClick(Sender: TObject);
     procedure pmnuiOpenClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
   private
     { Private declarations }
-
+    _Thread: TWThreadMonitorar;
   protected
   public
     { Public declarations }
-    TrayIconData: TNotifyIconData;
   end;
 
 var
@@ -78,13 +83,21 @@ uses Module;
 {$R *.dfm}
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
-var
-  _Thread: TWThreadMonitorar;
 begin
   inherited;
 //  Contador:= 0;
   _Thread := TWThreadMonitorar.Create(false, Self);
-  _Thread.TempoAtualizacao:= 10;
+  with TIniFile.Create(ExtractFilePath(Application.Exename) + 'IntPrestashop.ini') do
+  try
+    _Thread.TempoAtualizacao:= ReadInteger('Configuracao', 'TempoAtualizacao', 10);
+  finally
+    free;
+  end;
+end;
+
+procedure TfrmPrincipal.FormDestroy(Sender: TObject);
+begin
+  FreeAndNil(_Thread);
 end;
 
 procedure TfrmPrincipal.AbrirClick(Sender: TObject);
@@ -128,16 +141,22 @@ begin
   frmPrincipal.TrayIcon1.BalloonFlags:= bfInfo;
   frmPrincipal.TrayIcon1.BalloonTitle:= 'Executado';
   frmPrincipal.TrayIcon1.ShowBalloonHint;
-//  try
-//    Importacao:= TImportacao.Create;
-//    Importacao.ImportarPedidos();
-//  Finally
-//    FreeAndNil( Importacao );
-//  End;
-//
+  try
+    Importacao:= TImportacao.Create;
+    Importacao.ImportarPedidos();
+  Finally
+    FreeAndNil( Importacao );
+  End;
+
   try
     Exportacao:= TExportacao.Create;
-//    Exportacao.ExportarClientes();
+    Exportacao.ExportarMarcas();
+    Exportacao.ExportarCategorias();
+    Exportacao.ExportarNCM();
+//    Exportacao.ExportarPaises();
+//    Exportacao.ExportarMunicipios();
+
+    Exportacao.ExportarClientes();
     Exportacao.ExportarProdutos();
   Finally
     FreeAndNil( Exportacao );
@@ -373,7 +392,40 @@ end;
 
 { TExportacao }
 
-procedure TExportacao.ExportarClientes;
+procedure TExportacao.ExportarCategorias();
+var
+  ID: string;
+  Category: TCategory;
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT * FROM grupoproduto where IdPrestashop is null');
+    Query.First;
+    while not Query.Eof do
+    begin
+      try
+        Category:= Category.Add;
+        Category.Descricao:= Query.FieldByName('NmGrupo').AsString;
+        ID:= Category.Exportar();
+        if StrToIntDef(ID, -1) <> -1 then
+        begin
+          Query.Edit;
+          Query.FieldByName('IdPrestashop').AsInteger:= StrToIntDef(ID, -1);
+          Query.Post;
+        end;
+      finally
+        FreeAndNil( Category );
+      end;
+      Query.Next;
+    end;
+  finally
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TExportacao.ExportarClientes();
 var
   Cliente: TCliente;
   Clientes: TClientes;
@@ -383,10 +435,10 @@ begin
     Clientes:= TClientes.Create;
     Query:= TFDQuery.Create(nil);
     Query.Connection:= DataModule1.Conexao;
-    Query.SQl.Add('SELECT C.*, M.nmcidade, M.uf');
+    Query.SQl.Add('SELECT C.*, M.nmcidade, M.IdPrestashop CodigoMunicipio, M.uf');
     Query.SQl.Add('FROM Cliente C');
     Query.SQl.Add('left join municipio M on M.idmunicipio = C.idmunicipio');
-    Query.SQl.Add('WHERE C.IdPrestashop IS NULL');
+    Query.SQl.Add('WHERE C.IdPrestashop IS NULL and Coalesce(C.Email, '''') <> ''''');
     Query.Open;
     Query.First;
     while not Query.Eof do
@@ -395,6 +447,7 @@ begin
       Cliente.Codigo:= Query.FieldByName('idcliente').AsInteger;
       Cliente.Nome:= Query.FieldByName('nmcliente').AsString;
 //      Cliente.NomeReduzido:= Query.FieldByName('nmfantasia').AsString;
+      Cliente.CodigoMunicipioWS:= Query.FieldByName('CodigoMunicipio').AsString;
       Cliente.Endereco:= Query.FieldByName('endereco').AsString;
       Cliente.Numero:= Query.FieldByName('numero').AsString;
       Cliente.Complemento:= Query.FieldByName('complemento').AsString;
@@ -407,6 +460,7 @@ begin
       Cliente.CnpjCpf:= Query.FieldByName('cpfcnpj').AsString;
       Cliente.RgIe:= Query.FieldByName('rgie').AsString;
       Cliente.RazaoSocial:= Query.FieldByName('nmempresa').AsString;
+      Cliente.Email:= Query.FieldByName('email').AsString;
       if Query.FieldByName('flgativo').AsString = 'S' then
         Cliente.StatusCliente:= '1'
       else
@@ -418,6 +472,146 @@ begin
     Clientes.ExportarClientes();
   finally
     FreeAndNil( Clientes );
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TExportacao.ExportarMarcas();
+var
+  ID: string;
+  Manufacturer: TManufacturer;
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT * FROM MARCA WHERE IDPRESTASHOP IS NULL');
+    Query.First;
+    while not Query.Eof do
+    begin
+      if trim(Query.FieldByName('NmMarca').AsString) <> '' then
+      begin
+        try
+          Manufacturer:= Manufacturer.Add;
+          Manufacturer.Descricao:= Query.FieldByName('NmMarca').AsString;
+          ID:= Manufacturer.Exportar();
+          if StrToIntDef(ID, -1) <> -1 then
+          begin
+            Query.Edit;
+            Query.FieldByName('IdPrestashop').AsInteger:= StrToIntDef(ID, -1);
+            Query.Post;
+          end;
+        finally
+          FreeAndNil( Manufacturer );
+        end;
+      end;
+      Query.Next;
+    end;
+  finally
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TExportacao.ExportarMunicipios();
+var
+  ID: string;
+  State: TState;
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT M.*, P.IdPrestashop CodigoPais FROM municipio M inner join pais P on P.idpais = M.idpais where M.IdPrestashop is null');
+    Query.First;
+    while not Query.Eof do
+    begin
+      try
+        State:= State.Add;
+        State.municipio:= UTF8ToString(Query.FieldByName('NmCidade').AsString);
+        State.Uf:= Query.FieldByName('UF').AsString;
+        State.CodigoPais:= Query.FieldByName('CodigoPais').AsString;
+        ID:= State.Exportar();
+        if StrToIntDef(ID, -1) <> -1 then
+        begin
+          Query.Edit;
+          Query.FieldByName('IdPrestashop').AsInteger:= StrToIntDef(ID, -1);
+          Query.Post;
+        end;
+      finally
+        FreeAndNil( State );
+      end;
+      Query.Next;
+    end;
+  finally
+    FreeAndNil( State );
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TExportacao.ExportarNCM();
+var
+  ID: string;
+  Product_feature_value: TProduct_feature_value;
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT N.* FROM NCM N where N.IdPrestashop is null and exists(select 1 from produto P where P.idncm = N.idncm limit 1)');
+    Query.First;
+    while not Query.Eof do
+    begin
+      try
+        Product_feature_value:= Product_feature_value.Add;
+        Product_feature_value.NCM:= Query.FieldByName('CodNcm').AsString;
+        ID:= Product_feature_value.Exportar();
+        if StrToIntDef(ID, -1) <> -1 then
+        begin
+          Query.Edit;
+          Query.FieldByName('IdPrestashop').AsInteger:= StrToIntDef(ID, -1);
+          Query.Post;
+        end;
+      finally
+        FreeAndNil( Product_feature_value );
+      end;
+      Query.Next;
+    end;
+  finally
+    FreeAndNil( Query );
+  end;
+end;
+
+procedure TExportacao.ExportarPaises();
+var
+  ID: string;
+  Country: TCountry;
+  Query: TFDQuery;
+begin
+  try
+    Query:= TFDQuery.Create(nil);
+    Query.Connection:= DataModule1.Conexao;
+    Query.Open('SELECT * FROM pais  where IdPrestashop is null');
+    Query.First;
+    while not Query.Eof do
+    begin
+      try
+        Country:= Country.Add;
+        Country.CodPais:= Query.FieldByName('idPais').AsString;
+        Country.NomePais:= Query.FieldByName('NmPais').AsString;
+        ID:= Country.Exportar();
+        if StrToIntDef(ID, -1) <> -1 then
+        begin
+          Query.Edit;
+          Query.FieldByName('IdPrestashop').AsInteger:= StrToIntDef(ID, -1);
+          Query.Post;
+        end;
+      finally
+        FreeAndNil( Country );
+      end;
+      Query.Next;
+    end;
+  finally
+    FreeAndNil( Country );
     FreeAndNil( Query );
   end;
 end;
@@ -440,14 +634,18 @@ begin
     Query.SQl.Add('  P.precovenda,');
     Query.SQl.Add('  P.flgativo,');
     Query.SQl.Add('  P.estoqueminimo,');
-    Query.SQl.Add('  P.idgrupoproduto,');
+    Query.SQl.Add('  GP.IdPrestashop grupo,');
     Query.SQl.Add('  GP.nmgrupo,');
-    Query.SQl.Add('  N.codncm,');
-    Query.SQl.Add('  U.unidade');
+    Query.SQl.Add('  N.IdPrestashop ncm,');
+    Query.SQl.Add('  U.unidade,');
+    Query.SQl.Add('  E.qtdestoque,');
+    Query.SQl.Add('  M.IdPrestashop Marca');
     Query.SQl.Add('FROM PRODUTO P');
     Query.SQl.Add('LEFT JOIN NCM N ON N.IDNCM = P.IDNCM');
     Query.SQl.Add('LEFT JOIN GRUPOPRODUTO GP ON GP.IDGRUPOPRODUTO = P.IDGRUPOPRODUTO');
     Query.SQl.Add('LEFT JOIN UNIDADEMEDIDA U ON U.IDUNIDADE = P.IDUNIDADE');
+    Query.SQl.Add('LEFT JOIN ESTOQUE E ON E.IDPRODUTO = P.IDPRODUTO');
+    Query.SQl.Add('LEFT JOIN MARCA M ON M.IDMARCA = P.IDMARCA');
     Query.SQl.Add('WHERE P.IdPrestashop IS NULL');
     Query.Open;
     Query.First;
@@ -463,10 +661,12 @@ begin
       Produto.CodigoBarrasEAN:= Query.FieldByName('codBarra').AsString;
       Produto.PrecoCusto1:= Query.FieldByName('precocusto').AsCurrency;
       Produto.PrecoVenda1:= Query.FieldByName('precovenda').AsCurrency;
-      Produto.NCM:= Query.FieldByName('codncm').AsString;
-      Produto.CodGrupo:= Query.FieldByName('idgrupoproduto').AsInteger;
+      Produto.NCM:= Query.FieldByName('ncm').AsString;
+      Produto.CodGrupo:= Query.FieldByName('grupo').AsInteger;
       Produto.Grupo:= Query.FieldByName('nmgrupo').AsString;
       Produto.PrimeiraUnidade:= Query.FieldByName('unidade').AsString;
+      Produto.QuantidadeBase:= Query.FieldByName('qtdestoque').AsFloat;
+      Produto.Fabricante:= Query.FieldByName('Marca').AsString;
       Produtos.ListaDeProdutos.Add(Produto);
       Query.Next;
     end;
