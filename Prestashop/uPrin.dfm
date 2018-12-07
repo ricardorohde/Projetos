@@ -2,7 +2,7 @@ object frmPrincipal: TfrmPrincipal
   Left = 236
   Top = 169
   Caption = 'Integra'#231#227'o Prestashop'
-  ClientHeight = 68
+  ClientHeight = 169
   ClientWidth = 175
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -17,6 +17,12 @@ object frmPrincipal: TfrmPrincipal
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
+  object ImageExibicao: TImage
+    Left = 16
+    Top = 56
+    Width = 105
+    Height = 105
+  end
   object PopupMenu1: TPopupMenu
     Left = 64
     Top = 8
@@ -3228,8 +3234,8 @@ object frmPrincipal: TfrmPrincipal
     Left = 24
     Top = 8
   end
-  object XMLDocument1: TXMLDocument
+  object BalloonHint1: TBalloonHint
     Left = 120
-    Top = 24
+    Top = 8
   end
 end

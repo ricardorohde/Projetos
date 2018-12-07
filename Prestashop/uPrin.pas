@@ -6,13 +6,13 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ScktComp, StdCtrls, ExtCtrls, ComCtrls, Menus,ShellApi,Registry,
   OleCtrls, SHDocVw, uPedidos, uPedido, uProduto, uCliente, uClassesPrestashop,
-  IniFiles,  LIB,
+  IniFiles,  LIB, Jpeg, pngimage,
 
 //Firedac
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param, FireDAC.Stan.Error,
   FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf, FireDAC.Stan.Async,
   FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client, Xml.xmldom,
-  Xml.XMLIntf, Xml.XMLDoc;
+  Xml.XMLIntf, Xml.XMLDoc, Vcl.DBCtrls;
 
 type
   TWThreadMonitorar = class(TThread)
@@ -57,7 +57,8 @@ type
     pmnuiExit: TMenuItem;
     Abrir: TMenuItem;
     TrayIcon1: TTrayIcon;
-    XMLDocument1: TXMLDocument;
+    BalloonHint1: TBalloonHint;
+    ImageExibicao: TImage;
     procedure FormCreate(Sender: TObject);
     procedure AbrirClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -68,9 +69,12 @@ type
   private
     { Private declarations }
     _Thread: TWThreadMonitorar;
+    FCaminhoImagens: string;
+    procedure SetCaminhoImagens(const Value: string);
   protected
   public
     { Public declarations }
+    property CaminhoImagens: string read FCaminhoImagens write SetCaminhoImagens;
   end;
 
 var
@@ -90,6 +94,7 @@ begin
   with TIniFile.Create(ExtractFilePath(Application.Exename) + 'IntPrestashop.ini') do
   try
     _Thread.TempoAtualizacao:= ReadInteger('Configuracao', 'TempoAtualizacao', 10);
+    self.CaminhoImagens:= ReadString('Configuracao', 'CaminhoImagens', '');
   finally
     free;
   end;
@@ -125,6 +130,11 @@ begin
 end;
 
 
+procedure TfrmPrincipal.SetCaminhoImagens(const Value: string);
+begin
+  FCaminhoImagens := Value;
+end;
+
 procedure TfrmPrincipal.FormShow(Sender: TObject);
 begin
   ShowWindow(Application.Handle, SW_HIDE);
@@ -138,9 +148,11 @@ var
   Importacao: TImportacao;
 begin
   frmPrincipal.TrayIcon1.Animate:= True;
+  frmPrincipal.TrayIcon1.Hint:= 'Executado';
   frmPrincipal.TrayIcon1.BalloonFlags:= bfInfo;
   frmPrincipal.TrayIcon1.BalloonTitle:= 'Executado';
   frmPrincipal.TrayIcon1.ShowBalloonHint;
+
   try
     Importacao:= TImportacao.Create;
     Importacao.ImportarPedidos();
@@ -150,13 +162,12 @@ begin
 
   try
     Exportacao:= TExportacao.Create;
-    Exportacao.ExportarMarcas();
+//    Exportacao.ExportarMarcas();
     Exportacao.ExportarCategorias();
     Exportacao.ExportarNCM();
-//    Exportacao.ExportarPaises();
 //    Exportacao.ExportarMunicipios();
 
-    Exportacao.ExportarClientes();
+//    Exportacao.ExportarClientes();
     Exportacao.ExportarProdutos();
   Finally
     FreeAndNil( Exportacao );
@@ -260,8 +271,8 @@ var
   Query: TFDQuery;
   i: Integer;
 begin
-  if not DataModule1.Find('produto', Format('idproduto = %d', [Item.Codigo])) then
-    ImportarProduto(Item.Codigo);
+  if not DataModule1.Find('produto', Format('IdPrestashop = %s', [Item.Codigosite])) then
+    ImportarProduto(StrToInt(Item.Codigosite));
 
   try
     Query:= TFDQuery.Create(nil);
@@ -621,6 +632,10 @@ var
   Produto: TProduto;
   Produtos: TProdutos;
   Query: TFDQuery;
+  DBImage1: TDBImage;
+  DataSource: TDataSource;
+const
+  OffsetMemoryStream : Int64 = 0;
 begin
   try
     Produtos:= TProdutos.Create;
@@ -634,6 +649,7 @@ begin
     Query.SQl.Add('  P.precovenda,');
     Query.SQl.Add('  P.flgativo,');
     Query.SQl.Add('  P.estoqueminimo,');
+    Query.SQl.Add('  P.ImgProduto,');
     Query.SQl.Add('  GP.IdPrestashop grupo,');
     Query.SQl.Add('  GP.nmgrupo,');
     Query.SQl.Add('  N.IdPrestashop ncm,');
@@ -653,6 +669,7 @@ begin
     begin
       Produto:= Produto.Add;
       Produto.Codigo:= Query.FieldByName('IdProduto').AsInteger;
+      Produto.CodigoSite:= Query.FieldByName('IdProduto').AsString;
       Produto.Nome:= Query.FieldByName('NmProduto').AsString;
       if Query.FieldByName('flgativo').AsString = 'S' then
         Produto.Status:= '1'
@@ -667,6 +684,23 @@ begin
       Produto.PrimeiraUnidade:= Query.FieldByName('unidade').AsString;
       Produto.QuantidadeBase:= Query.FieldByName('qtdestoque').AsFloat;
       Produto.Fabricante:= Query.FieldByName('Marca').AsString;
+
+      if DirectoryExists(frmPrincipal.CaminhoImagens) and not
+         FileExists(frmPrincipal.CaminhoImagens + Format('\%d.jpg', [Produto.Codigo])) then
+      begin
+        try
+          DataSource:= TDataSource.Create(nil);
+          DBImage1:= TDBImage.Create(nil);
+          DataSource.DataSet:= Query;
+          DBImage1.DataSource:= DataSource;
+          DBImage1.DataField:= 'ImgProduto';
+          DBImage1.Picture.SaveToFile(frmPrincipal.CaminhoImagens + Format('\%d.jpg', [Produto.Codigo]));
+        finally
+          FreeAndNil( DBImage1 );
+          FreeAndNil( DataSource );
+        end;
+      end;
+
       Produtos.ListaDeProdutos.Add(Produto);
       Query.Next;
     end;

@@ -31,6 +31,7 @@ uses
   procedure AddLog(Texto: string);
   function RetornaErroPrestashop(XMLRetorno: IXMLDocument): String;
 
+
   const CR = #13;
   const LF = #10;
   const CRLF = #13#10;
@@ -264,6 +265,7 @@ end;
 function GetNodeByName(const node: IXMLNode; NodeSearch: string): IXMLNode;
 var
   i: Integer;
+  NodeName: string;
 begin
   Result := nil;
   if not Assigned( node ) then
@@ -271,7 +273,8 @@ begin
 
   for i := 0 to node.ChildNodes.Count - 1 do
   begin
-    if AnsiUpperCase(node.ChildNodes[i].NodeName) = AnsiUpperCase(NodeSearch) then
+    NodeName:= node.ChildNodes[i].NodeName;
+    if AnsiUpperCase(NodeName) = AnsiUpperCase(NodeSearch) then
       begin
         Result := node.ChildNodes[i];
         Break;
