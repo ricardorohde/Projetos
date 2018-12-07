@@ -14,9 +14,11 @@ type
     FURL: string;
     FUsuario: string;
     WebServiceREST: TWebServiceREST;
+    FCaminhoImagens: string;
 
     procedure ConfigurarRequisicao();
     constructor CreatePrivate();
+    procedure SetCaminhoImagens(const Value: string);
 
   public
     function GetXML(const Complemento: string): string;
@@ -24,7 +26,7 @@ type
     function PostXML(const Complemento, aXml: string): string;
 
 //    function PostXML(aXml: string): string;overload;
-
+    property CaminhoImagens: string read FCaminhoImagens write SetCaminhoImagens;
     procedure AfterConstruction; override;
     procedure BeforeDestruction; override;
   end;
@@ -55,10 +57,12 @@ begin
       FSenha:=ReadString('Prestashop', 'Senha', '');
       FURL:=ReadString('Prestashop', 'URL', '');
       FUsuario:=ReadString('Prestashop', 'Usuario', '');
+      Self.CaminhoImagens:= ReadString('Configuracao', 'CaminhoImagens', '');
       if AnsiPos('api', FURL) <= 0 then FURL:= FURL + '/api';
       Self.User:= FUsuario;
       Self.Key:= FSenha;
       Self.URL:= FURL;
+
     end;
   finally
     free;
@@ -117,6 +121,11 @@ begin
 //  Params.Clear;
 //  Params.Add('');
 //  Result := post();
+end;
+
+procedure TAcessoSite.SetCaminhoImagens(const Value: string);
+begin
+  FCaminhoImagens := Value;
 end;
 
 end.

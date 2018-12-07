@@ -5,7 +5,8 @@ interface
 uses System.Classes, System.SysUtils, Vcl.Forms, Dialogs, {System.Contnrs,}
   DBXJSON, DBXJsonReflect, uWebServiceHttp, xmldom, XMLIntf, msxmldom, XMLDoc,
   StrUtils, msxml, System.Types, System.Variants, DBClient, mshtml, ActiveX,
-  ComObj, Generics.Collections, LIB, uAcessoSite;
+  ComObj, Generics.Collections, LIB, uAcessoSite,
+  FMX.Graphics, Soap.EncdDecd, ExtCtrls;
 
 type
   TProduto = class
@@ -20,7 +21,6 @@ type
     FCodigo: Integer;
     FVlrUnitarioSemTaxa: Extended;
     FQuantidadeBase: double;
-    FCodigosite: string;
     FNCM: string;
     FVlrUnitarioComTaxa: Extended;
     FStatus: string;
@@ -31,12 +31,12 @@ type
     FVlrUnitario: Extended;
     FPrimeiraUnidade: string;
     FGrupo: string;
+    FCodigoSite: String;
     procedure SetCodGrupo(const Value: Integer);
     procedure SetCodigo(const Value: Integer);
     procedure SetCodigoBarrasEAN(const Value: string);
     procedure SetCodigoBarrasUPC(const Value: string);
     procedure SetCodigoEstoque(const Value: Integer);
-    procedure SetCodigosite(const Value: string);
     procedure SetDescricao(const Value: string);
     procedure SetEstoqueMinimo(const Value: Double);
     procedure SetFabricante(const Value: string);
@@ -52,12 +52,14 @@ type
     procedure SetVlrUnitario(const Value: Extended);
     procedure SetVlrUnitarioComTaxa(const Value: Extended);
     procedure SetVlrUnitarioSemTaxa(const Value: Extended);
+    procedure SetCodigoSite(const Value: String);
   public
-    property Codigosite: string read FCodigosite write SetCodigosite;
     property Fabricante: string read FFabricante write SetFabricante;
     property CodGrupo: Integer read FCodGrupo write SetCodGrupo;
     property Grupo: string read FGrupo write SetGrupo;
     property Codigo: Integer read FCodigo write SetCodigo;
+    property CodigoSite: String read FCodigoSite write SetCodigoSite;
+
     property Nome: string read FNome write SetNome;
     property Status: string read FStatus write SetStatus;
     property CodigoBarrasEAN: string read FCodigoBarrasEAN write SetCodigoBarrasEAN;
@@ -93,6 +95,9 @@ type
         const psID: string): Boolean;
       function ExportarStock_availables(Produto: TProduto): string;
       function RetornaIdPrestashop(XMLRetorno: IXMLDocument): Integer;
+      function ExportarImagens(ProdutoId, CodigoProduto: Integer): string;
+      function Base64FromBitmap(Bitmap: TBitmap): string;
+      function ImageFromBase64(Caminho: string): string;
     public
       Procedure ListarProdutos(Id: Integer);
       procedure ExportarProdutos();
@@ -138,9 +143,9 @@ begin
   FCodigoEstoque := Value;
 end;
 
-procedure TProduto.SetCodigosite(const Value: string);
+procedure TProduto.SetCodigoSite(const Value: String);
 begin
-  FCodigosite := Value;
+  FCodigoSite := Value;
 end;
 
 procedure TProduto.SetDescricao(const Value: string);
@@ -295,7 +300,7 @@ begin
           'PRICE', 'ACTIVE', 'WHOLESALE_PRICE','UNITY', 'NAME', 'DESCRIPTION',
           'DESCRIPTION_SHORT', 'ASSOCIATIONS', 'PRODUCT_FEATURES']) of
 
-          0: Produto.Codigosite := Node.ChildNodes[i].NodeValue;
+          0: Produto.CodigoSite := Node.ChildNodes[i].NodeValue;
 
           1: PreencherFabricanteProduto(Produto, Node.ChildNodes[i].NodeValue);
 
@@ -549,11 +554,11 @@ begin
           for j := 0 to aCNode.ChildNodes.Count-1 do
           begin
             aCCNode := aCNode.ChildNodes[j];
-            case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['ID', 'NEW', 'NAME', 'ACTIVE', 'EAN13',
+            case AnsiIndexStr(AnsiUpperCase(aCCNode.NodeName), ['ID', 'REFERENCE', 'NAME', 'ACTIVE', 'EAN13',
               'DATE_ADD', 'DATE_UPD', 'PRICE','WHOLESALE_PRICE', 'ID_MANUFACTURER', 'ID_CATEGORY_DEFAULT',
               'PRODUCT_FEATURES', 'ASSOCIATIONS']) of
 //              0: aCCNode.NodeValue:= Produto.Codigo;
-              1: aCCNode.NodeValue:= Produto.Codigo;
+              1: aCCNode.NodeValue:= Produto.CodigoSite;
               2:
                 for a := 0 to aCCNode.ChildNodes.Count-1 do
                   aCCNode.ChildNodes[a].NodeValue:= Produto.Nome;
@@ -598,11 +603,59 @@ begin
       FXMLRetorno.LoadFromXML(XML);
       ID:= RetornaIdPrestashop(FXMLRetorno);
       if ID <> -1 then
-        DataModule1.AtualizaIdPrestashop('Produto', Format('IdProduto = %d', [Produto.Codigo]), 'IdPrestashop', ID);
+      begin
+//        DataModule1.AtualizaIdPrestashop('Produto', Format('IdProduto = %d', [Produto.Codigo]), 'IdPrestashop', ID);
+        ExportarImagens(Id, Produto.Codigo);
+      end;
     finally
       FXMLDocument:= nil;
       FXMLRetorno:= nil;
     end;
+  end;
+end;
+
+function TProdutos.ExportarImagens(ProdutoId, CodigoProduto: Integer): string;
+var
+  XML: string;
+  k,i,j,a, ID: integer;
+  FXMLDocument, FXMLRetorno: IXMLDocument;
+  NodeAux, aNode, aCNode, aCCNode: IXMLNode;
+begin
+  if not FileExists(Self.CaminhoImagens + Format('\%d.jpg', [CodigoProduto])) then
+    exit;
+
+  Result:= '';
+  try
+    FXMLDocument:= TXmlDocument.Create(nil);
+    FXMLRetorno:= TXmlDocument.Create(nil);
+    XML:= GetSchema('images/products');
+    FXMLDocument.LoadFromXML(XML);
+    aNode := FXMLDocument.ChildNodes.FindNode('prestashop');
+    if assigned(aNode) then
+    begin
+      for i := 0 to aNode.ChildNodes.Count-1 do
+      begin
+        aCNode := aNode.ChildNodes.Get(i);
+        if aCNode.NodeName = 'images' then
+        begin
+          NodeAux:= aCNode.AddChild('image');
+//          NodeAux.Attributes['id']:= IntToStr(ProdutoId);
+          NodeAux.Attributes['xlink:href']:= self.URL + Format('/images/products/%d', [ProdutoId]);
+          //NodeAux.NodeValue:= ImageFromBase64(Self.CaminhoImagens + Format('\%d.bmp', [CodigoProduto]));
+          NodeAux.NodeValue:= 'aaaa';
+//        aCNode.ChildNodes.Add(aCNode);
+        end;
+      end;
+    end;
+
+    XML:= PostXML('images', FXMLDocument.XML.Text);
+    FXMLRetorno.LoadFromXML(XML);
+    ID:= RetornaIdPrestashop(FXMLRetorno);
+    if ID <> -1 then
+      Result:= IntToStr(ID);
+  finally
+    FXMLDocument:= nil;
+    FXMLRetorno:= nil;
   end;
 end;
 
@@ -671,6 +724,65 @@ begin
   finally
     FXMLDocument:= nil;
     FXMLRetorno:= nil;
+  end;
+end;
+
+function TProdutos.ImageFromBase64(Caminho: string): string;
+var
+  Input: TBytesStream;
+  Output: TStringStream;
+  Image: TImage;
+begin
+  Image:= TImage.Create(nil);
+  Input:= TBytesStream.Create;
+  try
+    Image.Picture.LoadFromFile(Caminho);
+    Image.Picture.Bitmap.SaveToStream(Input);
+    Input.Position := 0;
+    Output := TStringStream.Create('', TEncoding.ASCII);
+    try
+      Soap.EncdDecd.EncodeStream(Input, Output);
+      Result := Output.DataString;
+
+    //Criar um ficheiro txt com o codigo base 64  apenas para exemplo
+//      AssignFile(f,'imagem.txt');
+//      Rewrite(f); //abre o arquivo para escrita
+//      Writeln(f,Result);
+//      Closefile(f);
+    finally
+      Output.Free;
+    end;
+  finally
+    Image.Free;
+    Input.Free;
+  end;
+end;
+
+function TProdutos.Base64FromBitmap(Bitmap: TBitmap): string;
+var
+  Input: TBytesStream;
+  Output: TStringStream;
+  F: TextFile; // Apenas para exemplo
+begin
+  Input := TBytesStream.Create;
+  try
+    Bitmap.SaveToStream(Input);
+    Input.Position := 0;
+    Output := TStringStream.Create('', TEncoding.ASCII);
+    try
+      Soap.EncdDecd.EncodeStream(Input, Output);
+      Result := Output.DataString;
+
+    //Criar um ficheiro txt com o codigo base 64  apenas para exemplo
+//      AssignFile(f,'imagem.txt');
+//      Rewrite(f); //abre o arquivo para escrita
+//      Writeln(f,Result);
+//      Closefile(f);
+    finally
+      Output.Free;
+    end;
+  finally
+    Input.Free;
   end;
 end;
 
